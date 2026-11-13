@@ -77,23 +77,19 @@ namespace OpenSearch.Client
         public ToolItemsDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public ToolItemsDescriptor IncludeOutputInAgentResponse(
-            bool? includeOutputInAgentResponse = true
-        ) => Assign(includeOutputInAgentResponse, (a, v) => a.IncludeOutputInAgentResponse = v);
+        public ToolItemsDescriptor IncludeOutputInAgentResponse(bool? includeOutputInAgentResponse = true) =>
+            Assign(includeOutputInAgentResponse, (a, v) => a.IncludeOutputInAgentResponse = v);
 
-        public ToolItemsDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public ToolItemsDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public ToolItemsDescriptor Parameters(IParameters parameters) =>
             Assign(parameters, (a, v) => a.Parameters = v);
 
-        public ToolItemsDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+        public ToolItemsDescriptor Type(string type) =>
+            Assign(type, (a, v) => a.Type = v);
 
-        public ToolItemsDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public ToolItemsDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

@@ -25,16 +25,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
+using System.Text;
 using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
 @if (ns != null && !suppressLowLevel)
 {
-    <text>using OpenSearch.Net@(ns);
+<text>using OpenSearch.Net@(ns);
 </text>
 }
+using OpenSearch.Net.Utf8Json;
 @if (ns != null && suppressLowLevel)
 {
     // The low-level namespace import is suppressed to avoid ambiguity with identically-named
@@ -59,9 +59,18 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
+@{ var firstEndpoint = true; }
 @foreach (var endpoint in endpoints)
 {
+    if (!firstEndpoint)
+    {
+<text>
+</text>
+    }
+    firstEndpoint = false;
     await IncludeAsync("HighLevel/Requests/RequestInterface.cshtml", endpoint.RequestInterface);
+<text>
+</text>
     await IncludeAsync("HighLevel/Requests/RequestImplementations.cshtml", endpoint.RequestPartialImplementation);
 }
 }

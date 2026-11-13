@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.ListApi
     /// </summary>
     public partial class LowLevelListNamespace : NamespacedClientProxy
     {
-        internal LowLevelListNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelListNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>GET on /_list <para>https://docs.opensearch.org/latest/api-reference/list/index/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -103,29 +102,15 @@ namespace OpenSearch.Net.Specification.ListApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_list/indices",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_list/indices", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_list/indices/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-indices/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
-        public TResponse Indices<TResponse>(
-            string index,
-            IndicesRequestParameters requestParameters = null
-        )
+        public TResponse Indices<TResponse>(string index, IndicesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_list/indices/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_list/indices/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_list/indices/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-indices/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -138,13 +123,7 @@ namespace OpenSearch.Net.Specification.ListApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_list/indices/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_list/indices/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_list/shards <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -162,29 +141,15 @@ namespace OpenSearch.Net.Specification.ListApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_list/shards",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_list/shards", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_list/shards/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
-        public TResponse Shards<TResponse>(
-            string index,
-            ShardsRequestParameters requestParameters = null
-        )
+        public TResponse Shards<TResponse>(string index, ShardsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_list/shards/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_list/shards/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_list/shards/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -197,12 +162,6 @@ namespace OpenSearch.Net.Specification.ListApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_list/shards/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_list/shards/{index:index}"), ctx, null, RequestParams(requestParameters));
     }
 }

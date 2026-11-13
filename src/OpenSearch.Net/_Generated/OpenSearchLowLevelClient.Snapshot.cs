@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     /// </summary>
     public partial class LowLevelSnapshotNamespace : NamespacedClientProxy
     {
-        internal LowLevelSnapshotNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelSnapshotNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_snapshot/{repository}/_cleanup <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="repository">Snapshot repository to clean up.</param>
@@ -77,12 +76,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CleanupRepositoryRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_snapshot/{repository:repository}/_cleanup"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_snapshot/{repository:repository}/_cleanup"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_snapshot/{repository}/_cleanup <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="repository">Snapshot repository to clean up.</param>
@@ -94,13 +88,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_snapshot/{repository:repository}/_cleanup"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_snapshot/{repository:repository}/_cleanup"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_snapshot/{repository}/{snapshot}/_clone/{target_snapshot} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="repository">The name of repository which will contain the snapshots clone.</param>
@@ -116,14 +104,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CloneSnapshotRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url(
-                    $"_snapshot/{repository:repository}/{snapshot:snapshot}/_clone/{targetSnapshot:targetSnapshot}"
-                ),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_clone/{targetSnapshot:targetSnapshot}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_snapshot/{repository}/{snapshot}/_clone/{target_snapshot} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="repository">The name of repository which will contain the snapshots clone.</param>
@@ -141,15 +122,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url(
-                    $"_snapshot/{repository:repository}/{snapshot:snapshot}/_clone/{targetSnapshot:targetSnapshot}"
-                ),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_clone/{targetSnapshot:targetSnapshot}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_snapshot/{repository}/{snapshot} <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</para></summary>
         /// <param name="repository">The name of the repository where the snapshot will be stored.</param>
@@ -163,12 +136,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             SnapshotRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_snapshot/{repository}/{snapshot} <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</para></summary>
         /// <param name="repository">The name of the repository where the snapshot will be stored.</param>
@@ -184,13 +152,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_snapshot/{repository} <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</para></summary>
         /// <param name="repository">The name for the newly registered repository.</param>
@@ -202,12 +164,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CreateRepositoryRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_snapshot/{repository:repository}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_snapshot/{repository:repository}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_snapshot/{repository} <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</para></summary>
         /// <param name="repository">The name for the newly registered repository.</param>
@@ -221,13 +178,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_snapshot/{repository:repository}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_snapshot/{repository:repository}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_snapshot/{repository}/{snapshot} <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</para></summary>
         /// <param name="repository">The name of the snapshot repository to delete.</param>
@@ -239,12 +190,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             DeleteSnapshotRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_snapshot/{repository}/{snapshot} <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</para></summary>
         /// <param name="repository">The name of the snapshot repository to delete.</param>
@@ -258,13 +204,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_snapshot/{repository} <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
         /// <param name="repository">The name of the snapshot repository to unregister. Wildcard (&lt;c&gt;*&lt;/c&gt;) patterns are supported.</param>
@@ -274,12 +214,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             DeleteRepositoryRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_snapshot/{repository:repository}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_snapshot/{repository:repository}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_snapshot/{repository} <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
         /// <param name="repository">The name of the snapshot repository to unregister. Wildcard (&lt;c&gt;*&lt;/c&gt;) patterns are supported.</param>
@@ -291,13 +226,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_snapshot/{repository:repository}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_snapshot/{repository:repository}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="repository">A comma-separated list of snapshot repository names used to limit the request. Wildcard (*) expressions are supported.</param>
@@ -309,12 +238,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             GetSnapshotRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="repository">A comma-separated list of snapshot repository names used to limit the request. Wildcard (*) expressions are supported.</param>
@@ -328,19 +252,11 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetRepository<TResponse>(
-            GetRepositoryRequestParameters requestParameters = null
-        )
+        public TResponse GetRepository<TResponse>(GetRepositoryRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_snapshot", null, RequestParams(requestParameters));
 
@@ -352,13 +268,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_snapshot",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_snapshot", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository} <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
         /// <param name="repository">A comma-separated list of repository names.</param>
@@ -368,12 +278,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             GetRepositoryRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_snapshot/{repository:repository}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository} <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
         /// <param name="repository">A comma-separated list of repository names.</param>
@@ -385,13 +290,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_snapshot/{repository:repository}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_snapshot/{repository}/{snapshot}/_restore <para>https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
@@ -405,12 +304,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             RestoreRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_restore"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_restore"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_snapshot/{repository}/{snapshot}/_restore <para>https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
@@ -426,13 +320,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_restore"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_restore"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/_status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -448,28 +336,14 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_snapshot/_status",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_snapshot/_status", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository}/_status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Status<TResponse>(
-            string repository,
-            SnapshotStatusRequestParameters requestParameters = null
-        )
+        public TResponse Status<TResponse>(string repository, SnapshotStatusRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}/_status"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_snapshot/{repository:repository}/_status"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository}/_status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
@@ -481,13 +355,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}/_status"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_snapshot/{repository:repository}/_status"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot}/_status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
@@ -499,12 +367,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             SnapshotStatusRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_status"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_status"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot}/_status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
@@ -518,13 +381,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_status"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_snapshot/{repository:repository}/{snapshot:snapshot}/_status"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_snapshot/{repository}/_verify <para>https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
@@ -534,12 +391,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             VerifyRepositoryRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_snapshot/{repository:repository}/_verify"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_snapshot/{repository:repository}/_verify"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_snapshot/{repository}/_verify <para>https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
         /// <param name="repository">The name of the repository containing the snapshot.</param>
@@ -551,12 +403,6 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_snapshot/{repository:repository}/_verify"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_snapshot/{repository:repository}/_verify"), ctx, null, RequestParams(requestParameters));
     }
 }

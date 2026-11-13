@@ -57,10 +57,7 @@ namespace OpenSearch.Client
     }
 
     public class PutHybridOptimizerExperimentRequestDescriptor
-        : DescriptorBase<
-            PutHybridOptimizerExperimentRequestDescriptor,
-            IPutHybridOptimizerExperimentRequest
-        >,
+        : DescriptorBase<PutHybridOptimizerExperimentRequestDescriptor, IPutHybridOptimizerExperimentRequest>,
             IPutHybridOptimizerExperimentRequest
     {
         IList<string> IPutHybridOptimizerExperimentRequest.JudgmentList { get; set; }
@@ -69,16 +66,14 @@ namespace OpenSearch.Client
         int? IPutHybridOptimizerExperimentRequest.Size { get; set; }
         string IPutHybridOptimizerExperimentRequest.Type { get; set; }
 
-        public PutHybridOptimizerExperimentRequestDescriptor JudgmentList(
-            IList<string> judgmentList
-        ) => Assign(judgmentList, (a, v) => a.JudgmentList = v);
+        public PutHybridOptimizerExperimentRequestDescriptor JudgmentList(IList<string> judgmentList) =>
+            Assign(judgmentList, (a, v) => a.JudgmentList = v);
 
         public PutHybridOptimizerExperimentRequestDescriptor QuerySetId(string querySetId) =>
             Assign(querySetId, (a, v) => a.QuerySetId = v);
 
-        public PutHybridOptimizerExperimentRequestDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
+        public PutHybridOptimizerExperimentRequestDescriptor SearchConfigurationList(IList<string> searchConfigurationList) =>
+            Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
 
         public PutHybridOptimizerExperimentRequestDescriptor Size(int? size) =>
             Assign(size, (a, v) => a.Size = v);

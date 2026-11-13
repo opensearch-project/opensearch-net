@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.SmApi
 {
     /// <summary>Request options for CreatePolicy</summary>
-    public partial class CreatePolicyRequestParameters
-        : RequestParameters<CreatePolicyRequestParameters>
+    public partial class CreatePolicyRequestParameters : RequestParameters<CreatePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.SmApi
     }
 
     /// <summary>Request options for DeletePolicy</summary>
-    public partial class DeletePolicyRequestParameters
-        : RequestParameters<DeletePolicyRequestParameters>
+    public partial class DeletePolicyRequestParameters : RequestParameters<DeletePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.SmApi
     }
 
     /// <summary>Request options for ExplainPolicy</summary>
-    public partial class ExplainPolicyRequestParameters
-        : RequestParameters<ExplainPolicyRequestParameters>
+    public partial class ExplainPolicyRequestParameters : RequestParameters<ExplainPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -80,8 +77,7 @@ namespace OpenSearch.Net.Specification.SmApi
     }
 
     /// <summary>Request options for GetPolicies</summary>
-    public partial class GetPoliciesRequestParameters
-        : RequestParameters<GetPoliciesRequestParameters>
+    public partial class GetPoliciesRequestParameters : RequestParameters<GetPoliciesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -132,8 +128,7 @@ namespace OpenSearch.Net.Specification.SmApi
     }
 
     /// <summary>Request options for StartPolicy</summary>
-    public partial class StartPolicyRequestParameters
-        : RequestParameters<StartPolicyRequestParameters>
+    public partial class StartPolicyRequestParameters : RequestParameters<StartPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -141,8 +136,7 @@ namespace OpenSearch.Net.Specification.SmApi
     }
 
     /// <summary>Request options for StopPolicy</summary>
-    public partial class StopPolicyRequestParameters
-        : RequestParameters<StopPolicyRequestParameters>
+    public partial class StopPolicyRequestParameters : RequestParameters<StopPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -150,8 +144,7 @@ namespace OpenSearch.Net.Specification.SmApi
     }
 
     /// <summary>Request options for UpdatePolicy</summary>
-    public partial class UpdatePolicyRequestParameters
-        : RequestParameters<UpdatePolicyRequestParameters>
+    public partial class UpdatePolicyRequestParameters : RequestParameters<UpdatePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

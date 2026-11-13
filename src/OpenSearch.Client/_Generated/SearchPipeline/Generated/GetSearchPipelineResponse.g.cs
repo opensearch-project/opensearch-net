@@ -29,5 +29,7 @@ namespace OpenSearch.Client
 {
     [DataContract]
     /// <remarks>Supported by OpenSearch servers of version 2.9 or greater.</remarks>
-    public class GetSearchPipelineResponse : ResponseBase { }
+    public class GetSearchPipelineResponse : ResponseBase
+    {
+    }
 }

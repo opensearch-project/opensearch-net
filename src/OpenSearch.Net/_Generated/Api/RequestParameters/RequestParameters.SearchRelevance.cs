@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.SearchRelevanceApi
 {
     /// <summary>Request options for DeleteExperiments</summary>
-    public partial class DeleteExperimentsRequestParameters
-        : RequestParameters<DeleteExperimentsRequestParameters>
+    public partial class DeleteExperimentsRequestParameters : RequestParameters<DeleteExperimentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for DeleteJudgments</summary>
-    public partial class DeleteJudgmentsRequestParameters
-        : RequestParameters<DeleteJudgmentsRequestParameters>
+    public partial class DeleteJudgmentsRequestParameters : RequestParameters<DeleteJudgmentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for DeleteQuerySets</summary>
-    public partial class DeleteQuerySetsRequestParameters
-        : RequestParameters<DeleteQuerySetsRequestParameters>
+    public partial class DeleteQuerySetsRequestParameters : RequestParameters<DeleteQuerySetsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -80,8 +77,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for DeleteScheduledExperiments</summary>
-    public partial class DeleteScheduledExperimentsRequestParameters
-        : RequestParameters<DeleteScheduledExperimentsRequestParameters>
+    public partial class DeleteScheduledExperimentsRequestParameters : RequestParameters<DeleteScheduledExperimentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -89,8 +85,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for DeleteSearchConfigurations</summary>
-    public partial class DeleteSearchConfigurationsRequestParameters
-        : RequestParameters<DeleteSearchConfigurationsRequestParameters>
+    public partial class DeleteSearchConfigurationsRequestParameters : RequestParameters<DeleteSearchConfigurationsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -98,8 +93,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for ExperimentsSearch</summary>
-    public partial class ExperimentsSearchRequestParameters
-        : RequestParameters<ExperimentsSearchRequestParameters>
+    public partial class ExperimentsSearchRequestParameters : RequestParameters<ExperimentsSearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -107,8 +101,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for GetExperiments</summary>
-    public partial class GetExperimentsRequestParameters
-        : RequestParameters<GetExperimentsRequestParameters>
+    public partial class GetExperimentsRequestParameters : RequestParameters<GetExperimentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -116,8 +109,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for GetJudgments</summary>
-    public partial class GetJudgmentsRequestParameters
-        : RequestParameters<GetJudgmentsRequestParameters>
+    public partial class GetJudgmentsRequestParameters : RequestParameters<GetJudgmentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -125,8 +117,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for GetNodeStats</summary>
-    public partial class GetNodeStatsRequestParameters
-        : RequestParameters<GetNodeStatsRequestParameters>
+    public partial class GetNodeStatsRequestParameters : RequestParameters<GetNodeStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -169,8 +160,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for GetQuerySets</summary>
-    public partial class GetQuerySetsRequestParameters
-        : RequestParameters<GetQuerySetsRequestParameters>
+    public partial class GetQuerySetsRequestParameters : RequestParameters<GetQuerySetsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -178,8 +168,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for GetScheduledExperiments</summary>
-    public partial class GetScheduledExperimentsRequestParameters
-        : RequestParameters<GetScheduledExperimentsRequestParameters>
+    public partial class GetScheduledExperimentsRequestParameters : RequestParameters<GetScheduledExperimentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -187,8 +176,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for GetSearchConfigurations</summary>
-    public partial class GetSearchConfigurationsRequestParameters
-        : RequestParameters<GetSearchConfigurationsRequestParameters>
+    public partial class GetSearchConfigurationsRequestParameters : RequestParameters<GetSearchConfigurationsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -239,8 +227,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for JudgmentsSearch</summary>
-    public partial class JudgmentsSearchRequestParameters
-        : RequestParameters<JudgmentsSearchRequestParameters>
+    public partial class JudgmentsSearchRequestParameters : RequestParameters<JudgmentsSearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -248,8 +235,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for PostQuerySets</summary>
-    public partial class PostQuerySetsRequestParameters
-        : RequestParameters<PostQuerySetsRequestParameters>
+    public partial class PostQuerySetsRequestParameters : RequestParameters<PostQuerySetsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -257,8 +243,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for PostScheduledExperiments</summary>
-    public partial class PostScheduledExperimentsRequestParameters
-        : RequestParameters<PostScheduledExperimentsRequestParameters>
+    public partial class PostScheduledExperimentsRequestParameters : RequestParameters<PostScheduledExperimentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -266,8 +251,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for PutExperiments</summary>
-    public partial class PutExperimentsRequestParameters
-        : RequestParameters<PutExperimentsRequestParameters>
+    public partial class PutExperimentsRequestParameters : RequestParameters<PutExperimentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -275,8 +259,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for PutJudgments</summary>
-    public partial class PutJudgmentsRequestParameters
-        : RequestParameters<PutJudgmentsRequestParameters>
+    public partial class PutJudgmentsRequestParameters : RequestParameters<PutJudgmentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -284,8 +267,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for PutQuerySets</summary>
-    public partial class PutQuerySetsRequestParameters
-        : RequestParameters<PutQuerySetsRequestParameters>
+    public partial class PutQuerySetsRequestParameters : RequestParameters<PutQuerySetsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -293,8 +275,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for PutSearchConfigurations</summary>
-    public partial class PutSearchConfigurationsRequestParameters
-        : RequestParameters<PutSearchConfigurationsRequestParameters>
+    public partial class PutSearchConfigurationsRequestParameters : RequestParameters<PutSearchConfigurationsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -302,8 +283,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for QuerySetsSearch</summary>
-    public partial class QuerySetsSearchRequestParameters
-        : RequestParameters<QuerySetsSearchRequestParameters>
+    public partial class QuerySetsSearchRequestParameters : RequestParameters<QuerySetsSearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -311,8 +291,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     }
 
     /// <summary>Request options for SearchConfigurationsSearch</summary>
-    public partial class SearchConfigurationsSearchRequestParameters
-        : RequestParameters<SearchConfigurationsSearchRequestParameters>
+    public partial class SearchConfigurationsSearchRequestParameters : RequestParameters<SearchConfigurationsSearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;

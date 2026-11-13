@@ -38,8 +38,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [InterfaceDataContract]
-    public partial interface IDeleteExperimentsRequest
-        : IRequest<DeleteExperimentsRequestParameters>
+    public partial interface IDeleteExperimentsRequest : IRequest<DeleteExperimentsRequestParameters>
     {
         [IgnoreDataMember]
         Id ExperimentId { get; }
@@ -55,13 +54,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">this parameter is required</param>
-        public DeleteExperimentsRequest(Id experimentId)
-            : base(r => r.Required("experiment_id", experimentId)) { }
+        public DeleteExperimentsRequest(Id experimentId) : base(r => r.Required("experiment_id", experimentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteExperimentsRequest()
-            : base() { }
+        protected DeleteExperimentsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -87,13 +84,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">this parameter is required</param>
-        public DeleteJudgmentsRequest(Id judgmentId)
-            : base(r => r.Required("judgment_id", judgmentId)) { }
+        public DeleteJudgmentsRequest(Id judgmentId) : base(r => r.Required("judgment_id", judgmentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteJudgmentsRequest()
-            : base() { }
+        protected DeleteJudgmentsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -119,13 +114,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">this parameter is required</param>
-        public DeleteQuerySetsRequest(Id querySetId)
-            : base(r => r.Required("query_set_id", querySetId)) { }
+        public DeleteQuerySetsRequest(Id querySetId) : base(r => r.Required("query_set_id", querySetId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteQuerySetsRequest()
-            : base() { }
+        protected DeleteQuerySetsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -135,8 +128,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteScheduledExperimentsRequest
-        : IRequest<DeleteScheduledExperimentsRequestParameters>
+    public partial interface IDeleteScheduledExperimentsRequest : IRequest<DeleteScheduledExperimentsRequestParameters>
     {
         [IgnoreDataMember]
         Id ExperimentId { get; }
@@ -148,30 +140,25 @@ namespace OpenSearch.Client
             IDeleteScheduledExperimentsRequest
     {
         protected IDeleteScheduledExperimentsRequest Self => this;
-        internal override ApiUrls ApiUrls =>
-            ApiUrlsLookups.SearchRelevanceDeleteScheduledExperiments;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceDeleteScheduledExperiments;
 
         /// <summary>/_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
         /// <param name="experimentId">this parameter is required</param>
-        public DeleteScheduledExperimentsRequest(Id experimentId)
-            : base(r => r.Required("experiment_id", experimentId)) { }
+        public DeleteScheduledExperimentsRequest(Id experimentId) : base(r => r.Required("experiment_id", experimentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteScheduledExperimentsRequest()
-            : base() { }
+        protected DeleteScheduledExperimentsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IDeleteScheduledExperimentsRequest.ExperimentId =>
-            Self.RouteValues.Get<Id>("experiment_id");
+        Id IDeleteScheduledExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
 
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteSearchConfigurationsRequest
-        : IRequest<DeleteSearchConfigurationsRequestParameters>
+    public partial interface IDeleteSearchConfigurationsRequest : IRequest<DeleteSearchConfigurationsRequestParameters>
     {
         [IgnoreDataMember]
         Id SearchConfigurationId { get; }
@@ -183,30 +170,27 @@ namespace OpenSearch.Client
             IDeleteSearchConfigurationsRequest
     {
         protected IDeleteSearchConfigurationsRequest Self => this;
-        internal override ApiUrls ApiUrls =>
-            ApiUrlsLookups.SearchRelevanceDeleteSearchConfigurations;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceDeleteSearchConfigurations;
 
         /// <summary>/_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">this parameter is required</param>
-        public DeleteSearchConfigurationsRequest(Id searchConfigurationId)
-            : base(r => r.Required("search_configuration_id", searchConfigurationId)) { }
+        public DeleteSearchConfigurationsRequest(Id searchConfigurationId) : base(r => r.Required("search_configuration_id", searchConfigurationId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteSearchConfigurationsRequest()
-            : base() { }
+        protected DeleteSearchConfigurationsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IDeleteSearchConfigurationsRequest.SearchConfigurationId =>
-            Self.RouteValues.Get<Id>("search_configuration_id");
+        Id IDeleteSearchConfigurationsRequest.SearchConfigurationId => Self.RouteValues.Get<Id>("search_configuration_id");
 
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IExperimentsSearchRequest
-        : IRequest<ExperimentsSearchRequestParameters> { }
+    public partial interface IExperimentsSearchRequest : IRequest<ExperimentsSearchRequestParameters>
+    {
+    }
 
     /// <summary>Request for ExperimentsSearch</summary>
     public partial class ExperimentsSearchRequest
@@ -215,8 +199,8 @@ namespace OpenSearch.Client
     {
         protected IExperimentsSearchRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceExperimentsSearch;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -236,13 +220,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetExperiments;
 
         /// <summary>/_plugins/_search_relevance/experiments</summary>
-        public GetExperimentsRequest()
-            : base() { }
+        public GetExperimentsRequest() : base() { }
 
         /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">Optional, accepts null</param>
-        public GetExperimentsRequest(Id experimentId)
-            : base(r => r.Optional("experiment_id", experimentId)) { }
+        public GetExperimentsRequest(Id experimentId) : base(r => r.Optional("experiment_id", experimentId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -259,21 +241,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetJudgments</summary>
-    public partial class GetJudgmentsRequest
-        : PlainRequestBase<GetJudgmentsRequestParameters>,
-            IGetJudgmentsRequest
+    public partial class GetJudgmentsRequest : PlainRequestBase<GetJudgmentsRequestParameters>, IGetJudgmentsRequest
     {
         protected IGetJudgmentsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetJudgments;
 
         /// <summary>/_plugins/_search_relevance/judgments</summary>
-        public GetJudgmentsRequest()
-            : base() { }
+        public GetJudgmentsRequest() : base() { }
 
         /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">Optional, accepts null</param>
-        public GetJudgmentsRequest(Id judgmentId)
-            : base(r => r.Optional("judgment_id", judgmentId)) { }
+        public GetJudgmentsRequest(Id judgmentId) : base(r => r.Optional("judgment_id", judgmentId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -293,33 +271,27 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetNodeStats</summary>
-    public partial class GetNodeStatsRequest
-        : PlainRequestBase<GetNodeStatsRequestParameters>,
-            IGetNodeStatsRequest
+    public partial class GetNodeStatsRequest : PlainRequestBase<GetNodeStatsRequestParameters>, IGetNodeStatsRequest
     {
         protected IGetNodeStatsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetNodeStats;
 
         /// <summary>/_plugins/_search_relevance/{node_id}/stats</summary>
         /// <param name="nodeId">this parameter is required</param>
-        public GetNodeStatsRequest(Name nodeId)
-            : base(r => r.Required("node_id", nodeId)) { }
+        public GetNodeStatsRequest(Name nodeId) : base(r => r.Required("node_id", nodeId)) { }
 
         /// <summary>/_plugins/_search_relevance/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">this parameter is required</param>
         /// <param name="stat">Optional, accepts null</param>
-        public GetNodeStatsRequest(Name nodeId, Name stat)
-            : base(r => r.Required("node_id", nodeId).Optional("stat", stat)) { }
+        public GetNodeStatsRequest(Name nodeId, Name stat) : base(r => r.Required("node_id", nodeId).Optional("stat", stat)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetNodeStatsRequest()
-            : base() { }
+        protected GetNodeStatsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IGetNodeStatsRequest.NodeId => Self.RouteValues.Get<Name>("node_id");
-
         [IgnoreDataMember]
         Name IGetNodeStatsRequest.Stat => Self.RouteValues.Get<Name>("stat");
 
@@ -368,21 +340,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetQuerySets</summary>
-    public partial class GetQuerySetsRequest
-        : PlainRequestBase<GetQuerySetsRequestParameters>,
-            IGetQuerySetsRequest
+    public partial class GetQuerySetsRequest : PlainRequestBase<GetQuerySetsRequestParameters>, IGetQuerySetsRequest
     {
         protected IGetQuerySetsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetQuerySets;
 
         /// <summary>/_plugins/_search_relevance/query_sets</summary>
-        public GetQuerySetsRequest()
-            : base() { }
+        public GetQuerySetsRequest() : base() { }
 
         /// <summary>/_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">Optional, accepts null</param>
-        public GetQuerySetsRequest(Id querySetId)
-            : base(r => r.Optional("query_set_id", querySetId)) { }
+        public GetQuerySetsRequest(Id querySetId) : base(r => r.Optional("query_set_id", querySetId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -392,8 +360,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetScheduledExperimentsRequest
-        : IRequest<GetScheduledExperimentsRequestParameters>
+    public partial interface IGetScheduledExperimentsRequest : IRequest<GetScheduledExperimentsRequestParameters>
     {
         [IgnoreDataMember]
         Id ExperimentId { get; }
@@ -408,25 +375,21 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetScheduledExperiments;
 
         /// <summary>/_plugins/_search_relevance/experiments/schedule</summary>
-        public GetScheduledExperimentsRequest()
-            : base() { }
+        public GetScheduledExperimentsRequest() : base() { }
 
         /// <summary>/_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
         /// <param name="experimentId">Optional, accepts null</param>
-        public GetScheduledExperimentsRequest(Id experimentId)
-            : base(r => r.Optional("experiment_id", experimentId)) { }
+        public GetScheduledExperimentsRequest(Id experimentId) : base(r => r.Optional("experiment_id", experimentId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IGetScheduledExperimentsRequest.ExperimentId =>
-            Self.RouteValues.Get<Id>("experiment_id");
+        Id IGetScheduledExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
 
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IGetSearchConfigurationsRequest
-        : IRequest<GetSearchConfigurationsRequestParameters>
+    public partial interface IGetSearchConfigurationsRequest : IRequest<GetSearchConfigurationsRequestParameters>
     {
         [IgnoreDataMember]
         Id SearchConfigurationId { get; }
@@ -441,18 +404,15 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetSearchConfigurations;
 
         /// <summary>/_plugins/_search_relevance/search_configurations</summary>
-        public GetSearchConfigurationsRequest()
-            : base() { }
+        public GetSearchConfigurationsRequest() : base() { }
 
         /// <summary>/_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">Optional, accepts null</param>
-        public GetSearchConfigurationsRequest(Id searchConfigurationId)
-            : base(r => r.Optional("search_configuration_id", searchConfigurationId)) { }
+        public GetSearchConfigurationsRequest(Id searchConfigurationId) : base(r => r.Optional("search_configuration_id", searchConfigurationId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IGetSearchConfigurationsRequest.SearchConfigurationId =>
-            Self.RouteValues.Get<Id>("search_configuration_id");
+        Id IGetSearchConfigurationsRequest.SearchConfigurationId => Self.RouteValues.Get<Id>("search_configuration_id");
 
         // Request parameters
     }
@@ -473,13 +433,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetStats;
 
         /// <summary>/_plugins/_search_relevance/stats</summary>
-        public GetSearchRelevanceStatsRequest()
-            : base() { }
+        public GetSearchRelevanceStatsRequest() : base() { }
 
         /// <summary>/_plugins/_search_relevance/stats/{stat}</summary>
         /// <param name="stat">Optional, accepts null</param>
-        public GetSearchRelevanceStatsRequest(Name stat)
-            : base(r => r.Optional("stat", stat)) { }
+        public GetSearchRelevanceStatsRequest(Name stat) : base(r => r.Optional("stat", stat)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -523,8 +481,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IJudgmentsSearchRequest
-        : IRequest<JudgmentsSearchRequestParameters> { }
+    public partial interface IJudgmentsSearchRequest : IRequest<JudgmentsSearchRequestParameters>
+    {
+    }
 
     /// <summary>Request for JudgmentsSearch</summary>
     public partial class JudgmentsSearchRequest
@@ -533,29 +492,30 @@ namespace OpenSearch.Client
     {
         protected IJudgmentsSearchRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceJudgmentsSearch;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IPostQuerySetsRequest : IRequest<PostQuerySetsRequestParameters> { }
+    public partial interface IPostQuerySetsRequest : IRequest<PostQuerySetsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PostQuerySets</summary>
-    public partial class PostQuerySetsRequest
-        : PlainRequestBase<PostQuerySetsRequestParameters>,
-            IPostQuerySetsRequest
+    public partial class PostQuerySetsRequest : PlainRequestBase<PostQuerySetsRequestParameters>, IPostQuerySetsRequest
     {
         protected IPostQuerySetsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePostQuerySets;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IPostScheduledExperimentsRequest
-        : IRequest<PostScheduledExperimentsRequestParameters> { }
+    public partial interface IPostScheduledExperimentsRequest : IRequest<PostScheduledExperimentsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PostScheduledExperiments</summary>
     public partial class PostScheduledExperimentsRequest
@@ -564,13 +524,15 @@ namespace OpenSearch.Client
     {
         protected IPostScheduledExperimentsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePostScheduledExperiments;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IPutExperimentsRequest : IRequest<PutExperimentsRequestParameters> { }
+    public partial interface IPutExperimentsRequest : IRequest<PutExperimentsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PutExperiments</summary>
     public partial class PutExperimentsRequest
@@ -579,44 +541,45 @@ namespace OpenSearch.Client
     {
         protected IPutExperimentsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutExperiments;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IPutJudgmentsRequest : IRequest<PutJudgmentsRequestParameters> { }
+    public partial interface IPutJudgmentsRequest : IRequest<PutJudgmentsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PutJudgments</summary>
-    public partial class PutJudgmentsRequest
-        : PlainRequestBase<PutJudgmentsRequestParameters>,
-            IPutJudgmentsRequest
+    public partial class PutJudgmentsRequest : PlainRequestBase<PutJudgmentsRequestParameters>, IPutJudgmentsRequest
     {
         protected IPutJudgmentsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutJudgments;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IPutQuerySetsRequest : IRequest<PutQuerySetsRequestParameters> { }
+    public partial interface IPutQuerySetsRequest : IRequest<PutQuerySetsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PutQuerySets</summary>
-    public partial class PutQuerySetsRequest
-        : PlainRequestBase<PutQuerySetsRequestParameters>,
-            IPutQuerySetsRequest
+    public partial class PutQuerySetsRequest : PlainRequestBase<PutQuerySetsRequestParameters>, IPutQuerySetsRequest
     {
         protected IPutQuerySetsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutQuerySets;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IPutSearchConfigurationsRequest
-        : IRequest<PutSearchConfigurationsRequestParameters> { }
+    public partial interface IPutSearchConfigurationsRequest : IRequest<PutSearchConfigurationsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PutSearchConfigurations</summary>
     public partial class PutSearchConfigurationsRequest
@@ -625,14 +588,15 @@ namespace OpenSearch.Client
     {
         protected IPutSearchConfigurationsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutSearchConfigurations;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IQuerySetsSearchRequest
-        : IRequest<QuerySetsSearchRequestParameters> { }
+    public partial interface IQuerySetsSearchRequest : IRequest<QuerySetsSearchRequestParameters>
+    {
+    }
 
     /// <summary>Request for QuerySetsSearch</summary>
     public partial class QuerySetsSearchRequest
@@ -641,14 +605,15 @@ namespace OpenSearch.Client
     {
         protected IQuerySetsSearchRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceQuerySetsSearch;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchConfigurationsSearchRequest
-        : IRequest<SearchConfigurationsSearchRequestParameters> { }
+    public partial interface ISearchConfigurationsSearchRequest : IRequest<SearchConfigurationsSearchRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchConfigurationsSearch</summary>
     public partial class SearchConfigurationsSearchRequest
@@ -656,10 +621,9 @@ namespace OpenSearch.Client
             ISearchConfigurationsSearchRequest
     {
         protected ISearchConfigurationsSearchRequest Self => this;
-        internal override ApiUrls ApiUrls =>
-            ApiUrlsLookups.SearchRelevanceSearchConfigurationsSearch;
-        // values part of the url path
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceSearchConfigurationsSearch;
 
+        // values part of the url path
         // Request parameters
     }
 }

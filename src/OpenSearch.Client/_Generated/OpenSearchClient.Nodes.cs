@@ -122,10 +122,7 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</a>
         /// </summary>
-        Task<NodesInfoResponse> InfoAsync(
-            INodesInfoRequest request,
-            CancellationToken ct = default
-        );
+        Task<NodesInfoResponse> InfoAsync(INodesInfoRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
@@ -192,10 +189,7 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</a>
         /// </summary>
-        Task<NodesStatsResponse> StatsAsync(
-            INodesStatsRequest request,
-            CancellationToken ct = default
-        );
+        Task<NodesStatsResponse> StatsAsync(INodesStatsRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
@@ -226,10 +220,7 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        Task<NodesUsageResponse> UsageAsync(
-            INodesUsageRequest request,
-            CancellationToken ct = default
-        );
+        Task<NodesUsageResponse> UsageAsync(INodesUsageRequest request, CancellationToken ct = default);
     }
 
     /// <summary>
@@ -240,8 +231,7 @@ namespace OpenSearch.Client.Specification.NodesApi
     /// </summary>
     public partial class NodesNamespace : NamespacedClientProxy, INodesNamespace
     {
-        internal NodesNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal NodesNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
@@ -250,7 +240,8 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// </summary>
         public NodesHotThreadsResponse HotThreads(
             Func<NodesHotThreadsDescriptor, INodesHotThreadsRequest> selector = null
-        ) => HotThreads(selector.InvokeOrDefault(new NodesHotThreadsDescriptor()));
+        ) =>
+            HotThreads(selector.InvokeOrDefault(new NodesHotThreadsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
@@ -260,7 +251,8 @@ namespace OpenSearch.Client.Specification.NodesApi
         public Task<NodesHotThreadsResponse> HotThreadsAsync(
             Func<NodesHotThreadsDescriptor, INodesHotThreadsRequest> selector = null,
             CancellationToken ct = default
-        ) => HotThreadsAsync(selector.InvokeOrDefault(new NodesHotThreadsDescriptor()), ct);
+        ) =>
+            HotThreadsAsync(selector.InvokeOrDefault(new NodesHotThreadsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
@@ -268,10 +260,7 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</a>
         /// </summary>
         public NodesHotThreadsResponse HotThreads(INodesHotThreadsRequest request) =>
-            DoRequest<INodesHotThreadsRequest, NodesHotThreadsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<INodesHotThreadsRequest, NodesHotThreadsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
@@ -282,20 +271,15 @@ namespace OpenSearch.Client.Specification.NodesApi
             INodesHotThreadsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<INodesHotThreadsRequest, NodesHotThreadsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<INodesHotThreadsRequest, NodesHotThreadsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</a>
         /// </summary>
-        public NodesInfoResponse Info(
-            Func<NodesInfoDescriptor, INodesInfoRequest> selector = null
-        ) => Info(selector.InvokeOrDefault(new NodesInfoDescriptor()));
+        public NodesInfoResponse Info(Func<NodesInfoDescriptor, INodesInfoRequest> selector = null) =>
+            Info(selector.InvokeOrDefault(new NodesInfoDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
@@ -305,7 +289,8 @@ namespace OpenSearch.Client.Specification.NodesApi
         public Task<NodesInfoResponse> InfoAsync(
             Func<NodesInfoDescriptor, INodesInfoRequest> selector = null,
             CancellationToken ct = default
-        ) => InfoAsync(selector.InvokeOrDefault(new NodesInfoDescriptor()), ct);
+        ) =>
+            InfoAsync(selector.InvokeOrDefault(new NodesInfoDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
@@ -320,15 +305,8 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</a>
         /// </summary>
-        public Task<NodesInfoResponse> InfoAsync(
-            INodesInfoRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<INodesInfoRequest, NodesInfoResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<NodesInfoResponse> InfoAsync(INodesInfoRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<INodesInfoRequest, NodesInfoResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
@@ -337,7 +315,8 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// </summary>
         public ReloadSecureSettingsResponse ReloadSecureSettings(
             Func<ReloadSecureSettingsDescriptor, IReloadSecureSettingsRequest> selector = null
-        ) => ReloadSecureSettings(selector.InvokeOrDefault(new ReloadSecureSettingsDescriptor()));
+        ) =>
+            ReloadSecureSettings(selector.InvokeOrDefault(new ReloadSecureSettingsDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
@@ -348,23 +327,15 @@ namespace OpenSearch.Client.Specification.NodesApi
             Func<ReloadSecureSettingsDescriptor, IReloadSecureSettingsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ReloadSecureSettingsAsync(
-                selector.InvokeOrDefault(new ReloadSecureSettingsDescriptor()),
-                ct
-            );
+            ReloadSecureSettingsAsync(selector.InvokeOrDefault(new ReloadSecureSettingsDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</a>
         /// </summary>
-        public ReloadSecureSettingsResponse ReloadSecureSettings(
-            IReloadSecureSettingsRequest request
-        ) =>
-            DoRequest<IReloadSecureSettingsRequest, ReloadSecureSettingsResponse>(
-                request,
-                request.RequestParameters
-            );
+        public ReloadSecureSettingsResponse ReloadSecureSettings(IReloadSecureSettingsRequest request) =>
+            DoRequest<IReloadSecureSettingsRequest, ReloadSecureSettingsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
@@ -375,20 +346,15 @@ namespace OpenSearch.Client.Specification.NodesApi
             IReloadSecureSettingsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IReloadSecureSettingsRequest, ReloadSecureSettingsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IReloadSecureSettingsRequest, ReloadSecureSettingsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.stats</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</a>
         /// </summary>
-        public NodesStatsResponse Stats(
-            Func<NodesStatsDescriptor, INodesStatsRequest> selector = null
-        ) => Stats(selector.InvokeOrDefault(new NodesStatsDescriptor()));
+        public NodesStatsResponse Stats(Func<NodesStatsDescriptor, INodesStatsRequest> selector = null) =>
+            Stats(selector.InvokeOrDefault(new NodesStatsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.stats</c> API, read more about this API online:
@@ -398,7 +364,8 @@ namespace OpenSearch.Client.Specification.NodesApi
         public Task<NodesStatsResponse> StatsAsync(
             Func<NodesStatsDescriptor, INodesStatsRequest> selector = null,
             CancellationToken ct = default
-        ) => StatsAsync(selector.InvokeOrDefault(new NodesStatsDescriptor()), ct);
+        ) =>
+            StatsAsync(selector.InvokeOrDefault(new NodesStatsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.stats</c> API, read more about this API online:
@@ -413,24 +380,16 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/">https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</a>
         /// </summary>
-        public Task<NodesStatsResponse> StatsAsync(
-            INodesStatsRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<INodesStatsRequest, NodesStatsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<NodesStatsResponse> StatsAsync(INodesStatsRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<INodesStatsRequest, NodesStatsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        public NodesUsageResponse Usage(
-            Func<NodesUsageDescriptor, INodesUsageRequest> selector = null
-        ) => Usage(selector.InvokeOrDefault(new NodesUsageDescriptor()));
+        public NodesUsageResponse Usage(Func<NodesUsageDescriptor, INodesUsageRequest> selector = null) =>
+            Usage(selector.InvokeOrDefault(new NodesUsageDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
@@ -440,7 +399,8 @@ namespace OpenSearch.Client.Specification.NodesApi
         public Task<NodesUsageResponse> UsageAsync(
             Func<NodesUsageDescriptor, INodesUsageRequest> selector = null,
             CancellationToken ct = default
-        ) => UsageAsync(selector.InvokeOrDefault(new NodesUsageDescriptor()), ct);
+        ) =>
+            UsageAsync(selector.InvokeOrDefault(new NodesUsageDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
@@ -455,14 +415,7 @@ namespace OpenSearch.Client.Specification.NodesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        public Task<NodesUsageResponse> UsageAsync(
-            INodesUsageRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<INodesUsageRequest, NodesUsageResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<NodesUsageResponse> UsageAsync(INodesUsageRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<INodesUsageRequest, NodesUsageResponse>(request, request.RequestParameters, ct);
     }
 }

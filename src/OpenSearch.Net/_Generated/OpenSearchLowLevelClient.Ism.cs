@@ -66,16 +66,12 @@ namespace OpenSearch.Net.Specification.IsmApi
     /// </summary>
     public partial class LowLevelIsmNamespace : NamespacedClientProxy
     {
-        internal LowLevelIsmNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelIsmNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/_ism/add <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse AddPolicy<TResponse>(
-            PostData body,
-            AddPolicyRequestParameters requestParameters = null
-        )
+        public TResponse AddPolicy<TResponse>(PostData body, AddPolicyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(POST, "_plugins/_ism/add", body, RequestParams(requestParameters));
 
@@ -89,13 +85,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_ism/add",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_ism/add", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/add/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -107,12 +97,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             AddPolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_ism/add/{index:index}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_ism/add/{index:index}"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/add/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -126,28 +111,14 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_ism/add/{index:index}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_ism/add/{index:index}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/change_policy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse ChangePolicy<TResponse>(
-            PostData body,
-            ChangePolicyRequestParameters requestParameters = null
-        )
+        public TResponse ChangePolicy<TResponse>(PostData body, ChangePolicyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_ism/change_policy",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_ism/change_policy", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/change_policy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
         /// <param name="body"></param>
@@ -159,13 +130,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_ism/change_policy",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_ism/change_policy", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/change_policy/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -177,12 +142,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             ChangePolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_ism/change_policy/{index:index}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_ism/change_policy/{index:index}"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/change_policy/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -196,13 +156,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_ism/change_policy/{index:index}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_ism/change_policy/{index:index}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#delete-policy</para></summary>
         /// <param name="policyId"></param>
@@ -212,12 +166,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             DeletePolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_ism/policies/{policyId:policyId}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#delete-policy</para></summary>
         /// <param name="policyId"></param>
@@ -229,13 +178,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_ism/policies/{policyId:policyId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>HEAD on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
@@ -245,12 +188,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             ExistsPolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                HEAD,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(HEAD, Url($"_plugins/_ism/policies/{policyId:policyId}"), null, RequestParams(requestParameters));
 
         /// <summary>HEAD on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
@@ -262,13 +200,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                HEAD,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(HEAD, Url($"_plugins/_ism/policies/{policyId:policyId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/explain <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="body"></param>
@@ -278,12 +210,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             ExplainPolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_ism/explain",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_ism/explain", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/explain <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="body"></param>
@@ -295,13 +222,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_ism/explain",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_ism/explain", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -313,12 +234,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             ExplainPolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_ism/explain/{index:index}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_ism/explain/{index:index}"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -332,26 +248,13 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_ism/explain/{index:index}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_ism/explain/{index:index}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetPolicies<TResponse>(
-            GetPoliciesRequestParameters requestParameters = null
-        )
+        public TResponse GetPolicies<TResponse>(GetPoliciesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_ism/policies",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_ism/policies", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -361,28 +264,14 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_ism/policies",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_ism/policies", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetPolicy<TResponse>(
-            string policyId,
-            GetPolicyRequestParameters requestParameters = null
-        )
+        public TResponse GetPolicy<TResponse>(string policyId, GetPolicyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_ism/policies/{policyId:policyId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
@@ -394,28 +283,14 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_ism/policies/{policyId:policyId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PutPolicies<TResponse>(
-            PostData body,
-            PutPoliciesRequestParameters requestParameters = null
-        )
+        public TResponse PutPolicies<TResponse>(PostData body, PutPoliciesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_ism/policies",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_ism/policies", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="body"></param>
@@ -427,13 +302,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_ism/policies",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_ism/policies", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="policyId"></param>
@@ -445,12 +314,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             PutPolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_ism/policies/{policyId:policyId}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="policyId"></param>
@@ -464,13 +328,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_ism/policies/{policyId:policyId}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_ism/policies/{policyId:policyId}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_refresh_search_analyzers/{index} <para>https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -480,12 +338,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             RefreshSearchAnalyzersRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_refresh_search_analyzers/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_refresh_search_analyzers/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_refresh_search_analyzers/{index} <para>https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -497,26 +350,13 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_refresh_search_analyzers/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_refresh_search_analyzers/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/remove <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse RemovePolicy<TResponse>(
-            RemovePolicyRequestParameters requestParameters = null
-        )
+        public TResponse RemovePolicy<TResponse>(RemovePolicyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_ism/remove",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_ism/remove", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/remove <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -526,28 +366,14 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_ism/remove",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_ism/remove", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/remove/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse RemovePolicy<TResponse>(
-            string index,
-            RemovePolicyRequestParameters requestParameters = null
-        )
+        public TResponse RemovePolicy<TResponse>(string index, RemovePolicyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_ism/remove/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_ism/remove/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/remove/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -559,28 +385,14 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_ism/remove/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_ism/remove/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/retry <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse RetryIndex<TResponse>(
-            PostData body,
-            RetryIndexRequestParameters requestParameters = null
-        )
+        public TResponse RetryIndex<TResponse>(PostData body, RetryIndexRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_ism/retry",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_ism/retry", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/retry <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
         /// <param name="body"></param>
@@ -592,13 +404,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_ism/retry",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_ism/retry", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/retry/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -610,12 +416,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             RetryIndexRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_ism/retry/{index:index}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_ism/retry/{index:index}"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_ism/retry/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -629,12 +430,6 @@ namespace OpenSearch.Net.Specification.IsmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_ism/retry/{index:index}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_ism/retry/{index:index}"), ctx, body, RequestParams(requestParameters));
     }
 }

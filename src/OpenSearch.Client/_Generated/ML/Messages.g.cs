@@ -52,6 +52,7 @@ namespace OpenSearch.Client
         public MessagesDescriptor Content(string content) =>
             Assign(content, (a, v) => a.Content = v);
 
-        public MessagesDescriptor Role(string role) => Assign(role, (a, v) => a.Role = v);
+        public MessagesDescriptor Role(string role) =>
+            Assign(role, (a, v) => a.Role = v);
     }
 }

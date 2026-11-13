@@ -49,27 +49,23 @@ namespace OpenSearch.Client
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
-    public class MLAggregationDescriptor
-        : DescriptorBase<MLAggregationDescriptor, IMLAggregation>,
-            IMLAggregation
+    public class MLAggregationDescriptor : DescriptorBase<MLAggregationDescriptor, IMLAggregation>, IMLAggregation
     {
         string IMLAggregation.Field { get; set; }
         IMLAggregation IMLAggregation.Max { get; set; }
         IMLAggregation IMLAggregation.Sum { get; set; }
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public MLAggregationDescriptor Field(string field) => Assign(field, (a, v) => a.Field = v);
+        public MLAggregationDescriptor Field(string field) =>
+            Assign(field, (a, v) => a.Field = v);
 
-        public MLAggregationDescriptor Max(IMLAggregation max) => Assign(max, (a, v) => a.Max = v);
+        public MLAggregationDescriptor Max(IMLAggregation max) =>
+            Assign(max, (a, v) => a.Max = v);
 
-        public MLAggregationDescriptor Sum(IMLAggregation sum) => Assign(sum, (a, v) => a.Sum = v);
+        public MLAggregationDescriptor Sum(IMLAggregation sum) =>
+            Assign(sum, (a, v) => a.Sum = v);
 
-        public MLAggregationDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public MLAggregationDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

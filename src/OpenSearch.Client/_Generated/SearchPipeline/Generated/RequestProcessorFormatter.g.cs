@@ -38,10 +38,7 @@ namespace OpenSearch.Client
             { "ml_inference", 5 },
         };
 
-        public IRequestProcessor Deserialize(
-            ref JsonReader reader,
-            IJsonFormatterResolver formatterResolver
-        )
+        public IRequestProcessor Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
             if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
             {
@@ -55,25 +52,13 @@ namespace OpenSearch.Client
             {
                 result = keyIdx switch
                 {
-                    0 => formatterResolver
-                        .GetFormatter<AgenticQueryTranslatorRequestProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    1 => formatterResolver
-                        .GetFormatter<FilterQueryRequestProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    2 => formatterResolver
-                        .GetFormatter<NeuralQueryEnricherRequestProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    3 => formatterResolver
-                        .GetFormatter<SearchScriptRequestProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    4 => formatterResolver
-                        .GetFormatter<OversampleRequestProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    5 => formatterResolver
-                        .GetFormatter<MLInferenceRequestProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    _ => null,
+                    0 => formatterResolver.GetFormatter<AgenticQueryTranslatorRequestProcessor>().Deserialize(ref reader, formatterResolver),
+                    1 => formatterResolver.GetFormatter<FilterQueryRequestProcessor>().Deserialize(ref reader, formatterResolver),
+                    2 => formatterResolver.GetFormatter<NeuralQueryEnricherRequestProcessor>().Deserialize(ref reader, formatterResolver),
+                    3 => formatterResolver.GetFormatter<SearchScriptRequestProcessor>().Deserialize(ref reader, formatterResolver),
+                    4 => formatterResolver.GetFormatter<OversampleRequestProcessor>().Deserialize(ref reader, formatterResolver),
+                    5 => formatterResolver.GetFormatter<MLInferenceRequestProcessor>().Deserialize(ref reader, formatterResolver),
+                    _ => null
                 };
             }
             else
@@ -82,78 +67,40 @@ namespace OpenSearch.Client
             return result;
         }
 
-        public void Serialize(
-            ref JsonWriter writer,
-            IRequestProcessor value,
-            IJsonFormatterResolver formatterResolver
-        )
+        public void Serialize(ref JsonWriter writer, IRequestProcessor value, IJsonFormatterResolver formatterResolver)
         {
             if (value?.Name == null)
-            {
-                writer.WriteNull();
-                return;
-            }
+            { writer.WriteNull(); return; }
             writer.WriteBeginObject();
             writer.WritePropertyName(value.Name);
             switch (value.Name)
             {
                 case "agentic_query_translator":
-                    formatterResolver
-                        .GetFormatter<IAgenticQueryTranslatorRequestProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IAgenticQueryTranslatorRequestProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IAgenticQueryTranslatorRequestProcessor>()
+                        .Serialize(ref writer, value as IAgenticQueryTranslatorRequestProcessor, formatterResolver);
                     break;
                 case "filter_query":
-                    formatterResolver
-                        .GetFormatter<IFilterQueryRequestProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IFilterQueryRequestProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IFilterQueryRequestProcessor>()
+                        .Serialize(ref writer, value as IFilterQueryRequestProcessor, formatterResolver);
                     break;
                 case "neural_query_enricher":
-                    formatterResolver
-                        .GetFormatter<INeuralQueryEnricherRequestProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as INeuralQueryEnricherRequestProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<INeuralQueryEnricherRequestProcessor>()
+                        .Serialize(ref writer, value as INeuralQueryEnricherRequestProcessor, formatterResolver);
                     break;
                 case "script":
-                    formatterResolver
-                        .GetFormatter<ISearchScriptRequestProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as ISearchScriptRequestProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<ISearchScriptRequestProcessor>()
+                        .Serialize(ref writer, value as ISearchScriptRequestProcessor, formatterResolver);
                     break;
                 case "oversample":
-                    formatterResolver
-                        .GetFormatter<IOversampleRequestProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IOversampleRequestProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IOversampleRequestProcessor>()
+                        .Serialize(ref writer, value as IOversampleRequestProcessor, formatterResolver);
                     break;
                 case "ml_inference":
-                    formatterResolver
-                        .GetFormatter<IMLInferenceRequestProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IMLInferenceRequestProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IMLInferenceRequestProcessor>()
+                        .Serialize(ref writer, value as IMLInferenceRequestProcessor, formatterResolver);
                     break;
                 default:
-                    DynamicObjectResolver
-                        .ExcludeNullCamelCase.GetFormatter<IRequestProcessor>()
+                    DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<IRequestProcessor>()
                         .Serialize(ref writer, value, formatterResolver);
                     break;
             }

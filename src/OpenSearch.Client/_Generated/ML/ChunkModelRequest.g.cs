@@ -41,6 +41,7 @@ namespace OpenSearch.Client
     {
         string IChunkModelRequest.Chunk { get; set; }
 
-        public ChunkModelDescriptor Chunk(string chunk) => Assign(chunk, (a, v) => a.Chunk = v);
+        public ChunkModelDescriptor Chunk(string chunk) =>
+            Assign(chunk, (a, v) => a.Chunk = v);
     }
 }

@@ -94,7 +94,8 @@ namespace OpenSearch.Client
 </text>
     foreach (var p in variant.BodyProperties)
     {
-<text>        [DataMember(Name = "@p.WireName")]
+<text>
+        [DataMember(Name = "@p.WireName")]
         @Raw(p.CsharpType) @p.CsharpName { get; set; }
 </text>
     }
@@ -118,7 +119,7 @@ namespace OpenSearch.Client
 <text>    }
 
     /// <inheritdoc cref="@vIface" />
-    public class @vDesc : @Raw(vDescBase), @vIface
+    @Raw(global::ApiGenerator.Generator.CodeLayout.BaseList($"public class {vDesc}", $"{vDescBase}, {vIface}", 4))
     {
         string @Raw(ifaceNameMember) => "@vKey";
 </text>

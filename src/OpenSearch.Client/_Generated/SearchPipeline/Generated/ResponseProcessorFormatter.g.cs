@@ -41,10 +41,7 @@ namespace OpenSearch.Client
             { "split", 8 },
         };
 
-        public IResponseProcessor Deserialize(
-            ref JsonReader reader,
-            IJsonFormatterResolver formatterResolver
-        )
+        public IResponseProcessor Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
             if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
             {
@@ -58,34 +55,16 @@ namespace OpenSearch.Client
             {
                 result = keyIdx switch
                 {
-                    0 => formatterResolver
-                        .GetFormatter<AgenticContextResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    1 => formatterResolver
-                        .GetFormatter<PersonalizeSearchRankingResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    2 => formatterResolver
-                        .GetFormatter<RetrievalAugmentedGenerationResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    3 => formatterResolver
-                        .GetFormatter<RenameFieldResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    4 => formatterResolver
-                        .GetFormatter<RerankResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    5 => formatterResolver
-                        .GetFormatter<CollapseResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    6 => formatterResolver
-                        .GetFormatter<TruncateHitsResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    7 => formatterResolver
-                        .GetFormatter<SortResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    8 => formatterResolver
-                        .GetFormatter<SplitResponseProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    _ => null,
+                    0 => formatterResolver.GetFormatter<AgenticContextResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    1 => formatterResolver.GetFormatter<PersonalizeSearchRankingResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    2 => formatterResolver.GetFormatter<RetrievalAugmentedGenerationResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    3 => formatterResolver.GetFormatter<RenameFieldResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    4 => formatterResolver.GetFormatter<RerankResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    5 => formatterResolver.GetFormatter<CollapseResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    6 => formatterResolver.GetFormatter<TruncateHitsResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    7 => formatterResolver.GetFormatter<SortResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    8 => formatterResolver.GetFormatter<SplitResponseProcessor>().Deserialize(ref reader, formatterResolver),
+                    _ => null
                 };
             }
             else
@@ -94,97 +73,52 @@ namespace OpenSearch.Client
             return result;
         }
 
-        public void Serialize(
-            ref JsonWriter writer,
-            IResponseProcessor value,
-            IJsonFormatterResolver formatterResolver
-        )
+        public void Serialize(ref JsonWriter writer, IResponseProcessor value, IJsonFormatterResolver formatterResolver)
         {
             if (value?.Name == null)
-            {
-                writer.WriteNull();
-                return;
-            }
+            { writer.WriteNull(); return; }
             writer.WriteBeginObject();
             writer.WritePropertyName(value.Name);
             switch (value.Name)
             {
                 case "agentic_context":
-                    formatterResolver
-                        .GetFormatter<IAgenticContextResponseProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IAgenticContextResponseProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IAgenticContextResponseProcessor>()
+                        .Serialize(ref writer, value as IAgenticContextResponseProcessor, formatterResolver);
                     break;
                 case "personalize_search_ranking":
-                    formatterResolver
-                        .GetFormatter<IPersonalizeSearchRankingResponseProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IPersonalizeSearchRankingResponseProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IPersonalizeSearchRankingResponseProcessor>()
+                        .Serialize(ref writer, value as IPersonalizeSearchRankingResponseProcessor, formatterResolver);
                     break;
                 case "retrieval_augmented_generation":
-                    formatterResolver
-                        .GetFormatter<IRetrievalAugmentedGenerationResponseProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IRetrievalAugmentedGenerationResponseProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IRetrievalAugmentedGenerationResponseProcessor>()
+                        .Serialize(ref writer, value as IRetrievalAugmentedGenerationResponseProcessor, formatterResolver);
                     break;
                 case "rename_field":
-                    formatterResolver
-                        .GetFormatter<IRenameFieldResponseProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IRenameFieldResponseProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IRenameFieldResponseProcessor>()
+                        .Serialize(ref writer, value as IRenameFieldResponseProcessor, formatterResolver);
                     break;
                 case "rerank":
-                    formatterResolver
-                        .GetFormatter<IRerankResponseProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IRerankResponseProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IRerankResponseProcessor>()
+                        .Serialize(ref writer, value as IRerankResponseProcessor, formatterResolver);
                     break;
                 case "collapse":
-                    formatterResolver
-                        .GetFormatter<ICollapseResponseProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as ICollapseResponseProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<ICollapseResponseProcessor>()
+                        .Serialize(ref writer, value as ICollapseResponseProcessor, formatterResolver);
                     break;
                 case "truncate_hits":
-                    formatterResolver
-                        .GetFormatter<ITruncateHitsResponseProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as ITruncateHitsResponseProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<ITruncateHitsResponseProcessor>()
+                        .Serialize(ref writer, value as ITruncateHitsResponseProcessor, formatterResolver);
                     break;
                 case "sort":
-                    formatterResolver
-                        .GetFormatter<ISortResponseProcessor>()
+                    formatterResolver.GetFormatter<ISortResponseProcessor>()
                         .Serialize(ref writer, value as ISortResponseProcessor, formatterResolver);
                     break;
                 case "split":
-                    formatterResolver
-                        .GetFormatter<ISplitResponseProcessor>()
+                    formatterResolver.GetFormatter<ISplitResponseProcessor>()
                         .Serialize(ref writer, value as ISplitResponseProcessor, formatterResolver);
                     break;
                 default:
-                    DynamicObjectResolver
-                        .ExcludeNullCamelCase.GetFormatter<IResponseProcessor>()
+                    DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<IResponseProcessor>()
                         .Serialize(ref writer, value, formatterResolver);
                     break;
             }

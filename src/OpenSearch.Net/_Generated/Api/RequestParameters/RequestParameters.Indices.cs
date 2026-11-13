@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.IndicesApi
 {
     /// <summary>Request options for AddBlock <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class AddIndexBlockRequestParameters
-        : RequestParameters<AddIndexBlockRequestParameters>
+    public partial class AddIndexBlockRequestParameters : RequestParameters<AddIndexBlockRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
@@ -93,9 +92,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
 
         /// <summary>Specify timeout for connection to cluster manager.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -126,8 +123,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for ClearCache <para>https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</para></summary>
-    public partial class ClearCacheRequestParameters
-        : RequestParameters<ClearCacheRequestParameters>
+    public partial class ClearCacheRequestParameters : RequestParameters<ClearCacheRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -206,8 +202,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Clone <para>https://docs.opensearch.org/latest/api-reference/index-apis/clone/</para></summary>
-    public partial class CloneIndexRequestParameters
-        : RequestParameters<CloneIndexRequestParameters>
+    public partial class CloneIndexRequestParameters : RequestParameters<CloneIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -225,9 +220,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -268,8 +261,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Close <para>https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</para></summary>
-    public partial class CloseIndexRequestParameters
-        : RequestParameters<CloseIndexRequestParameters>
+    public partial class CloseIndexRequestParameters : RequestParameters<CloseIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -315,9 +307,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -343,8 +333,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Create <para>https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</para></summary>
-    public partial class CreateIndexRequestParameters
-        : RequestParameters<CreateIndexRequestParameters>
+    public partial class CreateIndexRequestParameters : RequestParameters<CreateIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -362,9 +351,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -390,8 +377,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for CreateDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
-    public partial class CreateDataStreamRequestParameters
-        : RequestParameters<CreateDataStreamRequestParameters>
+    public partial class CreateDataStreamRequestParameters : RequestParameters<CreateDataStreamRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -399,8 +385,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for DataStreamsStats <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
-    public partial class DataStreamsStatsRequestParameters
-        : RequestParameters<DataStreamsStatsRequestParameters>
+    public partial class DataStreamsStatsRequestParameters : RequestParameters<DataStreamsStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -408,8 +393,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</para></summary>
-    public partial class DeleteIndexRequestParameters
-        : RequestParameters<DeleteIndexRequestParameters>
+    public partial class DeleteIndexRequestParameters : RequestParameters<DeleteIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -455,9 +439,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -473,8 +455,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for DeleteAlias <para>https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</para></summary>
-    public partial class DeleteAliasRequestParameters
-        : RequestParameters<DeleteAliasRequestParameters>
+    public partial class DeleteAliasRequestParameters : RequestParameters<DeleteAliasRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -492,9 +473,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -510,8 +489,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for DeleteDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
-    public partial class DeleteDataStreamRequestParameters
-        : RequestParameters<DeleteDataStreamRequestParameters>
+    public partial class DeleteDataStreamRequestParameters : RequestParameters<DeleteDataStreamRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -519,8 +497,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for DeleteComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</para></summary>
-    public partial class DeleteComposableIndexTemplateRequestParameters
-        : RequestParameters<DeleteComposableIndexTemplateRequestParameters>
+    public partial class DeleteComposableIndexTemplateRequestParameters : RequestParameters<DeleteComposableIndexTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -538,9 +515,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -556,8 +531,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for DeleteTemplate <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class DeleteIndexTemplateRequestParameters
-        : RequestParameters<DeleteIndexTemplateRequestParameters>
+    public partial class DeleteIndexTemplateRequestParameters : RequestParameters<DeleteIndexTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -575,9 +549,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -593,8 +565,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Exists <para>https://docs.opensearch.org/latest/api-reference/index-apis/exists/</para></summary>
-    public partial class IndexExistsRequestParameters
-        : RequestParameters<IndexExistsRequestParameters>
+    public partial class IndexExistsRequestParameters : RequestParameters<IndexExistsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
@@ -659,8 +630,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for AliasExists <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class AliasExistsRequestParameters
-        : RequestParameters<AliasExistsRequestParameters>
+    public partial class AliasExistsRequestParameters : RequestParameters<AliasExistsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
@@ -703,8 +673,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for ComposableTemplateExists <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
-    public partial class ComposableIndexTemplateExistsRequestParameters
-        : RequestParameters<ComposableIndexTemplateExistsRequestParameters>
+    public partial class ComposableIndexTemplateExistsRequestParameters : RequestParameters<ComposableIndexTemplateExistsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
@@ -736,9 +705,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -747,8 +714,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for TemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class IndexTemplateExistsRequestParameters
-        : RequestParameters<IndexTemplateExistsRequestParameters>
+    public partial class IndexTemplateExistsRequestParameters : RequestParameters<IndexTemplateExistsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
@@ -777,9 +743,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -841,8 +805,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for ForceMerge <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ForceMergeRequestParameters
-        : RequestParameters<ForceMergeRequestParameters>
+    public partial class ForceMergeRequestParameters : RequestParameters<ForceMergeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -984,9 +947,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1038,8 +999,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for GetDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
-    public partial class GetDataStreamRequestParameters
-        : RequestParameters<GetDataStreamRequestParameters>
+    public partial class GetDataStreamRequestParameters : RequestParameters<GetDataStreamRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1047,8 +1007,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for GetFieldMapping <para>https://docs.opensearch.org/latest/field-types/index/</para></summary>
-    public partial class GetFieldMappingRequestParameters
-        : RequestParameters<GetFieldMappingRequestParameters>
+    public partial class GetFieldMappingRequestParameters : RequestParameters<GetFieldMappingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1098,8 +1057,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for GetComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
-    public partial class GetComposableIndexTemplateRequestParameters
-        : RequestParameters<GetComposableIndexTemplateRequestParameters>
+    public partial class GetComposableIndexTemplateRequestParameters : RequestParameters<GetComposableIndexTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1134,9 +1092,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1145,8 +1101,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for GetMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</para></summary>
-    public partial class GetMappingRequestParameters
-        : RequestParameters<GetMappingRequestParameters>
+    public partial class GetMappingRequestParameters : RequestParameters<GetMappingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1209,9 +1164,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1220,8 +1173,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for GetSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</para></summary>
-    public partial class GetIndexSettingsRequestParameters
-        : RequestParameters<GetIndexSettingsRequestParameters>
+    public partial class GetIndexSettingsRequestParameters : RequestParameters<GetIndexSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1291,9 +1243,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1302,8 +1252,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for GetTemplate <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class GetIndexTemplateRequestParameters
-        : RequestParameters<GetIndexTemplateRequestParameters>
+    public partial class GetIndexTemplateRequestParameters : RequestParameters<GetIndexTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1335,9 +1284,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1346,8 +1293,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for GetUpgrade <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class GetUpgradeRequestParameters
-        : RequestParameters<GetUpgradeRequestParameters>
+    public partial class GetUpgradeRequestParameters : RequestParameters<GetUpgradeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1379,8 +1325,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for ModifyDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
-    public partial class ModifyDataStreamRequestParameters
-        : RequestParameters<ModifyDataStreamRequestParameters>
+    public partial class ModifyDataStreamRequestParameters : RequestParameters<ModifyDataStreamRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -1448,9 +1393,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1509,9 +1452,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1527,8 +1468,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for PutComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
-    public partial class PutComposableIndexTemplateRequestParameters
-        : RequestParameters<PutComposableIndexTemplateRequestParameters>
+    public partial class PutComposableIndexTemplateRequestParameters : RequestParameters<PutComposableIndexTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -1557,9 +1497,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1568,8 +1506,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for PutMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</para></summary>
-    public partial class PutMappingRequestParameters
-        : RequestParameters<PutMappingRequestParameters>
+    public partial class PutMappingRequestParameters : RequestParameters<PutMappingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -1615,9 +1552,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1640,8 +1575,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for UpdateSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</para></summary>
-    public partial class UpdateIndexSettingsRequestParameters
-        : RequestParameters<UpdateIndexSettingsRequestParameters>
+    public partial class UpdateIndexSettingsRequestParameters : RequestParameters<UpdateIndexSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -1694,9 +1628,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1719,8 +1651,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for PutTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
-    public partial class PutIndexTemplateRequestParameters
-        : RequestParameters<PutIndexTemplateRequestParameters>
+    public partial class PutIndexTemplateRequestParameters : RequestParameters<PutIndexTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -1745,9 +1676,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1756,8 +1685,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for RecoveryStatus <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class RecoveryStatusRequestParameters
-        : RequestParameters<RecoveryStatusRequestParameters>
+    public partial class RecoveryStatusRequestParameters : RequestParameters<RecoveryStatusRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1815,8 +1743,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Resolve <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ResolveIndexRequestParameters
-        : RequestParameters<ResolveIndexRequestParameters>
+    public partial class ResolveIndexRequestParameters : RequestParameters<ResolveIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1835,8 +1762,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Rollover <para>https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</para></summary>
-    public partial class RolloverIndexRequestParameters
-        : RequestParameters<RolloverIndexRequestParameters>
+    public partial class RolloverIndexRequestParameters : RequestParameters<RolloverIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -1861,9 +1787,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1932,8 +1856,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for ShardStores <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class IndicesShardStoresRequestParameters
-        : RequestParameters<IndicesShardStoresRequestParameters>
+    public partial class IndicesShardStoresRequestParameters : RequestParameters<IndicesShardStoresRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1975,8 +1898,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Shrink <para>https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</para></summary>
-    public partial class ShrinkIndexRequestParameters
-        : RequestParameters<ShrinkIndexRequestParameters>
+    public partial class ShrinkIndexRequestParameters : RequestParameters<ShrinkIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -1994,9 +1916,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -2037,8 +1957,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for SimulateIndexTemplate <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class SimulateIndexTemplateRequestParameters
-        : RequestParameters<SimulateIndexTemplateRequestParameters>
+    public partial class SimulateIndexTemplateRequestParameters : RequestParameters<SimulateIndexTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -2056,9 +1975,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -2067,8 +1984,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for SimulateTemplate <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class SimulateTemplateRequestParameters
-        : RequestParameters<SimulateTemplateRequestParameters>
+    public partial class SimulateTemplateRequestParameters : RequestParameters<SimulateTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -2104,9 +2020,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -2115,8 +2029,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Split <para>https://docs.opensearch.org/latest/api-reference/index-apis/split/</para></summary>
-    public partial class SplitIndexRequestParameters
-        : RequestParameters<SplitIndexRequestParameters>
+    public partial class SplitIndexRequestParameters : RequestParameters<SplitIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -2134,9 +2047,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -2177,8 +2088,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class IndicesStatsRequestParameters
-        : RequestParameters<IndicesStatsRequestParameters>
+    public partial class IndicesStatsRequestParameters : RequestParameters<IndicesStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -2273,9 +2183,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -2338,8 +2246,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     }
 
     /// <summary>Request options for ValidateQuery <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ValidateQueryRequestParameters
-        : RequestParameters<ValidateQueryRequestParameters>
+    public partial class ValidateQueryRequestParameters : RequestParameters<ValidateQueryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;

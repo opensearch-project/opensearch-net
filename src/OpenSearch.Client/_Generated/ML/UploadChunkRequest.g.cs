@@ -44,6 +44,7 @@ namespace OpenSearch.Client
     {
         string IUploadChunkRequest.Chunk { get; set; }
 
-        public UploadChunkDescriptor Chunk(string chunk) => Assign(chunk, (a, v) => a.Chunk = v);
+        public UploadChunkDescriptor Chunk(string chunk) =>
+            Assign(chunk, (a, v) => a.Chunk = v);
     }
 }

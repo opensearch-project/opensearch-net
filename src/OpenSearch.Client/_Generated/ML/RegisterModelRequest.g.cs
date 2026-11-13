@@ -110,9 +110,11 @@ namespace OpenSearch.Client
         public RegisterModelDescriptor ModelGroupId(Id modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
-        public RegisterModelDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public RegisterModelDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
-        public RegisterModelDescriptor Url(string url) => Assign(url, (a, v) => a.Url = v);
+        public RegisterModelDescriptor Url(string url) =>
+            Assign(url, (a, v) => a.Url = v);
 
         public RegisterModelDescriptor Version(string version) =>
             Assign(version, (a, v) => a.Version = v);

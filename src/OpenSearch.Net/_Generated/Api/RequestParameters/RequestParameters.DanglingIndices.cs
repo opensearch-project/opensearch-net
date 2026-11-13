@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.DanglingIndicesApi
 {
     /// <summary>Request options for DeleteDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
-    public partial class DeleteDanglingIndexRequestParameters
-        : RequestParameters<DeleteDanglingIndexRequestParameters>
+    public partial class DeleteDanglingIndexRequestParameters : RequestParameters<DeleteDanglingIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -76,9 +75,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
 
         /// <summary>Specify timeout for connection to cluster manager.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -94,8 +91,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
     }
 
     /// <summary>Request options for ImportDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
-    public partial class ImportDanglingIndexRequestParameters
-        : RequestParameters<ImportDanglingIndexRequestParameters>
+    public partial class ImportDanglingIndexRequestParameters : RequestParameters<ImportDanglingIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -117,9 +113,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
 
         /// <summary>Specify timeout for connection to cluster manager.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -135,8 +129,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
     }
 
     /// <summary>Request options for List <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
-    public partial class ListDanglingIndicesRequestParameters
-        : RequestParameters<ListDanglingIndicesRequestParameters>
+    public partial class ListDanglingIndicesRequestParameters : RequestParameters<ListDanglingIndicesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;

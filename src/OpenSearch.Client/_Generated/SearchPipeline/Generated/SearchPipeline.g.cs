@@ -56,9 +56,7 @@ namespace OpenSearch.Client
         public int? Version { get; set; }
     }
 
-    public class SearchPipelineDescriptor
-        : DescriptorBase<SearchPipelineDescriptor, ISearchPipeline>,
-            ISearchPipeline
+    public class SearchPipelineDescriptor : DescriptorBase<SearchPipelineDescriptor, ISearchPipeline>, ISearchPipeline
     {
         string ISearchPipeline.Description { get; set; }
         IList<IPhaseResultsProcessor> ISearchPipeline.PhaseResultsProcessors { get; set; }
@@ -69,17 +67,14 @@ namespace OpenSearch.Client
         public SearchPipelineDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public SearchPipelineDescriptor PhaseResultsProcessors(
-            IList<IPhaseResultsProcessor> phaseResultsProcessors
-        ) => Assign(phaseResultsProcessors, (a, v) => a.PhaseResultsProcessors = v);
+        public SearchPipelineDescriptor PhaseResultsProcessors(IList<IPhaseResultsProcessor> phaseResultsProcessors) =>
+            Assign(phaseResultsProcessors, (a, v) => a.PhaseResultsProcessors = v);
 
-        public SearchPipelineDescriptor RequestProcessors(
-            IList<IRequestProcessor> requestProcessors
-        ) => Assign(requestProcessors, (a, v) => a.RequestProcessors = v);
+        public SearchPipelineDescriptor RequestProcessors(IList<IRequestProcessor> requestProcessors) =>
+            Assign(requestProcessors, (a, v) => a.RequestProcessors = v);
 
-        public SearchPipelineDescriptor ResponseProcessors(
-            IList<IResponseProcessor> responseProcessors
-        ) => Assign(responseProcessors, (a, v) => a.ResponseProcessors = v);
+        public SearchPipelineDescriptor ResponseProcessors(IList<IResponseProcessor> responseProcessors) =>
+            Assign(responseProcessors, (a, v) => a.ResponseProcessors = v);
 
         public SearchPipelineDescriptor Version(int? version) =>
             Assign(version, (a, v) => a.Version = v);

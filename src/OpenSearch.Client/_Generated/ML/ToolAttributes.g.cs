@@ -44,9 +44,7 @@ namespace OpenSearch.Client
         public bool? Strict { get; set; }
     }
 
-    public class ToolAttributesDescriptor
-        : DescriptorBase<ToolAttributesDescriptor, IToolAttributes>,
-            IToolAttributes
+    public class ToolAttributesDescriptor : DescriptorBase<ToolAttributesDescriptor, IToolAttributes>, IToolAttributes
     {
         string IToolAttributes.InputSchema { get; set; }
         bool? IToolAttributes.Strict { get; set; }

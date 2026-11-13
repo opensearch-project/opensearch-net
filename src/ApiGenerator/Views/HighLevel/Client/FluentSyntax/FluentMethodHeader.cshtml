@@ -1,5 +1,6 @@
 @using ApiGenerator.Domain.Code.HighLevel.Methods
-@inherits ApiGenerator.CodeTemplatePage<FluentSyntaxView>
+@using ApiGenerator.Generator
+@inherits global::ApiGenerator.CodeTemplatePage<FluentSyntaxView>
 @{
 	var response = !Model.Async ? Model.Syntax.ResponseName : string.Format("Task<{0}>", Model.Syntax.ResponseName);
     var method = !Model.Async ? Model.Syntax.MethodName : string.Format("{0}Async", Model.Syntax.MethodName);
@@ -11,4 +12,5 @@
     var whereClause = Model.Syntax.GenericWhereClause;
     var cancellationToken = !Model.Async ? string.Empty : ", CancellationToken ct = default";
 }
-@Raw(response) @(method)@(Raw(methodGenerics))(@(Raw(descriptorArgs))@(Raw(selector)) selector@(optionalSelector)@(cancellationToken))@whereClause
+@Raw(CodeLayout.ParameterList($"{response} {method}{methodGenerics}", $"{descriptorArgs}{selector} selector{optionalSelector}{cancellationToken}", 0, offset: 8 + "public async ".Length))@if (!string.IsNullOrEmpty(whereClause)) {<text>
+    @whereClause</text>}

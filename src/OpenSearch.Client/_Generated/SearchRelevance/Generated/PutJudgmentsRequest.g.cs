@@ -111,18 +111,20 @@ namespace OpenSearch.Client
         public PutJudgmentsDescriptor ModelId(string modelId) =>
             Assign(modelId, (a, v) => a.ModelId = v);
 
-        public PutJudgmentsDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public PutJudgmentsDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public PutJudgmentsDescriptor QuerySetId(string querySetId) =>
             Assign(querySetId, (a, v) => a.QuerySetId = v);
 
-        public PutJudgmentsDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
+        public PutJudgmentsDescriptor SearchConfigurationList(IList<string> searchConfigurationList) =>
+            Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
 
-        public PutJudgmentsDescriptor Size(int? size) => Assign(size, (a, v) => a.Size = v);
+        public PutJudgmentsDescriptor Size(int? size) =>
+            Assign(size, (a, v) => a.Size = v);
 
-        public PutJudgmentsDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+        public PutJudgmentsDescriptor Type(string type) =>
+            Assign(type, (a, v) => a.Type = v);
 
         public PutJudgmentsDescriptor ClickModel(string clickModel) =>
             Assign(clickModel, (a, v) => a.ClickModel = v);
@@ -130,8 +132,7 @@ namespace OpenSearch.Client
         public PutJudgmentsDescriptor MaxRank(int? maxRank) =>
             Assign(maxRank, (a, v) => a.MaxRank = v);
 
-        public PutJudgmentsDescriptor JudgmentRatings(
-            IList<IDictionary<string, object>> judgmentRatings
-        ) => Assign(judgmentRatings, (a, v) => a.JudgmentRatings = v);
+        public PutJudgmentsDescriptor JudgmentRatings(IList<IDictionary<string, object>> judgmentRatings) =>
+            Assign(judgmentRatings, (a, v) => a.JudgmentRatings = v);
     }
 }

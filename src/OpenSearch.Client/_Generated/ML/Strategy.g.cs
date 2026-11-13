@@ -70,11 +70,13 @@ namespace OpenSearch.Client
         public StrategyDescriptor Enabled(bool? enabled = true) =>
             Assign(enabled, (a, v) => a.Enabled = v);
 
-        public StrategyDescriptor Id(string id) => Assign(id, (a, v) => a.Id = v);
+        public StrategyDescriptor Id(string id) =>
+            Assign(id, (a, v) => a.Id = v);
 
         public StrategyDescriptor Namespace(IList<string> @namespace) =>
             Assign(@namespace, (a, v) => a.Namespace = v);
 
-        public StrategyDescriptor Type(StrategyType? type) => Assign(type, (a, v) => a.Type = v);
+        public StrategyDescriptor Type(StrategyType? type) =>
+            Assign(type, (a, v) => a.Type = v);
     }
 }

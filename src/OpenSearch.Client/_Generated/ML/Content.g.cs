@@ -51,16 +51,13 @@ namespace OpenSearch.Client
         string IContent.Type { get; set; }
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public ContentDescriptor Text(string text) => Assign(text, (a, v) => a.Text = v);
+        public ContentDescriptor Text(string text) =>
+            Assign(text, (a, v) => a.Text = v);
 
-        public ContentDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+        public ContentDescriptor Type(string type) =>
+            Assign(type, (a, v) => a.Type = v);
 
-        public ContentDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public ContentDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

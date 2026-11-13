@@ -29,7 +29,9 @@ namespace OpenSearch.Client
 {
     [JsonFormatter(typeof(OpenObjectFormatter<UnloadModelNodeStats, IUnloadModelNodeStats>))]
     [ReadAs(typeof(UnloadModelNodeStats))]
-    public interface IUnloadModelNodeStats : IHasAdditionalProperties { }
+    public interface IUnloadModelNodeStats : IHasAdditionalProperties
+    {
+    }
 
     public class UnloadModelNodeStats : IUnloadModelNodeStats
     {
@@ -42,12 +44,7 @@ namespace OpenSearch.Client
     {
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public UnloadModelNodeStatsDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public UnloadModelNodeStatsDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

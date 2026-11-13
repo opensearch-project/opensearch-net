@@ -59,13 +59,11 @@ namespace OpenSearch.Client
         string ICreateMemoryContainerSessionRequest.SessionId { get; set; }
         string ICreateMemoryContainerSessionRequest.Summary { get; set; }
 
-        public CreateMemoryContainerSessionDescriptor Metadata(
-            IDictionary<string, object> metadata
-        ) => Assign(metadata, (a, v) => a.Metadata = v);
+        public CreateMemoryContainerSessionDescriptor Metadata(IDictionary<string, object> metadata) =>
+            Assign(metadata, (a, v) => a.Metadata = v);
 
-        public CreateMemoryContainerSessionDescriptor Namespace(
-            IDictionary<string, object> @namespace
-        ) => Assign(@namespace, (a, v) => a.Namespace = v);
+        public CreateMemoryContainerSessionDescriptor Namespace(IDictionary<string, object> @namespace) =>
+            Assign(@namespace, (a, v) => a.Namespace = v);
 
         public CreateMemoryContainerSessionDescriptor SessionId(string sessionId) =>
             Assign(sessionId, (a, v) => a.SessionId = v);

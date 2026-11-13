@@ -44,9 +44,7 @@ namespace OpenSearch.Client
         public Name Name { get; set; }
     }
 
-    public class ColumnMetaDescriptor
-        : DescriptorBase<ColumnMetaDescriptor, IColumnMeta>,
-            IColumnMeta
+    public class ColumnMetaDescriptor : DescriptorBase<ColumnMetaDescriptor, IColumnMeta>, IColumnMeta
     {
         ColumnType? IColumnMeta.ColumnType { get; set; }
         Name IColumnMeta.Name { get; set; }
@@ -54,6 +52,7 @@ namespace OpenSearch.Client
         public ColumnMetaDescriptor ColumnType(ColumnType? columnType) =>
             Assign(columnType, (a, v) => a.ColumnType = v);
 
-        public ColumnMetaDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
+        public ColumnMetaDescriptor Name(Name name) =>
+            Assign(name, (a, v) => a.Name = v);
     }
 }

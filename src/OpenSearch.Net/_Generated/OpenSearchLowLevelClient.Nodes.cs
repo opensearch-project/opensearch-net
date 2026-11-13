@@ -66,14 +66,11 @@ namespace OpenSearch.Net.Specification.NodesApi
     /// </summary>
     public partial class LowLevelNodesNamespace : NamespacedClientProxy
     {
-        internal LowLevelNodesNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelNodesNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>GET on /_nodes/hot_threads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse HotThreadsForAll<TResponse>(
-            NodesHotThreadsRequestParameters requestParameters = null
-        )
+        public TResponse HotThreadsForAll<TResponse>(NodesHotThreadsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_nodes/hot_threads", null, RequestParams(requestParameters));
 
@@ -85,28 +82,14 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_nodes/hot_threads",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_nodes/hot_threads", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/hot_threads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse HotThreads<TResponse>(
-            string nodeId,
-            NodesHotThreadsRequestParameters requestParameters = null
-        )
+        public TResponse HotThreads<TResponse>(string nodeId, NodesHotThreadsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/hot_threads"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/hot_threads"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/hot_threads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
@@ -118,13 +101,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/hot_threads"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/hot_threads"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -145,17 +122,9 @@ namespace OpenSearch.Net.Specification.NodesApi
         /// <summary>GET on /_nodes/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
         /// <param name="metric">Limits the information returned to the specific metrics. Supports a comma-separated list, such as &lt;c&gt;http,ingest&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse InfoForAll<TResponse>(
-            string metric,
-            NodesInfoRequestParameters requestParameters = null
-        )
+        public TResponse InfoForAll<TResponse>(string metric, NodesInfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
         /// <param name="metric">Limits the information returned to the specific metrics. Supports a comma-separated list, such as &lt;c&gt;http,ingest&lt;/c&gt;.</param>
@@ -167,28 +136,14 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Info<TResponse>(
-            string nodeId,
-            NodesInfoRequestParameters requestParameters = null
-        )
+        public TResponse Info<TResponse>(string nodeId, NodesInfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -200,13 +155,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -218,12 +167,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             NodesInfoRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -237,13 +181,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_nodes/reload_secure_settings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
         /// <param name="body">An object containing the password for the OpenSearch keystore.</param>
@@ -253,12 +191,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             ReloadSecureSettingsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_nodes/reload_secure_settings",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_nodes/reload_secure_settings", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_nodes/reload_secure_settings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
         /// <param name="body">An object containing the password for the OpenSearch keystore.</param>
@@ -270,13 +203,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_nodes/reload_secure_settings",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_nodes/reload_secure_settings", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_nodes/{node_id}/reload_secure_settings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
         /// <param name="nodeId">The names of particular nodes in the cluster to target.</param>
@@ -288,12 +215,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             ReloadSecureSettingsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_nodes/{nodeId:nodeId}/reload_secure_settings"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_nodes/{nodeId:nodeId}/reload_secure_settings"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_nodes/{node_id}/reload_secure_settings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
         /// <param name="nodeId">The names of particular nodes in the cluster to target.</param>
@@ -307,19 +229,11 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_nodes/{nodeId:nodeId}/reload_secure_settings"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_nodes/{nodeId:nodeId}/reload_secure_settings"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse StatsForAll<TResponse>(
-            NodesStatsRequestParameters requestParameters = null
-        )
+        public TResponse StatsForAll<TResponse>(NodesStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_nodes/stats", null, RequestParams(requestParameters));
 
@@ -331,28 +245,14 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_nodes/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_nodes/stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/stats/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse StatsForAll<TResponse>(
-            string metric,
-            NodesStatsRequestParameters requestParameters = null
-        )
+        public TResponse StatsForAll<TResponse>(string metric, NodesStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/stats/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/stats/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/stats/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
@@ -364,13 +264,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/stats/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/stats/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/stats/{metric}/{index_metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
@@ -382,12 +276,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             NodesStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/stats/{metric:metric}/{indexMetric:indexMetric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/stats/{metric:metric}/{indexMetric:indexMetric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/stats/{metric}/{index_metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
@@ -401,28 +290,14 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/stats/{metric:metric}/{indexMetric:indexMetric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/stats/{metric:metric}/{indexMetric:indexMetric}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Stats<TResponse>(
-            string nodeId,
-            NodesStatsRequestParameters requestParameters = null
-        )
+        public TResponse Stats<TResponse>(string nodeId, NodesStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/stats"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/stats"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -434,13 +309,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/stats"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/stats"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/stats/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -452,12 +321,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             NodesStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/stats/{metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -471,13 +335,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -491,12 +349,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             NodesStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}/{indexMetric:indexMetric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}/{indexMetric:indexMetric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit returned information.</param>
@@ -512,19 +365,11 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}/{indexMetric:indexMetric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/stats/{metric:metric}/{indexMetric:indexMetric}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/usage <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse UsageForAll<TResponse>(
-            NodesUsageRequestParameters requestParameters = null
-        )
+        public TResponse UsageForAll<TResponse>(NodesUsageRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_nodes/usage", null, RequestParams(requestParameters));
 
@@ -536,28 +381,14 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_nodes/usage",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_nodes/usage", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/usage/{metric} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="metric">Limits the information returned to the specific metrics. A comma-separated list of the following options: &lt;c&gt;_all&lt;/c&gt;, &lt;c&gt;rest_actions&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse UsageForAll<TResponse>(
-            string metric,
-            NodesUsageRequestParameters requestParameters = null
-        )
+        public TResponse UsageForAll<TResponse>(string metric, NodesUsageRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/usage/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/usage/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/usage/{metric} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="metric">Limits the information returned to the specific metrics. A comma-separated list of the following options: &lt;c&gt;_all&lt;/c&gt;, &lt;c&gt;rest_actions&lt;/c&gt;.</param>
@@ -569,28 +400,14 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/usage/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/usage/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/usage <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Usage<TResponse>(
-            string nodeId,
-            NodesUsageRequestParameters requestParameters = null
-        )
+        public TResponse Usage<TResponse>(string nodeId, NodesUsageRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/usage"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/usage"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/usage <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
@@ -602,13 +419,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/usage"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/usage"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
@@ -620,12 +431,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             NodesUsageRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/usage/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/usage/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
@@ -639,12 +445,6 @@ namespace OpenSearch.Net.Specification.NodesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}/usage/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/usage/{metric:metric}"), ctx, null, RequestParams(requestParameters));
     }
 }

@@ -54,40 +54,38 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public AddAgenticMemoryRequest(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public AddAgenticMemoryRequest(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected AddAgenticMemoryRequest()
-            : base() { }
+        protected AddAgenticMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IAddAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IAddAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
 
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IChunkModelRequest : IRequest<ChunkModelRequestParameters> { }
+    public partial interface IChunkModelRequest : IRequest<ChunkModelRequestParameters>
+    {
+    }
 
     /// <summary>Request for ChunkModel</summary>
-    public partial class ChunkModelRequest
-        : PlainRequestBase<ChunkModelRequestParameters>,
-            IChunkModelRequest
+    public partial class ChunkModelRequest : PlainRequestBase<ChunkModelRequestParameters>, IChunkModelRequest
     {
         protected IChunkModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlChunkModel;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ICreateConnectorRequest
-        : IRequest<CreateConnectorRequestParameters> { }
+    public partial interface ICreateConnectorRequest : IRequest<CreateConnectorRequestParameters>
+    {
+    }
 
     /// <summary>Request for CreateConnector</summary>
     public partial class CreateConnectorRequest
@@ -96,8 +94,8 @@ namespace OpenSearch.Client
     {
         protected ICreateConnectorRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateConnector;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -118,13 +116,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public CreateControllerRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public CreateControllerRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateControllerRequest()
-            : base() { }
+        protected CreateControllerRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -134,23 +130,24 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICreateMemoryRequest : IRequest<CreateMemoryRequestParameters> { }
+    public partial interface ICreateMemoryRequest : IRequest<CreateMemoryRequestParameters>
+    {
+    }
 
     /// <summary>Request for CreateMemory</summary>
-    public partial class CreateMemoryRequest
-        : PlainRequestBase<CreateMemoryRequestParameters>,
-            ICreateMemoryRequest
+    public partial class CreateMemoryRequest : PlainRequestBase<CreateMemoryRequestParameters>, ICreateMemoryRequest
     {
         protected ICreateMemoryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateMemory;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ICreateMemoryContainerRequest
-        : IRequest<CreateMemoryContainerRequestParameters> { }
+    public partial interface ICreateMemoryContainerRequest : IRequest<CreateMemoryContainerRequestParameters>
+    {
+    }
 
     /// <summary>Request for CreateMemoryContainer</summary>
     public partial class CreateMemoryContainerRequest
@@ -159,14 +156,13 @@ namespace OpenSearch.Client
     {
         protected ICreateMemoryContainerRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateMemoryContainer;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ICreateMemoryContainerSessionRequest
-        : IRequest<CreateMemoryContainerSessionRequestParameters>
+    public partial interface ICreateMemoryContainerSessionRequest : IRequest<CreateMemoryContainerSessionRequestParameters>
     {
         [IgnoreDataMember]
         Id MemoryContainerId { get; }
@@ -182,18 +178,15 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories/sessions</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public CreateMemoryContainerSessionRequest(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public CreateMemoryContainerSessionRequest(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateMemoryContainerSessionRequest()
-            : base() { }
+        protected CreateMemoryContainerSessionRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id ICreateMemoryContainerSessionRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id ICreateMemoryContainerSessionRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
 
         // Request parameters
     }
@@ -206,22 +199,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for CreateMessage</summary>
-    public partial class CreateMessageRequest
-        : PlainRequestBase<CreateMessageRequestParameters>,
-            ICreateMessageRequest
+    public partial class CreateMessageRequest : PlainRequestBase<CreateMessageRequestParameters>, ICreateMessageRequest
     {
         protected ICreateMessageRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateMessage;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}/messages</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public CreateMessageRequest(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public CreateMessageRequest(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateMessageRequest()
-            : base() { }
+        protected CreateMessageRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -231,8 +220,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICreateModelMetaRequest
-        : IRequest<CreateModelMetaRequestParameters> { }
+    public partial interface ICreateModelMetaRequest : IRequest<CreateModelMetaRequestParameters>
+    {
+    }
 
     /// <summary>Request for CreateModelMeta</summary>
     public partial class CreateModelMetaRequest
@@ -241,8 +231,8 @@ namespace OpenSearch.Client
     {
         protected ICreateModelMetaRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateModelMeta;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -254,22 +244,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for DeleteAgent</summary>
-    public partial class DeleteAgentRequest
-        : PlainRequestBase<DeleteAgentRequestParameters>,
-            IDeleteAgentRequest
+    public partial class DeleteAgentRequest : PlainRequestBase<DeleteAgentRequestParameters>, IDeleteAgentRequest
     {
         protected IDeleteAgentRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteAgent;
 
         /// <summary>/_plugins/_ml/agents/{agent_id}</summary>
         /// <param name="agentId">this parameter is required</param>
-        public DeleteAgentRequest(Id agentId)
-            : base(r => r.Required("agent_id", agentId)) { }
+        public DeleteAgentRequest(Id agentId) : base(r => r.Required("agent_id", agentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAgentRequest()
-            : base() { }
+        protected DeleteAgentRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -279,8 +265,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteAgenticMemoryRequest
-        : IRequest<DeleteAgenticMemoryRequestParameters>
+    public partial interface IDeleteAgenticMemoryRequest : IRequest<DeleteAgenticMemoryRequestParameters>
     {
         [IgnoreDataMember]
         Id Id { get; }
@@ -304,26 +289,17 @@ namespace OpenSearch.Client
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public DeleteAgenticMemoryRequest(Id memoryContainerId, Names type, Id id)
-            : base(r =>
-                r.Required("memory_container_id", memoryContainerId)
-                    .Required("type", type)
-                    .Required("id", id)
-            ) { }
+        public DeleteAgenticMemoryRequest(Id memoryContainerId, Names type, Id id) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAgenticMemoryRequest()
-            : base() { }
+        protected DeleteAgenticMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IDeleteAgenticMemoryRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
-        Id IDeleteAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
-
+        Id IDeleteAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         [IgnoreDataMember]
         Names IDeleteAgenticMemoryRequest.Type => Self.RouteValues.Get<Names>("type");
 
@@ -331,8 +307,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteAgenticMemoryQueryRequest
-        : IRequest<DeleteAgenticMemoryQueryRequestParameters>
+    public partial interface IDeleteAgenticMemoryQueryRequest : IRequest<DeleteAgenticMemoryQueryRequestParameters>
     {
         [IgnoreDataMember]
         Id MemoryContainerId { get; }
@@ -352,20 +327,15 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_delete_by_query</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
-        public DeleteAgenticMemoryQueryRequest(Id memoryContainerId, Names type)
-            : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type))
-        { }
+        public DeleteAgenticMemoryQueryRequest(Id memoryContainerId, Names type) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAgenticMemoryQueryRequest()
-            : base() { }
+        protected DeleteAgenticMemoryQueryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IDeleteAgenticMemoryQueryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
-
+        Id IDeleteAgenticMemoryQueryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         [IgnoreDataMember]
         Names IDeleteAgenticMemoryQueryRequest.Type => Self.RouteValues.Get<Names>("type");
 
@@ -389,13 +359,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId">this parameter is required</param>
-        public DeleteConnectorRequest(Id connectorId)
-            : base(r => r.Required("connector_id", connectorId)) { }
+        public DeleteConnectorRequest(Id connectorId) : base(r => r.Required("connector_id", connectorId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteConnectorRequest()
-            : base() { }
+        protected DeleteConnectorRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -421,13 +389,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public DeleteControllerRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public DeleteControllerRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteControllerRequest()
-            : base() { }
+        protected DeleteControllerRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -444,22 +410,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for DeleteMemory</summary>
-    public partial class DeleteMemoryRequest
-        : PlainRequestBase<DeleteMemoryRequestParameters>,
-            IDeleteMemoryRequest
+    public partial class DeleteMemoryRequest : PlainRequestBase<DeleteMemoryRequestParameters>, IDeleteMemoryRequest
     {
         protected IDeleteMemoryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteMemory;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public DeleteMemoryRequest(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public DeleteMemoryRequest(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteMemoryRequest()
-            : base() { }
+        protected DeleteMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -469,8 +431,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteMemoryContainerRequest
-        : IRequest<DeleteMemoryContainerRequestParameters>
+    public partial interface IDeleteMemoryContainerRequest : IRequest<DeleteMemoryContainerRequestParameters>
     {
         [IgnoreDataMember]
         Id MemoryContainerId { get; }
@@ -486,18 +447,15 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public DeleteMemoryContainerRequest(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public DeleteMemoryContainerRequest(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteMemoryContainerRequest()
-            : base() { }
+        protected DeleteMemoryContainerRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IDeleteMemoryContainerRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IDeleteMemoryContainerRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
 
         // Request parameters
         /// <summary>TODO</summary>
@@ -523,22 +481,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for DeleteModel</summary>
-    public partial class DeleteModelRequest
-        : PlainRequestBase<DeleteModelRequestParameters>,
-            IDeleteModelRequest
+    public partial class DeleteModelRequest : PlainRequestBase<DeleteModelRequestParameters>, IDeleteModelRequest
     {
         protected IDeleteModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public DeleteModelRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public DeleteModelRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteModelRequest()
-            : base() { }
+        protected DeleteModelRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -564,13 +518,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/model_groups/{model_group_id}</summary>
         /// <param name="modelGroupId">this parameter is required</param>
-        public DeleteModelGroupRequest(Id modelGroupId)
-            : base(r => r.Required("model_group_id", modelGroupId)) { }
+        public DeleteModelGroupRequest(Id modelGroupId) : base(r => r.Required("model_group_id", modelGroupId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteModelGroupRequest()
-            : base() { }
+        protected DeleteModelGroupRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -587,22 +539,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for DeleteTask</summary>
-    public partial class DeleteTaskRequest
-        : PlainRequestBase<DeleteTaskRequestParameters>,
-            IDeleteTaskRequest
+    public partial class DeleteTaskRequest : PlainRequestBase<DeleteTaskRequestParameters>, IDeleteTaskRequest
     {
         protected IDeleteTaskRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteTask;
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public DeleteTaskRequest(Id taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public DeleteTaskRequest(Id taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteTaskRequest()
-            : base() { }
+        protected DeleteTaskRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -619,22 +567,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for DeployModel</summary>
-    public partial class DeployModelRequest
-        : PlainRequestBase<DeployModelRequestParameters>,
-            IDeployModelRequest
+    public partial class DeployModelRequest : PlainRequestBase<DeployModelRequestParameters>, IDeployModelRequest
     {
         protected IDeployModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeployModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}/_deploy</summary>
         /// <param name="modelId">this parameter is required</param>
-        public DeployModelRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public DeployModelRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeployModelRequest()
-            : base() { }
+        protected DeployModelRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -651,22 +595,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for ExecuteAgent</summary>
-    public partial class ExecuteAgentRequest
-        : PlainRequestBase<ExecuteAgentRequestParameters>,
-            IExecuteAgentRequest
+    public partial class ExecuteAgentRequest : PlainRequestBase<ExecuteAgentRequestParameters>, IExecuteAgentRequest
     {
         protected IExecuteAgentRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlExecuteAgent;
 
         /// <summary>/_plugins/_ml/agents/{agent_id}/_execute</summary>
         /// <param name="agentId">this parameter is required</param>
-        public ExecuteAgentRequest(Id agentId)
-            : base(r => r.Required("agent_id", agentId)) { }
+        public ExecuteAgentRequest(Id agentId) : base(r => r.Required("agent_id", agentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExecuteAgentRequest()
-            : base() { }
+        protected ExecuteAgentRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -692,13 +632,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/_execute/{algorithm_name}</summary>
         /// <param name="algorithmName">this parameter is required</param>
-        public ExecuteAlgorithmRequest(Name algorithmName)
-            : base(r => r.Required("algorithm_name", algorithmName)) { }
+        public ExecuteAlgorithmRequest(Name algorithmName) : base(r => r.Required("algorithm_name", algorithmName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExecuteAlgorithmRequest()
-            : base() { }
+        protected ExecuteAlgorithmRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -715,22 +653,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for ExecuteTool</summary>
-    public partial class ExecuteToolRequest
-        : PlainRequestBase<ExecuteToolRequestParameters>,
-            IExecuteToolRequest
+    public partial class ExecuteToolRequest : PlainRequestBase<ExecuteToolRequestParameters>, IExecuteToolRequest
     {
         protected IExecuteToolRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlExecuteTool;
 
         /// <summary>/_plugins/_ml/tools/_execute/{tool_name}</summary>
         /// <param name="toolName">this parameter is required</param>
-        public ExecuteToolRequest(Name toolName)
-            : base(r => r.Required("tool_name", toolName)) { }
+        public ExecuteToolRequest(Name toolName) : base(r => r.Required("tool_name", toolName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExecuteToolRequest()
-            : base() { }
+        protected ExecuteToolRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -747,22 +681,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetAgent</summary>
-    public partial class GetAgentRequest
-        : PlainRequestBase<GetAgentRequestParameters>,
-            IGetAgentRequest
+    public partial class GetAgentRequest : PlainRequestBase<GetAgentRequestParameters>, IGetAgentRequest
     {
         protected IGetAgentRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetAgent;
 
         /// <summary>/_plugins/_ml/agents/{agent_id}</summary>
         /// <param name="agentId">this parameter is required</param>
-        public GetAgentRequest(Id agentId)
-            : base(r => r.Required("agent_id", agentId)) { }
+        public GetAgentRequest(Id agentId) : base(r => r.Required("agent_id", agentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetAgentRequest()
-            : base() { }
+        protected GetAgentRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -796,26 +726,17 @@ namespace OpenSearch.Client
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public GetAgenticMemoryRequest(Id memoryContainerId, Names type, Id id)
-            : base(r =>
-                r.Required("memory_container_id", memoryContainerId)
-                    .Required("type", type)
-                    .Required("id", id)
-            ) { }
+        public GetAgenticMemoryRequest(Id memoryContainerId, Names type, Id id) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetAgenticMemoryRequest()
-            : base() { }
+        protected GetAgenticMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IGetAgenticMemoryRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
-        Id IGetAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
-
+        Id IGetAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         [IgnoreDataMember]
         Names IGetAgenticMemoryRequest.Type => Self.RouteValues.Get<Names>("type");
 
@@ -823,7 +744,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetAllMemoriesRequest : IRequest<GetAllMemoriesRequestParameters> { }
+    public partial interface IGetAllMemoriesRequest : IRequest<GetAllMemoriesRequestParameters>
+    {
+    }
 
     /// <summary>Request for GetAllMemories</summary>
     public partial class GetAllMemoriesRequest
@@ -834,7 +757,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetAllMemories;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// The maximum number of results to return. If there are fewer memories than the number set in <c>max_results</c>, the response returns only
@@ -875,13 +797,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory/{memory_id}/messages</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public GetAllMessagesRequest(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public GetAllMessagesRequest(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetAllMessagesRequest()
-            : base() { }
+        protected GetAllMessagesRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -904,17 +824,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetAllToolsRequest : IRequest<GetAllToolsRequestParameters> { }
+    public partial interface IGetAllToolsRequest : IRequest<GetAllToolsRequestParameters>
+    {
+    }
 
     /// <summary>Request for GetAllTools</summary>
-    public partial class GetAllToolsRequest
-        : PlainRequestBase<GetAllToolsRequestParameters>,
-            IGetAllToolsRequest
+    public partial class GetAllToolsRequest : PlainRequestBase<GetAllToolsRequestParameters>, IGetAllToolsRequest
     {
         protected IGetAllToolsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetAllTools;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -926,22 +846,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetConnector</summary>
-    public partial class GetConnectorRequest
-        : PlainRequestBase<GetConnectorRequestParameters>,
-            IGetConnectorRequest
+    public partial class GetConnectorRequest : PlainRequestBase<GetConnectorRequestParameters>, IGetConnectorRequest
     {
         protected IGetConnectorRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetConnector;
 
         /// <summary>/_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId">this parameter is required</param>
-        public GetConnectorRequest(Id connectorId)
-            : base(r => r.Required("connector_id", connectorId)) { }
+        public GetConnectorRequest(Id connectorId) : base(r => r.Required("connector_id", connectorId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetConnectorRequest()
-            : base() { }
+        protected GetConnectorRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -958,22 +874,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetController</summary>
-    public partial class GetControllerRequest
-        : PlainRequestBase<GetControllerRequestParameters>,
-            IGetControllerRequest
+    public partial class GetControllerRequest : PlainRequestBase<GetControllerRequestParameters>, IGetControllerRequest
     {
         protected IGetControllerRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetController;
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public GetControllerRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public GetControllerRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetControllerRequest()
-            : base() { }
+        protected GetControllerRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -990,22 +902,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetMemory</summary>
-    public partial class GetMemoryRequest
-        : PlainRequestBase<GetMemoryRequestParameters>,
-            IGetMemoryRequest
+    public partial class GetMemoryRequest : PlainRequestBase<GetMemoryRequestParameters>, IGetMemoryRequest
     {
         protected IGetMemoryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMemory;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public GetMemoryRequest(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public GetMemoryRequest(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMemoryRequest()
-            : base() { }
+        protected GetMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1015,8 +923,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetMemoryContainerRequest
-        : IRequest<GetMemoryContainerRequestParameters>
+    public partial interface IGetMemoryContainerRequest : IRequest<GetMemoryContainerRequestParameters>
     {
         [IgnoreDataMember]
         Id MemoryContainerId { get; }
@@ -1032,18 +939,15 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public GetMemoryContainerRequest(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public GetMemoryContainerRequest(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMemoryContainerRequest()
-            : base() { }
+        protected GetMemoryContainerRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IGetMemoryContainerRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IGetMemoryContainerRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
 
         // Request parameters
     }
@@ -1056,22 +960,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetMessage</summary>
-    public partial class GetMessageRequest
-        : PlainRequestBase<GetMessageRequestParameters>,
-            IGetMessageRequest
+    public partial class GetMessageRequest : PlainRequestBase<GetMessageRequestParameters>, IGetMessageRequest
     {
         protected IGetMessageRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMessage;
 
         /// <summary>/_plugins/_ml/memory/message/{message_id}</summary>
         /// <param name="messageId">this parameter is required</param>
-        public GetMessageRequest(Id messageId)
-            : base(r => r.Required("message_id", messageId)) { }
+        public GetMessageRequest(Id messageId) : base(r => r.Required("message_id", messageId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMessageRequest()
-            : base() { }
+        protected GetMessageRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1097,13 +997,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory/message/{message_id}/traces</summary>
         /// <param name="messageId">this parameter is required</param>
-        public GetMessageTracesRequest(Id messageId)
-            : base(r => r.Required("message_id", messageId)) { }
+        public GetMessageTracesRequest(Id messageId) : base(r => r.Required("message_id", messageId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMessageTracesRequest()
-            : base() { }
+        protected GetMessageTracesRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1133,22 +1031,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetModel</summary>
-    public partial class GetModelRequest
-        : PlainRequestBase<GetModelRequestParameters>,
-            IGetModelRequest
+    public partial class GetModelRequest : PlainRequestBase<GetModelRequestParameters>, IGetModelRequest
     {
         protected IGetModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public GetModelRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public GetModelRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetModelRequest()
-            : base() { }
+        protected GetModelRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1165,22 +1059,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetModelGroup</summary>
-    public partial class GetModelGroupRequest
-        : PlainRequestBase<GetModelGroupRequestParameters>,
-            IGetModelGroupRequest
+    public partial class GetModelGroupRequest : PlainRequestBase<GetModelGroupRequestParameters>, IGetModelGroupRequest
     {
         protected IGetModelGroupRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetModelGroup;
 
         /// <summary>/_plugins/_ml/model_groups/{model_group_id}</summary>
         /// <param name="modelGroupId">this parameter is required</param>
-        public GetModelGroupRequest(Id modelGroupId)
-            : base(r => r.Required("model_group_id", modelGroupId)) { }
+        public GetModelGroupRequest(Id modelGroupId) : base(r => r.Required("model_group_id", modelGroupId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetModelGroupRequest()
-            : base() { }
+        protected GetModelGroupRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1190,17 +1080,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetProfileRequest : IRequest<GetProfileRequestParameters> { }
+    public partial interface IGetProfileRequest : IRequest<GetProfileRequestParameters>
+    {
+    }
 
     /// <summary>Request for GetProfile</summary>
-    public partial class GetProfileRequest
-        : PlainRequestBase<GetProfileRequestParameters>,
-            IGetProfileRequest
+    public partial class GetProfileRequest : PlainRequestBase<GetProfileRequestParameters>, IGetProfileRequest
     {
         protected IGetProfileRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetProfile;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -1220,13 +1110,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetProfileModels;
 
         /// <summary>/_plugins/_ml/profile/models</summary>
-        public GetProfileModelsRequest()
-            : base() { }
+        public GetProfileModelsRequest() : base() { }
 
         /// <summary>/_plugins/_ml/profile/models/{model_id}</summary>
         /// <param name="modelId">Optional, accepts null</param>
-        public GetProfileModelsRequest(Id modelId)
-            : base(r => r.Optional("model_id", modelId)) { }
+        public GetProfileModelsRequest(Id modelId) : base(r => r.Optional("model_id", modelId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1251,13 +1139,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetProfileTasks;
 
         /// <summary>/_plugins/_ml/profile/tasks</summary>
-        public GetProfileTasksRequest()
-            : base() { }
+        public GetProfileTasksRequest() : base() { }
 
         /// <summary>/_plugins/_ml/profile/tasks/{task_id}</summary>
         /// <param name="taskId">Optional, accepts null</param>
-        public GetProfileTasksRequest(Id taskId)
-            : base(r => r.Optional("task_id", taskId)) { }
+        public GetProfileTasksRequest(Id taskId) : base(r => r.Optional("task_id", taskId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1277,32 +1163,26 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetStats</summary>
-    public partial class GetStatsRequest
-        : PlainRequestBase<GetStatsRequestParameters>,
-            IGetStatsRequest
+    public partial class GetStatsRequest : PlainRequestBase<GetStatsRequestParameters>, IGetStatsRequest
     {
         protected IGetStatsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetStats;
 
         /// <summary>/_plugins/_ml/stats</summary>
-        public GetStatsRequest()
-            : base() { }
+        public GetStatsRequest() : base() { }
 
         /// <summary>/_plugins/_ml/stats/{stat}</summary>
         /// <param name="stat">Optional, accepts null</param>
-        public GetStatsRequest(Name stat)
-            : base(r => r.Optional("stat", stat)) { }
+        public GetStatsRequest(Name stat) : base(r => r.Optional("stat", stat)) { }
 
         /// <summary>/_plugins/_ml/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="stat">Optional, accepts null</param>
-        public GetStatsRequest(Name nodeId, Name stat)
-            : base(r => r.Optional("node_id", nodeId).Optional("stat", stat)) { }
+        public GetStatsRequest(Name nodeId, Name stat) : base(r => r.Optional("node_id", nodeId).Optional("stat", stat)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IGetStatsRequest.NodeId => Self.RouteValues.Get<Name>("node_id");
-
         [IgnoreDataMember]
         Name IGetStatsRequest.Stat => Self.RouteValues.Get<Name>("stat");
 
@@ -1317,22 +1197,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetMLTask</summary>
-    public partial class GetMLTaskRequest
-        : PlainRequestBase<GetTaskRequestParameters>,
-            IGetMLTaskRequest
+    public partial class GetMLTaskRequest : PlainRequestBase<GetTaskRequestParameters>, IGetMLTaskRequest
     {
         protected IGetMLTaskRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMLTask;
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetMLTaskRequest(Id taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public GetMLTaskRequest(Id taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMLTaskRequest()
-            : base() { }
+        protected GetMLTaskRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1349,22 +1225,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetTool</summary>
-    public partial class GetToolRequest
-        : PlainRequestBase<GetToolRequestParameters>,
-            IGetToolRequest
+    public partial class GetToolRequest : PlainRequestBase<GetToolRequestParameters>, IGetToolRequest
     {
         protected IGetToolRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetTool;
 
         /// <summary>/_plugins/_ml/tools/{tool_name}</summary>
         /// <param name="toolName">this parameter is required</param>
-        public GetToolRequest(Name toolName)
-            : base(r => r.Required("tool_name", toolName)) { }
+        public GetToolRequest(Name toolName) : base(r => r.Required("tool_name", toolName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetToolRequest()
-            : base() { }
+        protected GetToolRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1374,17 +1246,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ILoadModelRequest : IRequest<LoadModelRequestParameters> { }
+    public partial interface ILoadModelRequest : IRequest<LoadModelRequestParameters>
+    {
+    }
 
     /// <summary>Request for LoadModel</summary>
-    public partial class LoadModelRequest
-        : PlainRequestBase<LoadModelRequestParameters>,
-            ILoadModelRequest
+    public partial class LoadModelRequest : PlainRequestBase<LoadModelRequestParameters>, ILoadModelRequest
     {
         protected ILoadModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlLoadModel;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -1399,9 +1271,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Predict</summary>
-    public partial class PredictRequest
-        : PlainRequestBase<PredictRequestParameters>,
-            IPredictRequest
+    public partial class PredictRequest : PlainRequestBase<PredictRequestParameters>, IPredictRequest
     {
         protected IPredictRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlPredict;
@@ -1409,19 +1279,15 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/_predict/{algorithm_name}/{model_id}</summary>
         /// <param name="algorithmName">this parameter is required</param>
         /// <param name="modelId">this parameter is required</param>
-        public PredictRequest(Name algorithmName, Id modelId)
-            : base(r => r.Required("algorithm_name", algorithmName).Required("model_id", modelId))
-        { }
+        public PredictRequest(Name algorithmName, Id modelId) : base(r => r.Required("algorithm_name", algorithmName).Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PredictRequest()
-            : base() { }
+        protected PredictRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IPredictRequest.AlgorithmName => Self.RouteValues.Get<Name>("algorithm_name");
-
         [IgnoreDataMember]
         Id IPredictRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
 
@@ -1436,22 +1302,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for PredictModel</summary>
-    public partial class PredictModelRequest
-        : PlainRequestBase<PredictModelRequestParameters>,
-            IPredictModelRequest
+    public partial class PredictModelRequest : PlainRequestBase<PredictModelRequestParameters>, IPredictModelRequest
     {
         protected IPredictModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlPredictModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}/_predict</summary>
         /// <param name="modelId">this parameter is required</param>
-        public PredictModelRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public PredictModelRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PredictModelRequest()
-            : base() { }
+        protected PredictModelRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1461,7 +1323,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IRegisterAgentsRequest : IRequest<RegisterAgentsRequestParameters> { }
+    public partial interface IRegisterAgentsRequest : IRequest<RegisterAgentsRequestParameters>
+    {
+    }
 
     /// <summary>Request for RegisterAgents</summary>
     public partial class RegisterAgentsRequest
@@ -1470,29 +1334,30 @@ namespace OpenSearch.Client
     {
         protected IRegisterAgentsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterAgents;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IRegisterModelRequest : IRequest<RegisterModelRequestParameters> { }
+    public partial interface IRegisterModelRequest : IRequest<RegisterModelRequestParameters>
+    {
+    }
 
     /// <summary>Request for RegisterModel</summary>
-    public partial class RegisterModelRequest
-        : PlainRequestBase<RegisterModelRequestParameters>,
-            IRegisterModelRequest
+    public partial class RegisterModelRequest : PlainRequestBase<RegisterModelRequestParameters>, IRegisterModelRequest
     {
         protected IRegisterModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterModel;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IRegisterModelGroupRequest
-        : IRequest<RegisterModelGroupRequestParameters> { }
+    public partial interface IRegisterModelGroupRequest : IRequest<RegisterModelGroupRequestParameters>
+    {
+    }
 
     /// <summary>Request for RegisterModelGroup</summary>
     public partial class RegisterModelGroupRequest
@@ -1501,14 +1366,15 @@ namespace OpenSearch.Client
     {
         protected IRegisterModelGroupRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterModelGroup;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IRegisterModelMetaRequest
-        : IRequest<RegisterModelMetaRequestParameters> { }
+    public partial interface IRegisterModelMetaRequest : IRequest<RegisterModelMetaRequestParameters>
+    {
+    }
 
     /// <summary>Request for RegisterModelMeta</summary>
     public partial class RegisterModelMetaRequest
@@ -1517,14 +1383,13 @@ namespace OpenSearch.Client
     {
         protected IRegisterModelMetaRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterModelMeta;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchAgenticMemoryRequest
-        : IRequest<SearchAgenticMemoryRequestParameters>
+    public partial interface ISearchAgenticMemoryRequest : IRequest<SearchAgenticMemoryRequestParameters>
     {
         [IgnoreDataMember]
         Id MemoryContainerId { get; }
@@ -1544,20 +1409,15 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_search</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
-        public SearchAgenticMemoryRequest(Id memoryContainerId, Name type)
-            : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type))
-        { }
+        public SearchAgenticMemoryRequest(Id memoryContainerId, Name type) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SearchAgenticMemoryRequest()
-            : base() { }
+        protected SearchAgenticMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id ISearchAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
-
+        Id ISearchAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         [IgnoreDataMember]
         Name ISearchAgenticMemoryRequest.Type => Self.RouteValues.Get<Name>("type");
 
@@ -1565,23 +1425,24 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchAgentsRequest : IRequest<SearchAgentsRequestParameters> { }
+    public partial interface ISearchAgentsRequest : IRequest<SearchAgentsRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchAgents</summary>
-    public partial class SearchAgentsRequest
-        : PlainRequestBase<SearchAgentsRequestParameters>,
-            ISearchAgentsRequest
+    public partial class SearchAgentsRequest : PlainRequestBase<SearchAgentsRequestParameters>, ISearchAgentsRequest
     {
         protected ISearchAgentsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchAgents;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchConnectorsRequest
-        : IRequest<SearchConnectorsRequestParameters> { }
+    public partial interface ISearchConnectorsRequest : IRequest<SearchConnectorsRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchConnectors</summary>
     public partial class SearchConnectorsRequest
@@ -1590,29 +1451,30 @@ namespace OpenSearch.Client
     {
         protected ISearchConnectorsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchConnectors;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchMemoryRequest : IRequest<SearchMemoryRequestParameters> { }
+    public partial interface ISearchMemoryRequest : IRequest<SearchMemoryRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchMemory</summary>
-    public partial class SearchMemoryRequest
-        : PlainRequestBase<SearchMemoryRequestParameters>,
-            ISearchMemoryRequest
+    public partial class SearchMemoryRequest : PlainRequestBase<SearchMemoryRequestParameters>, ISearchMemoryRequest
     {
         protected ISearchMemoryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchMemory;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchMemoryContainerRequest
-        : IRequest<SearchMemoryContainerRequestParameters> { }
+    public partial interface ISearchMemoryContainerRequest : IRequest<SearchMemoryContainerRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchMemoryContainer</summary>
     public partial class SearchMemoryContainerRequest
@@ -1621,8 +1483,8 @@ namespace OpenSearch.Client
     {
         protected ISearchMemoryContainerRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchMemoryContainer;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -1634,22 +1496,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for SearchMessage</summary>
-    public partial class SearchMessageRequest
-        : PlainRequestBase<SearchMessageRequestParameters>,
-            ISearchMessageRequest
+    public partial class SearchMessageRequest : PlainRequestBase<SearchMessageRequestParameters>, ISearchMessageRequest
     {
         protected ISearchMessageRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchMessage;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}/_search</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public SearchMessageRequest(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public SearchMessageRequest(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SearchMessageRequest()
-            : base() { }
+        protected SearchMessageRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1659,8 +1517,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchModelGroupRequest
-        : IRequest<SearchModelGroupRequestParameters> { }
+    public partial interface ISearchModelGroupRequest : IRequest<SearchModelGroupRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchModelGroup</summary>
     public partial class SearchModelGroupRequest
@@ -1669,38 +1528,38 @@ namespace OpenSearch.Client
     {
         protected ISearchModelGroupRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchModelGroup;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchModelsRequest : IRequest<SearchModelsRequestParameters> { }
+    public partial interface ISearchModelsRequest : IRequest<SearchModelsRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchModels</summary>
-    public partial class SearchModelsRequest
-        : PlainRequestBase<SearchModelsRequestParameters>,
-            ISearchModelsRequest
+    public partial class SearchModelsRequest : PlainRequestBase<SearchModelsRequestParameters>, ISearchModelsRequest
     {
         protected ISearchModelsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchModels;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface ISearchTasksRequest : IRequest<SearchTasksRequestParameters> { }
+    public partial interface ISearchTasksRequest : IRequest<SearchTasksRequestParameters>
+    {
+    }
 
     /// <summary>Request for SearchTasks</summary>
-    public partial class SearchTasksRequest
-        : PlainRequestBase<SearchTasksRequestParameters>,
-            ISearchTasksRequest
+    public partial class SearchTasksRequest : PlainRequestBase<SearchTasksRequestParameters>, ISearchTasksRequest
     {
         protected ISearchTasksRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchTasks;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -1719,13 +1578,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/_train/{algorithm_name}</summary>
         /// <param name="algorithmName">this parameter is required</param>
-        public TrainRequest(Name algorithmName)
-            : base(r => r.Required("algorithm_name", algorithmName)) { }
+        public TrainRequest(Name algorithmName) : base(r => r.Required("algorithm_name", algorithmName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected TrainRequest()
-            : base() { }
+        protected TrainRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1742,22 +1599,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for TrainPredict</summary>
-    public partial class TrainPredictRequest
-        : PlainRequestBase<TrainPredictRequestParameters>,
-            ITrainPredictRequest
+    public partial class TrainPredictRequest : PlainRequestBase<TrainPredictRequestParameters>, ITrainPredictRequest
     {
         protected ITrainPredictRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlTrainPredict;
 
         /// <summary>/_plugins/_ml/_train_predict/{algorithm_name}</summary>
         /// <param name="algorithmName">this parameter is required</param>
-        public TrainPredictRequest(Name algorithmName)
-            : base(r => r.Required("algorithm_name", algorithmName)) { }
+        public TrainPredictRequest(Name algorithmName) : base(r => r.Required("algorithm_name", algorithmName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected TrainPredictRequest()
-            : base() { }
+        protected TrainPredictRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1774,21 +1627,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for UndeployModel</summary>
-    public partial class UndeployModelRequest
-        : PlainRequestBase<UndeployModelRequestParameters>,
-            IUndeployModelRequest
+    public partial class UndeployModelRequest : PlainRequestBase<UndeployModelRequestParameters>, IUndeployModelRequest
     {
         protected IUndeployModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUndeployModel;
 
         /// <summary>/_plugins/_ml/models/_undeploy</summary>
-        public UndeployModelRequest()
-            : base() { }
+        public UndeployModelRequest() : base() { }
 
         /// <summary>/_plugins/_ml/models/{model_id}/_undeploy</summary>
         /// <param name="modelId">Optional, accepts null</param>
-        public UndeployModelRequest(Id modelId)
-            : base(r => r.Optional("model_id", modelId)) { }
+        public UndeployModelRequest(Id modelId) : base(r => r.Optional("model_id", modelId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1798,23 +1647,22 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IUnloadModelRequest : IRequest<UnloadModelRequestParameters> { }
+    public partial interface IUnloadModelRequest : IRequest<UnloadModelRequestParameters>
+    {
+    }
 
     /// <summary>Request for UnloadModel</summary>
-    public partial class UnloadModelRequest
-        : PlainRequestBase<UnloadModelRequestParameters>,
-            IUnloadModelRequest
+    public partial class UnloadModelRequest : PlainRequestBase<UnloadModelRequestParameters>, IUnloadModelRequest
     {
         protected IUnloadModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUnloadModel;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IUpdateAgenticMemoryRequest
-        : IRequest<UpdateAgenticMemoryRequestParameters>
+    public partial interface IUpdateAgenticMemoryRequest : IRequest<UpdateAgenticMemoryRequestParameters>
     {
         [IgnoreDataMember]
         Id Id { get; }
@@ -1838,26 +1686,17 @@ namespace OpenSearch.Client
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public UpdateAgenticMemoryRequest(Id memoryContainerId, Names type, Id id)
-            : base(r =>
-                r.Required("memory_container_id", memoryContainerId)
-                    .Required("type", type)
-                    .Required("id", id)
-            ) { }
+        public UpdateAgenticMemoryRequest(Id memoryContainerId, Names type, Id id) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateAgenticMemoryRequest()
-            : base() { }
+        protected UpdateAgenticMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IUpdateAgenticMemoryRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
-        Id IUpdateAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
-
+        Id IUpdateAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         [IgnoreDataMember]
         Names IUpdateAgenticMemoryRequest.Type => Self.RouteValues.Get<Names>("type");
 
@@ -1881,13 +1720,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId">this parameter is required</param>
-        public UpdateConnectorRequest(Id connectorId)
-            : base(r => r.Required("connector_id", connectorId)) { }
+        public UpdateConnectorRequest(Id connectorId) : base(r => r.Required("connector_id", connectorId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateConnectorRequest()
-            : base() { }
+        protected UpdateConnectorRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1913,13 +1750,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public UpdateControllerRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public UpdateControllerRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateControllerRequest()
-            : base() { }
+        protected UpdateControllerRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1936,22 +1771,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for UpdateMemory</summary>
-    public partial class UpdateMemoryRequest
-        : PlainRequestBase<UpdateMemoryRequestParameters>,
-            IUpdateMemoryRequest
+    public partial class UpdateMemoryRequest : PlainRequestBase<UpdateMemoryRequestParameters>, IUpdateMemoryRequest
     {
         protected IUpdateMemoryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateMemory;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public UpdateMemoryRequest(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public UpdateMemoryRequest(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateMemoryRequest()
-            : base() { }
+        protected UpdateMemoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1961,8 +1792,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IUpdateMemoryContainerRequest
-        : IRequest<UpdateMemoryContainerRequestParameters>
+    public partial interface IUpdateMemoryContainerRequest : IRequest<UpdateMemoryContainerRequestParameters>
     {
         [IgnoreDataMember]
         Id MemoryContainerId { get; }
@@ -1978,18 +1808,15 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public UpdateMemoryContainerRequest(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public UpdateMemoryContainerRequest(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateMemoryContainerRequest()
-            : base() { }
+        protected UpdateMemoryContainerRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IUpdateMemoryContainerRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IUpdateMemoryContainerRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
 
         // Request parameters
     }
@@ -2002,22 +1829,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for UpdateMessage</summary>
-    public partial class UpdateMessageRequest
-        : PlainRequestBase<UpdateMessageRequestParameters>,
-            IUpdateMessageRequest
+    public partial class UpdateMessageRequest : PlainRequestBase<UpdateMessageRequestParameters>, IUpdateMessageRequest
     {
         protected IUpdateMessageRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateMessage;
 
         /// <summary>/_plugins/_ml/memory/message/{message_id}</summary>
         /// <param name="messageId">this parameter is required</param>
-        public UpdateMessageRequest(Id messageId)
-            : base(r => r.Required("message_id", messageId)) { }
+        public UpdateMessageRequest(Id messageId) : base(r => r.Required("message_id", messageId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateMessageRequest()
-            : base() { }
+        protected UpdateMessageRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2034,22 +1857,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for UpdateModel</summary>
-    public partial class UpdateModelRequest
-        : PlainRequestBase<UpdateModelRequestParameters>,
-            IUpdateModelRequest
+    public partial class UpdateModelRequest : PlainRequestBase<UpdateModelRequestParameters>, IUpdateModelRequest
     {
         protected IUpdateModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public UpdateModelRequest(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public UpdateModelRequest(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateModelRequest()
-            : base() { }
+        protected UpdateModelRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2075,13 +1894,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/model_groups/{model_group_id}</summary>
         /// <param name="modelGroupId">this parameter is required</param>
-        public UpdateModelGroupRequest(Id modelGroupId)
-            : base(r => r.Required("model_group_id", modelGroupId)) { }
+        public UpdateModelGroupRequest(Id modelGroupId) : base(r => r.Required("model_group_id", modelGroupId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateModelGroupRequest()
-            : base() { }
+        protected UpdateModelGroupRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2101,9 +1918,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for UploadChunk</summary>
-    public partial class UploadChunkRequest
-        : PlainRequestBase<UploadChunkRequestParameters>,
-            IUploadChunkRequest
+    public partial class UploadChunkRequest : PlainRequestBase<UploadChunkRequestParameters>, IUploadChunkRequest
     {
         protected IUploadChunkRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUploadChunk;
@@ -2111,21 +1926,15 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/models/{model_id}/upload_chunk/{chunk_number}</summary>
         /// <param name="modelId">this parameter is required</param>
         /// <param name="chunkNumber">this parameter is required</param>
-        public UploadChunkRequest(Id modelId, long? chunkNumber)
-            : base(r =>
-                r.Required("model_id", modelId)
-                    .Required("chunk_number", (Name)(chunkNumber?.ToString()))
-            ) { }
+        public UploadChunkRequest(Id modelId, long? chunkNumber) : base(r => r.Required("model_id", modelId).Required("chunk_number", (Name)(chunkNumber?.ToString()))) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UploadChunkRequest()
-            : base() { }
+        protected UploadChunkRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         long? IUploadChunkRequest.ChunkNumber => Self.RouteValues.Get<long?>("chunk_number");
-
         [IgnoreDataMember]
         Id IUploadChunkRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
 
@@ -2133,17 +1942,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IUploadModelRequest : IRequest<UploadModelRequestParameters> { }
+    public partial interface IUploadModelRequest : IRequest<UploadModelRequestParameters>
+    {
+    }
 
     /// <summary>Request for UploadModel</summary>
-    public partial class UploadModelRequest
-        : PlainRequestBase<UploadModelRequestParameters>,
-            IUploadModelRequest
+    public partial class UploadModelRequest : PlainRequestBase<UploadModelRequestParameters>, IUploadModelRequest
     {
         protected IUploadModelRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUploadModel;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 }

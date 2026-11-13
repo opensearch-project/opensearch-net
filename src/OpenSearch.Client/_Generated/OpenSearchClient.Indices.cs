@@ -201,10 +201,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
-        Task<CloneIndexResponse> CloneAsync(
-            ICloneIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<CloneIndexResponse> CloneAsync(ICloneIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
@@ -239,10 +236,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
-        Task<CloseIndexResponse> CloseAsync(
-            ICloseIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<CloseIndexResponse> CloseAsync(ICloseIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
@@ -277,10 +271,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
-        Task<CreateIndexResponse> CreateAsync(
-            ICreateIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<CreateIndexResponse> CreateAsync(ICreateIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
@@ -315,10 +306,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
-        Task<DeleteIndexResponse> DeleteAsync(
-            IDeleteIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<DeleteIndexResponse> DeleteAsync(IDeleteIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
@@ -367,10 +355,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
             Name name,
-            Func<
-                DeleteComposableIndexTemplateDescriptor,
-                IDeleteComposableIndexTemplateRequest
-            > selector = null
+            Func<DeleteComposableIndexTemplateDescriptor, IDeleteComposableIndexTemplateRequest> selector = null
         );
 
         /// <summary>
@@ -380,10 +365,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
             Name name,
-            Func<
-                DeleteComposableIndexTemplateDescriptor,
-                IDeleteComposableIndexTemplateRequest
-            > selector = null,
+            Func<DeleteComposableIndexTemplateDescriptor, IDeleteComposableIndexTemplateRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -477,10 +459,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
-        Task<ExistsResponse> ExistsAsync(
-            IIndexExistsRequest request,
-            CancellationToken ct = default
-        );
+        Task<ExistsResponse> ExistsAsync(IIndexExistsRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
@@ -515,10 +494,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        Task<ExistsResponse> AliasExistsAsync(
-            IAliasExistsRequest request,
-            CancellationToken ct = default
-        );
+        Task<ExistsResponse> AliasExistsAsync(IAliasExistsRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
@@ -527,10 +503,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         ExistsResponse ComposableTemplateExists(
             Name name,
-            Func<
-                ComposableIndexTemplateExistsDescriptor,
-                IComposableIndexTemplateExistsRequest
-            > selector = null
+            Func<ComposableIndexTemplateExistsDescriptor, IComposableIndexTemplateExistsRequest> selector = null
         );
 
         /// <summary>
@@ -540,10 +513,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         Task<ExistsResponse> ComposableTemplateExistsAsync(
             Name name,
-            Func<
-                ComposableIndexTemplateExistsDescriptor,
-                IComposableIndexTemplateExistsRequest
-            > selector = null,
+            Func<ComposableIndexTemplateExistsDescriptor, IComposableIndexTemplateExistsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -607,10 +577,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        FlushResponse Flush(
-            Indices index = null,
-            Func<FlushDescriptor, IFlushRequest> selector = null
-        );
+        FlushResponse Flush(Indices index = null, Func<FlushDescriptor, IFlushRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
@@ -680,10 +647,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
-        GetIndexResponse Get(
-            Indices index,
-            Func<GetIndexDescriptor, IGetIndexRequest> selector = null
-        );
+        GetIndexResponse Get(Indices index, Func<GetIndexDescriptor, IGetIndexRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
@@ -743,10 +707,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
-        Task<GetAliasResponse> GetAliasAsync(
-            IGetAliasRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetAliasResponse> GetAliasAsync(IGetAliasRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
@@ -795,10 +756,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         GetComposableIndexTemplateResponse GetComposableTemplate(
             Name name = null,
-            Func<
-                GetComposableIndexTemplateDescriptor,
-                IGetComposableIndexTemplateRequest
-            > selector = null
+            Func<GetComposableIndexTemplateDescriptor, IGetComposableIndexTemplateRequest> selector = null
         );
 
         /// <summary>
@@ -808,10 +766,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
             Name name = null,
-            Func<
-                GetComposableIndexTemplateDescriptor,
-                IGetComposableIndexTemplateRequest
-            > selector = null,
+            Func<GetComposableIndexTemplateDescriptor, IGetComposableIndexTemplateRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -953,10 +908,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
-        OpenIndexResponse Open(
-            Indices index,
-            Func<OpenIndexDescriptor, IOpenIndexRequest> selector = null
-        );
+        OpenIndexResponse Open(Indices index, Func<OpenIndexDescriptor, IOpenIndexRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
@@ -981,10 +933,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
-        Task<OpenIndexResponse> OpenAsync(
-            IOpenIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<OpenIndexResponse> OpenAsync(IOpenIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
@@ -1019,10 +968,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
-        Task<PutAliasResponse> PutAliasAsync(
-            IPutAliasRequest request,
-            CancellationToken ct = default
-        );
+        Task<PutAliasResponse> PutAliasAsync(IPutAliasRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
@@ -1324,10 +1270,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
-        Task<ShrinkIndexResponse> ShrinkAsync(
-            IShrinkIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<ShrinkIndexResponse> ShrinkAsync(IShrinkIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
@@ -1364,10 +1307,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
-        Task<SplitIndexResponse> SplitAsync(
-            ISplitIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<SplitIndexResponse> SplitAsync(ISplitIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
@@ -1402,10 +1342,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        Task<IndicesStatsResponse> StatsAsync(
-            IIndicesStatsRequest request,
-            CancellationToken ct = default
-        );
+        Task<IndicesStatsResponse> StatsAsync(IIndicesStatsRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
@@ -1436,10 +1373,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
-        Task<BulkAliasResponse> BulkAliasAsync(
-            IBulkAliasRequest request,
-            CancellationToken ct = default
-        );
+        Task<BulkAliasResponse> BulkAliasAsync(IBulkAliasRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
@@ -1488,8 +1422,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
     /// </summary>
     public partial class IndicesNamespace : NamespacedClientProxy, IIndicesNamespace
     {
-        internal IndicesNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal IndicesNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
@@ -1501,9 +1434,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IndexBlock block,
             Func<AddIndexBlockDescriptor, IAddIndexBlockRequest> selector = null
         ) =>
-            AddBlock(
-                selector.InvokeOrDefault(new AddIndexBlockDescriptor(index: index, block: block))
-            );
+            AddBlock(selector.InvokeOrDefault(new AddIndexBlockDescriptor(index: index, block: block)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
@@ -1516,10 +1447,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<AddIndexBlockDescriptor, IAddIndexBlockRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            AddBlockAsync(
-                selector.InvokeOrDefault(new AddIndexBlockDescriptor(index: index, block: block)),
-                ct
-            );
+            AddBlockAsync(selector.InvokeOrDefault(new AddIndexBlockDescriptor(index: index, block: block)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
@@ -1527,10 +1455,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public AddIndexBlockResponse AddBlock(IAddIndexBlockRequest request) =>
-            DoRequest<IAddIndexBlockRequest, AddIndexBlockResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IAddIndexBlockRequest, AddIndexBlockResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
@@ -1541,11 +1466,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IAddIndexBlockRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IAddIndexBlockRequest, AddIndexBlockResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IAddIndexBlockRequest, AddIndexBlockResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
@@ -1563,7 +1484,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public Task<AnalyzeResponse> AnalyzeAsync(
             Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null,
             CancellationToken ct = default
-        ) => AnalyzeAsync(selector.InvokeOrDefault(new AnalyzeDescriptor()), ct);
+        ) =>
+            AnalyzeAsync(selector.InvokeOrDefault(new AnalyzeDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
@@ -1578,15 +1500,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
-        public Task<AnalyzeResponse> AnalyzeAsync(
-            IAnalyzeRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IAnalyzeRequest, AnalyzeResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<AnalyzeResponse> AnalyzeAsync(IAnalyzeRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IAnalyzeRequest, AnalyzeResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
@@ -1596,7 +1511,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public ClearCacheResponse ClearCache(
             Indices index = null,
             Func<ClearCacheDescriptor, IClearCacheRequest> selector = null
-        ) => ClearCache(selector.InvokeOrDefault(new ClearCacheDescriptor().Index(index: index)));
+        ) =>
+            ClearCache(selector.InvokeOrDefault(new ClearCacheDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
@@ -1608,10 +1524,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<ClearCacheDescriptor, IClearCacheRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ClearCacheAsync(
-                selector.InvokeOrDefault(new ClearCacheDescriptor().Index(index: index)),
-                ct
-            );
+            ClearCacheAsync(selector.InvokeOrDefault(new ClearCacheDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
@@ -1630,11 +1543,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IClearCacheRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IClearCacheRequest, ClearCacheResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IClearCacheRequest, ClearCacheResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
@@ -1659,10 +1568,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<CloneIndexDescriptor, ICloneIndexRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            CloneAsync(
-                selector.InvokeOrDefault(new CloneIndexDescriptor(index: index, target: target)),
-                ct
-            );
+            CloneAsync(selector.InvokeOrDefault(new CloneIndexDescriptor(index: index, target: target)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
@@ -1677,15 +1583,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
-        public Task<CloneIndexResponse> CloneAsync(
-            ICloneIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<ICloneIndexRequest, CloneIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<CloneIndexResponse> CloneAsync(ICloneIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<ICloneIndexRequest, CloneIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
@@ -1695,7 +1594,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public CloseIndexResponse Close(
             Indices index,
             Func<CloseIndexDescriptor, ICloseIndexRequest> selector = null
-        ) => Close(selector.InvokeOrDefault(new CloseIndexDescriptor(index: index)));
+        ) =>
+            Close(selector.InvokeOrDefault(new CloseIndexDescriptor(index: index)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
@@ -1706,7 +1606,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index,
             Func<CloseIndexDescriptor, ICloseIndexRequest> selector = null,
             CancellationToken ct = default
-        ) => CloseAsync(selector.InvokeOrDefault(new CloseIndexDescriptor(index: index)), ct);
+        ) =>
+            CloseAsync(selector.InvokeOrDefault(new CloseIndexDescriptor(index: index)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
@@ -1721,15 +1622,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
-        public Task<CloseIndexResponse> CloseAsync(
-            ICloseIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<ICloseIndexRequest, CloseIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<CloseIndexResponse> CloseAsync(ICloseIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<ICloseIndexRequest, CloseIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
@@ -1739,7 +1633,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public CreateIndexResponse Create(
             IndexName index,
             Func<CreateIndexDescriptor, ICreateIndexRequest> selector = null
-        ) => Create(selector.InvokeOrDefault(new CreateIndexDescriptor(index: index)));
+        ) =>
+            Create(selector.InvokeOrDefault(new CreateIndexDescriptor(index: index)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
@@ -1750,7 +1645,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IndexName index,
             Func<CreateIndexDescriptor, ICreateIndexRequest> selector = null,
             CancellationToken ct = default
-        ) => CreateAsync(selector.InvokeOrDefault(new CreateIndexDescriptor(index: index)), ct);
+        ) =>
+            CreateAsync(selector.InvokeOrDefault(new CreateIndexDescriptor(index: index)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
@@ -1765,15 +1661,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
-        public Task<CreateIndexResponse> CreateAsync(
-            ICreateIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<ICreateIndexRequest, CreateIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<CreateIndexResponse> CreateAsync(ICreateIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<ICreateIndexRequest, CreateIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
@@ -1783,7 +1672,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public DeleteIndexResponse Delete(
             Indices index,
             Func<DeleteIndexDescriptor, IDeleteIndexRequest> selector = null
-        ) => Delete(selector.InvokeOrDefault(new DeleteIndexDescriptor(index: index)));
+        ) =>
+            Delete(selector.InvokeOrDefault(new DeleteIndexDescriptor(index: index)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
@@ -1794,7 +1684,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index,
             Func<DeleteIndexDescriptor, IDeleteIndexRequest> selector = null,
             CancellationToken ct = default
-        ) => DeleteAsync(selector.InvokeOrDefault(new DeleteIndexDescriptor(index: index)), ct);
+        ) =>
+            DeleteAsync(selector.InvokeOrDefault(new DeleteIndexDescriptor(index: index)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
@@ -1809,15 +1700,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
-        public Task<DeleteIndexResponse> DeleteAsync(
-            IDeleteIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IDeleteIndexRequest, DeleteIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<DeleteIndexResponse> DeleteAsync(IDeleteIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IDeleteIndexRequest, DeleteIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
@@ -1829,9 +1713,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Names name,
             Func<DeleteAliasDescriptor, IDeleteAliasRequest> selector = null
         ) =>
-            DeleteAlias(
-                selector.InvokeOrDefault(new DeleteAliasDescriptor(index: index, name: name))
-            );
+            DeleteAlias(selector.InvokeOrDefault(new DeleteAliasDescriptor(index: index, name: name)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
@@ -1844,10 +1726,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<DeleteAliasDescriptor, IDeleteAliasRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteAliasAsync(
-                selector.InvokeOrDefault(new DeleteAliasDescriptor(index: index, name: name)),
-                ct
-            );
+            DeleteAliasAsync(selector.InvokeOrDefault(new DeleteAliasDescriptor(index: index, name: name)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
@@ -1866,11 +1745,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IDeleteAliasRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteAliasRequest, DeleteAliasResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteAliasRequest, DeleteAliasResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
@@ -1879,14 +1754,9 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         public DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
             Name name,
-            Func<
-                DeleteComposableIndexTemplateDescriptor,
-                IDeleteComposableIndexTemplateRequest
-            > selector = null
+            Func<DeleteComposableIndexTemplateDescriptor, IDeleteComposableIndexTemplateRequest> selector = null
         ) =>
-            DeleteComposableTemplate(
-                selector.InvokeOrDefault(new DeleteComposableIndexTemplateDescriptor(name: name))
-            );
+            DeleteComposableTemplate(selector.InvokeOrDefault(new DeleteComposableIndexTemplateDescriptor(name: name)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
@@ -1895,16 +1765,10 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         public Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
             Name name,
-            Func<
-                DeleteComposableIndexTemplateDescriptor,
-                IDeleteComposableIndexTemplateRequest
-            > selector = null,
+            Func<DeleteComposableIndexTemplateDescriptor, IDeleteComposableIndexTemplateRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteComposableTemplateAsync(
-                selector.InvokeOrDefault(new DeleteComposableIndexTemplateDescriptor(name: name)),
-                ct
-            );
+            DeleteComposableTemplateAsync(selector.InvokeOrDefault(new DeleteComposableIndexTemplateDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
@@ -1914,10 +1778,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
             IDeleteComposableIndexTemplateRequest request
         ) =>
-            DoRequest<IDeleteComposableIndexTemplateRequest, DeleteComposableIndexTemplateResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteComposableIndexTemplateRequest, DeleteComposableIndexTemplateResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
@@ -1928,10 +1789,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IDeleteComposableIndexTemplateRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<
-                IDeleteComposableIndexTemplateRequest,
-                DeleteComposableIndexTemplateResponse
-            >(request, request.RequestParameters, ct);
+            DoRequestAsync<IDeleteComposableIndexTemplateRequest, DeleteComposableIndexTemplateResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
@@ -1954,10 +1812,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<DeleteIndexTemplateDescriptor, IDeleteIndexTemplateRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteTemplateAsync(
-                selector.InvokeOrDefault(new DeleteIndexTemplateDescriptor(name: name)),
-                ct
-            );
+            DeleteTemplateAsync(selector.InvokeOrDefault(new DeleteIndexTemplateDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
@@ -1965,10 +1820,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public DeleteIndexTemplateResponse DeleteTemplate(IDeleteIndexTemplateRequest request) =>
-            DoRequest<IDeleteIndexTemplateRequest, DeleteIndexTemplateResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteIndexTemplateRequest, DeleteIndexTemplateResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
@@ -1979,11 +1831,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IDeleteIndexTemplateRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteIndexTemplateRequest, DeleteIndexTemplateResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteIndexTemplateRequest, DeleteIndexTemplateResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
@@ -1993,7 +1841,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public ExistsResponse Exists(
             Indices index,
             Func<IndexExistsDescriptor, IIndexExistsRequest> selector = null
-        ) => Exists(selector.InvokeOrDefault(new IndexExistsDescriptor(index: index)));
+        ) =>
+            Exists(selector.InvokeOrDefault(new IndexExistsDescriptor(index: index)));
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
@@ -2004,7 +1853,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index,
             Func<IndexExistsDescriptor, IIndexExistsRequest> selector = null,
             CancellationToken ct = default
-        ) => ExistsAsync(selector.InvokeOrDefault(new IndexExistsDescriptor(index: index)), ct);
+        ) =>
+            ExistsAsync(selector.InvokeOrDefault(new IndexExistsDescriptor(index: index)), ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
@@ -2019,15 +1869,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
-        public Task<ExistsResponse> ExistsAsync(
-            IIndexExistsRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IIndexExistsRequest, ExistsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<ExistsResponse> ExistsAsync(IIndexExistsRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IIndexExistsRequest, ExistsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
@@ -2037,7 +1880,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public ExistsResponse AliasExists(
             Names name,
             Func<AliasExistsDescriptor, IAliasExistsRequest> selector = null
-        ) => AliasExists(selector.InvokeOrDefault(new AliasExistsDescriptor(name: name)));
+        ) =>
+            AliasExists(selector.InvokeOrDefault(new AliasExistsDescriptor(name: name)));
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
@@ -2048,7 +1892,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Names name,
             Func<AliasExistsDescriptor, IAliasExistsRequest> selector = null,
             CancellationToken ct = default
-        ) => AliasExistsAsync(selector.InvokeOrDefault(new AliasExistsDescriptor(name: name)), ct);
+        ) =>
+            AliasExistsAsync(selector.InvokeOrDefault(new AliasExistsDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
@@ -2063,15 +1908,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        public Task<ExistsResponse> AliasExistsAsync(
-            IAliasExistsRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IAliasExistsRequest, ExistsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<ExistsResponse> AliasExistsAsync(IAliasExistsRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IAliasExistsRequest, ExistsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
@@ -2080,14 +1918,9 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         public ExistsResponse ComposableTemplateExists(
             Name name,
-            Func<
-                ComposableIndexTemplateExistsDescriptor,
-                IComposableIndexTemplateExistsRequest
-            > selector = null
+            Func<ComposableIndexTemplateExistsDescriptor, IComposableIndexTemplateExistsRequest> selector = null
         ) =>
-            ComposableTemplateExists(
-                selector.InvokeOrDefault(new ComposableIndexTemplateExistsDescriptor(name: name))
-            );
+            ComposableTemplateExists(selector.InvokeOrDefault(new ComposableIndexTemplateExistsDescriptor(name: name)));
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
@@ -2096,29 +1929,18 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         public Task<ExistsResponse> ComposableTemplateExistsAsync(
             Name name,
-            Func<
-                ComposableIndexTemplateExistsDescriptor,
-                IComposableIndexTemplateExistsRequest
-            > selector = null,
+            Func<ComposableIndexTemplateExistsDescriptor, IComposableIndexTemplateExistsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ComposableTemplateExistsAsync(
-                selector.InvokeOrDefault(new ComposableIndexTemplateExistsDescriptor(name: name)),
-                ct
-            );
+            ComposableTemplateExistsAsync(selector.InvokeOrDefault(new ComposableIndexTemplateExistsDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
-        public ExistsResponse ComposableTemplateExists(
-            IComposableIndexTemplateExistsRequest request
-        ) =>
-            DoRequest<IComposableIndexTemplateExistsRequest, ExistsResponse>(
-                request,
-                request.RequestParameters
-            );
+        public ExistsResponse ComposableTemplateExists(IComposableIndexTemplateExistsRequest request) =>
+            DoRequest<IComposableIndexTemplateExistsRequest, ExistsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
@@ -2129,11 +1951,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IComposableIndexTemplateExistsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IComposableIndexTemplateExistsRequest, ExistsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IComposableIndexTemplateExistsRequest, ExistsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
@@ -2156,10 +1974,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<IndexTemplateExistsDescriptor, IIndexTemplateExistsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            TemplateExistsAsync(
-                selector.InvokeOrDefault(new IndexTemplateExistsDescriptor(name: name)),
-                ct
-            );
+            TemplateExistsAsync(selector.InvokeOrDefault(new IndexTemplateExistsDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
@@ -2167,10 +1982,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ExistsResponse TemplateExists(IIndexTemplateExistsRequest request) =>
-            DoRequest<IIndexTemplateExistsRequest, ExistsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IIndexTemplateExistsRequest, ExistsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
@@ -2181,21 +1993,15 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IIndexTemplateExistsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IIndexTemplateExistsRequest, ExistsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IIndexTemplateExistsRequest, ExistsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        public FlushResponse Flush(
-            Indices index = null,
-            Func<FlushDescriptor, IFlushRequest> selector = null
-        ) => Flush(selector.InvokeOrDefault(new FlushDescriptor().Index(index: index)));
+        public FlushResponse Flush(Indices index = null, Func<FlushDescriptor, IFlushRequest> selector = null) =>
+            Flush(selector.InvokeOrDefault(new FlushDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
@@ -2206,7 +2012,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index = null,
             Func<FlushDescriptor, IFlushRequest> selector = null,
             CancellationToken ct = default
-        ) => FlushAsync(selector.InvokeOrDefault(new FlushDescriptor().Index(index: index)), ct);
+        ) =>
+            FlushAsync(selector.InvokeOrDefault(new FlushDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
@@ -2221,10 +2028,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        public Task<FlushResponse> FlushAsync(
-            IFlushRequest request,
-            CancellationToken ct = default
-        ) => DoRequestAsync<IFlushRequest, FlushResponse>(request, request.RequestParameters, ct);
+        public Task<FlushResponse> FlushAsync(IFlushRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IFlushRequest, FlushResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
@@ -2234,7 +2039,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public ForceMergeResponse ForceMerge(
             Indices index = null,
             Func<ForceMergeDescriptor, IForceMergeRequest> selector = null
-        ) => ForceMerge(selector.InvokeOrDefault(new ForceMergeDescriptor().Index(index: index)));
+        ) =>
+            ForceMerge(selector.InvokeOrDefault(new ForceMergeDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
@@ -2246,10 +2052,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<ForceMergeDescriptor, IForceMergeRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ForceMergeAsync(
-                selector.InvokeOrDefault(new ForceMergeDescriptor().Index(index: index)),
-                ct
-            );
+            ForceMergeAsync(selector.InvokeOrDefault(new ForceMergeDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
@@ -2268,21 +2071,15 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IForceMergeRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IForceMergeRequest, ForceMergeResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IForceMergeRequest, ForceMergeResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
-        public GetIndexResponse Get(
-            Indices index,
-            Func<GetIndexDescriptor, IGetIndexRequest> selector = null
-        ) => Get(selector.InvokeOrDefault(new GetIndexDescriptor(index: index)));
+        public GetIndexResponse Get(Indices index, Func<GetIndexDescriptor, IGetIndexRequest> selector = null) =>
+            Get(selector.InvokeOrDefault(new GetIndexDescriptor(index: index)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
@@ -2293,7 +2090,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index,
             Func<GetIndexDescriptor, IGetIndexRequest> selector = null,
             CancellationToken ct = default
-        ) => GetAsync(selector.InvokeOrDefault(new GetIndexDescriptor(index: index)), ct);
+        ) =>
+            GetAsync(selector.InvokeOrDefault(new GetIndexDescriptor(index: index)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
@@ -2308,15 +2106,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
-        public Task<GetIndexResponse> GetAsync(
-            IGetIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetIndexRequest, GetIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetIndexResponse> GetAsync(IGetIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetIndexRequest, GetIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
@@ -2326,7 +2117,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public GetAliasResponse GetAlias(
             Indices index = null,
             Func<GetAliasDescriptor, IGetAliasRequest> selector = null
-        ) => GetAlias(selector.InvokeOrDefault(new GetAliasDescriptor().Index(index: index)));
+        ) =>
+            GetAlias(selector.InvokeOrDefault(new GetAliasDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
@@ -2338,10 +2130,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<GetAliasDescriptor, IGetAliasRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetAliasAsync(
-                selector.InvokeOrDefault(new GetAliasDescriptor().Index(index: index)),
-                ct
-            );
+            GetAliasAsync(selector.InvokeOrDefault(new GetAliasDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
@@ -2356,15 +2145,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
-        public Task<GetAliasResponse> GetAliasAsync(
-            IGetAliasRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetAliasRequest, GetAliasResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetAliasResponse> GetAliasAsync(IGetAliasRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetAliasRequest, GetAliasResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
@@ -2376,9 +2158,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<GetFieldMappingDescriptor<TDocument>, IGetFieldMappingRequest> selector = null
         )
             where TDocument : class =>
-            GetFieldMapping(
-                selector.InvokeOrDefault(new GetFieldMappingDescriptor<TDocument>(fields: fields))
-            );
+            GetFieldMapping(selector.InvokeOrDefault(new GetFieldMappingDescriptor<TDocument>(fields: fields)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
@@ -2391,10 +2171,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             CancellationToken ct = default
         )
             where TDocument : class =>
-            GetFieldMappingAsync(
-                selector.InvokeOrDefault(new GetFieldMappingDescriptor<TDocument>(fields: fields)),
-                ct
-            );
+            GetFieldMappingAsync(selector.InvokeOrDefault(new GetFieldMappingDescriptor<TDocument>(fields: fields)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
@@ -2402,10 +2179,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         public GetFieldMappingResponse GetFieldMapping(IGetFieldMappingRequest request) =>
-            DoRequest<IGetFieldMappingRequest, GetFieldMappingResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetFieldMappingRequest, GetFieldMappingResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
@@ -2416,11 +2190,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IGetFieldMappingRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetFieldMappingRequest, GetFieldMappingResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetFieldMappingRequest, GetFieldMappingResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
@@ -2429,16 +2199,9 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         public GetComposableIndexTemplateResponse GetComposableTemplate(
             Name name = null,
-            Func<
-                GetComposableIndexTemplateDescriptor,
-                IGetComposableIndexTemplateRequest
-            > selector = null
+            Func<GetComposableIndexTemplateDescriptor, IGetComposableIndexTemplateRequest> selector = null
         ) =>
-            GetComposableTemplate(
-                selector.InvokeOrDefault(
-                    new GetComposableIndexTemplateDescriptor().Name(name: name)
-                )
-            );
+            GetComposableTemplate(selector.InvokeOrDefault(new GetComposableIndexTemplateDescriptor().Name(name: name)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
@@ -2447,18 +2210,10 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// </summary>
         public Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
             Name name = null,
-            Func<
-                GetComposableIndexTemplateDescriptor,
-                IGetComposableIndexTemplateRequest
-            > selector = null,
+            Func<GetComposableIndexTemplateDescriptor, IGetComposableIndexTemplateRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetComposableTemplateAsync(
-                selector.InvokeOrDefault(
-                    new GetComposableIndexTemplateDescriptor().Name(name: name)
-                ),
-                ct
-            );
+            GetComposableTemplateAsync(selector.InvokeOrDefault(new GetComposableIndexTemplateDescriptor().Name(name: name)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
@@ -2468,10 +2223,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public GetComposableIndexTemplateResponse GetComposableTemplate(
             IGetComposableIndexTemplateRequest request
         ) =>
-            DoRequest<IGetComposableIndexTemplateRequest, GetComposableIndexTemplateResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetComposableIndexTemplateRequest, GetComposableIndexTemplateResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
@@ -2482,11 +2234,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IGetComposableIndexTemplateRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetComposableIndexTemplateRequest, GetComposableIndexTemplateResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetComposableIndexTemplateRequest, GetComposableIndexTemplateResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
@@ -2528,11 +2276,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IGetMappingRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetMappingRequest, GetMappingResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetMappingRequest, GetMappingResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
@@ -2543,9 +2287,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index = null,
             Func<GetIndexSettingsDescriptor, IGetIndexSettingsRequest> selector = null
         ) =>
-            GetSettings(
-                selector.InvokeOrDefault(new GetIndexSettingsDescriptor().Index(index: index))
-            );
+            GetSettings(selector.InvokeOrDefault(new GetIndexSettingsDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
@@ -2557,10 +2299,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<GetIndexSettingsDescriptor, IGetIndexSettingsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetSettingsAsync(
-                selector.InvokeOrDefault(new GetIndexSettingsDescriptor().Index(index: index)),
-                ct
-            );
+            GetSettingsAsync(selector.InvokeOrDefault(new GetIndexSettingsDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
@@ -2568,10 +2307,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         public GetIndexSettingsResponse GetSettings(IGetIndexSettingsRequest request) =>
-            DoRequest<IGetIndexSettingsRequest, GetIndexSettingsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetIndexSettingsRequest, GetIndexSettingsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
@@ -2582,11 +2318,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IGetIndexSettingsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetIndexSettingsRequest, GetIndexSettingsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetIndexSettingsRequest, GetIndexSettingsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
@@ -2597,9 +2329,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Names name = null,
             Func<GetIndexTemplateDescriptor, IGetIndexTemplateRequest> selector = null
         ) =>
-            GetTemplate(
-                selector.InvokeOrDefault(new GetIndexTemplateDescriptor().Name(name: name))
-            );
+            GetTemplate(selector.InvokeOrDefault(new GetIndexTemplateDescriptor().Name(name: name)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
@@ -2611,10 +2341,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<GetIndexTemplateDescriptor, IGetIndexTemplateRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetTemplateAsync(
-                selector.InvokeOrDefault(new GetIndexTemplateDescriptor().Name(name: name)),
-                ct
-            );
+            GetTemplateAsync(selector.InvokeOrDefault(new GetIndexTemplateDescriptor().Name(name: name)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
@@ -2622,10 +2349,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GetIndexTemplateResponse GetTemplate(IGetIndexTemplateRequest request) =>
-            DoRequest<IGetIndexTemplateRequest, GetIndexTemplateResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetIndexTemplateRequest, GetIndexTemplateResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
@@ -2636,21 +2360,15 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IGetIndexTemplateRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetIndexTemplateRequest, GetIndexTemplateResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetIndexTemplateRequest, GetIndexTemplateResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
-        public OpenIndexResponse Open(
-            Indices index,
-            Func<OpenIndexDescriptor, IOpenIndexRequest> selector = null
-        ) => Open(selector.InvokeOrDefault(new OpenIndexDescriptor(index: index)));
+        public OpenIndexResponse Open(Indices index, Func<OpenIndexDescriptor, IOpenIndexRequest> selector = null) =>
+            Open(selector.InvokeOrDefault(new OpenIndexDescriptor(index: index)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
@@ -2661,7 +2379,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index,
             Func<OpenIndexDescriptor, IOpenIndexRequest> selector = null,
             CancellationToken ct = default
-        ) => OpenAsync(selector.InvokeOrDefault(new OpenIndexDescriptor(index: index)), ct);
+        ) =>
+            OpenAsync(selector.InvokeOrDefault(new OpenIndexDescriptor(index: index)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
@@ -2676,15 +2395,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
-        public Task<OpenIndexResponse> OpenAsync(
-            IOpenIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IOpenIndexRequest, OpenIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<OpenIndexResponse> OpenAsync(IOpenIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IOpenIndexRequest, OpenIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
@@ -2694,7 +2406,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public PutAliasResponse PutAlias(
             Indices index = null,
             Func<PutAliasDescriptor, IPutAliasRequest> selector = null
-        ) => PutAlias(selector.InvokeOrDefault(new PutAliasDescriptor().Index(index: index)));
+        ) =>
+            PutAlias(selector.InvokeOrDefault(new PutAliasDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
@@ -2706,10 +2419,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<PutAliasDescriptor, IPutAliasRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            PutAliasAsync(
-                selector.InvokeOrDefault(new PutAliasDescriptor().Index(index: index)),
-                ct
-            );
+            PutAliasAsync(selector.InvokeOrDefault(new PutAliasDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
@@ -2724,15 +2434,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
-        public Task<PutAliasResponse> PutAliasAsync(
-            IPutAliasRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IPutAliasRequest, PutAliasResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<PutAliasResponse> PutAliasAsync(IPutAliasRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IPutAliasRequest, PutAliasResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
@@ -2743,9 +2446,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Name name,
             Func<PutComposableIndexTemplateDescriptor, IPutComposableIndexTemplateRequest> selector
         ) =>
-            PutComposableTemplate(
-                selector.InvokeOrDefault(new PutComposableIndexTemplateDescriptor(name: name))
-            );
+            PutComposableTemplate(selector.InvokeOrDefault(new PutComposableIndexTemplateDescriptor(name: name)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
@@ -2757,10 +2458,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<PutComposableIndexTemplateDescriptor, IPutComposableIndexTemplateRequest> selector,
             CancellationToken ct = default
         ) =>
-            PutComposableTemplateAsync(
-                selector.InvokeOrDefault(new PutComposableIndexTemplateDescriptor(name: name)),
-                ct
-            );
+            PutComposableTemplateAsync(selector.InvokeOrDefault(new PutComposableIndexTemplateDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
@@ -2770,10 +2468,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             IPutComposableIndexTemplateRequest request
         ) =>
-            DoRequest<IPutComposableIndexTemplateRequest, PutComposableIndexTemplateResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPutComposableIndexTemplateRequest, PutComposableIndexTemplateResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
@@ -2784,11 +2479,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IPutComposableIndexTemplateRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutComposableIndexTemplateRequest, PutComposableIndexTemplateResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutComposableIndexTemplateRequest, PutComposableIndexTemplateResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
@@ -2830,11 +2521,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IPutMappingRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutMappingRequest, PutMappingResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutMappingRequest, PutMappingResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
@@ -2845,9 +2532,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Indices index,
             Func<UpdateIndexSettingsDescriptor, IUpdateIndexSettingsRequest> selector
         ) =>
-            UpdateSettings(
-                selector.InvokeOrDefault(new UpdateIndexSettingsDescriptor().Index(index: index))
-            );
+            UpdateSettings(selector.InvokeOrDefault(new UpdateIndexSettingsDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
@@ -2859,10 +2544,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<UpdateIndexSettingsDescriptor, IUpdateIndexSettingsRequest> selector,
             CancellationToken ct = default
         ) =>
-            UpdateSettingsAsync(
-                selector.InvokeOrDefault(new UpdateIndexSettingsDescriptor().Index(index: index)),
-                ct
-            );
+            UpdateSettingsAsync(selector.InvokeOrDefault(new UpdateIndexSettingsDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
@@ -2870,10 +2552,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         public UpdateIndexSettingsResponse UpdateSettings(IUpdateIndexSettingsRequest request) =>
-            DoRequest<IUpdateIndexSettingsRequest, UpdateIndexSettingsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IUpdateIndexSettingsRequest, UpdateIndexSettingsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
@@ -2884,11 +2563,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IUpdateIndexSettingsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateIndexSettingsRequest, UpdateIndexSettingsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateIndexSettingsRequest, UpdateIndexSettingsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
@@ -2898,7 +2573,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public PutIndexTemplateResponse PutTemplate(
             Name name,
             Func<PutIndexTemplateDescriptor, IPutIndexTemplateRequest> selector
-        ) => PutTemplate(selector.InvokeOrDefault(new PutIndexTemplateDescriptor(name: name)));
+        ) =>
+            PutTemplate(selector.InvokeOrDefault(new PutIndexTemplateDescriptor(name: name)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
@@ -2910,10 +2586,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<PutIndexTemplateDescriptor, IPutIndexTemplateRequest> selector,
             CancellationToken ct = default
         ) =>
-            PutTemplateAsync(
-                selector.InvokeOrDefault(new PutIndexTemplateDescriptor(name: name)),
-                ct
-            );
+            PutTemplateAsync(selector.InvokeOrDefault(new PutIndexTemplateDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
@@ -2921,10 +2594,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutIndexTemplateResponse PutTemplate(IPutIndexTemplateRequest request) =>
-            DoRequest<IPutIndexTemplateRequest, PutIndexTemplateResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPutIndexTemplateRequest, PutIndexTemplateResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
@@ -2935,11 +2605,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IPutIndexTemplateRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutIndexTemplateRequest, PutIndexTemplateResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutIndexTemplateRequest, PutIndexTemplateResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
@@ -2949,7 +2615,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public RefreshResponse Refresh(
             Indices index = null,
             Func<RefreshDescriptor, IRefreshRequest> selector = null
-        ) => Refresh(selector.InvokeOrDefault(new RefreshDescriptor().Index(index: index)));
+        ) =>
+            Refresh(selector.InvokeOrDefault(new RefreshDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
@@ -2976,15 +2643,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
-        public Task<RefreshResponse> RefreshAsync(
-            IRefreshRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IRefreshRequest, RefreshResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<RefreshResponse> RefreshAsync(IRefreshRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IRefreshRequest, RefreshResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
@@ -2994,7 +2654,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public ResolveIndexResponse Resolve(
             Names name,
             Func<ResolveIndexDescriptor, IResolveIndexRequest> selector = null
-        ) => Resolve(selector.InvokeOrDefault(new ResolveIndexDescriptor(name: name)));
+        ) =>
+            Resolve(selector.InvokeOrDefault(new ResolveIndexDescriptor(name: name)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
@@ -3005,7 +2666,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Names name,
             Func<ResolveIndexDescriptor, IResolveIndexRequest> selector = null,
             CancellationToken ct = default
-        ) => ResolveAsync(selector.InvokeOrDefault(new ResolveIndexDescriptor(name: name)), ct);
+        ) =>
+            ResolveAsync(selector.InvokeOrDefault(new ResolveIndexDescriptor(name: name)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
@@ -3013,10 +2675,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ResolveIndexResponse Resolve(IResolveIndexRequest request) =>
-            DoRequest<IResolveIndexRequest, ResolveIndexResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IResolveIndexRequest, ResolveIndexResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
@@ -3027,11 +2686,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IResolveIndexRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IResolveIndexRequest, ResolveIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IResolveIndexRequest, ResolveIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
@@ -3041,7 +2696,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public RolloverIndexResponse Rollover(
             Name alias,
             Func<RolloverIndexDescriptor, IRolloverIndexRequest> selector = null
-        ) => Rollover(selector.InvokeOrDefault(new RolloverIndexDescriptor(alias: alias)));
+        ) =>
+            Rollover(selector.InvokeOrDefault(new RolloverIndexDescriptor(alias: alias)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
@@ -3052,7 +2708,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Name alias,
             Func<RolloverIndexDescriptor, IRolloverIndexRequest> selector = null,
             CancellationToken ct = default
-        ) => RolloverAsync(selector.InvokeOrDefault(new RolloverIndexDescriptor(alias: alias)), ct);
+        ) =>
+            RolloverAsync(selector.InvokeOrDefault(new RolloverIndexDescriptor(alias: alias)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
@@ -3060,10 +2717,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         public RolloverIndexResponse Rollover(IRolloverIndexRequest request) =>
-            DoRequest<IRolloverIndexRequest, RolloverIndexResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IRolloverIndexRequest, RolloverIndexResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
@@ -3074,11 +2728,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IRolloverIndexRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IRolloverIndexRequest, RolloverIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IRolloverIndexRequest, RolloverIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
@@ -3090,9 +2740,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IndexName target,
             Func<ShrinkIndexDescriptor, IShrinkIndexRequest> selector = null
         ) =>
-            Shrink(
-                selector.InvokeOrDefault(new ShrinkIndexDescriptor(index: index, target: target))
-            );
+            Shrink(selector.InvokeOrDefault(new ShrinkIndexDescriptor(index: index, target: target)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
@@ -3105,10 +2753,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<ShrinkIndexDescriptor, IShrinkIndexRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ShrinkAsync(
-                selector.InvokeOrDefault(new ShrinkIndexDescriptor(index: index, target: target)),
-                ct
-            );
+            ShrinkAsync(selector.InvokeOrDefault(new ShrinkIndexDescriptor(index: index, target: target)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
@@ -3123,15 +2768,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
-        public Task<ShrinkIndexResponse> ShrinkAsync(
-            IShrinkIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IShrinkIndexRequest, ShrinkIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<ShrinkIndexResponse> ShrinkAsync(IShrinkIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IShrinkIndexRequest, ShrinkIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
@@ -3156,10 +2794,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<SplitIndexDescriptor, ISplitIndexRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            SplitAsync(
-                selector.InvokeOrDefault(new SplitIndexDescriptor(index: index, target: target)),
-                ct
-            );
+            SplitAsync(selector.InvokeOrDefault(new SplitIndexDescriptor(index: index, target: target)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
@@ -3174,15 +2809,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
-        public Task<SplitIndexResponse> SplitAsync(
-            ISplitIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<ISplitIndexRequest, SplitIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<SplitIndexResponse> SplitAsync(ISplitIndexRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<ISplitIndexRequest, SplitIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
@@ -3192,7 +2820,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public IndicesStatsResponse Stats(
             Indices index = null,
             Func<IndicesStatsDescriptor, IIndicesStatsRequest> selector = null
-        ) => Stats(selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)));
+        ) =>
+            Stats(selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
@@ -3204,10 +2833,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             Func<IndicesStatsDescriptor, IIndicesStatsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            StatsAsync(
-                selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)),
-                ct
-            );
+            StatsAsync(selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
@@ -3215,25 +2841,15 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public IndicesStatsResponse Stats(IIndicesStatsRequest request) =>
-            DoRequest<IIndicesStatsRequest, IndicesStatsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IIndicesStatsRequest, IndicesStatsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        public Task<IndicesStatsResponse> StatsAsync(
-            IIndicesStatsRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IIndicesStatsRequest, IndicesStatsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<IndicesStatsResponse> StatsAsync(IIndicesStatsRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IIndicesStatsRequest, IndicesStatsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
@@ -3251,7 +2867,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         public Task<BulkAliasResponse> BulkAliasAsync(
             Func<BulkAliasDescriptor, IBulkAliasRequest> selector,
             CancellationToken ct = default
-        ) => BulkAliasAsync(selector.InvokeOrDefault(new BulkAliasDescriptor()), ct);
+        ) =>
+            BulkAliasAsync(selector.InvokeOrDefault(new BulkAliasDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
@@ -3266,15 +2883,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
-        public Task<BulkAliasResponse> BulkAliasAsync(
-            IBulkAliasRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IBulkAliasRequest, BulkAliasResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<BulkAliasResponse> BulkAliasAsync(IBulkAliasRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IBulkAliasRequest, BulkAliasResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
@@ -3297,10 +2907,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
             CancellationToken ct = default
         )
             where TDocument : class =>
-            ValidateQueryAsync(
-                selector.InvokeOrDefault(new ValidateQueryDescriptor<TDocument>()),
-                ct
-            );
+            ValidateQueryAsync(selector.InvokeOrDefault(new ValidateQueryDescriptor<TDocument>()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
@@ -3308,10 +2915,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ValidateQueryResponse ValidateQuery(IValidateQueryRequest request) =>
-            DoRequest<IValidateQueryRequest, ValidateQueryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IValidateQueryRequest, ValidateQueryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
@@ -3322,10 +2926,6 @@ namespace OpenSearch.Client.Specification.IndicesApi
             IValidateQueryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IValidateQueryRequest, ValidateQueryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IValidateQueryRequest, ValidateQueryResponse>(request, request.RequestParameters, ct);
     }
 }

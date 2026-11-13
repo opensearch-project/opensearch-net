@@ -66,23 +66,14 @@ namespace OpenSearch.Net.Specification.SqlApi
     /// </summary>
     public partial class LowLevelSqlNamespace : NamespacedClientProxy
     {
-        internal LowLevelSqlNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelSqlNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/_sql/close <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the cursor identifier to close.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Close<TResponse>(
-            PostData body,
-            CloseRequestParameters requestParameters = null
-        )
+        public TResponse Close<TResponse>(PostData body, CloseRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_sql/close",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_sql/close", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sql/close <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the cursor identifier to close.</param>
@@ -94,28 +85,14 @@ namespace OpenSearch.Net.Specification.SqlApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_sql/close",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_sql/close", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sql/_explain <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the SQL or PPL query to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Explain<TResponse>(
-            PostData body,
-            ExplainRequestParameters requestParameters = null
-        )
+        public TResponse Explain<TResponse>(PostData body, ExplainRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_sql/_explain",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_sql/_explain", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sql/_explain <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the SQL or PPL query to explain.</param>
@@ -127,24 +104,13 @@ namespace OpenSearch.Net.Specification.SqlApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_sql/_explain",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_sql/_explain", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sql/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetStats<TResponse>(GetStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_sql/stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_sql/stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sql/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -154,28 +120,14 @@ namespace OpenSearch.Net.Specification.SqlApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_sql/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_sql/stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sql/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="body">Defines the statistics collection parameters.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PostStats<TResponse>(
-            PostData body,
-            PostStatsRequestParameters requestParameters = null
-        )
+        public TResponse PostStats<TResponse>(PostData body, PostStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_sql/stats",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_sql/stats", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sql/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="body">Defines the statistics collection parameters.</param>
@@ -187,21 +139,12 @@ namespace OpenSearch.Net.Specification.SqlApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_sql/stats",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_sql/stats", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sql <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the SQL or PPL query to execute.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Query<TResponse>(
-            PostData body,
-            QueryRequestParameters requestParameters = null
-        )
+        public TResponse Query<TResponse>(PostData body, QueryRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(POST, "_plugins/_sql", body, RequestParams(requestParameters));
 
@@ -215,28 +158,14 @@ namespace OpenSearch.Net.Specification.SqlApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_sql",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_sql", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_query/settings <para>https://docs.opensearch.org/latest/search-plugins/sql/settings/</para></summary>
         /// <param name="body">Contains SQL plugin configuration settings.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Settings<TResponse>(
-            PostData body,
-            SettingsRequestParameters requestParameters = null
-        )
+        public TResponse Settings<TResponse>(PostData body, SettingsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_query/settings",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_query/settings", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_query/settings <para>https://docs.opensearch.org/latest/search-plugins/sql/settings/</para></summary>
         /// <param name="body">Contains SQL plugin configuration settings.</param>
@@ -248,12 +177,6 @@ namespace OpenSearch.Net.Specification.SqlApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_query/settings",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_query/settings", ctx, body, RequestParams(requestParameters));
     }
 }

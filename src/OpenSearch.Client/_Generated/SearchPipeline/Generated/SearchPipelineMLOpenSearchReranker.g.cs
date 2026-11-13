@@ -41,10 +41,7 @@ namespace OpenSearch.Client
     }
 
     public class SearchPipelineMLOpenSearchRerankerDescriptor
-        : DescriptorBase<
-            SearchPipelineMLOpenSearchRerankerDescriptor,
-            ISearchPipelineMLOpenSearchReranker
-        >,
+        : DescriptorBase<SearchPipelineMLOpenSearchRerankerDescriptor, ISearchPipelineMLOpenSearchReranker>,
             ISearchPipelineMLOpenSearchReranker
     {
         string ISearchPipelineMLOpenSearchReranker.ModelId { get; set; }

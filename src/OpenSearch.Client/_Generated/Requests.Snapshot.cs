@@ -59,8 +59,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [InterfaceDataContract]
-    public partial interface ICleanupRepositoryRequest
-        : IRequest<CleanupRepositoryRequestParameters>
+    public partial interface ICleanupRepositoryRequest : IRequest<CleanupRepositoryRequestParameters>
     {
         [IgnoreDataMember]
         Name RepositoryName { get; }
@@ -76,13 +75,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_snapshot/{repository}/_cleanup</summary>
         /// <param name="repository">this parameter is required</param>
-        public CleanupRepositoryRequest(Name repository)
-            : base(r => r.Required("repository", repository)) { }
+        public CleanupRepositoryRequest(Name repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CleanupRepositoryRequest()
-            : base() { }
+        protected CleanupRepositoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -101,9 +98,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Period to wait for a connection to the cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -132,9 +127,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Clone <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class CloneSnapshotRequest
-        : PlainRequestBase<CloneSnapshotRequestParameters>,
-            ICloneSnapshotRequest
+    public partial class CloneSnapshotRequest : PlainRequestBase<CloneSnapshotRequestParameters>, ICloneSnapshotRequest
     {
         protected ICloneSnapshotRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotClone;
@@ -143,25 +136,17 @@ namespace OpenSearch.Client
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
         /// <param name="targetSnapshot">this parameter is required</param>
-        public CloneSnapshotRequest(Name repository, Name snapshot, Name targetSnapshot)
-            : base(r =>
-                r.Required("repository", repository)
-                    .Required("snapshot", snapshot)
-                    .Required("target_snapshot", targetSnapshot)
-            ) { }
+        public CloneSnapshotRequest(Name repository, Name snapshot, Name targetSnapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot).Required("target_snapshot", targetSnapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CloneSnapshotRequest()
-            : base() { }
+        protected CloneSnapshotRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name ICloneSnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
-
         [IgnoreDataMember]
         Name ICloneSnapshotRequest.Snapshot => Self.RouteValues.Get<Name>("snapshot");
-
         [IgnoreDataMember]
         Name ICloneSnapshotRequest.TargetSnapshot => Self.RouteValues.Get<Name>("target_snapshot");
 
@@ -178,9 +163,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -199,9 +182,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Snapshot <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</para></summary>
-    public partial class SnapshotRequest
-        : PlainRequestBase<SnapshotRequestParameters>,
-            ISnapshotRequest
+    public partial class SnapshotRequest : PlainRequestBase<SnapshotRequestParameters>, ISnapshotRequest
     {
         protected ISnapshotRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotSnapshot;
@@ -209,18 +190,15 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public SnapshotRequest(Name repository, Name snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public SnapshotRequest(Name repository, Name snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SnapshotRequest()
-            : base() { }
+        protected SnapshotRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name ISnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
-
         [IgnoreDataMember]
         Name ISnapshotRequest.Snapshot => Self.RouteValues.Get<Name>("snapshot");
 
@@ -240,9 +218,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -277,13 +253,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_snapshot/{repository}</summary>
         /// <param name="repository">this parameter is required</param>
-        public CreateRepositoryRequest(Name repository)
-            : base(r => r.Required("repository", repository)) { }
+        public CreateRepositoryRequest(Name repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateRepositoryRequest()
-            : base() { }
+        protected CreateRepositoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -302,9 +276,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -347,18 +319,15 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public DeleteSnapshotRequest(Name repository, Name snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public DeleteSnapshotRequest(Name repository, Name snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteSnapshotRequest()
-            : base() { }
+        protected DeleteSnapshotRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IDeleteSnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
-
         [IgnoreDataMember]
         Name IDeleteSnapshotRequest.Snapshot => Self.RouteValues.Get<Name>("snapshot");
 
@@ -375,9 +344,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -402,13 +369,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_snapshot/{repository}</summary>
         /// <param name="repository">this parameter is required</param>
-        public DeleteRepositoryRequest(Names repository)
-            : base(r => r.Required("repository", repository)) { }
+        public DeleteRepositoryRequest(Names repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteRepositoryRequest()
-            : base() { }
+        protected DeleteRepositoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -427,9 +392,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -455,9 +418,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Get <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class GetSnapshotRequest
-        : PlainRequestBase<GetSnapshotRequestParameters>,
-            IGetSnapshotRequest
+    public partial class GetSnapshotRequest : PlainRequestBase<GetSnapshotRequestParameters>, IGetSnapshotRequest
     {
         protected IGetSnapshotRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotGet;
@@ -465,18 +426,15 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public GetSnapshotRequest(Name repository, Names snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public GetSnapshotRequest(Name repository, Names snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetSnapshotRequest()
-            : base() { }
+        protected GetSnapshotRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IGetSnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
-
         [IgnoreDataMember]
         Names IGetSnapshotRequest.Snapshot => Self.RouteValues.Get<Names>("snapshot");
 
@@ -503,9 +461,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -533,21 +489,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
-    public partial class GetRepositoryRequest
-        : PlainRequestBase<GetRepositoryRequestParameters>,
-            IGetRepositoryRequest
+    public partial class GetRepositoryRequest : PlainRequestBase<GetRepositoryRequestParameters>, IGetRepositoryRequest
     {
         protected IGetRepositoryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotGetRepository;
 
         /// <summary>/_snapshot</summary>
-        public GetRepositoryRequest()
-            : base() { }
+        public GetRepositoryRequest() : base() { }
 
         /// <summary>/_snapshot/{repository}</summary>
         /// <param name="repository">Optional, accepts null</param>
-        public GetRepositoryRequest(Names repository)
-            : base(r => r.Optional("repository", repository)) { }
+        public GetRepositoryRequest(Names repository) : base(r => r.Optional("repository", repository)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -573,9 +525,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -594,9 +544,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Restore <para>https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</para></summary>
-    public partial class RestoreRequest
-        : PlainRequestBase<RestoreRequestParameters>,
-            IRestoreRequest
+    public partial class RestoreRequest : PlainRequestBase<RestoreRequestParameters>, IRestoreRequest
     {
         protected IRestoreRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotRestore;
@@ -604,18 +552,15 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}/_restore</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public RestoreRequest(Name repository, Name snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public RestoreRequest(Name repository, Name snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected RestoreRequest()
-            : base() { }
+        protected RestoreRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IRestoreRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
-
         [IgnoreDataMember]
         Name IRestoreRequest.Snapshot => Self.RouteValues.Get<Name>("snapshot");
 
@@ -632,9 +577,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -671,24 +614,20 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotStatus;
 
         /// <summary>/_snapshot/_status</summary>
-        public SnapshotStatusRequest()
-            : base() { }
+        public SnapshotStatusRequest() : base() { }
 
         /// <summary>/_snapshot/{repository}/_status</summary>
         /// <param name="repository">Optional, accepts null</param>
-        public SnapshotStatusRequest(Name repository)
-            : base(r => r.Optional("repository", repository)) { }
+        public SnapshotStatusRequest(Name repository) : base(r => r.Optional("repository", repository)) { }
 
         /// <summary>/_snapshot/{repository}/{snapshot}/_status</summary>
         /// <param name="repository">Optional, accepts null</param>
         /// <param name="snapshot">Optional, accepts null</param>
-        public SnapshotStatusRequest(Name repository, Names snapshot)
-            : base(r => r.Optional("repository", repository).Optional("snapshot", snapshot)) { }
+        public SnapshotStatusRequest(Name repository, Names snapshot) : base(r => r.Optional("repository", repository).Optional("snapshot", snapshot)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name ISnapshotStatusRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
-
         [IgnoreDataMember]
         Names ISnapshotStatusRequest.Snapshot => Self.RouteValues.Get<Names>("snapshot");
 
@@ -712,9 +651,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -739,13 +676,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_snapshot/{repository}/_verify</summary>
         /// <param name="repository">this parameter is required</param>
-        public VerifyRepositoryRequest(Name repository)
-            : base(r => r.Required("repository", repository)) { }
+        public VerifyRepositoryRequest(Name repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected VerifyRepositoryRequest()
-            : base() { }
+        protected VerifyRepositoryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -764,9 +699,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");

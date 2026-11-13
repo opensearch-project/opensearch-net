@@ -66,23 +66,14 @@ namespace OpenSearch.Net.Specification.RemoteStoreApi
     /// </summary>
     public partial class LowLevelRemoteStoreNamespace : NamespacedClientProxy
     {
-        internal LowLevelRemoteStoreNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelRemoteStoreNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_remotestore/_restore <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#restoring-from-a-backup</para></summary>
         /// <param name="body">Comma-separated list of index IDs.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Restore<TResponse>(
-            PostData body,
-            RestoreRequestParameters requestParameters = null
-        )
+        public TResponse Restore<TResponse>(PostData body, RestoreRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_remotestore/_restore",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_remotestore/_restore", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_remotestore/_restore <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#restoring-from-a-backup</para></summary>
         /// <param name="body">Comma-separated list of index IDs.</param>
@@ -94,12 +85,6 @@ namespace OpenSearch.Net.Specification.RemoteStoreApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_remotestore/_restore",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_remotestore/_restore", ctx, body, RequestParams(requestParameters));
     }
 }

@@ -49,7 +49,8 @@ namespace OpenSearch.Client
         string ILLM.ModelId { get; set; }
         IParameters ILLM.Parameters { get; set; }
 
-        public LLMDescriptor ModelId(string modelId) => Assign(modelId, (a, v) => a.ModelId = v);
+        public LLMDescriptor ModelId(string modelId) =>
+            Assign(modelId, (a, v) => a.ModelId = v);
 
         public LLMDescriptor Parameters(IParameters parameters) =>
             Assign(parameters, (a, v) => a.Parameters = v);

@@ -71,8 +71,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for ChangePolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
-    public partial class ChangePolicyRequestParameters
-        : RequestParameters<ChangePolicyRequestParameters>
+    public partial class ChangePolicyRequestParameters : RequestParameters<ChangePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -90,8 +89,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for DeletePolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#delete-policy</para></summary>
-    public partial class DeletePolicyRequestParameters
-        : RequestParameters<DeletePolicyRequestParameters>
+    public partial class DeletePolicyRequestParameters : RequestParameters<DeletePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -99,8 +97,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for ExistsPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
-    public partial class ExistsPolicyRequestParameters
-        : RequestParameters<ExistsPolicyRequestParameters>
+    public partial class ExistsPolicyRequestParameters : RequestParameters<ExistsPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
@@ -108,8 +105,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for ExplainPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
-    public partial class ExplainPolicyRequestParameters
-        : RequestParameters<ExplainPolicyRequestParameters>
+    public partial class ExplainPolicyRequestParameters : RequestParameters<ExplainPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -117,8 +113,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for GetPolicies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
-    public partial class GetPoliciesRequestParameters
-        : RequestParameters<GetPoliciesRequestParameters>
+    public partial class GetPoliciesRequestParameters : RequestParameters<GetPoliciesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -134,8 +129,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for PutPolicies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
-    public partial class PutPoliciesRequestParameters
-        : RequestParameters<PutPoliciesRequestParameters>
+    public partial class PutPoliciesRequestParameters : RequestParameters<PutPoliciesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -154,6 +148,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             get => Q<long?>("if_seq_no");
             set => Q("if_seq_no", value);
         }
+
         public string PolicyId
         {
             get => Q<string>("policyID");
@@ -184,8 +179,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for RefreshSearchAnalyzers <para>https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/</para></summary>
-    public partial class RefreshSearchAnalyzersRequestParameters
-        : RequestParameters<RefreshSearchAnalyzersRequestParameters>
+    public partial class RefreshSearchAnalyzersRequestParameters : RequestParameters<RefreshSearchAnalyzersRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -193,8 +187,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for RemovePolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
-    public partial class RemovePolicyRequestParameters
-        : RequestParameters<RemovePolicyRequestParameters>
+    public partial class RemovePolicyRequestParameters : RequestParameters<RemovePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -212,8 +205,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     }
 
     /// <summary>Request options for RetryIndex <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
-    public partial class RetryIndexRequestParameters
-        : RequestParameters<RetryIndexRequestParameters>
+    public partial class RetryIndexRequestParameters : RequestParameters<RetryIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;

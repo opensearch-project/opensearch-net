@@ -47,28 +47,19 @@ namespace OpenSearch.Client
     {
         internal static readonly ApiUrls NoNamespaceBulk = new(["_bulk", "{index}/_bulk"]);
 
-        internal static readonly ApiUrls NoNamespaceBulkStream = new([
-            "_bulk/stream",
-            "{index}/_bulk/stream",
-        ]);
+        internal static readonly ApiUrls NoNamespaceBulkStream = new(["_bulk/stream", "{index}/_bulk/stream"]);
 
         internal static readonly ApiUrls CatAliases = new(["_cat/aliases", "_cat/aliases/{name}"]);
 
         internal static readonly ApiUrls CatAllPitSegments = new(["_cat/pit_segments/_all"]);
 
-        internal static readonly ApiUrls CatAllocation = new([
-            "_cat/allocation",
-            "_cat/allocation/{node_id}",
-        ]);
+        internal static readonly ApiUrls CatAllocation = new(["_cat/allocation", "_cat/allocation/{node_id}"]);
 
         internal static readonly ApiUrls CatClusterManager = new(["_cat/cluster_manager"]);
 
         internal static readonly ApiUrls CatCount = new(["_cat/count", "_cat/count/{index}"]);
 
-        internal static readonly ApiUrls CatFielddata = new([
-            "_cat/fielddata",
-            "_cat/fielddata/{fields}",
-        ]);
+        internal static readonly ApiUrls CatFielddata = new(["_cat/fielddata", "_cat/fielddata/{fields}"]);
 
         internal static readonly ApiUrls CatHealth = new(["_cat/health"]);
 
@@ -88,10 +79,7 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls CatPlugins = new(["_cat/plugins"]);
 
-        internal static readonly ApiUrls CatRecovery = new([
-            "_cat/recovery",
-            "_cat/recovery/{index}",
-        ]);
+        internal static readonly ApiUrls CatRecovery = new(["_cat/recovery", "_cat/recovery/{index}"]);
 
         internal static readonly ApiUrls CatRepositories = new(["_cat/repositories"]);
 
@@ -100,24 +88,15 @@ namespace OpenSearch.Client
             "_cat/segment_replication/{index}",
         ]);
 
-        internal static readonly ApiUrls CatSegments = new([
-            "_cat/segments",
-            "_cat/segments/{index}",
-        ]);
+        internal static readonly ApiUrls CatSegments = new(["_cat/segments", "_cat/segments/{index}"]);
 
         internal static readonly ApiUrls CatShards = new(["_cat/shards", "_cat/shards/{index}"]);
 
-        internal static readonly ApiUrls CatSnapshots = new([
-            "_cat/snapshots",
-            "_cat/snapshots/{repository}",
-        ]);
+        internal static readonly ApiUrls CatSnapshots = new(["_cat/snapshots", "_cat/snapshots/{repository}"]);
 
         internal static readonly ApiUrls CatTasks = new(["_cat/tasks"]);
 
-        internal static readonly ApiUrls CatTemplates = new([
-            "_cat/templates",
-            "_cat/templates/{name}",
-        ]);
+        internal static readonly ApiUrls CatTemplates = new(["_cat/templates", "_cat/templates/{name}"]);
 
         internal static readonly ApiUrls CatThreadPool = new([
             "_cat/thread_pool",
@@ -126,21 +105,15 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls NoNamespaceClearScroll = new(["_search/scroll"]);
 
-        internal static readonly ApiUrls ClusterAllocationExplain = new([
-            "_cluster/allocation/explain",
-        ]);
+        internal static readonly ApiUrls ClusterAllocationExplain = new(["_cluster/allocation/explain"]);
 
-        internal static readonly ApiUrls ClusterDeleteComponentTemplate = new([
-            "_component_template/{name}",
-        ]);
+        internal static readonly ApiUrls ClusterDeleteComponentTemplate = new(["_component_template/{name}"]);
 
         internal static readonly ApiUrls ClusterDeleteVotingConfigExclusions = new([
             "_cluster/voting_config_exclusions",
         ]);
 
-        internal static readonly ApiUrls ClusterComponentTemplateExists = new([
-            "_component_template/{name}",
-        ]);
+        internal static readonly ApiUrls ClusterComponentTemplateExists = new(["_component_template/{name}"]);
 
         internal static readonly ApiUrls ClusterGetComponentTemplate = new([
             "_component_template",
@@ -149,20 +122,13 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls ClusterGetSettings = new(["_cluster/settings"]);
 
-        internal static readonly ApiUrls ClusterHealth = new([
-            "_cluster/health",
-            "_cluster/health/{index}",
-        ]);
+        internal static readonly ApiUrls ClusterHealth = new(["_cluster/health", "_cluster/health/{index}"]);
 
         internal static readonly ApiUrls ClusterPendingTasks = new(["_cluster/pending_tasks"]);
 
-        internal static readonly ApiUrls ClusterPostVotingConfigExclusions = new([
-            "_cluster/voting_config_exclusions",
-        ]);
+        internal static readonly ApiUrls ClusterPostVotingConfigExclusions = new(["_cluster/voting_config_exclusions"]);
 
-        internal static readonly ApiUrls ClusterPutComponentTemplate = new([
-            "_component_template/{name}",
-        ]);
+        internal static readonly ApiUrls ClusterPutComponentTemplate = new(["_component_template/{name}"]);
 
         internal static readonly ApiUrls ClusterPutSettings = new(["_cluster/settings"]);
 
@@ -187,29 +153,19 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls NoNamespaceCreate = new(["{index}/_create/{id}"]);
 
-        internal static readonly ApiUrls NoNamespaceCreatePit = new([
-            "{index}/_search/point_in_time",
-        ]);
+        internal static readonly ApiUrls NoNamespaceCreatePit = new(["{index}/_search/point_in_time"]);
 
-        internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex = new([
-            "_dangling/{index_uuid}",
-        ]);
+        internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex = new(["_dangling/{index_uuid}"]);
 
-        internal static readonly ApiUrls DanglingIndicesImportDanglingIndex = new([
-            "_dangling/{index_uuid}",
-        ]);
+        internal static readonly ApiUrls DanglingIndicesImportDanglingIndex = new(["_dangling/{index_uuid}"]);
 
         internal static readonly ApiUrls DanglingIndicesList = new(["_dangling"]);
 
         internal static readonly ApiUrls NoNamespaceDelete = new(["{index}/_doc/{id}"]);
 
-        internal static readonly ApiUrls NoNamespaceDeleteAllPits = new([
-            "_search/point_in_time/_all",
-        ]);
+        internal static readonly ApiUrls NoNamespaceDeleteAllPits = new(["_search/point_in_time/_all"]);
 
-        internal static readonly ApiUrls NoNamespaceDeleteByQuery = new([
-            "{index}/_delete_by_query",
-        ]);
+        internal static readonly ApiUrls NoNamespaceDeleteByQuery = new(["{index}/_delete_by_query"]);
 
         internal static readonly ApiUrls NoNamespaceDeleteByQueryRethrottle = new([
             "_delete_by_query/{task_id}/_rethrottle",
@@ -225,34 +181,23 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls NoNamespaceExplain = new(["{index}/_explain/{id}"]);
 
-        internal static readonly ApiUrls NoNamespaceFieldCapabilities = new([
-            "_field_caps",
-            "{index}/_field_caps",
-        ]);
+        internal static readonly ApiUrls NoNamespaceFieldCapabilities = new(["_field_caps", "{index}/_field_caps"]);
 
         internal static readonly ApiUrls NoNamespaceGet = new(["{index}/_doc/{id}"]);
 
-        internal static readonly ApiUrls NoNamespaceGetAllPits = new([
-            "_search/point_in_time/_all",
-        ]);
+        internal static readonly ApiUrls NoNamespaceGetAllPits = new(["_search/point_in_time/_all"]);
 
         internal static readonly ApiUrls NoNamespaceGetScript = new(["_scripts/{id}"]);
 
         internal static readonly ApiUrls NoNamespaceSource = new(["{index}/_source/{id}"]);
 
-        internal static readonly ApiUrls NoNamespaceIndex = new([
-            "{index}/_doc",
-            "{index}/_doc/{id}",
-        ]);
+        internal static readonly ApiUrls NoNamespaceIndex = new(["{index}/_doc", "{index}/_doc/{id}"]);
 
         internal static readonly ApiUrls IndicesAddBlock = new(["{index}/_block/{block}"]);
 
         internal static readonly ApiUrls IndicesAnalyze = new(["_analyze", "{index}/_analyze"]);
 
-        internal static readonly ApiUrls IndicesClearCache = new([
-            "_cache/clear",
-            "{index}/_cache/clear",
-        ]);
+        internal static readonly ApiUrls IndicesClearCache = new(["_cache/clear", "{index}/_cache/clear"]);
 
         internal static readonly ApiUrls IndicesClone = new(["{index}/_clone/{target}"]);
 
@@ -264,31 +209,21 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls IndicesDeleteAlias = new(["{index}/_alias/{name}"]);
 
-        internal static readonly ApiUrls IndicesDeleteComposableTemplate = new([
-            "_index_template/{name}",
-        ]);
+        internal static readonly ApiUrls IndicesDeleteComposableTemplate = new(["_index_template/{name}"]);
 
         internal static readonly ApiUrls IndicesDeleteTemplate = new(["_template/{name}"]);
 
         internal static readonly ApiUrls IndicesExists = new(["{index}"]);
 
-        internal static readonly ApiUrls IndicesAliasExists = new([
-            "{index}/_alias/{name}",
-            "_alias/{name}",
-        ]);
+        internal static readonly ApiUrls IndicesAliasExists = new(["{index}/_alias/{name}", "_alias/{name}"]);
 
-        internal static readonly ApiUrls IndicesComposableTemplateExists = new([
-            "_index_template/{name}",
-        ]);
+        internal static readonly ApiUrls IndicesComposableTemplateExists = new(["_index_template/{name}"]);
 
         internal static readonly ApiUrls IndicesTemplateExists = new(["_template/{name}"]);
 
         internal static readonly ApiUrls IndicesFlush = new(["_flush", "{index}/_flush"]);
 
-        internal static readonly ApiUrls IndicesForceMerge = new([
-            "_forcemerge",
-            "{index}/_forcemerge",
-        ]);
+        internal static readonly ApiUrls IndicesForceMerge = new(["_forcemerge", "{index}/_forcemerge"]);
 
         internal static readonly ApiUrls IndicesGet = new(["{index}"]);
 
@@ -318,10 +253,7 @@ namespace OpenSearch.Client
             "_settings/{name}",
         ]);
 
-        internal static readonly ApiUrls IndicesGetTemplate = new([
-            "_template",
-            "_template/{name}",
-        ]);
+        internal static readonly ApiUrls IndicesGetTemplate = new(["_template", "_template/{name}"]);
 
         internal static readonly ApiUrls IndicesOpen = new(["{index}/_open"]);
 
@@ -332,16 +264,11 @@ namespace OpenSearch.Client
             "_alias/{name}",
         ]);
 
-        internal static readonly ApiUrls IndicesPutComposableTemplate = new([
-            "_index_template/{name}",
-        ]);
+        internal static readonly ApiUrls IndicesPutComposableTemplate = new(["_index_template/{name}"]);
 
         internal static readonly ApiUrls IndicesPutMapping = new(["{index}/_mapping"]);
 
-        internal static readonly ApiUrls IndicesUpdateSettings = new([
-            "_settings",
-            "{index}/_settings",
-        ]);
+        internal static readonly ApiUrls IndicesUpdateSettings = new(["_settings", "{index}/_settings"]);
 
         internal static readonly ApiUrls IndicesPutTemplate = new(["_template/{name}"]);
 
@@ -349,10 +276,7 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls IndicesResolve = new(["_resolve/index/{name}"]);
 
-        internal static readonly ApiUrls IndicesRollover = new([
-            "{alias}/_rollover",
-            "{alias}/_rollover/{new_index}",
-        ]);
+        internal static readonly ApiUrls IndicesRollover = new(["{alias}/_rollover", "{alias}/_rollover/{new_index}"]);
 
         internal static readonly ApiUrls IndicesShrink = new(["{index}/_shrink/{target}"]);
 
@@ -367,23 +291,15 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls IndicesBulkAlias = new(["_aliases"]);
 
-        internal static readonly ApiUrls IndicesValidateQuery = new([
-            "_validate/query",
-            "{index}/_validate/query",
-        ]);
+        internal static readonly ApiUrls IndicesValidateQuery = new(["_validate/query", "{index}/_validate/query"]);
 
         internal static readonly ApiUrls NoNamespaceRootNodeInfo = new([""]);
 
         internal static readonly ApiUrls IngestDeletePipeline = new(["_ingest/pipeline/{id}"]);
 
-        internal static readonly ApiUrls IngestGetPipeline = new([
-            "_ingest/pipeline",
-            "_ingest/pipeline/{id}",
-        ]);
+        internal static readonly ApiUrls IngestGetPipeline = new(["_ingest/pipeline", "_ingest/pipeline/{id}"]);
 
-        internal static readonly ApiUrls IngestGrokProcessorPatterns = new([
-            "_ingest/processor/grok",
-        ]);
+        internal static readonly ApiUrls IngestGrokProcessorPatterns = new(["_ingest/processor/grok"]);
 
         internal static readonly ApiUrls IngestPutPipeline = new(["_ingest/pipeline/{id}"]);
 
@@ -398,31 +314,21 @@ namespace OpenSearch.Client
             "_plugins/_ml/memory_containers/{memory_container_id}/memories",
         ]);
 
-        internal static readonly ApiUrls MlChunkModel = new([
-            "_plugins/_ml/models/{model_id}/chunk/{chunk_number}",
-        ]);
+        internal static readonly ApiUrls MlChunkModel = new(["_plugins/_ml/models/{model_id}/chunk/{chunk_number}"]);
 
-        internal static readonly ApiUrls MlCreateConnector = new([
-            "_plugins/_ml/connectors/_create",
-        ]);
+        internal static readonly ApiUrls MlCreateConnector = new(["_plugins/_ml/connectors/_create"]);
 
-        internal static readonly ApiUrls MlCreateController = new([
-            "_plugins/_ml/controllers/{model_id}",
-        ]);
+        internal static readonly ApiUrls MlCreateController = new(["_plugins/_ml/controllers/{model_id}"]);
 
         internal static readonly ApiUrls MlCreateMemory = new(["_plugins/_ml/memory"]);
 
-        internal static readonly ApiUrls MlCreateMemoryContainer = new([
-            "_plugins/_ml/memory_containers/_create",
-        ]);
+        internal static readonly ApiUrls MlCreateMemoryContainer = new(["_plugins/_ml/memory_containers/_create"]);
 
         internal static readonly ApiUrls MlCreateMemoryContainerSession = new([
             "_plugins/_ml/memory_containers/{memory_container_id}/memories/sessions",
         ]);
 
-        internal static readonly ApiUrls MlCreateMessage = new([
-            "_plugins/_ml/memory/{memory_id}/messages",
-        ]);
+        internal static readonly ApiUrls MlCreateMessage = new(["_plugins/_ml/memory/{memory_id}/messages"]);
 
         internal static readonly ApiUrls MlCreateModelMeta = new(["_plugins/_ml/models/meta"]);
 
@@ -436,13 +342,9 @@ namespace OpenSearch.Client
             "_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_delete_by_query",
         ]);
 
-        internal static readonly ApiUrls MlDeleteConnector = new([
-            "_plugins/_ml/connectors/{connector_id}",
-        ]);
+        internal static readonly ApiUrls MlDeleteConnector = new(["_plugins/_ml/connectors/{connector_id}"]);
 
-        internal static readonly ApiUrls MlDeleteController = new([
-            "_plugins/_ml/controllers/{model_id}",
-        ]);
+        internal static readonly ApiUrls MlDeleteController = new(["_plugins/_ml/controllers/{model_id}"]);
 
         internal static readonly ApiUrls MlDeleteMemory = new(["_plugins/_ml/memory/{memory_id}"]);
 
@@ -452,27 +354,17 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls MlDeleteModel = new(["_plugins/_ml/models/{model_id}"]);
 
-        internal static readonly ApiUrls MlDeleteModelGroup = new([
-            "_plugins/_ml/model_groups/{model_group_id}",
-        ]);
+        internal static readonly ApiUrls MlDeleteModelGroup = new(["_plugins/_ml/model_groups/{model_group_id}"]);
 
         internal static readonly ApiUrls MlDeleteTask = new(["_plugins/_ml/tasks/{task_id}"]);
 
-        internal static readonly ApiUrls MlDeployModel = new([
-            "_plugins/_ml/models/{model_id}/_deploy",
-        ]);
+        internal static readonly ApiUrls MlDeployModel = new(["_plugins/_ml/models/{model_id}/_deploy"]);
 
-        internal static readonly ApiUrls MlExecuteAgent = new([
-            "_plugins/_ml/agents/{agent_id}/_execute",
-        ]);
+        internal static readonly ApiUrls MlExecuteAgent = new(["_plugins/_ml/agents/{agent_id}/_execute"]);
 
-        internal static readonly ApiUrls MlExecuteAlgorithm = new([
-            "_plugins/_ml/_execute/{algorithm_name}",
-        ]);
+        internal static readonly ApiUrls MlExecuteAlgorithm = new(["_plugins/_ml/_execute/{algorithm_name}"]);
 
-        internal static readonly ApiUrls MlExecuteTool = new([
-            "_plugins/_ml/tools/_execute/{tool_name}",
-        ]);
+        internal static readonly ApiUrls MlExecuteTool = new(["_plugins/_ml/tools/_execute/{tool_name}"]);
 
         internal static readonly ApiUrls MlGetAgent = new(["_plugins/_ml/agents/{agent_id}"]);
 
@@ -482,19 +374,13 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls MlGetAllMemories = new(["_plugins/_ml/memory"]);
 
-        internal static readonly ApiUrls MlGetAllMessages = new([
-            "_plugins/_ml/memory/{memory_id}/messages",
-        ]);
+        internal static readonly ApiUrls MlGetAllMessages = new(["_plugins/_ml/memory/{memory_id}/messages"]);
 
         internal static readonly ApiUrls MlGetAllTools = new(["_plugins/_ml/tools"]);
 
-        internal static readonly ApiUrls MlGetConnector = new([
-            "_plugins/_ml/connectors/{connector_id}",
-        ]);
+        internal static readonly ApiUrls MlGetConnector = new(["_plugins/_ml/connectors/{connector_id}"]);
 
-        internal static readonly ApiUrls MlGetController = new([
-            "_plugins/_ml/controllers/{model_id}",
-        ]);
+        internal static readonly ApiUrls MlGetController = new(["_plugins/_ml/controllers/{model_id}"]);
 
         internal static readonly ApiUrls MlGetMemory = new(["_plugins/_ml/memory/{memory_id}"]);
 
@@ -502,19 +388,13 @@ namespace OpenSearch.Client
             "_plugins/_ml/memory_containers/{memory_container_id}",
         ]);
 
-        internal static readonly ApiUrls MlGetMessage = new([
-            "_plugins/_ml/memory/message/{message_id}",
-        ]);
+        internal static readonly ApiUrls MlGetMessage = new(["_plugins/_ml/memory/message/{message_id}"]);
 
-        internal static readonly ApiUrls MlGetMessageTraces = new([
-            "_plugins/_ml/memory/message/{message_id}/traces",
-        ]);
+        internal static readonly ApiUrls MlGetMessageTraces = new(["_plugins/_ml/memory/message/{message_id}/traces"]);
 
         internal static readonly ApiUrls MlGetModel = new(["_plugins/_ml/models/{model_id}"]);
 
-        internal static readonly ApiUrls MlGetModelGroup = new([
-            "_plugins/_ml/model_groups/{model_group_id}",
-        ]);
+        internal static readonly ApiUrls MlGetModelGroup = new(["_plugins/_ml/model_groups/{model_group_id}"]);
 
         internal static readonly ApiUrls MlGetProfile = new(["_plugins/_ml/profile"]);
 
@@ -539,29 +419,19 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls MlGetTool = new(["_plugins/_ml/tools/{tool_name}"]);
 
-        internal static readonly ApiUrls MlLoadModel = new([
-            "_plugins/_ml/models/{model_id}/_load",
-        ]);
+        internal static readonly ApiUrls MlLoadModel = new(["_plugins/_ml/models/{model_id}/_load"]);
 
-        internal static readonly ApiUrls MlPredict = new([
-            "_plugins/_ml/_predict/{algorithm_name}/{model_id}",
-        ]);
+        internal static readonly ApiUrls MlPredict = new(["_plugins/_ml/_predict/{algorithm_name}/{model_id}"]);
 
-        internal static readonly ApiUrls MlPredictModel = new([
-            "_plugins/_ml/models/{model_id}/_predict",
-        ]);
+        internal static readonly ApiUrls MlPredictModel = new(["_plugins/_ml/models/{model_id}/_predict"]);
 
         internal static readonly ApiUrls MlRegisterAgents = new(["_plugins/_ml/agents/_register"]);
 
         internal static readonly ApiUrls MlRegisterModel = new(["_plugins/_ml/models/_register"]);
 
-        internal static readonly ApiUrls MlRegisterModelGroup = new([
-            "_plugins/_ml/model_groups/_register",
-        ]);
+        internal static readonly ApiUrls MlRegisterModelGroup = new(["_plugins/_ml/model_groups/_register"]);
 
-        internal static readonly ApiUrls MlRegisterModelMeta = new([
-            "_plugins/_ml/models/_register_meta",
-        ]);
+        internal static readonly ApiUrls MlRegisterModelMeta = new(["_plugins/_ml/models/_register_meta"]);
 
         internal static readonly ApiUrls MlSearchAgenticMemory = new([
             "_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_search",
@@ -569,23 +439,15 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls MlSearchAgents = new(["_plugins/_ml/agents/_search"]);
 
-        internal static readonly ApiUrls MlSearchConnectors = new([
-            "_plugins/_ml/connectors/_search",
-        ]);
+        internal static readonly ApiUrls MlSearchConnectors = new(["_plugins/_ml/connectors/_search"]);
 
         internal static readonly ApiUrls MlSearchMemory = new(["_plugins/_ml/memory/_search"]);
 
-        internal static readonly ApiUrls MlSearchMemoryContainer = new([
-            "_plugins/_ml/memory_containers/_search",
-        ]);
+        internal static readonly ApiUrls MlSearchMemoryContainer = new(["_plugins/_ml/memory_containers/_search"]);
 
-        internal static readonly ApiUrls MlSearchMessage = new([
-            "_plugins/_ml/memory/{memory_id}/_search",
-        ]);
+        internal static readonly ApiUrls MlSearchMessage = new(["_plugins/_ml/memory/{memory_id}/_search"]);
 
-        internal static readonly ApiUrls MlSearchModelGroup = new([
-            "_plugins/_ml/model_groups/_search",
-        ]);
+        internal static readonly ApiUrls MlSearchModelGroup = new(["_plugins/_ml/model_groups/_search"]);
 
         internal static readonly ApiUrls MlSearchModels = new(["_plugins/_ml/models/_search"]);
 
@@ -593,9 +455,7 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls MlTrain = new(["_plugins/_ml/_train/{algorithm_name}"]);
 
-        internal static readonly ApiUrls MlTrainPredict = new([
-            "_plugins/_ml/_train_predict/{algorithm_name}",
-        ]);
+        internal static readonly ApiUrls MlTrainPredict = new(["_plugins/_ml/_train_predict/{algorithm_name}"]);
 
         internal static readonly ApiUrls MlUndeployModel = new([
             "_plugins/_ml/models/_undeploy",
@@ -611,13 +471,9 @@ namespace OpenSearch.Client
             "_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}",
         ]);
 
-        internal static readonly ApiUrls MlUpdateConnector = new([
-            "_plugins/_ml/connectors/{connector_id}",
-        ]);
+        internal static readonly ApiUrls MlUpdateConnector = new(["_plugins/_ml/connectors/{connector_id}"]);
 
-        internal static readonly ApiUrls MlUpdateController = new([
-            "_plugins/_ml/controllers/{model_id}",
-        ]);
+        internal static readonly ApiUrls MlUpdateController = new(["_plugins/_ml/controllers/{model_id}"]);
 
         internal static readonly ApiUrls MlUpdateMemory = new(["_plugins/_ml/memory/{memory_id}"]);
 
@@ -625,15 +481,11 @@ namespace OpenSearch.Client
             "_plugins/_ml/memory_containers/{memory_container_id}",
         ]);
 
-        internal static readonly ApiUrls MlUpdateMessage = new([
-            "_plugins/_ml/memory/message/{message_id}",
-        ]);
+        internal static readonly ApiUrls MlUpdateMessage = new(["_plugins/_ml/memory/message/{message_id}"]);
 
         internal static readonly ApiUrls MlUpdateModel = new(["_plugins/_ml/models/{model_id}"]);
 
-        internal static readonly ApiUrls MlUpdateModelGroup = new([
-            "_plugins/_ml/model_groups/{model_group_id}",
-        ]);
+        internal static readonly ApiUrls MlUpdateModelGroup = new(["_plugins/_ml/model_groups/{model_group_id}"]);
 
         internal static readonly ApiUrls MlUploadChunk = new([
             "_plugins/_ml/models/{model_id}/upload_chunk/{chunk_number}",
@@ -641,25 +493,16 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls MlUploadModel = new(["_plugins/_ml/models/_upload"]);
 
-        internal static readonly ApiUrls NoNamespaceMultiSearch = new([
-            "_msearch",
-            "{index}/_msearch",
-        ]);
+        internal static readonly ApiUrls NoNamespaceMultiSearch = new(["_msearch", "{index}/_msearch"]);
 
         internal static readonly ApiUrls NoNamespaceMultiSearchTemplate = new([
             "_msearch/template",
             "{index}/_msearch/template",
         ]);
 
-        internal static readonly ApiUrls NoNamespaceMultiTermVectors = new([
-            "_mtermvectors",
-            "{index}/_mtermvectors",
-        ]);
+        internal static readonly ApiUrls NoNamespaceMultiTermVectors = new(["_mtermvectors", "{index}/_mtermvectors"]);
 
-        internal static readonly ApiUrls NodesHotThreads = new([
-            "_nodes/hot_threads",
-            "_nodes/{node_id}/hot_threads",
-        ]);
+        internal static readonly ApiUrls NodesHotThreads = new(["_nodes/hot_threads", "_nodes/{node_id}/hot_threads"]);
 
         internal static readonly ApiUrls NodesInfo = new([
             "_nodes",
@@ -691,25 +534,18 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls NoNamespacePing = new([""]);
 
-        internal static readonly ApiUrls NoNamespacePutScript = new([
-            "_scripts/{id}",
-            "_scripts/{id}/{context}",
-        ]);
+        internal static readonly ApiUrls NoNamespacePutScript = new(["_scripts/{id}", "_scripts/{id}/{context}"]);
 
         internal static readonly ApiUrls NoNamespaceReindexOnServer = new(["_reindex"]);
 
-        internal static readonly ApiUrls NoNamespaceReindexRethrottle = new([
-            "_reindex/{task_id}/_rethrottle",
-        ]);
+        internal static readonly ApiUrls NoNamespaceReindexRethrottle = new(["_reindex/{task_id}/_rethrottle"]);
 
         internal static readonly ApiUrls NoNamespaceRenderSearchTemplate = new([
             "_render/template",
             "_render/template/{id}",
         ]);
 
-        internal static readonly ApiUrls NoNamespaceExecutePainlessScript = new([
-            "_scripts/painless/_execute",
-        ]);
+        internal static readonly ApiUrls NoNamespaceExecutePainlessScript = new(["_scripts/painless/_execute"]);
 
         internal static readonly ApiUrls NoNamespaceScroll = new(["_search/scroll"]);
 
@@ -717,10 +553,7 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls SearchPipelineDelete = new(["_search/pipeline/{id}"]);
 
-        internal static readonly ApiUrls SearchPipelineGet = new([
-            "_search/pipeline",
-            "_search/pipeline/{id}",
-        ]);
+        internal static readonly ApiUrls SearchPipelineGet = new(["_search/pipeline", "_search/pipeline/{id}"]);
 
         internal static readonly ApiUrls SearchPipelinePut = new(["_search/pipeline/{id}"]);
 
@@ -787,9 +620,7 @@ namespace OpenSearch.Client
             "_plugins/_search_relevance/judgments/_search",
         ]);
 
-        internal static readonly ApiUrls SearchRelevancePostQuerySets = new([
-            "_plugins/_search_relevance/query_sets",
-        ]);
+        internal static readonly ApiUrls SearchRelevancePostQuerySets = new(["_plugins/_search_relevance/query_sets"]);
 
         internal static readonly ApiUrls SearchRelevancePostScheduledExperiments = new([
             "_plugins/_search_relevance/experiments/schedule",
@@ -799,13 +630,9 @@ namespace OpenSearch.Client
             "_plugins/_search_relevance/experiments",
         ]);
 
-        internal static readonly ApiUrls SearchRelevancePutJudgments = new([
-            "_plugins/_search_relevance/judgments",
-        ]);
+        internal static readonly ApiUrls SearchRelevancePutJudgments = new(["_plugins/_search_relevance/judgments"]);
 
-        internal static readonly ApiUrls SearchRelevancePutQuerySets = new([
-            "_plugins/_search_relevance/query_sets",
-        ]);
+        internal static readonly ApiUrls SearchRelevancePutQuerySets = new(["_plugins/_search_relevance/query_sets"]);
 
         internal static readonly ApiUrls SearchRelevancePutSearchConfigurations = new([
             "_plugins/_search_relevance/search_configurations",
@@ -819,46 +646,32 @@ namespace OpenSearch.Client
             "_plugins/_search_relevance/search_configurations/_search",
         ]);
 
-        internal static readonly ApiUrls NoNamespaceSearchShards = new([
-            "_search_shards",
-            "{index}/_search_shards",
-        ]);
+        internal static readonly ApiUrls NoNamespaceSearchShards = new(["_search_shards", "{index}/_search_shards"]);
 
         internal static readonly ApiUrls NoNamespaceSearchTemplate = new([
             "_search/template",
             "{index}/_search/template",
         ]);
 
-        internal static readonly ApiUrls SnapshotCleanupRepository = new([
-            "_snapshot/{repository}/_cleanup",
-        ]);
+        internal static readonly ApiUrls SnapshotCleanupRepository = new(["_snapshot/{repository}/_cleanup"]);
 
         internal static readonly ApiUrls SnapshotClone = new([
             "_snapshot/{repository}/{snapshot}/_clone/{target_snapshot}",
         ]);
 
-        internal static readonly ApiUrls SnapshotSnapshot = new([
-            "_snapshot/{repository}/{snapshot}",
-        ]);
+        internal static readonly ApiUrls SnapshotSnapshot = new(["_snapshot/{repository}/{snapshot}"]);
 
         internal static readonly ApiUrls SnapshotCreateRepository = new(["_snapshot/{repository}"]);
 
-        internal static readonly ApiUrls SnapshotDelete = new([
-            "_snapshot/{repository}/{snapshot}",
-        ]);
+        internal static readonly ApiUrls SnapshotDelete = new(["_snapshot/{repository}/{snapshot}"]);
 
         internal static readonly ApiUrls SnapshotDeleteRepository = new(["_snapshot/{repository}"]);
 
         internal static readonly ApiUrls SnapshotGet = new(["_snapshot/{repository}/{snapshot}"]);
 
-        internal static readonly ApiUrls SnapshotGetRepository = new([
-            "_snapshot",
-            "_snapshot/{repository}",
-        ]);
+        internal static readonly ApiUrls SnapshotGetRepository = new(["_snapshot", "_snapshot/{repository}"]);
 
-        internal static readonly ApiUrls SnapshotRestore = new([
-            "_snapshot/{repository}/{snapshot}/_restore",
-        ]);
+        internal static readonly ApiUrls SnapshotRestore = new(["_snapshot/{repository}/{snapshot}/_restore"]);
 
         internal static readonly ApiUrls SnapshotStatus = new([
             "_snapshot/_status",
@@ -866,14 +679,9 @@ namespace OpenSearch.Client
             "_snapshot/{repository}/{snapshot}/_status",
         ]);
 
-        internal static readonly ApiUrls SnapshotVerifyRepository = new([
-            "_snapshot/{repository}/_verify",
-        ]);
+        internal static readonly ApiUrls SnapshotVerifyRepository = new(["_snapshot/{repository}/_verify"]);
 
-        internal static readonly ApiUrls TasksCancel = new([
-            "_tasks/_cancel",
-            "_tasks/{task_id}/_cancel",
-        ]);
+        internal static readonly ApiUrls TasksCancel = new(["_tasks/_cancel", "_tasks/{task_id}/_cancel"]);
 
         internal static readonly ApiUrls TasksGetTask = new(["_tasks/{task_id}"]);
 
@@ -886,9 +694,7 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls NoNamespaceUpdate = new(["{index}/_update/{id}"]);
 
-        internal static readonly ApiUrls NoNamespaceUpdateByQuery = new([
-            "{index}/_update_by_query",
-        ]);
+        internal static readonly ApiUrls NoNamespaceUpdateByQuery = new(["{index}/_update_by_query"]);
 
         internal static readonly ApiUrls NoNamespaceUpdateByQueryRethrottle = new([
             "_update_by_query/{task_id}/_rethrottle",

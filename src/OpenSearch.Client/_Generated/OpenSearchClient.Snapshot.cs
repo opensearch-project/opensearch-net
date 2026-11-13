@@ -172,10 +172,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
-        Task<SnapshotResponse> SnapshotAsync(
-            ISnapshotRequest request,
-            CancellationToken ct = default
-        );
+        Task<SnapshotResponse> SnapshotAsync(ISnapshotRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
@@ -328,10 +325,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        Task<GetSnapshotResponse> GetAsync(
-            IGetSnapshotRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetSnapshotResponse> GetAsync(IGetSnapshotRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
@@ -489,8 +483,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
     /// </summary>
     public partial class SnapshotNamespace : NamespacedClientProxy, ISnapshotNamespace
     {
-        internal SnapshotNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal SnapshotNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
@@ -501,9 +494,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Name repository,
             Func<CleanupRepositoryDescriptor, ICleanupRepositoryRequest> selector = null
         ) =>
-            CleanupRepository(
-                selector.InvokeOrDefault(new CleanupRepositoryDescriptor(repository: repository))
-            );
+            CleanupRepository(selector.InvokeOrDefault(new CleanupRepositoryDescriptor(repository: repository)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
@@ -515,10 +506,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<CleanupRepositoryDescriptor, ICleanupRepositoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            CleanupRepositoryAsync(
-                selector.InvokeOrDefault(new CleanupRepositoryDescriptor(repository: repository)),
-                ct
-            );
+            CleanupRepositoryAsync(selector.InvokeOrDefault(new CleanupRepositoryDescriptor(repository: repository)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
@@ -526,10 +514,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public CleanupRepositoryResponse CleanupRepository(ICleanupRepositoryRequest request) =>
-            DoRequest<ICleanupRepositoryRequest, CleanupRepositoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICleanupRepositoryRequest, CleanupRepositoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
@@ -540,11 +525,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             ICleanupRepositoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICleanupRepositoryRequest, CleanupRepositoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICleanupRepositoryRequest, CleanupRepositoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
@@ -557,15 +538,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Name targetSnapshot,
             Func<CloneSnapshotDescriptor, ICloneSnapshotRequest> selector
         ) =>
-            Clone(
-                selector.InvokeOrDefault(
-                    new CloneSnapshotDescriptor(
-                        repository: repository,
-                        snapshot: snapshot,
-                        targetSnapshot: targetSnapshot
-                    )
-                )
-            );
+            Clone(selector.InvokeOrDefault(new CloneSnapshotDescriptor(repository: repository, snapshot: snapshot, targetSnapshot: targetSnapshot)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
@@ -579,16 +552,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<CloneSnapshotDescriptor, ICloneSnapshotRequest> selector,
             CancellationToken ct = default
         ) =>
-            CloneAsync(
-                selector.InvokeOrDefault(
-                    new CloneSnapshotDescriptor(
-                        repository: repository,
-                        snapshot: snapshot,
-                        targetSnapshot: targetSnapshot
-                    )
-                ),
-                ct
-            );
+            CloneAsync(selector.InvokeOrDefault(new CloneSnapshotDescriptor(repository: repository, snapshot: snapshot, targetSnapshot: targetSnapshot)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
@@ -596,10 +560,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public CloneSnapshotResponse Clone(ICloneSnapshotRequest request) =>
-            DoRequest<ICloneSnapshotRequest, CloneSnapshotResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICloneSnapshotRequest, CloneSnapshotResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
@@ -610,11 +571,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             ICloneSnapshotRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICloneSnapshotRequest, CloneSnapshotResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICloneSnapshotRequest, CloneSnapshotResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
@@ -626,11 +583,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Name snapshot,
             Func<SnapshotDescriptor, ISnapshotRequest> selector = null
         ) =>
-            Snapshot(
-                selector.InvokeOrDefault(
-                    new SnapshotDescriptor(repository: repository, snapshot: snapshot)
-                )
-            );
+            Snapshot(selector.InvokeOrDefault(new SnapshotDescriptor(repository: repository, snapshot: snapshot)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
@@ -643,12 +596,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<SnapshotDescriptor, ISnapshotRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            SnapshotAsync(
-                selector.InvokeOrDefault(
-                    new SnapshotDescriptor(repository: repository, snapshot: snapshot)
-                ),
-                ct
-            );
+            SnapshotAsync(selector.InvokeOrDefault(new SnapshotDescriptor(repository: repository, snapshot: snapshot)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
@@ -663,15 +611,8 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
-        public Task<SnapshotResponse> SnapshotAsync(
-            ISnapshotRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<ISnapshotRequest, SnapshotResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<SnapshotResponse> SnapshotAsync(ISnapshotRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<ISnapshotRequest, SnapshotResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
@@ -682,9 +623,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Name repository,
             Func<CreateRepositoryDescriptor, ICreateRepositoryRequest> selector
         ) =>
-            CreateRepository(
-                selector.InvokeOrDefault(new CreateRepositoryDescriptor(repository: repository))
-            );
+            CreateRepository(selector.InvokeOrDefault(new CreateRepositoryDescriptor(repository: repository)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
@@ -696,10 +635,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<CreateRepositoryDescriptor, ICreateRepositoryRequest> selector,
             CancellationToken ct = default
         ) =>
-            CreateRepositoryAsync(
-                selector.InvokeOrDefault(new CreateRepositoryDescriptor(repository: repository)),
-                ct
-            );
+            CreateRepositoryAsync(selector.InvokeOrDefault(new CreateRepositoryDescriptor(repository: repository)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
@@ -707,10 +643,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public CreateRepositoryResponse CreateRepository(ICreateRepositoryRequest request) =>
-            DoRequest<ICreateRepositoryRequest, CreateRepositoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICreateRepositoryRequest, CreateRepositoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
@@ -721,11 +654,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             ICreateRepositoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICreateRepositoryRequest, CreateRepositoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICreateRepositoryRequest, CreateRepositoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
@@ -737,11 +666,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Name snapshot,
             Func<DeleteSnapshotDescriptor, IDeleteSnapshotRequest> selector = null
         ) =>
-            Delete(
-                selector.InvokeOrDefault(
-                    new DeleteSnapshotDescriptor(repository: repository, snapshot: snapshot)
-                )
-            );
+            Delete(selector.InvokeOrDefault(new DeleteSnapshotDescriptor(repository: repository, snapshot: snapshot)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
@@ -754,12 +679,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<DeleteSnapshotDescriptor, IDeleteSnapshotRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteAsync(
-                selector.InvokeOrDefault(
-                    new DeleteSnapshotDescriptor(repository: repository, snapshot: snapshot)
-                ),
-                ct
-            );
+            DeleteAsync(selector.InvokeOrDefault(new DeleteSnapshotDescriptor(repository: repository, snapshot: snapshot)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
@@ -767,10 +687,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         public DeleteSnapshotResponse Delete(IDeleteSnapshotRequest request) =>
-            DoRequest<IDeleteSnapshotRequest, DeleteSnapshotResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteSnapshotRequest, DeleteSnapshotResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
@@ -781,11 +698,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             IDeleteSnapshotRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteSnapshotRequest, DeleteSnapshotResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteSnapshotRequest, DeleteSnapshotResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
@@ -796,9 +709,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Names repository,
             Func<DeleteRepositoryDescriptor, IDeleteRepositoryRequest> selector = null
         ) =>
-            DeleteRepository(
-                selector.InvokeOrDefault(new DeleteRepositoryDescriptor(repository: repository))
-            );
+            DeleteRepository(selector.InvokeOrDefault(new DeleteRepositoryDescriptor(repository: repository)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
@@ -810,10 +721,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<DeleteRepositoryDescriptor, IDeleteRepositoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteRepositoryAsync(
-                selector.InvokeOrDefault(new DeleteRepositoryDescriptor(repository: repository)),
-                ct
-            );
+            DeleteRepositoryAsync(selector.InvokeOrDefault(new DeleteRepositoryDescriptor(repository: repository)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
@@ -821,10 +729,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         public DeleteRepositoryResponse DeleteRepository(IDeleteRepositoryRequest request) =>
-            DoRequest<IDeleteRepositoryRequest, DeleteRepositoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteRepositoryRequest, DeleteRepositoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
@@ -835,11 +740,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             IDeleteRepositoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteRepositoryRequest, DeleteRepositoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteRepositoryRequest, DeleteRepositoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
@@ -851,11 +752,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Names snapshot,
             Func<GetSnapshotDescriptor, IGetSnapshotRequest> selector = null
         ) =>
-            Get(
-                selector.InvokeOrDefault(
-                    new GetSnapshotDescriptor(repository: repository, snapshot: snapshot)
-                )
-            );
+            Get(selector.InvokeOrDefault(new GetSnapshotDescriptor(repository: repository, snapshot: snapshot)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
@@ -868,12 +765,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<GetSnapshotDescriptor, IGetSnapshotRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetAsync(
-                selector.InvokeOrDefault(
-                    new GetSnapshotDescriptor(repository: repository, snapshot: snapshot)
-                ),
-                ct
-            );
+            GetAsync(selector.InvokeOrDefault(new GetSnapshotDescriptor(repository: repository, snapshot: snapshot)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
@@ -888,15 +780,8 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
-        public Task<GetSnapshotResponse> GetAsync(
-            IGetSnapshotRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetSnapshotRequest, GetSnapshotResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetSnapshotResponse> GetAsync(IGetSnapshotRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetSnapshotRequest, GetSnapshotResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
@@ -905,7 +790,8 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// </summary>
         public GetRepositoryResponse GetRepository(
             Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null
-        ) => GetRepository(selector.InvokeOrDefault(new GetRepositoryDescriptor()));
+        ) =>
+            GetRepository(selector.InvokeOrDefault(new GetRepositoryDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
@@ -915,7 +801,8 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         public Task<GetRepositoryResponse> GetRepositoryAsync(
             Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null,
             CancellationToken ct = default
-        ) => GetRepositoryAsync(selector.InvokeOrDefault(new GetRepositoryDescriptor()), ct);
+        ) =>
+            GetRepositoryAsync(selector.InvokeOrDefault(new GetRepositoryDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
@@ -923,10 +810,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         public GetRepositoryResponse GetRepository(IGetRepositoryRequest request) =>
-            DoRequest<IGetRepositoryRequest, GetRepositoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetRepositoryRequest, GetRepositoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
@@ -937,11 +821,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             IGetRepositoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetRepositoryRequest, GetRepositoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetRepositoryRequest, GetRepositoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
@@ -953,11 +833,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Name snapshot,
             Func<RestoreDescriptor, IRestoreRequest> selector = null
         ) =>
-            Restore(
-                selector.InvokeOrDefault(
-                    new RestoreDescriptor(repository: repository, snapshot: snapshot)
-                )
-            );
+            Restore(selector.InvokeOrDefault(new RestoreDescriptor(repository: repository, snapshot: snapshot)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
@@ -970,12 +846,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<RestoreDescriptor, IRestoreRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            RestoreAsync(
-                selector.InvokeOrDefault(
-                    new RestoreDescriptor(repository: repository, snapshot: snapshot)
-                ),
-                ct
-            );
+            RestoreAsync(selector.InvokeOrDefault(new RestoreDescriptor(repository: repository, snapshot: snapshot)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
@@ -990,15 +861,8 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
-        public Task<RestoreResponse> RestoreAsync(
-            IRestoreRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IRestoreRequest, RestoreResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<RestoreResponse> RestoreAsync(IRestoreRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IRestoreRequest, RestoreResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
@@ -1007,7 +871,8 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// </summary>
         public SnapshotStatusResponse Status(
             Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null
-        ) => Status(selector.InvokeOrDefault(new SnapshotStatusDescriptor()));
+        ) =>
+            Status(selector.InvokeOrDefault(new SnapshotStatusDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
@@ -1017,7 +882,8 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         public Task<SnapshotStatusResponse> StatusAsync(
             Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null,
             CancellationToken ct = default
-        ) => StatusAsync(selector.InvokeOrDefault(new SnapshotStatusDescriptor()), ct);
+        ) =>
+            StatusAsync(selector.InvokeOrDefault(new SnapshotStatusDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
@@ -1025,10 +891,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         public SnapshotStatusResponse Status(ISnapshotStatusRequest request) =>
-            DoRequest<ISnapshotStatusRequest, SnapshotStatusResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISnapshotStatusRequest, SnapshotStatusResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
@@ -1039,11 +902,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             ISnapshotStatusRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISnapshotStatusRequest, SnapshotStatusResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISnapshotStatusRequest, SnapshotStatusResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
@@ -1054,9 +913,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Name repository,
             Func<VerifyRepositoryDescriptor, IVerifyRepositoryRequest> selector = null
         ) =>
-            VerifyRepository(
-                selector.InvokeOrDefault(new VerifyRepositoryDescriptor(repository: repository))
-            );
+            VerifyRepository(selector.InvokeOrDefault(new VerifyRepositoryDescriptor(repository: repository)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
@@ -1068,10 +925,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             Func<VerifyRepositoryDescriptor, IVerifyRepositoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            VerifyRepositoryAsync(
-                selector.InvokeOrDefault(new VerifyRepositoryDescriptor(repository: repository)),
-                ct
-            );
+            VerifyRepositoryAsync(selector.InvokeOrDefault(new VerifyRepositoryDescriptor(repository: repository)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
@@ -1079,10 +933,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         public VerifyRepositoryResponse VerifyRepository(IVerifyRepositoryRequest request) =>
-            DoRequest<IVerifyRepositoryRequest, VerifyRepositoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IVerifyRepositoryRequest, VerifyRepositoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
@@ -1093,10 +944,6 @@ namespace OpenSearch.Client.Specification.SnapshotApi
             IVerifyRepositoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IVerifyRepositoryRequest, VerifyRepositoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IVerifyRepositoryRequest, VerifyRepositoryResponse>(request, request.RequestParameters, ct);
     }
 }

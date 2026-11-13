@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.KnnApi
 {
     /// <summary>Request options for DeleteModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#delete-a-model</para></summary>
-    public partial class DeleteModelRequestParameters
-        : RequestParameters<DeleteModelRequestParameters>
+    public partial class DeleteModelRequestParameters : RequestParameters<DeleteModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -70,8 +69,7 @@ namespace OpenSearch.Net.Specification.KnnApi
     }
 
     /// <summary>Request options for SearchModels <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
-    public partial class SearchModelsRequestParameters
-        : RequestParameters<SearchModelsRequestParameters>
+    public partial class SearchModelsRequestParameters : RequestParameters<SearchModelsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -402,8 +400,7 @@ namespace OpenSearch.Net.Specification.KnnApi
     }
 
     /// <summary>Request options for TrainModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
-    public partial class TrainModelRequestParameters
-        : RequestParameters<TrainModelRequestParameters>
+    public partial class TrainModelRequestParameters : RequestParameters<TrainModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;

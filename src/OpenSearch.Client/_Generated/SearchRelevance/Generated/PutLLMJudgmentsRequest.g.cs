@@ -104,9 +104,8 @@ namespace OpenSearch.Client
         public PutLLMJudgmentsRequestDescriptor QuerySetId(string querySetId) =>
             Assign(querySetId, (a, v) => a.QuerySetId = v);
 
-        public PutLLMJudgmentsRequestDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
+        public PutLLMJudgmentsRequestDescriptor SearchConfigurationList(IList<string> searchConfigurationList) =>
+            Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
 
         public PutLLMJudgmentsRequestDescriptor Size(int? size) =>
             Assign(size, (a, v) => a.Size = v);

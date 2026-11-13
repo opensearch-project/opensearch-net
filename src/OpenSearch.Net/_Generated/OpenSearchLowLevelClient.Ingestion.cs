@@ -66,24 +66,15 @@ namespace OpenSearch.Net.Specification.IngestionApi
     /// </summary>
     public partial class LowLevelIngestionNamespace : NamespacedClientProxy
     {
-        internal LowLevelIngestionNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelIngestionNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>GET on /{index}/ingestion/_state <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion state should be retrieved.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
-        public TResponse GetState<TResponse>(
-            string index,
-            GetStateRequestParameters requestParameters = null
-        )
+        public TResponse GetState<TResponse>(string index, GetStateRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"{index:index}/ingestion/_state"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"{index:index}/ingestion/_state"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /{index}/ingestion/_state <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion state should be retrieved.</param>
@@ -96,29 +87,15 @@ namespace OpenSearch.Net.Specification.IngestionApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"{index:index}/ingestion/_state"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"{index:index}/ingestion/_state"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /{index}/ingestion/_pause <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be paused.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
-        public TResponse Pause<TResponse>(
-            string index,
-            PauseRequestParameters requestParameters = null
-        )
+        public TResponse Pause<TResponse>(string index, PauseRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"{index:index}/ingestion/_pause"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"{index:index}/ingestion/_pause"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /{index}/ingestion/_pause <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be paused.</param>
@@ -131,13 +108,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"{index:index}/ingestion/_pause"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"{index:index}/ingestion/_pause"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /{index}/ingestion/_resume <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be resumed.</param>
@@ -150,12 +121,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
             ResumeRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"{index:index}/ingestion/_resume"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"{index:index}/ingestion/_resume"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /{index}/ingestion/_resume <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be resumed.</param>
@@ -170,12 +136,6 @@ namespace OpenSearch.Net.Specification.IngestionApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"{index:index}/ingestion/_resume"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"{index:index}/ingestion/_resume"), ctx, body, RequestParams(requestParameters));
     }
 }

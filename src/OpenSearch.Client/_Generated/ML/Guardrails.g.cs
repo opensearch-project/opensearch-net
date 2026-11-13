@@ -76,9 +76,7 @@ namespace OpenSearch.Client
         public GuardrailsType? Type { get; set; }
     }
 
-    public class GuardrailsDescriptor
-        : DescriptorBase<GuardrailsDescriptor, IGuardrails>,
-            IGuardrails
+    public class GuardrailsDescriptor : DescriptorBase<GuardrailsDescriptor, IGuardrails>, IGuardrails
     {
         IndexName IGuardrails.IndexName { get; set; }
         IGuardrailsInputOutput IGuardrails.InputGuardrail { get; set; }

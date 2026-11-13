@@ -66,23 +66,14 @@ namespace OpenSearch.Net.Specification.IngestApi
     /// </summary>
     public partial class LowLevelIngestNamespace : NamespacedClientProxy
     {
-        internal LowLevelIngestNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelIngestNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
         /// <param name="id">The pipeline ID or wildcard expression of pipeline IDs used to limit the request. To delete all ingest pipelines in a cluster, use a value of &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeletePipeline<TResponse>(
-            string id,
-            DeletePipelineRequestParameters requestParameters = null
-        )
+        public TResponse DeletePipeline<TResponse>(string id, DeletePipelineRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_ingest/pipeline/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_ingest/pipeline/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
         /// <param name="id">The pipeline ID or wildcard expression of pipeline IDs used to limit the request. To delete all ingest pipelines in a cluster, use a value of &lt;c&gt;*&lt;/c&gt;.</param>
@@ -94,19 +85,11 @@ namespace OpenSearch.Net.Specification.IngestApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_ingest/pipeline/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_ingest/pipeline/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_ingest/pipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetPipeline<TResponse>(
-            GetPipelineRequestParameters requestParameters = null
-        )
+        public TResponse GetPipeline<TResponse>(GetPipelineRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_ingest/pipeline", null, RequestParams(requestParameters));
 
@@ -118,28 +101,14 @@ namespace OpenSearch.Net.Specification.IngestApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_ingest/pipeline",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_ingest/pipeline", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
         /// <param name="id">A comma-separated list of pipeline IDs to retrieve. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported. To get all ingest pipelines, omit this parameter or use &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetPipeline<TResponse>(
-            string id,
-            GetPipelineRequestParameters requestParameters = null
-        )
+        public TResponse GetPipeline<TResponse>(string id, GetPipelineRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_ingest/pipeline/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_ingest/pipeline/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
         /// <param name="id">A comma-separated list of pipeline IDs to retrieve. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported. To get all ingest pipelines, omit this parameter or use &lt;c&gt;*&lt;/c&gt;.</param>
@@ -151,13 +120,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_ingest/pipeline/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_ingest/pipeline/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_ingest/processor/grok <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -165,12 +128,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             GrokProcessorPatternsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_ingest/processor/grok",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_ingest/processor/grok", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_ingest/processor/grok <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -180,13 +138,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_ingest/processor/grok",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_ingest/processor/grok", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
         /// <param name="id">The ID of the ingest pipeline.</param>
@@ -198,12 +150,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             PutPipelineRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_ingest/pipeline/{id:id}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_ingest/pipeline/{id:id}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
         /// <param name="id">The ID of the ingest pipeline.</param>
@@ -217,13 +164,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_ingest/pipeline/{id:id}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_ingest/pipeline/{id:id}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_ingest/pipeline/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="body">The simulate definition.</param>
@@ -233,12 +174,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             SimulatePipelineRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_ingest/pipeline/_simulate",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_ingest/pipeline/_simulate", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_ingest/pipeline/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="body">The simulate definition.</param>
@@ -250,13 +186,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_ingest/pipeline/_simulate",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_ingest/pipeline/_simulate", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="id">The pipeline to test. If you don&#x27;t specify a &lt;c&gt;pipeline&lt;/c&gt; in the request body, this parameter is required.</param>
@@ -268,12 +198,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             SimulatePipelineRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_ingest/pipeline/{id:id}/_simulate"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_ingest/pipeline/{id:id}/_simulate"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="id">The pipeline to test. If you don&#x27;t specify a &lt;c&gt;pipeline&lt;/c&gt; in the request body, this parameter is required.</param>
@@ -287,12 +212,6 @@ namespace OpenSearch.Net.Specification.IngestApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_ingest/pipeline/{id:id}/_simulate"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_ingest/pipeline/{id:id}/_simulate"), ctx, body, RequestParams(requestParameters));
     }
 }

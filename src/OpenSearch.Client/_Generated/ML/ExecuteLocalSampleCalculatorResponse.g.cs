@@ -41,10 +41,7 @@ namespace OpenSearch.Client
     }
 
     public class ExecuteLocalSampleCalculatorResponseDescriptor
-        : DescriptorBase<
-            ExecuteLocalSampleCalculatorResponseDescriptor,
-            IExecuteLocalSampleCalculatorResponse
-        >,
+        : DescriptorBase<ExecuteLocalSampleCalculatorResponseDescriptor, IExecuteLocalSampleCalculatorResponse>,
             IExecuteLocalSampleCalculatorResponse
     {
         float? IExecuteLocalSampleCalculatorResponse.Result { get; set; }

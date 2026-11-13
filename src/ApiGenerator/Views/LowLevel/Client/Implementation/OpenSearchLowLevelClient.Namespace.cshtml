@@ -36,7 +36,9 @@ namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespa
         internal @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
 @if (ns == "Cat")
 {
-    <text>protected override string ContentType => "text/plain";</text>
+<text>
+        protected override string ContentType => "text/plain";
+</text>
 }
     @{
         var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();

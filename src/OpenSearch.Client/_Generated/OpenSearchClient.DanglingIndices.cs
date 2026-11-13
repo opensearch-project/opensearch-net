@@ -178,8 +178,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
     /// </summary>
     public partial class DanglingIndicesNamespace : NamespacedClientProxy, IDanglingIndicesNamespace
     {
-        internal DanglingIndicesNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal DanglingIndicesNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
@@ -190,9 +189,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             IndexUuid indexUuid,
             Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null
         ) =>
-            DeleteDanglingIndex(
-                selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid))
-            );
+            DeleteDanglingIndex(selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
@@ -204,23 +201,15 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteDanglingIndexAsync(
-                selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid)),
-                ct
-            );
+            DeleteDanglingIndexAsync(selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        public DeleteDanglingIndexResponse DeleteDanglingIndex(
-            IDeleteDanglingIndexRequest request
-        ) =>
-            DoRequest<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(
-                request,
-                request.RequestParameters
-            );
+        public DeleteDanglingIndexResponse DeleteDanglingIndex(IDeleteDanglingIndexRequest request) =>
+            DoRequest<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
@@ -231,11 +220,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             IDeleteDanglingIndexRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
@@ -246,9 +231,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             IndexUuid indexUuid,
             Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null
         ) =>
-            ImportDanglingIndex(
-                selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid))
-            );
+            ImportDanglingIndex(selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
@@ -260,23 +243,15 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ImportDanglingIndexAsync(
-                selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid)),
-                ct
-            );
+            ImportDanglingIndexAsync(selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        public ImportDanglingIndexResponse ImportDanglingIndex(
-            IImportDanglingIndexRequest request
-        ) =>
-            DoRequest<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(
-                request,
-                request.RequestParameters
-            );
+        public ImportDanglingIndexResponse ImportDanglingIndex(IImportDanglingIndexRequest request) =>
+            DoRequest<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
@@ -287,11 +262,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             IImportDanglingIndexRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
@@ -300,7 +271,8 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// </summary>
         public ListDanglingIndicesResponse List(
             Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null
-        ) => List(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()));
+        ) =>
+            List(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
@@ -310,7 +282,8 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         public Task<ListDanglingIndicesResponse> ListAsync(
             Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null,
             CancellationToken ct = default
-        ) => ListAsync(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()), ct);
+        ) =>
+            ListAsync(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
@@ -318,10 +291,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public ListDanglingIndicesResponse List(IListDanglingIndicesRequest request) =>
-            DoRequest<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
@@ -332,10 +302,6 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             IListDanglingIndicesRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(request, request.RequestParameters, ct);
     }
 }

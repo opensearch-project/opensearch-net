@@ -70,12 +70,13 @@ namespace OpenSearch.Client
         public PutExperimentsDescriptor QuerySetId(string querySetId) =>
             Assign(querySetId, (a, v) => a.QuerySetId = v);
 
-        public PutExperimentsDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
+        public PutExperimentsDescriptor SearchConfigurationList(IList<string> searchConfigurationList) =>
+            Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
 
-        public PutExperimentsDescriptor Size(int? size) => Assign(size, (a, v) => a.Size = v);
+        public PutExperimentsDescriptor Size(int? size) =>
+            Assign(size, (a, v) => a.Size = v);
 
-        public PutExperimentsDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+        public PutExperimentsDescriptor Type(string type) =>
+            Assign(type, (a, v) => a.Type = v);
     }
 }

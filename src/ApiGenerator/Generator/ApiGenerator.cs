@@ -75,6 +75,7 @@ namespace ApiGenerator.Generator
                 },
                 highLevel: false
             );
+            await DotNetFormat.FormatFolderAsync(GeneratorLocations.LowLevelGeneratedFolder, token);
 
             if (lowLevelOnly)
                 return;
@@ -92,6 +93,7 @@ namespace ApiGenerator.Generator
                 },
                 highLevel: true
             );
+            await DotNetFormat.FormatFolderAsync(GeneratorLocations.HighLevelGeneratedFolder, token);
         }
 
         public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)

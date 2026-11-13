@@ -27,19 +27,12 @@ namespace OpenSearch.Client
     /// <summary>
     /// System.Text.Json converter for <see cref="IResponseProcessor"/> wrapper-key union.
     /// </summary>
-    internal class ResponseProcessorConverter
-        : System.Text.Json.Serialization.JsonConverter<IResponseProcessor>
+    internal class ResponseProcessorConverter : System.Text.Json.Serialization.JsonConverter<IResponseProcessor>
     {
-        public override IResponseProcessor Read(
-            ref System.Text.Json.Utf8JsonReader reader,
-            Type typeToConvert,
-            System.Text.Json.JsonSerializerOptions options
-        )
+        public override IResponseProcessor Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)
         {
             if (reader.TokenType == System.Text.Json.JsonTokenType.Null)
-            {
-                return null;
-            }
+            { return null; }
             using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);
             var root = doc.RootElement;
             if (root.ValueKind != System.Text.Json.JsonValueKind.Object)
@@ -50,67 +43,33 @@ namespace OpenSearch.Client
                 switch (property.Name)
                 {
                     case "agentic_context":
-                        return System.Text.Json.JsonSerializer.Deserialize<AgenticContextResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<AgenticContextResponseProcessor>(body, options);
                     case "personalize_search_ranking":
-                        return System.Text.Json.JsonSerializer.Deserialize<PersonalizeSearchRankingResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<PersonalizeSearchRankingResponseProcessor>(body, options);
                     case "retrieval_augmented_generation":
-                        return System.Text.Json.JsonSerializer.Deserialize<RetrievalAugmentedGenerationResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<RetrievalAugmentedGenerationResponseProcessor>(body, options);
                     case "rename_field":
-                        return System.Text.Json.JsonSerializer.Deserialize<RenameFieldResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<RenameFieldResponseProcessor>(body, options);
                     case "rerank":
-                        return System.Text.Json.JsonSerializer.Deserialize<RerankResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<RerankResponseProcessor>(body, options);
                     case "collapse":
-                        return System.Text.Json.JsonSerializer.Deserialize<CollapseResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<CollapseResponseProcessor>(body, options);
                     case "truncate_hits":
-                        return System.Text.Json.JsonSerializer.Deserialize<TruncateHitsResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<TruncateHitsResponseProcessor>(body, options);
                     case "sort":
-                        return System.Text.Json.JsonSerializer.Deserialize<SortResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<SortResponseProcessor>(body, options);
                     case "split":
-                        return System.Text.Json.JsonSerializer.Deserialize<SplitResponseProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<SplitResponseProcessor>(body, options);
                 }
                 break; // only first key matters
             }
             return null;
         }
 
-        public override void Write(
-            System.Text.Json.Utf8JsonWriter writer,
-            IResponseProcessor value,
-            System.Text.Json.JsonSerializerOptions options
-        )
+        public override void Write(System.Text.Json.Utf8JsonWriter writer, IResponseProcessor value, System.Text.Json.JsonSerializerOptions options)
         {
             if (value?.Name == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
+            { writer.WriteNullValue(); return; }
             writer.WriteStartObject();
             writer.WritePropertyName(value.Name);
             switch (value)
@@ -143,12 +102,7 @@ namespace OpenSearch.Client
                     System.Text.Json.JsonSerializer.Serialize(writer, v, options);
                     break;
                 default:
-                    System.Text.Json.JsonSerializer.Serialize(
-                        writer,
-                        value,
-                        value.GetType(),
-                        options
-                    );
+                    System.Text.Json.JsonSerializer.Serialize(writer, value, value.GetType(), options);
                     break;
             }
             writer.WriteEndObject();

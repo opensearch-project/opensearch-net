@@ -81,13 +81,11 @@ namespace OpenSearch.Client
         long? INodeStatsDetails.MlRequestCount { get; set; }
         IDictionary<string, IModelProfile> INodeStatsDetails.Models { get; set; }
 
-        public NodeStatsDetailsDescriptor Algorithms(
-            IDictionary<string, IAlgorithmOperations> algorithms
-        ) => Assign(algorithms, (a, v) => a.Algorithms = v);
+        public NodeStatsDetailsDescriptor Algorithms(IDictionary<string, IAlgorithmOperations> algorithms) =>
+            Assign(algorithms, (a, v) => a.Algorithms = v);
 
-        public NodeStatsDetailsDescriptor MlCircuitBreakerTriggerCount(
-            long? mlCircuitBreakerTriggerCount
-        ) => Assign(mlCircuitBreakerTriggerCount, (a, v) => a.MlCircuitBreakerTriggerCount = v);
+        public NodeStatsDetailsDescriptor MlCircuitBreakerTriggerCount(long? mlCircuitBreakerTriggerCount) =>
+            Assign(mlCircuitBreakerTriggerCount, (a, v) => a.MlCircuitBreakerTriggerCount = v);
 
         public NodeStatsDetailsDescriptor MlDeployedModelCount(long? mlDeployedModelCount) =>
             Assign(mlDeployedModelCount, (a, v) => a.MlDeployedModelCount = v);

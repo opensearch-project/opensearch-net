@@ -54,8 +54,7 @@ namespace OpenSearch.Client
         public ScoreRankerCombinationDescriptor RankConstant(int? rankConstant) =>
             Assign(rankConstant, (a, v) => a.RankConstant = v);
 
-        public ScoreRankerCombinationDescriptor Technique(
-            ScoreRankerCombinationTechnique? technique
-        ) => Assign(technique, (a, v) => a.Technique = v);
+        public ScoreRankerCombinationDescriptor Technique(ScoreRankerCombinationTechnique? technique) =>
+            Assign(technique, (a, v) => a.Technique = v);
     }
 }

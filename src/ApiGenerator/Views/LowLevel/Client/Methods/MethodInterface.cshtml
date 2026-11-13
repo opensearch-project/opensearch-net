@@ -1,7 +1,11 @@
 @using ApiGenerator.Domain.Code.LowLevel
-@inherits ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
-@{await IncludeAsync("LowLevel/Client/Methods/MethodDocs.cshtml", Model); }
-        TResponse @Model.PerPathMethodName@(Raw("<TResponse>"))(@Raw(Model.Arguments)) where TResponse : class, IOpenSearchResponse, new();
+@using ApiGenerator.Generator
+@inherits global::ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
 
 @{await IncludeAsync("LowLevel/Client/Methods/MethodDocs.cshtml", Model); }
-        Task@(Raw("<TResponse>")) @(Model.PerPathMethodName)Async@(Raw("<TResponse>"))(@Raw(Model.Arguments), CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new();
+        @Raw(CodeLayout.ParameterList($"TResponse {Model.PerPathMethodName}<TResponse>", Model.Arguments, 8))
+            where TResponse : class, IOpenSearchResponse, new();
+
+@{await IncludeAsync("LowLevel/Client/Methods/MethodDocs.cshtml", Model); }
+        @Raw(CodeLayout.ParameterList($"Task<TResponse> {Model.PerPathMethodName}Async<TResponse>", Model.Arguments + ", CancellationToken ctx = default", 8))
+            where TResponse : class, IOpenSearchResponse, new();

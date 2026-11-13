@@ -44,6 +44,7 @@ namespace OpenSearch.Client
     {
         Name ICreateMemoryRequest.Name { get; set; }
 
-        public CreateMemoryDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
+        public CreateMemoryDescriptor Name(Name name) =>
+            Assign(name, (a, v) => a.Name = v);
     }
 }

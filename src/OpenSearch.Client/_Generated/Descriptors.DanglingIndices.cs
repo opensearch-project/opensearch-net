@@ -59,28 +59,21 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for DeleteDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class DeleteDanglingIndexDescriptor
-        : RequestDescriptorBase<
-            DeleteDanglingIndexDescriptor,
-            DeleteDanglingIndexRequestParameters,
-            IDeleteDanglingIndexRequest
-        >,
+        : RequestDescriptorBase<DeleteDanglingIndexDescriptor, DeleteDanglingIndexRequestParameters, IDeleteDanglingIndexRequest>,
             IDeleteDanglingIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.DanglingIndicesDeleteDanglingIndex;
 
         /// <summary>/_dangling/{index_uuid}</summary>
         /// <param name="indexUuid">this parameter is required</param>
-        public DeleteDanglingIndexDescriptor(IndexUuid indexUuid)
-            : base(r => r.Required("index_uuid", indexUuid)) { }
+        public DeleteDanglingIndexDescriptor(IndexUuid indexUuid) : base(r => r.Required("index_uuid", indexUuid)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteDanglingIndexDescriptor()
-            : base() { }
+        protected DeleteDanglingIndexDescriptor() : base() { }
 
         // values part of the url path
-        IndexUuid IDeleteDanglingIndexRequest.IndexUuid =>
-            Self.RouteValues.Get<IndexUuid>("index_uuid");
+        IndexUuid IDeleteDanglingIndexRequest.IndexUuid => Self.RouteValues.Get<IndexUuid>("index_uuid");
 
         // Request parameters
         /// <summary>Must be set to true in order to delete the dangling index.</summary>
@@ -93,11 +86,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Specify timeout for connection to cluster manager.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public DeleteDanglingIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public DeleteDanglingIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Explicit operation timeout.</summary>
         public DeleteDanglingIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -105,28 +95,21 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for ImportDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ImportDanglingIndexDescriptor
-        : RequestDescriptorBase<
-            ImportDanglingIndexDescriptor,
-            ImportDanglingIndexRequestParameters,
-            IImportDanglingIndexRequest
-        >,
+        : RequestDescriptorBase<ImportDanglingIndexDescriptor, ImportDanglingIndexRequestParameters, IImportDanglingIndexRequest>,
             IImportDanglingIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.DanglingIndicesImportDanglingIndex;
 
         /// <summary>/_dangling/{index_uuid}</summary>
         /// <param name="indexUuid">this parameter is required</param>
-        public ImportDanglingIndexDescriptor(IndexUuid indexUuid)
-            : base(r => r.Required("index_uuid", indexUuid)) { }
+        public ImportDanglingIndexDescriptor(IndexUuid indexUuid) : base(r => r.Required("index_uuid", indexUuid)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ImportDanglingIndexDescriptor()
-            : base() { }
+        protected ImportDanglingIndexDescriptor() : base() { }
 
         // values part of the url path
-        IndexUuid IImportDanglingIndexRequest.IndexUuid =>
-            Self.RouteValues.Get<IndexUuid>("index_uuid");
+        IndexUuid IImportDanglingIndexRequest.IndexUuid => Self.RouteValues.Get<IndexUuid>("index_uuid");
 
         // Request parameters
         /// <summary>Must be set to true in order to import the dangling index.</summary>
@@ -139,11 +122,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Specify timeout for connection to cluster manager.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ImportDanglingIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ImportDanglingIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Explicit operation timeout.</summary>
         public ImportDanglingIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -151,14 +131,11 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for List <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ListDanglingIndicesDescriptor
-        : RequestDescriptorBase<
-            ListDanglingIndicesDescriptor,
-            ListDanglingIndicesRequestParameters,
-            IListDanglingIndicesRequest
-        >,
+        : RequestDescriptorBase<ListDanglingIndicesDescriptor, ListDanglingIndicesRequestParameters, IListDanglingIndicesRequest>,
             IListDanglingIndicesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.DanglingIndicesList;
+
         // values part of the url path
         // Request parameters
     }

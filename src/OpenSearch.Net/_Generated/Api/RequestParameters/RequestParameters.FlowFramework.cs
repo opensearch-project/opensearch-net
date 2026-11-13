@@ -115,8 +115,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     }
 
     /// <summary>Request options for Deprovision <para>https://docs.opensearch.org/latest/automating-configurations/api/deprovision-workflow/</para></summary>
-    public partial class DeprovisionRequestParameters
-        : RequestParameters<DeprovisionRequestParameters>
+    public partial class DeprovisionRequestParameters : RequestParameters<DeprovisionRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -185,8 +184,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     }
 
     /// <summary>Request options for SearchState <para>https://docs.opensearch.org/latest/automating-configurations/api/search-workflow-state/</para></summary>
-    public partial class SearchStateRequestParameters
-        : RequestParameters<SearchStateRequestParameters>
+    public partial class SearchStateRequestParameters : RequestParameters<SearchStateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;

@@ -66,24 +66,15 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
     /// </summary>
     public partial class LowLevelSearchPipelineNamespace : NamespacedClientProxy
     {
-        internal LowLevelSearchPipelineNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelSearchPipelineNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_search/pipeline/{id}</summary>
         /// <param name="id">Pipeline ID.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
-        public TResponse Delete<TResponse>(
-            string id,
-            DeleteRequestParameters requestParameters = null
-        )
+        public TResponse Delete<TResponse>(string id, DeleteRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_search/pipeline/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_search/pipeline/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_search/pipeline/{id}</summary>
         /// <param name="id">Pipeline ID.</param>
@@ -96,13 +87,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_search/pipeline/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_search/pipeline/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_search/pipeline</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -120,13 +105,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_search/pipeline",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_search/pipeline", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_search/pipeline/{id}</summary>
         /// <param name="id">Comma-separated list of search pipeline ids. Wildcards supported.</param>
@@ -134,12 +113,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_search/pipeline/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_search/pipeline/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_search/pipeline/{id}</summary>
         /// <param name="id">Comma-separated list of search pipeline ids. Wildcards supported.</param>
@@ -152,31 +126,16 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_search/pipeline/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_search/pipeline/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_search/pipeline/{id} <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
         /// <param name="id">Pipeline ID.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
-        public TResponse Put<TResponse>(
-            string id,
-            PostData body,
-            PutRequestParameters requestParameters = null
-        )
+        public TResponse Put<TResponse>(string id, PostData body, PutRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_search/pipeline/{id:id}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_search/pipeline/{id:id}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_search/pipeline/{id} <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
         /// <param name="id">Pipeline ID.</param>
@@ -191,12 +150,6 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_search/pipeline/{id:id}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_search/pipeline/{id:id}"), ctx, body, RequestParams(requestParameters));
     }
 }

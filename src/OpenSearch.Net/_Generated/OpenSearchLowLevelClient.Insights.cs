@@ -66,19 +66,13 @@ namespace OpenSearch.Net.Specification.InsightsApi
     /// </summary>
     public partial class LowLevelInsightsNamespace : NamespacedClientProxy
     {
-        internal LowLevelInsightsNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelInsightsNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>GET on /_insights/top_queries</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse TopQueries<TResponse>(TopQueriesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_insights/top_queries",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_insights/top_queries", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_insights/top_queries</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -88,12 +82,6 @@ namespace OpenSearch.Net.Specification.InsightsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_insights/top_queries",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_insights/top_queries", ctx, null, RequestParams(requestParameters));
     }
 }

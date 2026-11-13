@@ -29,25 +29,20 @@ namespace OpenSearch.Client
 {
     [JsonFormatter(typeof(OpenObjectFormatter<MLMetadata, IMLMetadata>))]
     [ReadAs(typeof(MLMetadata))]
-    public interface IMLMetadata : IHasAdditionalProperties { }
+    public interface IMLMetadata : IHasAdditionalProperties
+    {
+    }
 
     public class MLMetadata : IMLMetadata
     {
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
-    public class MLMetadataDescriptor
-        : DescriptorBase<MLMetadataDescriptor, IMLMetadata>,
-            IMLMetadata
+    public class MLMetadataDescriptor : DescriptorBase<MLMetadataDescriptor, IMLMetadata>, IMLMetadata
     {
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public MLMetadataDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public MLMetadataDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

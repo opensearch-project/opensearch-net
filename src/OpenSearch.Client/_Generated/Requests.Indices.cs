@@ -69,9 +69,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for AddBlock <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class AddIndexBlockRequest
-        : PlainRequestBase<AddIndexBlockRequestParameters>,
-            IAddIndexBlockRequest
+    public partial class AddIndexBlockRequest : PlainRequestBase<AddIndexBlockRequestParameters>, IAddIndexBlockRequest
     {
         protected IAddIndexBlockRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAddBlock;
@@ -79,18 +77,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_block/{block}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="block">this parameter is required</param>
-        public AddIndexBlockRequest(Indices index, IndexBlock block)
-            : base(r => r.Required("index", index).Required("block", block)) { }
+        public AddIndexBlockRequest(Indices index, IndexBlock block) : base(r => r.Required("index", index).Required("block", block)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected AddIndexBlockRequest()
-            : base() { }
+        protected AddIndexBlockRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         IndexBlock IAddIndexBlockRequest.Block => Self.RouteValues.Get<IndexBlock>("block");
-
         [IgnoreDataMember]
         Indices IAddIndexBlockRequest.Index => Self.RouteValues.Get<Indices>("index");
 
@@ -128,9 +123,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Specify timeout for connection to cluster manager.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -153,21 +146,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Analyze <para>https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
-    public partial class AnalyzeRequest
-        : PlainRequestBase<AnalyzeRequestParameters>,
-            IAnalyzeRequest
+    public partial class AnalyzeRequest : PlainRequestBase<AnalyzeRequestParameters>, IAnalyzeRequest
     {
         protected IAnalyzeRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAnalyze;
 
         /// <summary>/_analyze</summary>
-        public AnalyzeRequest()
-            : base() { }
+        public AnalyzeRequest() : base() { }
 
         /// <summary>/{index}/_analyze</summary>
         /// <param name="index">Optional, accepts null</param>
-        public AnalyzeRequest(IndexName index)
-            : base(r => r.Optional("index", index)) { }
+        public AnalyzeRequest(IndexName index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -184,21 +173,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for ClearCache <para>https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</para></summary>
-    public partial class ClearCacheRequest
-        : PlainRequestBase<ClearCacheRequestParameters>,
-            IClearCacheRequest
+    public partial class ClearCacheRequest : PlainRequestBase<ClearCacheRequestParameters>, IClearCacheRequest
     {
         protected IClearCacheRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClearCache;
 
         /// <summary>/_cache/clear</summary>
-        public ClearCacheRequest()
-            : base() { }
+        public ClearCacheRequest() : base() { }
 
         /// <summary>/{index}/_cache/clear</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ClearCacheRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ClearCacheRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -281,9 +266,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Clone <para>https://docs.opensearch.org/latest/api-reference/index-apis/clone/</para></summary>
-    public partial class CloneIndexRequest
-        : PlainRequestBase<CloneIndexRequestParameters>,
-            ICloneIndexRequest
+    public partial class CloneIndexRequest : PlainRequestBase<CloneIndexRequestParameters>, ICloneIndexRequest
     {
         protected ICloneIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClone;
@@ -291,18 +274,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_clone/{target}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="target">this parameter is required</param>
-        public CloneIndexRequest(IndexName index, IndexName target)
-            : base(r => r.Required("index", index).Required("target", target)) { }
+        public CloneIndexRequest(IndexName index, IndexName target) : base(r => r.Required("index", index).Required("target", target)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CloneIndexRequest()
-            : base() { }
+        protected CloneIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         IndexName ICloneIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
-
         [IgnoreDataMember]
         IndexName ICloneIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 
@@ -319,9 +299,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -369,22 +347,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Close <para>https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</para></summary>
-    public partial class CloseIndexRequest
-        : PlainRequestBase<CloseIndexRequestParameters>,
-            ICloseIndexRequest
+    public partial class CloseIndexRequest : PlainRequestBase<CloseIndexRequestParameters>, ICloseIndexRequest
     {
         protected ICloseIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClose;
 
         /// <summary>/{index}/_close</summary>
         /// <param name="index">this parameter is required</param>
-        public CloseIndexRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public CloseIndexRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CloseIndexRequest()
-            : base() { }
+        protected CloseIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -431,9 +405,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -466,22 +438,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Create <para>https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</para></summary>
-    public partial class CreateIndexRequest
-        : PlainRequestBase<CreateIndexRequestParameters>,
-            ICreateIndexRequest
+    public partial class CreateIndexRequest : PlainRequestBase<CreateIndexRequestParameters>, ICreateIndexRequest
     {
         protected ICreateIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesCreate;
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public CreateIndexRequest(IndexName index)
-            : base(r => r.Required("index", index)) { }
+        public CreateIndexRequest(IndexName index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateIndexRequest()
-            : base() { }
+        protected CreateIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -500,9 +468,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -535,22 +501,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Delete <para>https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</para></summary>
-    public partial class DeleteIndexRequest
-        : PlainRequestBase<DeleteIndexRequestParameters>,
-            IDeleteIndexRequest
+    public partial class DeleteIndexRequest : PlainRequestBase<DeleteIndexRequestParameters>, IDeleteIndexRequest
     {
         protected IDeleteIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDelete;
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public DeleteIndexRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public DeleteIndexRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteIndexRequest()
-            : base() { }
+        protected DeleteIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -597,9 +559,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -625,9 +585,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for DeleteAlias <para>https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</para></summary>
-    public partial class DeleteAliasRequest
-        : PlainRequestBase<DeleteAliasRequestParameters>,
-            IDeleteAliasRequest
+    public partial class DeleteAliasRequest : PlainRequestBase<DeleteAliasRequestParameters>, IDeleteAliasRequest
     {
         protected IDeleteAliasRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteAlias;
@@ -635,18 +593,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="name">this parameter is required</param>
-        public DeleteAliasRequest(Indices index, Names name)
-            : base(r => r.Required("index", index).Required("name", name)) { }
+        public DeleteAliasRequest(Indices index, Names name) : base(r => r.Required("index", index).Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAliasRequest()
-            : base() { }
+        protected DeleteAliasRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Indices IDeleteAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
-
         [IgnoreDataMember]
         Names IDeleteAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
@@ -663,9 +618,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -681,8 +634,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteComposableIndexTemplateRequest
-        : IRequest<DeleteComposableIndexTemplateRequestParameters>
+    public partial interface IDeleteComposableIndexTemplateRequest : IRequest<DeleteComposableIndexTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -698,13 +650,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public DeleteComposableIndexTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public DeleteComposableIndexTemplateRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteComposableIndexTemplateRequest()
-            : base() { }
+        protected DeleteComposableIndexTemplateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -723,9 +673,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -741,8 +689,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteIndexTemplateRequest
-        : IRequest<DeleteIndexTemplateRequestParameters>
+    public partial interface IDeleteIndexTemplateRequest : IRequest<DeleteIndexTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -758,13 +705,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public DeleteIndexTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public DeleteIndexTemplateRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteIndexTemplateRequest()
-            : base() { }
+        protected DeleteIndexTemplateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -783,9 +728,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -808,22 +751,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Exists <para>https://docs.opensearch.org/latest/api-reference/index-apis/exists/</para></summary>
-    public partial class IndexExistsRequest
-        : PlainRequestBase<IndexExistsRequestParameters>,
-            IIndexExistsRequest
+    public partial class IndexExistsRequest : PlainRequestBase<IndexExistsRequestParameters>, IIndexExistsRequest
     {
         protected IIndexExistsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesExists;
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public IndexExistsRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public IndexExistsRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected IndexExistsRequest()
-            : base() { }
+        protected IndexExistsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -899,9 +838,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for AliasExists <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class AliasExistsRequest
-        : PlainRequestBase<AliasExistsRequestParameters>,
-            IAliasExistsRequest
+    public partial class AliasExistsRequest : PlainRequestBase<AliasExistsRequestParameters>, IAliasExistsRequest
     {
         protected IAliasExistsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAliasExists;
@@ -909,23 +846,19 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">this parameter is required</param>
-        public AliasExistsRequest(Indices index, Names name)
-            : base(r => r.Optional("index", index).Required("name", name)) { }
+        public AliasExistsRequest(Indices index, Names name) : base(r => r.Optional("index", index).Required("name", name)) { }
 
         /// <summary>/_alias/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public AliasExistsRequest(Names name)
-            : base(r => r.Required("name", name)) { }
+        public AliasExistsRequest(Names name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected AliasExistsRequest()
-            : base() { }
+        protected AliasExistsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Indices IAliasExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
-
         [IgnoreDataMember]
         Names IAliasExistsRequest.Name => Self.RouteValues.Get<Names>("name");
 
@@ -967,8 +900,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IComposableIndexTemplateExistsRequest
-        : IRequest<ComposableIndexTemplateExistsRequestParameters>
+    public partial interface IComposableIndexTemplateExistsRequest : IRequest<ComposableIndexTemplateExistsRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -984,13 +916,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public ComposableIndexTemplateExistsRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public ComposableIndexTemplateExistsRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ComposableIndexTemplateExistsRequest()
-            : base() { }
+        protected ComposableIndexTemplateExistsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1023,9 +953,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1034,8 +962,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IIndexTemplateExistsRequest
-        : IRequest<IndexTemplateExistsRequestParameters>
+    public partial interface IIndexTemplateExistsRequest : IRequest<IndexTemplateExistsRequestParameters>
     {
         [IgnoreDataMember]
         Names Name { get; }
@@ -1051,13 +978,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public IndexTemplateExistsRequest(Names name)
-            : base(r => r.Required("name", name)) { }
+        public IndexTemplateExistsRequest(Names name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected IndexTemplateExistsRequest()
-            : base() { }
+        protected IndexTemplateExistsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1087,9 +1012,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1111,13 +1034,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesFlush;
 
         /// <summary>/_flush</summary>
-        public FlushRequest()
-            : base() { }
+        public FlushRequest() : base() { }
 
         /// <summary>/{index}/_flush</summary>
         /// <param name="index">Optional, accepts null</param>
-        public FlushRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public FlushRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1178,21 +1099,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for ForceMerge <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ForceMergeRequest
-        : PlainRequestBase<ForceMergeRequestParameters>,
-            IForceMergeRequest
+    public partial class ForceMergeRequest : PlainRequestBase<ForceMergeRequestParameters>, IForceMergeRequest
     {
         protected IForceMergeRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesForceMerge;
 
         /// <summary>/_forcemerge</summary>
-        public ForceMergeRequest()
-            : base() { }
+        public ForceMergeRequest() : base() { }
 
         /// <summary>/{index}/_forcemerge</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ForceMergeRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ForceMergeRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1272,22 +1189,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Get <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</para></summary>
-    public partial class GetIndexRequest
-        : PlainRequestBase<GetIndexRequestParameters>,
-            IGetIndexRequest
+    public partial class GetIndexRequest : PlainRequestBase<GetIndexRequestParameters>, IGetIndexRequest
     {
         protected IGetIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGet;
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public GetIndexRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public GetIndexRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetIndexRequest()
-            : base() { }
+        protected GetIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1358,9 +1271,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1379,37 +1290,30 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetAlias <para>https://docs.opensearch.org/latest/im-plugin/index-alias/</para></summary>
-    public partial class GetAliasRequest
-        : PlainRequestBase<GetAliasRequestParameters>,
-            IGetAliasRequest
+    public partial class GetAliasRequest : PlainRequestBase<GetAliasRequestParameters>, IGetAliasRequest
     {
         protected IGetAliasRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetAlias;
 
         /// <summary>/_alias</summary>
-        public GetAliasRequest()
-            : base() { }
+        public GetAliasRequest() : base() { }
 
         /// <summary>/{index}/_alias</summary>
         /// <param name="index">Optional, accepts null</param>
-        public GetAliasRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public GetAliasRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">Optional, accepts null</param>
-        public GetAliasRequest(Indices index, Names name)
-            : base(r => r.Optional("index", index).Optional("name", name)) { }
+        public GetAliasRequest(Indices index, Names name) : base(r => r.Optional("index", index).Optional("name", name)) { }
 
         /// <summary>/_alias/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetAliasRequest(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public GetAliasRequest(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Indices IGetAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
-
         [IgnoreDataMember]
         Names IGetAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
@@ -1470,24 +1374,20 @@ namespace OpenSearch.Client
 
         /// <summary>/_mapping/field/{fields}</summary>
         /// <param name="fields">this parameter is required</param>
-        public GetFieldMappingRequest(Fields fields)
-            : base(r => r.Required("fields", fields)) { }
+        public GetFieldMappingRequest(Fields fields) : base(r => r.Required("fields", fields)) { }
 
         /// <summary>/{index}/_mapping/field/{fields}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="fields">this parameter is required</param>
-        public GetFieldMappingRequest(Indices index, Fields fields)
-            : base(r => r.Optional("index", index).Required("fields", fields)) { }
+        public GetFieldMappingRequest(Indices index, Fields fields) : base(r => r.Optional("index", index).Required("fields", fields)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetFieldMappingRequest()
-            : base() { }
+        protected GetFieldMappingRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Fields IGetFieldMappingRequest.Fields => Self.RouteValues.Get<Fields>("fields");
-
         [IgnoreDataMember]
         Indices IGetFieldMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
@@ -1536,8 +1436,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetComposableIndexTemplateRequest
-        : IRequest<GetComposableIndexTemplateRequestParameters>
+    public partial interface IGetComposableIndexTemplateRequest : IRequest<GetComposableIndexTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -1552,13 +1451,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetComposableTemplate;
 
         /// <summary>/_index_template</summary>
-        public GetComposableIndexTemplateRequest()
-            : base() { }
+        public GetComposableIndexTemplateRequest() : base() { }
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComposableIndexTemplateRequest(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public GetComposableIndexTemplateRequest(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1594,9 +1491,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1612,21 +1507,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</para></summary>
-    public partial class GetMappingRequest
-        : PlainRequestBase<GetMappingRequestParameters>,
-            IGetMappingRequest
+    public partial class GetMappingRequest : PlainRequestBase<GetMappingRequestParameters>, IGetMappingRequest
     {
         protected IGetMappingRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetMapping;
 
         /// <summary>/_mapping</summary>
-        public GetMappingRequest()
-            : base() { }
+        public GetMappingRequest() : base() { }
 
         /// <summary>/{index}/_mapping</summary>
         /// <param name="index">Optional, accepts null</param>
-        public GetMappingRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public GetMappingRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1680,9 +1571,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1709,29 +1598,24 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetSettings;
 
         /// <summary>/_settings</summary>
-        public GetIndexSettingsRequest()
-            : base() { }
+        public GetIndexSettingsRequest() : base() { }
 
         /// <summary>/{index}/_settings</summary>
         /// <param name="index">Optional, accepts null</param>
-        public GetIndexSettingsRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public GetIndexSettingsRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_settings/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">Optional, accepts null</param>
-        public GetIndexSettingsRequest(Indices index, Names name)
-            : base(r => r.Optional("index", index).Optional("name", name)) { }
+        public GetIndexSettingsRequest(Indices index, Names name) : base(r => r.Optional("index", index).Optional("name", name)) { }
 
         /// <summary>/_settings/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetIndexSettingsRequest(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public GetIndexSettingsRequest(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Indices IGetIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
-
         [IgnoreDataMember]
         Names IGetIndexSettingsRequest.Name => Self.RouteValues.Get<Names>("name");
 
@@ -1800,9 +1684,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1826,13 +1708,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetTemplate;
 
         /// <summary>/_template</summary>
-        public GetIndexTemplateRequest()
-            : base() { }
+        public GetIndexTemplateRequest() : base() { }
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetIndexTemplateRequest(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public GetIndexTemplateRequest(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1865,9 +1745,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1883,22 +1761,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Open <para>https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</para></summary>
-    public partial class OpenIndexRequest
-        : PlainRequestBase<OpenIndexRequestParameters>,
-            IOpenIndexRequest
+    public partial class OpenIndexRequest : PlainRequestBase<OpenIndexRequestParameters>, IOpenIndexRequest
     {
         protected IOpenIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesOpen;
 
         /// <summary>/{index}/_open</summary>
         /// <param name="index">this parameter is required</param>
-        public OpenIndexRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public OpenIndexRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected OpenIndexRequest()
-            : base() { }
+        protected OpenIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1945,9 +1819,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1998,37 +1870,30 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for PutAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</para></summary>
-    public partial class PutAliasRequest
-        : PlainRequestBase<PutAliasRequestParameters>,
-            IPutAliasRequest
+    public partial class PutAliasRequest : PlainRequestBase<PutAliasRequestParameters>, IPutAliasRequest
     {
         protected IPutAliasRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutAlias;
 
         /// <summary>/_alias</summary>
-        public PutAliasRequest()
-            : base() { }
+        public PutAliasRequest() : base() { }
 
         /// <summary>/{index}/_alias</summary>
         /// <param name="index">Optional, accepts null</param>
-        public PutAliasRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public PutAliasRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">Optional, accepts null</param>
-        public PutAliasRequest(Indices index, Name name)
-            : base(r => r.Optional("index", index).Optional("name", name)) { }
+        public PutAliasRequest(Indices index, Name name) : base(r => r.Optional("index", index).Optional("name", name)) { }
 
         /// <summary>/_alias/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public PutAliasRequest(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public PutAliasRequest(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Indices IPutAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
-
         [IgnoreDataMember]
         Name IPutAliasRequest.Name => Self.RouteValues.Get<Name>("name");
 
@@ -2045,9 +1910,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2063,8 +1926,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IPutComposableIndexTemplateRequest
-        : IRequest<PutComposableIndexTemplateRequestParameters>
+    public partial interface IPutComposableIndexTemplateRequest : IRequest<PutComposableIndexTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -2080,13 +1942,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public PutComposableIndexTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public PutComposableIndexTemplateRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutComposableIndexTemplateRequest()
-            : base() { }
+        protected PutComposableIndexTemplateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2116,9 +1976,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2136,22 +1994,18 @@ namespace OpenSearch.Client
     public partial interface IPutMappingRequest<TDocument> : IPutMappingRequest { }
 
     /// <summary>Request for PutMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</para></summary>
-    public partial class PutMappingRequest
-        : PlainRequestBase<PutMappingRequestParameters>,
-            IPutMappingRequest
+    public partial class PutMappingRequest : PlainRequestBase<PutMappingRequestParameters>, IPutMappingRequest
     {
         protected IPutMappingRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutMapping;
 
         /// <summary>/{index}/_mapping</summary>
         /// <param name="index">this parameter is required</param>
-        public PutMappingRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public PutMappingRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutMappingRequest()
-            : base() { }
+        protected PutMappingRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2198,9 +2052,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2222,25 +2074,20 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class PutMappingRequest<TDocument>
-        : PutMappingRequest,
-            IPutMappingRequest<TDocument>
+    public partial class PutMappingRequest<TDocument> : PutMappingRequest, IPutMappingRequest<TDocument>
     {
         protected IPutMappingRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_mapping</summary>
         /// <param name="index">this parameter is required</param>
-        public PutMappingRequest(Indices index)
-            : base(index) { }
+        public PutMappingRequest(Indices index) : base(index) { }
 
         /// <summary>/{index}/_mapping</summary>
-        public PutMappingRequest()
-            : base(typeof(TDocument)) { }
+        public PutMappingRequest() : base(typeof(TDocument)) { }
     }
 
     [InterfaceDataContract]
-    public partial interface IUpdateIndexSettingsRequest
-        : IRequest<UpdateIndexSettingsRequestParameters>
+    public partial interface IUpdateIndexSettingsRequest : IRequest<UpdateIndexSettingsRequestParameters>
     {
         [IgnoreDataMember]
         Indices Index { get; }
@@ -2255,13 +2102,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesUpdateSettings;
 
         /// <summary>/_settings</summary>
-        public UpdateIndexSettingsRequest()
-            : base() { }
+        public UpdateIndexSettingsRequest() : base() { }
 
         /// <summary>/{index}/_settings</summary>
         /// <param name="index">Optional, accepts null</param>
-        public UpdateIndexSettingsRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public UpdateIndexSettingsRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2315,9 +2160,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2356,13 +2199,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public PutIndexTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public PutIndexTemplateRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutIndexTemplateRequest()
-            : base() { }
+        protected PutIndexTemplateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2388,9 +2229,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2406,21 +2245,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Refresh <para>https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</para></summary>
-    public partial class RefreshRequest
-        : PlainRequestBase<RefreshRequestParameters>,
-            IRefreshRequest
+    public partial class RefreshRequest : PlainRequestBase<RefreshRequestParameters>, IRefreshRequest
     {
         protected IRefreshRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesRefresh;
 
         /// <summary>/_refresh</summary>
-        public RefreshRequest()
-            : base() { }
+        public RefreshRequest() : base() { }
 
         /// <summary>/{index}/_refresh</summary>
         /// <param name="index">Optional, accepts null</param>
-        public RefreshRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public RefreshRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2464,22 +2299,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Resolve <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ResolveIndexRequest
-        : PlainRequestBase<ResolveIndexRequestParameters>,
-            IResolveIndexRequest
+    public partial class ResolveIndexRequest : PlainRequestBase<ResolveIndexRequestParameters>, IResolveIndexRequest
     {
         protected IResolveIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesResolve;
 
         /// <summary>/_resolve/index/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public ResolveIndexRequest(Names name)
-            : base(r => r.Required("name", name)) { }
+        public ResolveIndexRequest(Names name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ResolveIndexRequest()
-            : base() { }
+        protected ResolveIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2509,33 +2340,27 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Rollover <para>https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</para></summary>
-    public partial class RolloverIndexRequest
-        : PlainRequestBase<RolloverIndexRequestParameters>,
-            IRolloverIndexRequest
+    public partial class RolloverIndexRequest : PlainRequestBase<RolloverIndexRequestParameters>, IRolloverIndexRequest
     {
         protected IRolloverIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesRollover;
 
         /// <summary>/{alias}/_rollover</summary>
         /// <param name="alias">this parameter is required</param>
-        public RolloverIndexRequest(Name alias)
-            : base(r => r.Required("alias", alias)) { }
+        public RolloverIndexRequest(Name alias) : base(r => r.Required("alias", alias)) { }
 
         /// <summary>/{alias}/_rollover/{new_index}</summary>
         /// <param name="alias">this parameter is required</param>
         /// <param name="newIndex">Optional, accepts null</param>
-        public RolloverIndexRequest(Name alias, IndexName newIndex)
-            : base(r => r.Required("alias", alias).Optional("new_index", newIndex)) { }
+        public RolloverIndexRequest(Name alias, IndexName newIndex) : base(r => r.Required("alias", alias).Optional("new_index", newIndex)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected RolloverIndexRequest()
-            : base() { }
+        protected RolloverIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IRolloverIndexRequest.Alias => Self.RouteValues.Get<Name>("alias");
-
         [IgnoreDataMember]
         IndexName IRolloverIndexRequest.NewIndex => Self.RouteValues.Get<IndexName>("new_index");
 
@@ -2559,9 +2384,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2597,9 +2420,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Shrink <para>https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</para></summary>
-    public partial class ShrinkIndexRequest
-        : PlainRequestBase<ShrinkIndexRequestParameters>,
-            IShrinkIndexRequest
+    public partial class ShrinkIndexRequest : PlainRequestBase<ShrinkIndexRequestParameters>, IShrinkIndexRequest
     {
         protected IShrinkIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesShrink;
@@ -2607,18 +2428,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_shrink/{target}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="target">this parameter is required</param>
-        public ShrinkIndexRequest(IndexName index, IndexName target)
-            : base(r => r.Required("index", index).Required("target", target)) { }
+        public ShrinkIndexRequest(IndexName index, IndexName target) : base(r => r.Required("index", index).Required("target", target)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ShrinkIndexRequest()
-            : base() { }
+        protected ShrinkIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         IndexName IShrinkIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
-
         [IgnoreDataMember]
         IndexName IShrinkIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 
@@ -2635,9 +2453,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2688,9 +2504,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Split <para>https://docs.opensearch.org/latest/api-reference/index-apis/split/</para></summary>
-    public partial class SplitIndexRequest
-        : PlainRequestBase<SplitIndexRequestParameters>,
-            ISplitIndexRequest
+    public partial class SplitIndexRequest : PlainRequestBase<SplitIndexRequestParameters>, ISplitIndexRequest
     {
         protected ISplitIndexRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesSplit;
@@ -2698,18 +2512,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_split/{target}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="target">this parameter is required</param>
-        public SplitIndexRequest(IndexName index, IndexName target)
-            : base(r => r.Required("index", index).Required("target", target)) { }
+        public SplitIndexRequest(IndexName index, IndexName target) : base(r => r.Required("index", index).Required("target", target)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SplitIndexRequest()
-            : base() { }
+        protected SplitIndexRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         IndexName ISplitIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
-
         [IgnoreDataMember]
         IndexName ISplitIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 
@@ -2726,9 +2537,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2779,37 +2588,30 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Stats <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class IndicesStatsRequest
-        : PlainRequestBase<IndicesStatsRequestParameters>,
-            IIndicesStatsRequest
+    public partial class IndicesStatsRequest : PlainRequestBase<IndicesStatsRequestParameters>, IIndicesStatsRequest
     {
         protected IIndicesStatsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesStats;
 
         /// <summary>/_stats</summary>
-        public IndicesStatsRequest()
-            : base() { }
+        public IndicesStatsRequest() : base() { }
 
         /// <summary>/{index}/_stats</summary>
         /// <param name="index">Optional, accepts null</param>
-        public IndicesStatsRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public IndicesStatsRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_stats/{metric}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public IndicesStatsRequest(Indices index, Metrics metric)
-            : base(r => r.Optional("index", index).Optional("metric", metric)) { }
+        public IndicesStatsRequest(Indices index, Metrics metric) : base(r => r.Optional("index", index).Optional("metric", metric)) { }
 
         /// <summary>/_stats/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public IndicesStatsRequest(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public IndicesStatsRequest(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Indices IIndicesStatsRequest.Index => Self.RouteValues.Get<Indices>("index");
-
         [IgnoreDataMember]
         Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
@@ -2885,18 +2687,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IBulkAliasRequest : IRequest<BulkAliasRequestParameters> { }
+    public partial interface IBulkAliasRequest : IRequest<BulkAliasRequestParameters>
+    {
+    }
 
     /// <summary>Request for BulkAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/alias/</para></summary>
-    public partial class BulkAliasRequest
-        : PlainRequestBase<BulkAliasRequestParameters>,
-            IBulkAliasRequest
+    public partial class BulkAliasRequest : PlainRequestBase<BulkAliasRequestParameters>, IBulkAliasRequest
     {
         protected IBulkAliasRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesBulkAlias;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -2910,9 +2711,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2937,21 +2736,17 @@ namespace OpenSearch.Client
     public partial interface IValidateQueryRequest<TDocument> : IValidateQueryRequest { }
 
     /// <summary>Request for ValidateQuery <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ValidateQueryRequest
-        : PlainRequestBase<ValidateQueryRequestParameters>,
-            IValidateQueryRequest
+    public partial class ValidateQueryRequest : PlainRequestBase<ValidateQueryRequestParameters>, IValidateQueryRequest
     {
         protected IValidateQueryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesValidateQuery;
 
         /// <summary>/_validate/query</summary>
-        public ValidateQueryRequest()
-            : base() { }
+        public ValidateQueryRequest() : base() { }
 
         /// <summary>/{index}/_validate/query</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ValidateQueryRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ValidateQueryRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -3053,19 +2848,15 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class ValidateQueryRequest<TDocument>
-        : ValidateQueryRequest,
-            IValidateQueryRequest<TDocument>
+    public partial class ValidateQueryRequest<TDocument> : ValidateQueryRequest, IValidateQueryRequest<TDocument>
     {
         protected IValidateQueryRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_validate/query</summary>
-        public ValidateQueryRequest()
-            : base(typeof(TDocument)) { }
+        public ValidateQueryRequest() : base(typeof(TDocument)) { }
 
         /// <summary>/{index}/_validate/query</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ValidateQueryRequest(Indices index)
-            : base(index) { }
+        public ValidateQueryRequest(Indices index) : base(index) { }
     }
 }

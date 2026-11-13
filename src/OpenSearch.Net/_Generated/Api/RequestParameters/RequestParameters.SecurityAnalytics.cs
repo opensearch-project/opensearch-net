@@ -145,8 +145,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
     }
 
     /// <summary>Request options for GetFindings <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
-    public partial class GetFindingsRequestParameters
-        : RequestParameters<GetFindingsRequestParameters>
+    public partial class GetFindingsRequestParameters : RequestParameters<GetFindingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -251,8 +250,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
     }
 
     /// <summary>Request options for SearchFindingCorrelations <para>https://docs.opensearch.org/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
-    public partial class SearchFindingCorrelationsRequestParameters
-        : RequestParameters<SearchFindingCorrelationsRequestParameters>
+    public partial class SearchFindingCorrelationsRequestParameters : RequestParameters<SearchFindingCorrelationsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;

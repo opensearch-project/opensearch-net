@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.WlmApi
 {
     /// <summary>Request options for CreateQueryGroup</summary>
-    public partial class CreateQueryGroupRequestParameters
-        : RequestParameters<CreateQueryGroupRequestParameters>
+    public partial class CreateQueryGroupRequestParameters : RequestParameters<CreateQueryGroupRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.WlmApi
     }
 
     /// <summary>Request options for DeleteQueryGroup</summary>
-    public partial class DeleteQueryGroupRequestParameters
-        : RequestParameters<DeleteQueryGroupRequestParameters>
+    public partial class DeleteQueryGroupRequestParameters : RequestParameters<DeleteQueryGroupRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.WlmApi
     }
 
     /// <summary>Request options for GetQueryGroup</summary>
-    public partial class GetQueryGroupRequestParameters
-        : RequestParameters<GetQueryGroupRequestParameters>
+    public partial class GetQueryGroupRequestParameters : RequestParameters<GetQueryGroupRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -80,8 +77,7 @@ namespace OpenSearch.Net.Specification.WlmApi
     }
 
     /// <summary>Request options for UpdateQueryGroup</summary>
-    public partial class UpdateQueryGroupRequestParameters
-        : RequestParameters<UpdateQueryGroupRequestParameters>
+    public partial class UpdateQueryGroupRequestParameters : RequestParameters<UpdateQueryGroupRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

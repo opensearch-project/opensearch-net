@@ -66,23 +66,14 @@ namespace OpenSearch.Net.Specification.RollupsApi
     /// </summary>
     public partial class LowLevelRollupsNamespace : NamespacedClientProxy
     {
-        internal LowLevelRollupsNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelRollupsNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_plugins/_rollup/jobs/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#delete-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Delete<TResponse>(
-            string id,
-            DeleteRequestParameters requestParameters = null
-        )
+        public TResponse Delete<TResponse>(string id, DeleteRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_rollup/jobs/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_rollup/jobs/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_rollup/jobs/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#delete-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
@@ -94,28 +85,14 @@ namespace OpenSearch.Net.Specification.RollupsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_rollup/jobs/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_rollup/jobs/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id}/_explain <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#explain-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Explain<TResponse>(
-            string id,
-            ExplainRequestParameters requestParameters = null
-        )
+        public TResponse Explain<TResponse>(string id, ExplainRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_rollup/jobs/{id:id}/_explain"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_rollup/jobs/{id:id}/_explain"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id}/_explain <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#explain-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
@@ -127,25 +104,14 @@ namespace OpenSearch.Net.Specification.RollupsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_rollup/jobs/{id:id}/_explain"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_rollup/jobs/{id:id}/_explain"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#get-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_rollup/jobs/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_rollup/jobs/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#get-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
@@ -157,30 +123,15 @@ namespace OpenSearch.Net.Specification.RollupsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_rollup/jobs/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_rollup/jobs/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_rollup/jobs/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#create-or-update-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
         /// <param name="body">Updates the rollup job configuration.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Put<TResponse>(
-            string id,
-            PostData body,
-            PutRequestParameters requestParameters = null
-        )
+        public TResponse Put<TResponse>(string id, PostData body, PutRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_rollup/jobs/{id:id}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_rollup/jobs/{id:id}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_rollup/jobs/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#create-or-update-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
@@ -194,28 +145,14 @@ namespace OpenSearch.Net.Specification.RollupsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_rollup/jobs/{id:id}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_rollup/jobs/{id:id}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_start <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Start<TResponse>(
-            string id,
-            StartRequestParameters requestParameters = null
-        )
+        public TResponse Start<TResponse>(string id, StartRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_rollup/jobs/{id:id}/_start"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_rollup/jobs/{id:id}/_start"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_start <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
@@ -227,25 +164,14 @@ namespace OpenSearch.Net.Specification.RollupsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_rollup/jobs/{id:id}/_start"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_rollup/jobs/{id:id}/_start"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_stop <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stop<TResponse>(string id, StopRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_rollup/jobs/{id:id}/_stop"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_rollup/jobs/{id:id}/_stop"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_stop <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
         /// <param name="id">The ID of the rollup job.</param>
@@ -257,12 +183,6 @@ namespace OpenSearch.Net.Specification.RollupsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_rollup/jobs/{id:id}/_stop"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_rollup/jobs/{id:id}/_stop"), ctx, null, RequestParams(requestParameters));
     }
 }

@@ -28,15 +28,12 @@ namespace OpenSearch.Client;
 
 public interface IHttpDeleteRequest : IArbitraryHttpRequest<HttpDeleteRequestParameters> { }
 
-public class HttpDeleteRequest
-    : ArbitraryHttpRequestBase<HttpDeleteRequestParameters>,
-        IHttpDeleteRequest
+public class HttpDeleteRequest : ArbitraryHttpRequestBase<HttpDeleteRequestParameters>, IHttpDeleteRequest
 {
     [SerializationConstructor]
     protected HttpDeleteRequest() { }
 
-    public HttpDeleteRequest(string path)
-        : base(path) { }
+    public HttpDeleteRequest(string path) : base(path) { }
 }
 
 public interface IHttpGetRequest : IArbitraryHttpRequest<HttpGetRequestParameters> { }
@@ -46,8 +43,7 @@ public class HttpGetRequest : ArbitraryHttpRequestBase<HttpGetRequestParameters>
     [SerializationConstructor]
     protected HttpGetRequest() { }
 
-    public HttpGetRequest(string path)
-        : base(path) { }
+    public HttpGetRequest(string path) : base(path) { }
 }
 
 public interface IHttpHeadRequest : IArbitraryHttpRequest<HttpHeadRequestParameters> { }
@@ -57,45 +53,35 @@ public class HttpHeadRequest : ArbitraryHttpRequestBase<HttpHeadRequestParameter
     [SerializationConstructor]
     protected HttpHeadRequest() { }
 
-    public HttpHeadRequest(string path)
-        : base(path) { }
+    public HttpHeadRequest(string path) : base(path) { }
 }
 
 public interface IHttpPatchRequest : IArbitraryBodyHttpRequest<HttpPatchRequestParameters> { }
 
-public class HttpPatchRequest
-    : ArbitraryBodyHttpRequestBase<HttpPatchRequestParameters>,
-        IHttpPatchRequest
+public class HttpPatchRequest : ArbitraryBodyHttpRequestBase<HttpPatchRequestParameters>, IHttpPatchRequest
 {
     [SerializationConstructor]
     protected HttpPatchRequest() { }
 
-    public HttpPatchRequest(string path)
-        : base(path) { }
+    public HttpPatchRequest(string path) : base(path) { }
 }
 
 public interface IHttpPostRequest : IArbitraryBodyHttpRequest<HttpPostRequestParameters> { }
 
-public class HttpPostRequest
-    : ArbitraryBodyHttpRequestBase<HttpPostRequestParameters>,
-        IHttpPostRequest
+public class HttpPostRequest : ArbitraryBodyHttpRequestBase<HttpPostRequestParameters>, IHttpPostRequest
 {
     [SerializationConstructor]
     protected HttpPostRequest() { }
 
-    public HttpPostRequest(string path)
-        : base(path) { }
+    public HttpPostRequest(string path) : base(path) { }
 }
 
 public interface IHttpPutRequest : IArbitraryBodyHttpRequest<HttpPutRequestParameters> { }
 
-public class HttpPutRequest
-    : ArbitraryBodyHttpRequestBase<HttpPutRequestParameters>,
-        IHttpPutRequest
+public class HttpPutRequest : ArbitraryBodyHttpRequestBase<HttpPutRequestParameters>, IHttpPutRequest
 {
     [SerializationConstructor]
     protected HttpPutRequest() { }
 
-    public HttpPutRequest(string path)
-        : base(path) { }
+    public HttpPutRequest(string path) : base(path) { }
 }

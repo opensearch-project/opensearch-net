@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.CatApi
     /// </summary>
     public partial class LowLevelCatNamespace : NamespacedClientProxy
     {
-        internal LowLevelCatNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelCatNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         protected override string ContentType => "text/plain";
 
@@ -85,28 +84,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/aliases",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/aliases", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/aliases/{name} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
         /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To retrieve all aliases, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Aliases<TResponse>(
-            string name,
-            CatAliasesRequestParameters requestParameters = null
-        )
+        public TResponse Aliases<TResponse>(string name, CatAliasesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/aliases/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/aliases/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/aliases/{name} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
         /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To retrieve all aliases, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -118,27 +103,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/aliases/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/aliases/{name:name}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/pit_segments/_all <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        public TResponse AllPitSegments<TResponse>(
-            CatAllPitSegmentsRequestParameters requestParameters = null
-        )
+        public TResponse AllPitSegments<TResponse>(CatAllPitSegmentsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_cat/pit_segments/_all",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_cat/pit_segments/_all", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/pit_segments/_all <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -149,19 +121,11 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/pit_segments/_all",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/pit_segments/_all", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/allocation <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Allocation<TResponse>(
-            CatAllocationRequestParameters requestParameters = null
-        )
+        public TResponse Allocation<TResponse>(CatAllocationRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/allocation", null, RequestParams(requestParameters));
 
@@ -173,28 +137,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/allocation",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/allocation", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/allocation/{node_id} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned information.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Allocation<TResponse>(
-            string nodeId,
-            CatAllocationRequestParameters requestParameters = null
-        )
+        public TResponse Allocation<TResponse>(string nodeId, CatAllocationRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/allocation/{nodeId:nodeId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/allocation/{nodeId:nodeId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/allocation/{node_id} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned information.</param>
@@ -206,27 +156,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/allocation/{nodeId:nodeId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/allocation/{nodeId:nodeId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/cluster_manager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TResponse ClusterManager<TResponse>(
-            CatClusterManagerRequestParameters requestParameters = null
-        )
+        public TResponse ClusterManager<TResponse>(CatClusterManagerRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_cat/cluster_manager",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_cat/cluster_manager", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/cluster_manager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -237,13 +174,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/cluster_manager",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/cluster_manager", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/count <para>https://docs.opensearch.org/latest/api-reference/cat/cat-count/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -259,28 +190,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/count",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/count", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/count/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-count/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Count<TResponse>(
-            string index,
-            CatCountRequestParameters requestParameters = null
-        )
+        public TResponse Count<TResponse>(string index, CatCountRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/count/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/count/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/count/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-count/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -292,19 +209,11 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/count/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/count/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/fielddata <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Fielddata<TResponse>(
-            CatFielddataRequestParameters requestParameters = null
-        )
+        public TResponse Fielddata<TResponse>(CatFielddataRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/fielddata", null, RequestParams(requestParameters));
 
@@ -316,28 +225,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/fielddata",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/fielddata", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/fielddata/{fields} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
         /// <param name="fields">A comma-separated list of fields used to limit the amount of returned information. To retrieve all fields, omit this parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Fielddata<TResponse>(
-            string fields,
-            CatFielddataRequestParameters requestParameters = null
-        )
+        public TResponse Fielddata<TResponse>(string fields, CatFielddataRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/fielddata/{fields:fields}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/fielddata/{fields:fields}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/fielddata/{fields} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
         /// <param name="fields">A comma-separated list of fields used to limit the amount of returned information. To retrieve all fields, omit this parameter.</param>
@@ -349,13 +244,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/fielddata/{fields:fields}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/fielddata/{fields:fields}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/health <para>https://docs.opensearch.org/latest/api-reference/cat/cat-health/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -371,13 +260,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/health",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/health", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat <para>https://docs.opensearch.org/latest/api-reference/cat/index/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -409,28 +292,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/indices",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/indices", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/indices/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Indices<TResponse>(
-            string index,
-            CatIndicesRequestParameters requestParameters = null
-        )
+        public TResponse Indices<TResponse>(string index, CatIndicesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/indices/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/indices/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/indices/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -442,47 +311,29 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/indices/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/indices/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/master <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [Obsolete(
-            "Deprecated in version 2.0.0: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
+        [Obsolete("Deprecated in version 2.0.0: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
         public TResponse Master<TResponse>(CatMasterRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/master", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/master <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [Obsolete(
-            "Deprecated in version 2.0.0: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
+        [Obsolete("Deprecated in version 2.0.0: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
         [MapsApi("cat.master", "")]
         public Task<TResponse> MasterAsync<TResponse>(
             CatMasterRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/master",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/master", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/nodeattrs <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse NodeAttributes<TResponse>(
-            CatNodeAttributesRequestParameters requestParameters = null
-        )
+        public TResponse NodeAttributes<TResponse>(CatNodeAttributesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/nodeattrs", null, RequestParams(requestParameters));
 
@@ -494,13 +345,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/nodeattrs",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/nodeattrs", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/nodes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -516,19 +361,11 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/nodes",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/nodes", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/pending_tasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PendingTasks<TResponse>(
-            CatPendingTasksRequestParameters requestParameters = null
-        )
+        public TResponse PendingTasks<TResponse>(CatPendingTasksRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/pending_tasks", null, RequestParams(requestParameters));
 
@@ -540,22 +377,13 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/pending_tasks",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/pending_tasks", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/pit_segments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        public TResponse PitSegments<TResponse>(
-            PostData body,
-            CatPitSegmentsRequestParameters requestParameters = null
-        )
+        public TResponse PitSegments<TResponse>(PostData body, CatPitSegmentsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/pit_segments", body, RequestParams(requestParameters));
 
@@ -570,13 +398,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/pit_segments",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/pit_segments", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/plugins <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -592,13 +414,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/plugins",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/plugins", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/recovery <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -614,28 +430,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/recovery",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/recovery", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/recovery/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Recovery<TResponse>(
-            string index,
-            CatRecoveryRequestParameters requestParameters = null
-        )
+        public TResponse Recovery<TResponse>(string index, CatRecoveryRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/recovery/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/recovery/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/recovery/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -647,19 +449,11 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/recovery/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/recovery/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/repositories <para>https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Repositories<TResponse>(
-            CatRepositoriesRequestParameters requestParameters = null
-        )
+        public TResponse Repositories<TResponse>(CatRepositoriesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/repositories", null, RequestParams(requestParameters));
 
@@ -671,27 +465,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/repositories",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/repositories", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/segment_replication <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
-        public TResponse SegmentReplication<TResponse>(
-            CatSegmentReplicationRequestParameters requestParameters = null
-        )
+        public TResponse SegmentReplication<TResponse>(CatSegmentReplicationRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_cat/segment_replication",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_cat/segment_replication", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/segment_replication <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -702,13 +483,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/segment_replication",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/segment_replication", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/segment_replication/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -719,12 +494,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CatSegmentReplicationRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/segment_replication/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/segment_replication/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/segment_replication/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -737,13 +507,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/segment_replication/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/segment_replication/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/segments <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -759,28 +523,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/segments",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/segments", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/segments/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Segments<TResponse>(
-            string index,
-            CatSegmentsRequestParameters requestParameters = null
-        )
+        public TResponse Segments<TResponse>(string index, CatSegmentsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/segments/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/segments/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/segments/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -792,13 +542,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/segments/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/segments/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/shards <para>https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -814,28 +558,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/shards",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/shards", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/shards/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Shards<TResponse>(
-            string index,
-            CatShardsRequestParameters requestParameters = null
-        )
+        public TResponse Shards<TResponse>(string index, CatShardsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/shards/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/shards/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/shards/{index} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
@@ -847,19 +577,11 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/shards/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/shards/{index:index}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/snapshots <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Snapshots<TResponse>(
-            CatSnapshotsRequestParameters requestParameters = null
-        )
+        public TResponse Snapshots<TResponse>(CatSnapshotsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/snapshots", null, RequestParams(requestParameters));
 
@@ -871,28 +593,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/snapshots",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/snapshots", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/snapshots/{repository} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
         /// <param name="repository">A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. &lt;c&gt;_all&lt;/c&gt; returns all repositories. If any repository fails during the request, OpenSearch returns an error.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Snapshots<TResponse>(
-            string repository,
-            CatSnapshotsRequestParameters requestParameters = null
-        )
+        public TResponse Snapshots<TResponse>(string repository, CatSnapshotsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/snapshots/{repository:repository}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/snapshots/{repository:repository}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/snapshots/{repository} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
         /// <param name="repository">A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. &lt;c&gt;_all&lt;/c&gt; returns all repositories. If any repository fails during the request, OpenSearch returns an error.</param>
@@ -904,13 +612,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/snapshots/{repository:repository}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/snapshots/{repository:repository}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/tasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -926,19 +628,11 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/tasks",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/tasks", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/templates <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Templates<TResponse>(
-            CatTemplatesRequestParameters requestParameters = null
-        )
+        public TResponse Templates<TResponse>(CatTemplatesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/templates", null, RequestParams(requestParameters));
 
@@ -950,28 +644,14 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/templates",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/templates", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/templates/{name} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
         /// <param name="name">The name of the template to return. Accepts wildcard expressions. If omitted, all templates are returned.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Templates<TResponse>(
-            string name,
-            CatTemplatesRequestParameters requestParameters = null
-        )
+        public TResponse Templates<TResponse>(string name, CatTemplatesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/templates/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/templates/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/templates/{name} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
         /// <param name="name">The name of the template to return. Accepts wildcard expressions. If omitted, all templates are returned.</param>
@@ -983,19 +663,11 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/templates/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/templates/{name:name}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/thread_pool <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse ThreadPool<TResponse>(
-            CatThreadPoolRequestParameters requestParameters = null
-        )
+        public TResponse ThreadPool<TResponse>(CatThreadPoolRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cat/thread_pool", null, RequestParams(requestParameters));
 
@@ -1007,13 +679,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cat/thread_pool",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_cat/thread_pool", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/thread_pool/{thread_pool_patterns} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
         /// <param name="threadPoolPatterns">A comma-separated list of thread pool names used to limit the request. Accepts wildcard expressions.</param>
@@ -1023,12 +689,7 @@ namespace OpenSearch.Net.Specification.CatApi
             CatThreadPoolRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cat/thread_pool/{thread_pool_patterns} <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
         /// <param name="threadPoolPatterns">A comma-separated list of thread pool names used to limit the request. Accepts wildcard expressions.</param>
@@ -1040,12 +701,6 @@ namespace OpenSearch.Net.Specification.CatApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"), ctx, null, RequestParams(requestParameters));
     }
 }

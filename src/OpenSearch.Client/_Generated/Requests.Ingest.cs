@@ -58,13 +58,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_ingest/pipeline/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public DeletePipelineRequest(Id id)
-            : base(r => r.Required("id", id)) { }
+        public DeletePipelineRequest(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeletePipelineRequest()
-            : base() { }
+        protected DeletePipelineRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -83,9 +81,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -108,21 +104,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetPipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
-    public partial class GetPipelineRequest
-        : PlainRequestBase<GetPipelineRequestParameters>,
-            IGetPipelineRequest
+    public partial class GetPipelineRequest : PlainRequestBase<GetPipelineRequestParameters>, IGetPipelineRequest
     {
         protected IGetPipelineRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestGetPipeline;
 
         /// <summary>/_ingest/pipeline</summary>
-        public GetPipelineRequest()
-            : base() { }
+        public GetPipelineRequest() : base() { }
 
         /// <summary>/_ingest/pipeline/{id}</summary>
         /// <param name="id">Optional, accepts null</param>
-        public GetPipelineRequest(Id id)
-            : base(r => r.Optional("id", id)) { }
+        public GetPipelineRequest(Id id) : base(r => r.Optional("id", id)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -141,9 +133,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -152,8 +142,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGrokProcessorPatternsRequest
-        : IRequest<GrokProcessorPatternsRequestParameters> { }
+    public partial interface IGrokProcessorPatternsRequest : IRequest<GrokProcessorPatternsRequestParameters>
+    {
+    }
 
     /// <summary>Request for GrokProcessorPatterns <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GrokProcessorPatternsRequest
@@ -164,7 +155,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestGrokProcessorPatterns;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>Determines how to sort returned grok patterns by key name.</summary>
         public bool? SortByColumns
@@ -182,22 +172,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for PutPipeline <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
-    public partial class PutPipelineRequest
-        : PlainRequestBase<PutPipelineRequestParameters>,
-            IPutPipelineRequest
+    public partial class PutPipelineRequest : PlainRequestBase<PutPipelineRequestParameters>, IPutPipelineRequest
     {
         protected IPutPipelineRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestPutPipeline;
 
         /// <summary>/_ingest/pipeline/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public PutPipelineRequest(Id id)
-            : base(r => r.Required("id", id)) { }
+        public PutPipelineRequest(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutPipelineRequest()
-            : base() { }
+        protected PutPipelineRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -216,9 +202,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -249,13 +233,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestSimulatePipeline;
 
         /// <summary>/_ingest/pipeline/_simulate</summary>
-        public SimulatePipelineRequest()
-            : base() { }
+        public SimulatePipelineRequest() : base() { }
 
         /// <summary>/_ingest/pipeline/{id}/_simulate</summary>
         /// <param name="id">Optional, accepts null</param>
-        public SimulatePipelineRequest(Id id)
-            : base(r => r.Optional("id", id)) { }
+        public SimulatePipelineRequest(Id id) : base(r => r.Optional("id", id)) { }
 
         // values part of the url path
         [IgnoreDataMember]

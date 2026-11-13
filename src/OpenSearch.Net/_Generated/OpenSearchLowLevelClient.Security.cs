@@ -66,19 +66,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
     /// </summary>
     public partial class LowLevelSecurityNamespace : NamespacedClientProxy
     {
-        internal LowLevelSecurityNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelSecurityNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/_security/authinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Authinfo<TResponse>(AuthinfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/authinfo",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/authinfo", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/authinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -88,24 +82,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/authinfo",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/authinfo", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/authtoken</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Authtoken<TResponse>(AuthtokenRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/api/authtoken",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/api/authtoken", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/authtoken</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -115,24 +98,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/api/authtoken",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/api/authtoken", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/cache</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Cache<TResponse>(CacheRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/cache",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/cache", null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/cache</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -142,13 +114,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/cache",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/cache", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#change-password</para></summary>
         /// <param name="body"></param>
@@ -158,12 +124,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             ChangePasswordRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/account",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/account", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#change-password</para></summary>
         /// <param name="body"></param>
@@ -175,27 +136,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/account",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/account", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/_upgrade_check <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.14.0 or greater.</remarks>
-        public TResponse ConfigUpgradeCheck<TResponse>(
-            ConfigUpgradeCheckRequestParameters requestParameters = null
-        )
+        public TResponse ConfigUpgradeCheck<TResponse>(ConfigUpgradeCheckRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/_upgrade_check",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/_upgrade_check", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/_upgrade_check <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -206,13 +154,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/_upgrade_check",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/_upgrade_check", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/_upgrade_perform <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade</para></summary>
         /// <param name="body"></param>
@@ -223,12 +165,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             ConfigUpgradePerformRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/api/_upgrade_perform",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/api/_upgrade_perform", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/_upgrade_perform <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade</para></summary>
         /// <param name="body"></param>
@@ -241,13 +178,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/api/_upgrade_perform",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/api/_upgrade_perform", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to create or replace.</param>
@@ -259,12 +190,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateActionGroupRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to create or replace.</param>
@@ -278,13 +204,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/api/action-groups/create-action-group/</para></summary>
         /// <param name="body">A non-empty object mapping action group names to complete action group definitions.</param>
@@ -295,12 +215,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateActionGroupsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/actiongroups",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/actiongroups", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/api/action-groups/create-action-group/</para></summary>
         /// <param name="body">A non-empty object mapping action group names to complete action group definitions.</param>
@@ -313,13 +228,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/actiongroups",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/actiongroups", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
@@ -330,12 +239,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateAllowlistRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/allowlist",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/allowlist", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
@@ -348,13 +252,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/allowlist",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/allowlist", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role</para></summary>
         /// <param name="role">The name of the role to create.</param>
@@ -366,12 +264,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateRoleRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_security/api/roles/{role:role}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role</para></summary>
         /// <param name="role">The name of the role to create.</param>
@@ -385,13 +278,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_security/api/roles/{role:role}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to create a role mapping.</param>
@@ -403,12 +290,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateRoleMappingRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_security/api/rolesmapping/{role:role}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to create a role mapping.</param>
@@ -422,13 +304,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_security/api/rolesmapping/{role:role}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/api/role-mappings/create-role-mapping/</para></summary>
         /// <param name="body">A non-empty object mapping existing role names to complete role mapping definitions.</param>
@@ -439,12 +315,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateRoleMappingsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/rolesmapping",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/rolesmapping", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/api/role-mappings/create-role-mapping/</para></summary>
         /// <param name="body">A non-empty object mapping existing role names to complete role mapping definitions.</param>
@@ -457,13 +328,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/rolesmapping",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/rolesmapping", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to create.</param>
@@ -475,12 +340,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateTenantRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to create.</param>
@@ -494,13 +354,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="body"></param>
@@ -511,12 +365,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateUpdateTenancyConfigRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/tenancy/config",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/tenancy/config", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="body"></param>
@@ -529,13 +378,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/tenancy/config",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/tenancy/config", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-user</para></summary>
         /// <param name="username">The name of the user to create.</param>
@@ -547,12 +390,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateUserRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_security/api/internalusers/{username:username}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-user</para></summary>
         /// <param name="username">The name of the user to create.</param>
@@ -566,13 +404,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_security/api/internalusers/{username:username}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/user/{username}</summary>
         /// <param name="username">The name of the user to create.</param>
@@ -584,12 +416,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CreateUserLegacyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/user/{username:username}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_security/api/user/{username:username}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/user/{username}</summary>
         /// <param name="username">The name of the user to create.</param>
@@ -603,13 +430,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/user/{username:username}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_security/api/user/{username:username}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to delete.</param>
@@ -619,12 +440,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             DeleteActionGroupRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to delete.</param>
@@ -636,13 +452,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-distinguished-names</para></summary>
         /// <param name="clusterName">The cluster name to delete from list of distinguished names.</param>
@@ -652,12 +462,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             DeleteDistinguishedNameRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-distinguished-names</para></summary>
         /// <param name="clusterName">The cluster name to delete from list of distinguished names.</param>
@@ -669,28 +474,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role</para></summary>
         /// <param name="role">The name of the role to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteRole<TResponse>(
-            string role,
-            DeleteRoleRequestParameters requestParameters = null
-        )
+        public TResponse DeleteRole<TResponse>(string role, DeleteRoleRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_security/api/roles/{role:role}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role</para></summary>
         /// <param name="role">The name of the role to delete.</param>
@@ -702,13 +493,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_security/api/roles/{role:role}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to delete the role&#x27;s mappings.</param>
@@ -718,12 +503,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             DeleteRoleMappingRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_security/api/rolesmapping/{role:role}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to delete the role&#x27;s mappings.</param>
@@ -735,28 +515,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_security/api/rolesmapping/{role:role}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="tenant">The name of the tenant to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteTenant<TResponse>(
-            string tenant,
-            DeleteTenantRequestParameters requestParameters = null
-        )
+        public TResponse DeleteTenant<TResponse>(string tenant, DeleteTenantRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="tenant">The name of the tenant to delete.</param>
@@ -768,28 +534,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-user</para></summary>
         /// <param name="username">The name of the user to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteUser<TResponse>(
-            string username,
-            DeleteUserRequestParameters requestParameters = null
-        )
+        public TResponse DeleteUser<TResponse>(string username, DeleteUserRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_security/api/internalusers/{username:username}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-user</para></summary>
         /// <param name="username">The name of the user to delete.</param>
@@ -801,13 +553,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_security/api/internalusers/{username:username}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/user/{username}</summary>
         /// <param name="username">The name of the user to delete.</param>
@@ -817,12 +563,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             DeleteUserLegacyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/user/{username:username}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_security/api/user/{username:username}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/user/{username}</summary>
         /// <param name="username">The name of the user to delete.</param>
@@ -834,24 +575,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_security/api/user/{username:username}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_security/api/user/{username:username}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/cache <para>https://docs.opensearch.org/latest/security/access-control/api/#flush-cache</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse FlushCache<TResponse>(FlushCacheRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                "_plugins/_security/api/cache",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, "_plugins/_security/api/cache", null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_security/api/cache <para>https://docs.opensearch.org/latest/security/access-control/api/#flush-cache</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -861,13 +591,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                "_plugins/_security/api/cache",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, "_plugins/_security/api/cache", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/generateonbehalfoftoken <para>https://docs.opensearch.org/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
         /// <param name="body"></param>
@@ -878,12 +602,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GenerateOboTokenRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/api/generateonbehalfoftoken",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/api/generateonbehalfoftoken", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/generateonbehalfoftoken <para>https://docs.opensearch.org/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
         /// <param name="body"></param>
@@ -896,13 +615,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/api/generateonbehalfoftoken",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/api/generateonbehalfoftoken", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/internalusers/{username}/authtoken</summary>
         /// <param name="username">The name of the user for whom to issue an authorization token.</param>
@@ -913,12 +626,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GenerateUserTokenRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_security/api/internalusers/{username:username}/authtoken"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_security/api/internalusers/{username:username}/authtoken"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/internalusers/{username}/authtoken</summary>
         /// <param name="username">The name of the user for whom to issue an authorization token.</param>
@@ -931,13 +639,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_security/api/internalusers/{username:username}/authtoken"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_security/api/internalusers/{username:username}/authtoken"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/user/{username}/authtoken</summary>
         /// <param name="username">The name of the user for whom to issue an authorization token.</param>
@@ -948,12 +650,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GenerateUserTokenLegacyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_security/api/user/{username:username}/authtoken"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_security/api/user/{username:username}/authtoken"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/user/{username}/authtoken</summary>
         /// <param name="username">The name of the user for whom to issue an authorization token.</param>
@@ -966,26 +663,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_security/api/user/{username:username}/authtoken"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_security/api/user/{username:username}/authtoken"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#get-account-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetAccountDetails<TResponse>(
-            GetAccountDetailsRequestParameters requestParameters = null
-        )
+        public TResponse GetAccountDetails<TResponse>(GetAccountDetailsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/account",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/account", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#get-account-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -995,13 +679,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/account",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/account", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to retrieve.</param>
@@ -1011,12 +689,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GetActionGroupRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to retrieve.</param>
@@ -1028,26 +701,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-groups</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetActionGroups<TResponse>(
-            GetActionGroupsRequestParameters requestParameters = null
-        )
+        public TResponse GetActionGroups<TResponse>(GetActionGroupsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/actiongroups",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/actiongroups", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-groups</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1057,27 +717,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/actiongroups",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/actiongroups", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/certificates</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.15.0 or greater.</remarks>
-        public TResponse GetAllCertificates<TResponse>(
-            GetAllCertificatesRequestParameters requestParameters = null
-        )
+        public TResponse GetAllCertificates<TResponse>(GetAllCertificatesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/certificates",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/certificates", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/certificates</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1088,27 +735,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/certificates",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/certificates", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
-        public TResponse GetAllowlist<TResponse>(
-            GetAllowlistRequestParameters requestParameters = null
-        )
+        public TResponse GetAllowlist<TResponse>(GetAllowlistRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/allowlist",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/allowlist", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1119,13 +753,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/allowlist",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/allowlist", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1133,12 +761,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GetAuditConfigurationRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/audit",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/audit", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1148,27 +771,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/audit",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/audit", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/ssl/certs <para>https://docs.opensearch.org/latest/security/access-control/api/#get-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TResponse GetCertificates<TResponse>(
-            GetCertificatesRequestParameters requestParameters = null
-        )
+        public TResponse GetCertificates<TResponse>(GetCertificatesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/ssl/certs",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/ssl/certs", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/ssl/certs <para>https://docs.opensearch.org/latest/security/access-control/api/#get-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1179,27 +789,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/ssl/certs",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/ssl/certs", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#get-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.10.0 or greater.</remarks>
-        public TResponse GetConfiguration<TResponse>(
-            GetConfigurationRequestParameters requestParameters = null
-        )
+        public TResponse GetConfiguration<TResponse>(GetConfigurationRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/securityconfig",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/securityconfig", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#get-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1210,26 +807,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/securityconfig",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/securityconfig", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/dashboardsinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetDashboardsInfo<TResponse>(
-            GetDashboardsInfoRequestParameters requestParameters = null
-        )
+        public TResponse GetDashboardsInfo<TResponse>(GetDashboardsInfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/dashboardsinfo",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/dashboardsinfo", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/dashboardsinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1239,13 +823,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/dashboardsinfo",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/dashboardsinfo", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster to retrieve that cluster&#x27;s nodes DN settings.</param>
@@ -1255,12 +833,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GetDistinguishedNameRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster to retrieve that cluster&#x27;s nodes DN settings.</param>
@@ -1272,13 +845,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1286,12 +853,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GetDistinguishedNamesRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/nodesdn",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/nodesdn", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1301,13 +863,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/nodesdn",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/nodesdn", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/certificates/{node_id}</summary>
         /// <param name="nodeId">The node ID to retrieve certificates for.</param>
@@ -1318,12 +874,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GetNodeCertificatesRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/certificates/{nodeId:nodeId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/certificates/{nodeId:nodeId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/certificates/{node_id}</summary>
         /// <param name="nodeId">The node ID to retrieve certificates for.</param>
@@ -1336,26 +887,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/certificates/{nodeId:nodeId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/certificates/{nodeId:nodeId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/permissionsinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetPermissionsInfo<TResponse>(
-            GetPermissionsInfoRequestParameters requestParameters = null
-        )
+        public TResponse GetPermissionsInfo<TResponse>(GetPermissionsInfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/permissionsinfo",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/permissionsinfo", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/permissionsinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1365,28 +903,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/permissionsinfo",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/permissionsinfo", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role</para></summary>
         /// <param name="role">The name of the role to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetRole<TResponse>(
-            string role,
-            GetRoleRequestParameters requestParameters = null
-        )
+        public TResponse GetRole<TResponse>(string role, GetRoleRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/roles/{role:role}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role</para></summary>
         /// <param name="role">The name of the role to retrieve.</param>
@@ -1398,13 +922,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/roles/{role:role}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mapping</para></summary>
         /// <param name="role">The name of the role mapping to retrieve.</param>
@@ -1414,12 +932,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GetRoleMappingRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/rolesmapping/{role:role}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mapping</para></summary>
         /// <param name="role">The name of the role mapping to retrieve.</param>
@@ -1431,26 +944,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/rolesmapping/{role:role}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mappings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetRoleMappings<TResponse>(
-            GetRoleMappingsRequestParameters requestParameters = null
-        )
+        public TResponse GetRoleMappings<TResponse>(GetRoleMappingsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/rolesmapping",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/rolesmapping", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mappings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1460,24 +960,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/rolesmapping",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/rolesmapping", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#get-roles</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetRoles<TResponse>(GetRolesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/roles",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/roles", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#get-roles</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1487,24 +976,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/roles",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/roles", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_opendistro/_security/sslinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetSslinfo<TResponse>(GetSslinfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_opendistro/_security/sslinfo",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_opendistro/_security/sslinfo", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_opendistro/_security/sslinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1514,27 +992,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_opendistro/_security/sslinfo",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_opendistro/_security/sslinfo", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
-        public TResponse GetTenancyConfig<TResponse>(
-            GetTenancyConfigRequestParameters requestParameters = null
-        )
+        public TResponse GetTenancyConfig<TResponse>(GetTenancyConfigRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/tenancy/config",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/tenancy/config", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1545,28 +1010,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/tenancy/config",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/tenancy/config", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetTenant<TResponse>(
-            string tenant,
-            GetTenantRequestParameters requestParameters = null
-        )
+        public TResponse GetTenant<TResponse>(string tenant, GetTenantRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to retrieve.</param>
@@ -1578,24 +1029,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenants</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetTenants<TResponse>(GetTenantsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/tenants",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/tenants", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenants</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1605,28 +1045,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/tenants",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/tenants", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-user</para></summary>
         /// <param name="username">The name of the user to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetUser<TResponse>(
-            string username,
-            GetUserRequestParameters requestParameters = null
-        )
+        public TResponse GetUser<TResponse>(string username, GetUserRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/internalusers/{username:username}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-user</para></summary>
         /// <param name="username">The name of the user to retrieve.</param>
@@ -1638,13 +1064,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/internalusers/{username:username}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/user/{username}</summary>
         /// <param name="username">The name of the user to retrieve.</param>
@@ -1654,12 +1074,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             GetUserLegacyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/user/{username:username}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_security/api/user/{username:username}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/user/{username}</summary>
         /// <param name="username">The name of the user to retrieve.</param>
@@ -1671,24 +1086,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_security/api/user/{username:username}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_security/api/user/{username:username}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#get-users</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetUsers<TResponse>(GetUsersRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/internalusers",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/internalusers", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#get-users</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1698,26 +1102,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/internalusers",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/internalusers", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/user</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetUsersLegacy<TResponse>(
-            GetUsersLegacyRequestParameters requestParameters = null
-        )
+        public TResponse GetUsersLegacy<TResponse>(GetUsersLegacyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/user",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/user", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/user</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1727,24 +1118,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/user",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/user", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/health <para>https://docs.opensearch.org/latest/security/access-control/api/#health-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Health<TResponse>(HealthRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/health",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/health", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/health <para>https://docs.opensearch.org/latest/security/access-control/api/#health-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1754,24 +1134,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/health",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/health", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/migrate</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Migrate<TResponse>(MigrateRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/api/migrate",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/api/migrate", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/api/migrate</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1781,13 +1150,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/api/migrate",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/api/migrate", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to update.</param>
@@ -1799,12 +1162,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchActionGroupRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to update.</param>
@@ -1818,13 +1176,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, Url($"_plugins/_security/api/actiongroups/{actionGroup:actionGroup}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-groups</para></summary>
         /// <param name="body"></param>
@@ -1834,12 +1186,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchActionGroupsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/actiongroups",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/actiongroups", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-groups</para></summary>
         /// <param name="body"></param>
@@ -1851,13 +1198,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/actiongroups",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/actiongroups", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
@@ -1868,12 +1209,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchAllowlistRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/allowlist",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/allowlist", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
@@ -1886,13 +1222,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/allowlist",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/allowlist", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
@@ -1902,12 +1232,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchAuditConfigurationRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/audit",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/audit", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
@@ -1919,13 +1244,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/audit",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/audit", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-configuration</para></summary>
         /// <param name="body"></param>
@@ -1936,12 +1255,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchConfigurationRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/securityconfig",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/securityconfig", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-configuration</para></summary>
         /// <param name="body"></param>
@@ -1954,13 +1268,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/securityconfig",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/securityconfig", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/nodesdn/{cluster_name}</summary>
         /// <param name="clusterName">The cluster name to update the &lt;c&gt;nodesDn&lt;/c&gt; value.</param>
@@ -1972,12 +1280,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchDistinguishedNameRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/nodesdn/{cluster_name}</summary>
         /// <param name="clusterName">The cluster name to update the &lt;c&gt;nodesDn&lt;/c&gt; value.</param>
@@ -1991,13 +1294,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
         /// <param name="body"></param>
@@ -2007,12 +1304,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchDistinguishedNamesRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/nodesdn",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/nodesdn", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
         /// <param name="body"></param>
@@ -2024,13 +1316,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/nodesdn",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/nodesdn", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role</para></summary>
         /// <param name="role">The name of the role to update.</param>
@@ -2042,12 +1328,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchRoleRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, Url($"_plugins/_security/api/roles/{role:role}"), body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role</para></summary>
         /// <param name="role">The name of the role to update.</param>
@@ -2061,13 +1342,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/roles/{role:role}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, Url($"_plugins/_security/api/roles/{role:role}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mapping</para></summary>
         /// <param name="role">The name of the role to update a role mapping for.</param>
@@ -2079,12 +1354,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchRoleMappingRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, Url($"_plugins/_security/api/rolesmapping/{role:role}"), body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mapping</para></summary>
         /// <param name="role">The name of the role to update a role mapping for.</param>
@@ -2098,13 +1368,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/rolesmapping/{role:role}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, Url($"_plugins/_security/api/rolesmapping/{role:role}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mappings</para></summary>
         /// <param name="body"></param>
@@ -2114,12 +1378,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchRoleMappingsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/rolesmapping",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/rolesmapping", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mappings</para></summary>
         /// <param name="body"></param>
@@ -2131,28 +1390,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/rolesmapping",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/rolesmapping", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-roles</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PatchRoles<TResponse>(
-            PostData body,
-            PatchRolesRequestParameters requestParameters = null
-        )
+        public TResponse PatchRoles<TResponse>(PostData body, PatchRolesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/roles",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/roles", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-roles</para></summary>
         /// <param name="body"></param>
@@ -2164,13 +1409,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/roles",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/roles", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to update.</param>
@@ -2182,12 +1421,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchTenantRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to update.</param>
@@ -2201,28 +1435,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/tenants/{tenant:tenant}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, Url($"_plugins/_security/api/tenants/{tenant:tenant}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenants</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PatchTenants<TResponse>(
-            PostData body,
-            PatchTenantsRequestParameters requestParameters = null
-        )
+        public TResponse PatchTenants<TResponse>(PostData body, PatchTenantsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/tenants",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/tenants", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenants</para></summary>
         /// <param name="body"></param>
@@ -2234,13 +1454,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/tenants",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/tenants", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-user</para></summary>
         /// <param name="username">The name of the user to update.</param>
@@ -2252,12 +1466,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             PatchUserRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, Url($"_plugins/_security/api/internalusers/{username:username}"), body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-user</para></summary>
         /// <param name="username">The name of the user to update.</param>
@@ -2271,28 +1480,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                Url($"_plugins/_security/api/internalusers/{username:username}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, Url($"_plugins/_security/api/internalusers/{username:username}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-users</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PatchUsers<TResponse>(
-            PostData body,
-            PatchUsersRequestParameters requestParameters = null
-        )
+        public TResponse PatchUsers<TResponse>(PostData body, PatchUsersRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PATCH,
-                "_plugins/_security/api/internalusers",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PATCH, "_plugins/_security/api/internalusers", body, RequestParams(requestParameters));
 
         /// <summary>PATCH on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-users</para></summary>
         /// <param name="body"></param>
@@ -2304,26 +1499,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PATCH,
-                "_plugins/_security/api/internalusers",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PATCH, "_plugins/_security/api/internalusers", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/dashboardsinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PostDashboardsInfo<TResponse>(
-            PostDashboardsInfoRequestParameters requestParameters = null
-        )
+        public TResponse PostDashboardsInfo<TResponse>(PostDashboardsInfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/dashboardsinfo",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/dashboardsinfo", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/dashboardsinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2333,13 +1515,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/dashboardsinfo",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/dashboardsinfo", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/ssl/http/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-http-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2348,12 +1524,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             ReloadHttpCertificatesRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/ssl/http/reloadcerts",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/ssl/http/reloadcerts", null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/ssl/http/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-http-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2364,13 +1535,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/ssl/http/reloadcerts",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/ssl/http/reloadcerts", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/ssl/transport/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-transport-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2379,12 +1544,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             ReloadTransportCertificatesRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/ssl/transport/reloadcerts",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/ssl/transport/reloadcerts", null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/ssl/transport/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-transport-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2395,24 +1555,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/ssl/transport/reloadcerts",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/ssl/transport/reloadcerts", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/tenantinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse TenantInfo<TResponse>(TenantInfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/tenantinfo",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/tenantinfo", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/tenantinfo</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2422,13 +1571,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/tenantinfo",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/tenantinfo", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/audit/config <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
@@ -2438,12 +1581,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             UpdateAuditConfigurationRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/audit/config",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/audit/config", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/audit/config <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
@@ -2455,13 +1593,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/audit/config",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/audit/config", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/securityconfig/config <para>https://docs.opensearch.org/latest/security/access-control/api/#update-configuration</para></summary>
         /// <param name="body"></param>
@@ -2472,12 +1604,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             UpdateConfigurationRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_security/api/securityconfig/config",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_security/api/securityconfig/config", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/securityconfig/config <para>https://docs.opensearch.org/latest/security/access-control/api/#update-configuration</para></summary>
         /// <param name="body"></param>
@@ -2490,13 +1617,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_security/api/securityconfig/config",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_security/api/securityconfig/config", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#update-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster containing the &lt;c&gt;nodesDn&lt;/c&gt; value to create or update.</param>
@@ -2508,12 +1629,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             UpdateDistinguishedNameRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#update-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster containing the &lt;c&gt;nodesDn&lt;/c&gt; value to create or update.</param>
@@ -2527,24 +1643,13 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_security/api/nodesdn/{clusterName:clusterName}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/validate</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Validate<TResponse>(ValidateRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/api/validate",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/api/validate", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/api/validate</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2554,25 +1659,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/api/validate",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/api/validate", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/whoami</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TResponse WhoAmI<TResponse>(WhoAmIRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_security/whoami",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_security/whoami", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_security/whoami</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2583,27 +1677,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_security/whoami",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_security/whoami", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/whoamiprotected</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
-        public TResponse WhoAmIProtected<TResponse>(
-            WhoAmIProtectedRequestParameters requestParameters = null
-        )
+        public TResponse WhoAmIProtected<TResponse>(WhoAmIProtectedRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security/whoamiprotected",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security/whoamiprotected", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security/whoamiprotected</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2614,12 +1695,6 @@ namespace OpenSearch.Net.Specification.SecurityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security/whoamiprotected",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security/whoamiprotected", ctx, null, RequestParams(requestParameters));
     }
 }

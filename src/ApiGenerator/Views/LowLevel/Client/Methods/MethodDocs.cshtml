@@ -27,7 +27,6 @@
             warningMessage += " This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.";
 
 <text>      /// @Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
-
 </text>}
 		@if (Model.VersionAdded is {} versionAdded && versionAdded > new Version("1.0.0"))
 		{
@@ -35,5 +34,5 @@
 </text>}
         @if (Model.Deprecation is {} deprecation)
         {
-<text>      [Obsolete("Deprecated in version @deprecation.Version: @Raw(deprecation.Description)")]
+<text>        [Obsolete("Deprecated in version @deprecation.Version: @Raw(deprecation.Description)")]
 </text>}

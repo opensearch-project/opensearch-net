@@ -66,23 +66,14 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
     /// </summary>
     public partial class LowLevelAsynchronousSearchNamespace : NamespacedClientProxy
     {
-        internal LowLevelAsynchronousSearchNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelAsynchronousSearchNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
         /// <param name="id"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Delete<TResponse>(
-            string id,
-            DeleteRequestParameters requestParameters = null
-        )
+        public TResponse Delete<TResponse>(string id, DeleteRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_asynchronous_search/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_asynchronous_search/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
         /// <param name="id"></param>
@@ -94,25 +85,14 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_asynchronous_search/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_asynchronous_search/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#get-partial-results</para></summary>
         /// <param name="id"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_asynchronous_search/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_asynchronous_search/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#get-partial-results</para></summary>
         /// <param name="id"></param>
@@ -124,28 +104,14 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_asynchronous_search/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_asynchronous_search/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_asynchronous_search <para>https://docs.opensearch.org/latest/search-plugins/async/index/#rest-api</para></summary>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Search<TResponse>(
-            PostData body,
-            SearchRequestParameters requestParameters = null
-        )
+        public TResponse Search<TResponse>(PostData body, SearchRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_asynchronous_search",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_asynchronous_search", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_asynchronous_search <para>https://docs.opensearch.org/latest/search-plugins/async/index/#rest-api</para></summary>
         /// <param name="body">The search definition using the Query DSL.</param>
@@ -157,24 +123,13 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_asynchronous_search",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_asynchronous_search", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_asynchronous_search/stats <para>https://docs.opensearch.org/latest/search-plugins/async/index/#monitor-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_asynchronous_search/stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_asynchronous_search/stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_asynchronous_search/stats <para>https://docs.opensearch.org/latest/search-plugins/async/index/#monitor-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -184,12 +139,6 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_asynchronous_search/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_asynchronous_search/stats", ctx, null, RequestParams(requestParameters));
     }
 }

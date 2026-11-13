@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.UbiApi
 {
     /// <summary>Request options for Initialize</summary>
-    public partial class InitializeRequestParameters
-        : RequestParameters<InitializeRequestParameters>
+    public partial class InitializeRequestParameters : RequestParameters<InitializeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;

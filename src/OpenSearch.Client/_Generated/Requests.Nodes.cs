@@ -74,13 +74,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesHotThreads;
 
         /// <summary>/_nodes/hot_threads</summary>
-        public NodesHotThreadsRequest()
-            : base() { }
+        public NodesHotThreadsRequest() : base() { }
 
         /// <summary>/_nodes/{node_id}/hot_threads</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesHotThreadsRequest(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesHotThreadsRequest(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -141,37 +139,30 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Info <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-    public partial class NodesInfoRequest
-        : PlainRequestBase<NodesInfoRequestParameters>,
-            INodesInfoRequest
+    public partial class NodesInfoRequest : PlainRequestBase<NodesInfoRequestParameters>, INodesInfoRequest
     {
         protected INodesInfoRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesInfo;
 
         /// <summary>/_nodes</summary>
-        public NodesInfoRequest()
-            : base() { }
+        public NodesInfoRequest() : base() { }
 
         /// <summary>/_nodes/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesInfoRequest(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public NodesInfoRequest(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_nodes/{node_id}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesInfoRequest(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesInfoRequest(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         /// <summary>/_nodes/{node_id}/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesInfoRequest(NodeIds nodeId, Metrics metric)
-            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+        public NodesInfoRequest(NodeIds nodeId, Metrics metric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-
         [IgnoreDataMember]
         NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
@@ -192,8 +183,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IReloadSecureSettingsRequest
-        : IRequest<ReloadSecureSettingsRequestParameters>
+    public partial interface IReloadSecureSettingsRequest : IRequest<ReloadSecureSettingsRequestParameters>
     {
         [IgnoreDataMember]
         NodeIds NodeId { get; }
@@ -208,13 +198,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesReloadSecureSettings;
 
         /// <summary>/_nodes/reload_secure_settings</summary>
-        public ReloadSecureSettingsRequest()
-            : base() { }
+        public ReloadSecureSettingsRequest() : base() { }
 
         /// <summary>/_nodes/{node_id}/reload_secure_settings</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ReloadSecureSettingsRequest(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public ReloadSecureSettingsRequest(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -243,58 +231,43 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-    public partial class NodesStatsRequest
-        : PlainRequestBase<NodesStatsRequestParameters>,
-            INodesStatsRequest
+    public partial class NodesStatsRequest : PlainRequestBase<NodesStatsRequestParameters>, INodesStatsRequest
     {
         protected INodesStatsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesStats;
 
         /// <summary>/_nodes/stats</summary>
-        public NodesStatsRequest()
-            : base() { }
+        public NodesStatsRequest() : base() { }
 
         /// <summary>/_nodes/stats/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesStatsRequest(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public NodesStatsRequest(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_nodes/stats/{metric}/{index_metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
-        public NodesStatsRequest(Metrics metric, IndexMetrics indexMetric)
-            : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric)) { }
+        public NodesStatsRequest(Metrics metric, IndexMetrics indexMetric) : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric)) { }
 
         /// <summary>/_nodes/{node_id}/stats</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesStatsRequest(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesStatsRequest(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         /// <summary>/_nodes/{node_id}/stats/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesStatsRequest(NodeIds nodeId, Metrics metric)
-            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+        public NodesStatsRequest(NodeIds nodeId, Metrics metric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
 
         /// <summary>/_nodes/{node_id}/stats/{metric}/{index_metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
-        public NodesStatsRequest(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric)
-            : base(r =>
-                r.Optional("node_id", nodeId)
-                    .Optional("metric", metric)
-                    .Optional("index_metric", indexMetric)
-            ) { }
+        public NodesStatsRequest(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric).Optional("index_metric", indexMetric)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        IndexMetrics INodesStatsRequest.IndexMetric =>
-            Self.RouteValues.Get<IndexMetrics>("index_metric");
-
+        IndexMetrics INodesStatsRequest.IndexMetric => Self.RouteValues.Get<IndexMetrics>("index_metric");
         [IgnoreDataMember]
         Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-
         [IgnoreDataMember]
         NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
@@ -367,37 +340,30 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Usage <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class NodesUsageRequest
-        : PlainRequestBase<NodesUsageRequestParameters>,
-            INodesUsageRequest
+    public partial class NodesUsageRequest : PlainRequestBase<NodesUsageRequestParameters>, INodesUsageRequest
     {
         protected INodesUsageRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesUsage;
 
         /// <summary>/_nodes/usage</summary>
-        public NodesUsageRequest()
-            : base() { }
+        public NodesUsageRequest() : base() { }
 
         /// <summary>/_nodes/usage/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesUsageRequest(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public NodesUsageRequest(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_nodes/{node_id}/usage</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesUsageRequest(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesUsageRequest(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         /// <summary>/_nodes/{node_id}/usage/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesUsageRequest(NodeIds nodeId, Metrics metric)
-            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+        public NodesUsageRequest(NodeIds nodeId, Metrics metric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Metrics INodesUsageRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-
         [IgnoreDataMember]
         NodeIds INodesUsageRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 

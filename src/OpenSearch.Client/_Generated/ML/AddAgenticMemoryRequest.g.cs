@@ -97,9 +97,8 @@ namespace OpenSearch.Client
         public AddAgenticMemoryDescriptor PayloadType(string payloadType) =>
             Assign(payloadType, (a, v) => a.PayloadType = v);
 
-        public AddAgenticMemoryDescriptor StructuredData(
-            IDictionary<string, object> structuredData
-        ) => Assign(structuredData, (a, v) => a.StructuredData = v);
+        public AddAgenticMemoryDescriptor StructuredData(IDictionary<string, object> structuredData) =>
+            Assign(structuredData, (a, v) => a.StructuredData = v);
 
         public AddAgenticMemoryDescriptor Tags(IDictionary<string, object> tags) =>
             Assign(tags, (a, v) => a.Tags = v);

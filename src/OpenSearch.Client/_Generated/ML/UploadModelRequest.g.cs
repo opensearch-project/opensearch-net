@@ -70,7 +70,8 @@ namespace OpenSearch.Client
         public UploadModelDescriptor ModelGroupId(Id modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
-        public UploadModelDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public UploadModelDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public UploadModelDescriptor Version(string version) =>
             Assign(version, (a, v) => a.Version = v);

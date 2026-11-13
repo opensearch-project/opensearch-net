@@ -56,9 +56,7 @@ namespace OpenSearch.Client
         public string ModelType { get; set; }
     }
 
-    public class ModelConfigDescriptor
-        : DescriptorBase<ModelConfigDescriptor, IModelConfig>,
-            IModelConfig
+    public class ModelConfigDescriptor : DescriptorBase<ModelConfigDescriptor, IModelConfig>, IModelConfig
     {
         IAdditionalConfig IModelConfig.AdditionalConfig { get; set; }
         string IModelConfig.AllConfig { get; set; }

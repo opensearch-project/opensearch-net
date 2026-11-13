@@ -28,6 +28,7 @@ namespace OpenSearch.Client
 @:    {
     foreach (var m in enumModel.Members)
     {
+@:
 @:        [EnumMember(Value = "@m.WireValue")]
 @:        @m.CsharpName,
     }
@@ -54,6 +55,7 @@ else if (Model is ObjectModel objectModel)
 @:    {
     foreach (var p in objectModel.Properties)
     {
+@:
         if (p.EffectiveJsonFormatterType != null)
         {
 @:        [JsonFormatter(typeof(@Raw(p.EffectiveJsonFormatterType)))]
@@ -75,7 +77,7 @@ else if (Model is ObjectModel objectModel)
     }
 @:    }
 @:
-@:    public class @(name)Descriptor : @Raw(descBase), @iface
+@:    @Raw(global::ApiGenerator.Generator.CodeLayout.BaseList($"public class {name}Descriptor", $"{descBase}, {iface}", 4))
 @:    {
     foreach (var p in objectModel.Properties)
     {
@@ -88,6 +90,7 @@ else if (Model is ObjectModel objectModel)
     }
     foreach (var p in objectModel.Properties)
     {
+@:
         var rawParamName = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
         var paramName = SafeParam(rawParamName);
         var paramDefault = p.CsharpType == "bool?" ? " = true" : "";
@@ -99,12 +102,14 @@ else if (Model is ObjectModel objectModel)
                 + "(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>";
             var qBody = "            Assign(selector, (a, v) => a." + p.CsharpName
                 + " = v?.Invoke(new QueryContainerDescriptor<object>()));";
+@:
 @:@Raw(qSig)
 @:@Raw(qBody)
         }
     }
     if (isOpen)
     {
+@:
 @:        public @(name)Descriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
 @:            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }

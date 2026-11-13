@@ -66,21 +66,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Aliases <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
-    public partial class CatAliasesRequest
-        : PlainRequestBase<CatAliasesRequestParameters>,
-            ICatAliasesRequest
+    public partial class CatAliasesRequest : PlainRequestBase<CatAliasesRequestParameters>, ICatAliasesRequest
     {
         protected ICatAliasesRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAliases;
 
         /// <summary>/_cat/aliases</summary>
-        public CatAliasesRequest()
-            : base() { }
+        public CatAliasesRequest() : base() { }
 
         /// <summary>/_cat/aliases/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public CatAliasesRequest(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public CatAliasesRequest(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -142,8 +138,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatAllPitSegmentsRequest
-        : IRequest<CatAllPitSegmentsRequestParameters> { }
+    public partial interface ICatAllPitSegmentsRequest : IRequest<CatAllPitSegmentsRequestParameters>
+    {
+    }
 
     /// <summary>Request for AllPitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatAllPitSegmentsRequest
@@ -154,7 +151,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllPitSegments;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -211,21 +207,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Allocation <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
-    public partial class CatAllocationRequest
-        : PlainRequestBase<CatAllocationRequestParameters>,
-            ICatAllocationRequest
+    public partial class CatAllocationRequest : PlainRequestBase<CatAllocationRequestParameters>, ICatAllocationRequest
     {
         protected ICatAllocationRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllocation;
 
         /// <summary>/_cat/allocation</summary>
-        public CatAllocationRequest()
-            : base() { }
+        public CatAllocationRequest() : base() { }
 
         /// <summary>/_cat/allocation/{node_id}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public CatAllocationRequest(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public CatAllocationRequest(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -280,9 +272,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -305,8 +295,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatClusterManagerRequest
-        : IRequest<CatClusterManagerRequestParameters> { }
+    public partial interface ICatClusterManagerRequest : IRequest<CatClusterManagerRequestParameters>
+    {
+    }
 
     /// <summary>Request for ClusterManager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatClusterManagerRequest
@@ -317,7 +308,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatClusterManager;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -360,9 +350,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -392,21 +380,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Count <para>https://docs.opensearch.org/latest/api-reference/cat/cat-count/</para></summary>
-    public partial class CatCountRequest
-        : PlainRequestBase<CatCountRequestParameters>,
-            ICatCountRequest
+    public partial class CatCountRequest : PlainRequestBase<CatCountRequestParameters>, ICatCountRequest
     {
         protected ICatCountRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatCount;
 
         /// <summary>/_cat/count</summary>
-        public CatCountRequest()
-            : base() { }
+        public CatCountRequest() : base() { }
 
         /// <summary>/_cat/count/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatCountRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatCountRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -461,21 +445,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Fielddata <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
-    public partial class CatFielddataRequest
-        : PlainRequestBase<CatFielddataRequestParameters>,
-            ICatFielddataRequest
+    public partial class CatFielddataRequest : PlainRequestBase<CatFielddataRequestParameters>, ICatFielddataRequest
     {
         protected ICatFielddataRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatFielddata;
 
         /// <summary>/_cat/fielddata</summary>
-        public CatFielddataRequest()
-            : base() { }
+        public CatFielddataRequest() : base() { }
 
         /// <summary>/_cat/fielddata/{fields}</summary>
         /// <param name="fields">Optional, accepts null</param>
-        public CatFielddataRequest(Fields fields)
-            : base(r => r.Optional("fields", fields)) { }
+        public CatFielddataRequest(Fields fields) : base(r => r.Optional("fields", fields)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -530,18 +510,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatHealthRequest : IRequest<CatHealthRequestParameters> { }
+    public partial interface ICatHealthRequest : IRequest<CatHealthRequestParameters>
+    {
+    }
 
     /// <summary>Request for Health <para>https://docs.opensearch.org/latest/api-reference/cat/cat-health/</para></summary>
-    public partial class CatHealthRequest
-        : PlainRequestBase<CatHealthRequestParameters>,
-            ICatHealthRequest
+    public partial class CatHealthRequest : PlainRequestBase<CatHealthRequestParameters>, ICatHealthRequest
     {
         protected ICatHealthRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHealth;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatResponseFormat? Format
@@ -591,17 +570,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatHelpRequest : IRequest<CatHelpRequestParameters> { }
+    public partial interface ICatHelpRequest : IRequest<CatHelpRequestParameters>
+    {
+    }
 
     /// <summary>Request for Help <para>https://docs.opensearch.org/latest/api-reference/cat/index/</para></summary>
-    public partial class CatHelpRequest
-        : PlainRequestBase<CatHelpRequestParameters>,
-            ICatHelpRequest
+    public partial class CatHelpRequest : PlainRequestBase<CatHelpRequestParameters>, ICatHelpRequest
     {
         protected ICatHelpRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHelp;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -613,21 +592,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Indices <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
-    public partial class CatIndicesRequest
-        : PlainRequestBase<CatIndicesRequestParameters>,
-            ICatIndicesRequest
+    public partial class CatIndicesRequest : PlainRequestBase<CatIndicesRequestParameters>, ICatIndicesRequest
     {
         protected ICatIndicesRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatIndices;
 
         /// <summary>/_cat/indices</summary>
-        public CatIndicesRequest()
-            : base() { }
+        public CatIndicesRequest() : base() { }
 
         /// <summary>/_cat/indices/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatIndicesRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatIndicesRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -703,9 +678,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -735,18 +708,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatMasterRequest : IRequest<CatMasterRequestParameters> { }
+    public partial interface ICatMasterRequest : IRequest<CatMasterRequestParameters>
+    {
+    }
 
     /// <summary>Request for Master <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
-    public partial class CatMasterRequest
-        : PlainRequestBase<CatMasterRequestParameters>,
-            ICatMasterRequest
+    public partial class CatMasterRequest : PlainRequestBase<CatMasterRequestParameters>, ICatMasterRequest
     {
         protected ICatMasterRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatMaster;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -789,9 +761,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -814,8 +784,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatNodeAttributesRequest
-        : IRequest<CatNodeAttributesRequestParameters> { }
+    public partial interface ICatNodeAttributesRequest : IRequest<CatNodeAttributesRequestParameters>
+    {
+    }
 
     /// <summary>Request for NodeAttributes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</para></summary>
     public partial class CatNodeAttributesRequest
@@ -826,7 +797,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatNodeAttributes;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -869,9 +839,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -894,18 +862,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatNodesRequest : IRequest<CatNodesRequestParameters> { }
+    public partial interface ICatNodesRequest : IRequest<CatNodesRequestParameters>
+    {
+    }
 
     /// <summary>Request for Nodes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</para></summary>
-    public partial class CatNodesRequest
-        : PlainRequestBase<CatNodesRequestParameters>,
-            ICatNodesRequest
+    public partial class CatNodesRequest : PlainRequestBase<CatNodesRequestParameters>, ICatNodesRequest
     {
         protected ICatNodesRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatNodes;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -955,9 +922,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally."
-        )]
+        [Obsolete("Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally.")]
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -965,9 +930,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -990,8 +953,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatPendingTasksRequest
-        : IRequest<CatPendingTasksRequestParameters> { }
+    public partial interface ICatPendingTasksRequest : IRequest<CatPendingTasksRequestParameters>
+    {
+    }
 
     /// <summary>Request for PendingTasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</para></summary>
     public partial class CatPendingTasksRequest
@@ -1002,7 +966,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPendingTasks;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1045,9 +1008,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1070,7 +1031,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatPitSegmentsRequest : IRequest<CatPitSegmentsRequestParameters> { }
+    public partial interface ICatPitSegmentsRequest : IRequest<CatPitSegmentsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatPitSegmentsRequest
@@ -1081,7 +1044,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPitSegments;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -1131,18 +1093,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatPluginsRequest : IRequest<CatPluginsRequestParameters> { }
+    public partial interface ICatPluginsRequest : IRequest<CatPluginsRequestParameters>
+    {
+    }
 
     /// <summary>Request for Plugins <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
-    public partial class CatPluginsRequest
-        : PlainRequestBase<CatPluginsRequestParameters>,
-            ICatPluginsRequest
+    public partial class CatPluginsRequest : PlainRequestBase<CatPluginsRequestParameters>, ICatPluginsRequest
     {
         protected ICatPluginsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPlugins;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1185,9 +1146,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1217,21 +1176,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Recovery <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
-    public partial class CatRecoveryRequest
-        : PlainRequestBase<CatRecoveryRequestParameters>,
-            ICatRecoveryRequest
+    public partial class CatRecoveryRequest : PlainRequestBase<CatRecoveryRequestParameters>, ICatRecoveryRequest
     {
         protected ICatRecoveryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatRecovery;
 
         /// <summary>/_cat/recovery</summary>
-        public CatRecoveryRequest()
-            : base() { }
+        public CatRecoveryRequest() : base() { }
 
         /// <summary>/_cat/recovery/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatRecoveryRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatRecoveryRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1300,8 +1255,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatRepositoriesRequest
-        : IRequest<CatRepositoriesRequestParameters> { }
+    public partial interface ICatRepositoriesRequest : IRequest<CatRepositoriesRequestParameters>
+    {
+    }
 
     /// <summary>Request for Repositories <para>https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</para></summary>
     public partial class CatRepositoriesRequest
@@ -1312,7 +1268,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatRepositories;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1355,9 +1310,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1380,8 +1333,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatSegmentReplicationRequest
-        : IRequest<CatSegmentReplicationRequestParameters>
+    public partial interface ICatSegmentReplicationRequest : IRequest<CatSegmentReplicationRequestParameters>
     {
         [IgnoreDataMember]
         Indices Index { get; }
@@ -1396,13 +1348,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSegmentReplication;
 
         /// <summary>/_cat/segment_replication</summary>
-        public CatSegmentReplicationRequest()
-            : base() { }
+        public CatSegmentReplicationRequest() : base() { }
 
         /// <summary>/_cat/segment_replication/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatSegmentReplicationRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatSegmentReplicationRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1530,21 +1480,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Segments <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
-    public partial class CatSegmentsRequest
-        : PlainRequestBase<CatSegmentsRequestParameters>,
-            ICatSegmentsRequest
+    public partial class CatSegmentsRequest : PlainRequestBase<CatSegmentsRequestParameters>, ICatSegmentsRequest
     {
         protected ICatSegmentsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSegments;
 
         /// <summary>/_cat/segments</summary>
-        public CatSegmentsRequest()
-            : base() { }
+        public CatSegmentsRequest() : base() { }
 
         /// <summary>/_cat/segments/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatSegmentsRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatSegmentsRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1592,9 +1538,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1624,21 +1568,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Shards <para>https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</para></summary>
-    public partial class CatShardsRequest
-        : PlainRequestBase<CatShardsRequestParameters>,
-            ICatShardsRequest
+    public partial class CatShardsRequest : PlainRequestBase<CatShardsRequestParameters>, ICatShardsRequest
     {
         protected ICatShardsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatShards;
 
         /// <summary>/_cat/shards</summary>
-        public CatShardsRequest()
-            : base() { }
+        public CatShardsRequest() : base() { }
 
         /// <summary>/_cat/shards/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatShardsRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatShardsRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1693,9 +1633,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1725,21 +1663,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Snapshots <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
-    public partial class CatSnapshotsRequest
-        : PlainRequestBase<CatSnapshotsRequestParameters>,
-            ICatSnapshotsRequest
+    public partial class CatSnapshotsRequest : PlainRequestBase<CatSnapshotsRequestParameters>, ICatSnapshotsRequest
     {
         protected ICatSnapshotsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSnapshots;
 
         /// <summary>/_cat/snapshots</summary>
-        public CatSnapshotsRequest()
-            : base() { }
+        public CatSnapshotsRequest() : base() { }
 
         /// <summary>/_cat/snapshots/{repository}</summary>
         /// <param name="repository">Optional, accepts null</param>
-        public CatSnapshotsRequest(Names repository)
-            : base(r => r.Optional("repository", repository)) { }
+        public CatSnapshotsRequest(Names repository) : base(r => r.Optional("repository", repository)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1787,9 +1721,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1812,18 +1744,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface ICatTasksRequest : IRequest<CatTasksRequestParameters> { }
+    public partial interface ICatTasksRequest : IRequest<CatTasksRequestParameters>
+    {
+    }
 
     /// <summary>Request for Tasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</para></summary>
-    public partial class CatTasksRequest
-        : PlainRequestBase<CatTasksRequestParameters>,
-            ICatTasksRequest
+    public partial class CatTasksRequest : PlainRequestBase<CatTasksRequestParameters>, ICatTasksRequest
     {
         protected ICatTasksRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatTasks;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>The task action names used to limit the response.</summary>
         public string[] Actions
@@ -1905,21 +1836,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Templates <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
-    public partial class CatTemplatesRequest
-        : PlainRequestBase<CatTemplatesRequestParameters>,
-            ICatTemplatesRequest
+    public partial class CatTemplatesRequest : PlainRequestBase<CatTemplatesRequestParameters>, ICatTemplatesRequest
     {
         protected ICatTemplatesRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatTemplates;
 
         /// <summary>/_cat/templates</summary>
-        public CatTemplatesRequest()
-            : base() { }
+        public CatTemplatesRequest() : base() { }
 
         /// <summary>/_cat/templates/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public CatTemplatesRequest(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public CatTemplatesRequest(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1967,9 +1894,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1999,26 +1924,21 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for ThreadPool <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
-    public partial class CatThreadPoolRequest
-        : PlainRequestBase<CatThreadPoolRequestParameters>,
-            ICatThreadPoolRequest
+    public partial class CatThreadPoolRequest : PlainRequestBase<CatThreadPoolRequestParameters>, ICatThreadPoolRequest
     {
         protected ICatThreadPoolRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatThreadPool;
 
         /// <summary>/_cat/thread_pool</summary>
-        public CatThreadPoolRequest()
-            : base() { }
+        public CatThreadPoolRequest() : base() { }
 
         /// <summary>/_cat/thread_pool/{thread_pool_patterns}</summary>
         /// <param name="threadPoolPatterns">Optional, accepts null</param>
-        public CatThreadPoolRequest(Names threadPoolPatterns)
-            : base(r => r.Optional("thread_pool_patterns", threadPoolPatterns)) { }
+        public CatThreadPoolRequest(Names threadPoolPatterns) : base(r => r.Optional("thread_pool_patterns", threadPoolPatterns)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Names ICatThreadPoolRequest.ThreadPoolPatterns =>
-            Self.RouteValues.Get<Names>("thread_pool_patterns");
+        Names ICatThreadPoolRequest.ThreadPoolPatterns => Self.RouteValues.Get<Names>("thread_pool_patterns");
 
         // Request parameters
         /// <summary>A timeout for connection to the cluster manager node.</summary>
@@ -2062,9 +1982,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");

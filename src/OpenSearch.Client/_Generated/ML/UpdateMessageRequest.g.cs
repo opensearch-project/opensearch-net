@@ -67,7 +67,8 @@ namespace OpenSearch.Client
         public UpdateMessageDescriptor AdditionalInfo(IDictionary<string, object> additionalInfo) =>
             Assign(additionalInfo, (a, v) => a.AdditionalInfo = v);
 
-        public UpdateMessageDescriptor Input(string input) => Assign(input, (a, v) => a.Input = v);
+        public UpdateMessageDescriptor Input(string input) =>
+            Assign(input, (a, v) => a.Input = v);
 
         public UpdateMessageDescriptor Origin(string origin) =>
             Assign(origin, (a, v) => a.Origin = v);

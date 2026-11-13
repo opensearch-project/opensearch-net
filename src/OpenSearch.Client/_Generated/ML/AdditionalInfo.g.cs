@@ -29,25 +29,20 @@ namespace OpenSearch.Client
 {
     [JsonFormatter(typeof(OpenObjectFormatter<AdditionalInfo, IAdditionalInfo>))]
     [ReadAs(typeof(AdditionalInfo))]
-    public interface IAdditionalInfo : IHasAdditionalProperties { }
+    public interface IAdditionalInfo : IHasAdditionalProperties
+    {
+    }
 
     public class AdditionalInfo : IAdditionalInfo
     {
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
-    public class AdditionalInfoDescriptor
-        : DescriptorBase<AdditionalInfoDescriptor, IAdditionalInfo>,
-            IAdditionalInfo
+    public class AdditionalInfoDescriptor : DescriptorBase<AdditionalInfoDescriptor, IAdditionalInfo>, IAdditionalInfo
     {
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public AdditionalInfoDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public AdditionalInfoDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

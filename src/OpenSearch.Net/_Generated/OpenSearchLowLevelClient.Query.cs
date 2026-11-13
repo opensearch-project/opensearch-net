@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     /// </summary>
     public partial class LowLevelQueryNamespace : NamespacedClientProxy
     {
-        internal LowLevelQueryNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelQueryNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_plugins/_query/_datasources/{datasource_name}</summary>
         /// <param name="datasourceName">The name of the data source to delete.</param>
@@ -78,12 +77,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             DatasourceDeleteRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_query/_datasources/{datasource_name}</summary>
         /// <param name="datasourceName">The name of the data source to delete.</param>
@@ -96,13 +90,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_query/_datasources/{datasource_name}</summary>
         /// <param name="datasourceName">The name of the data source to retrieve.</param>
@@ -113,12 +101,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             DatasourceRetrieveRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_query/_datasources/{datasource_name}</summary>
         /// <param name="datasourceName">The name of the data source to retrieve.</param>
@@ -131,13 +114,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_query/_datasources/{datasourceName:datasourceName}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_query/_datasources</summary>
         /// <param name="body">The data source configuration to create.</param>
@@ -148,12 +125,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             DatasourcesCreateRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_query/_datasources",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_query/_datasources", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_query/_datasources</summary>
         /// <param name="body">The data source configuration to create.</param>
@@ -166,27 +138,14 @@ namespace OpenSearch.Net.Specification.QueryApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_query/_datasources",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_query/_datasources", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_query/_datasources</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
-        public TResponse DatasourcesList<TResponse>(
-            DatasourcesListRequestParameters requestParameters = null
-        )
+        public TResponse DatasourcesList<TResponse>(DatasourcesListRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_query/_datasources",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_query/_datasources", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_query/_datasources</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -197,13 +156,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_query/_datasources",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_query/_datasources", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_query/_datasources</summary>
         /// <param name="body">The updated data source configuration.</param>
@@ -214,12 +167,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             DatasourcesUpdateRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/_query/_datasources",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/_query/_datasources", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_query/_datasources</summary>
         /// <param name="body">The updated data source configuration.</param>
@@ -232,12 +180,6 @@ namespace OpenSearch.Net.Specification.QueryApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/_query/_datasources",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/_query/_datasources", ctx, body, RequestParams(requestParameters));
     }
 }

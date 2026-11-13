@@ -52,6 +52,7 @@ namespace OpenSearch.Client
         public HitsTotalDescriptor Relation(string relation) =>
             Assign(relation, (a, v) => a.Relation = v);
 
-        public HitsTotalDescriptor Value(long? value) => Assign(value, (a, v) => a.Value = v);
+        public HitsTotalDescriptor Value(long? value) =>
+            Assign(value, (a, v) => a.Value = v);
     }
 }

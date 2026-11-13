@@ -64,9 +64,7 @@ namespace OpenSearch.Client
         public IOwner Owner { get; set; }
     }
 
-    public class ModelGroupDescriptor
-        : DescriptorBase<ModelGroupDescriptor, IModelGroup>,
-            IModelGroup
+    public class ModelGroupDescriptor : DescriptorBase<ModelGroupDescriptor, IModelGroup>, IModelGroup
     {
         ModelGroupAccessMode? IModelGroup.Access { get; set; }
         long? IModelGroup.CreatedTime { get; set; }
@@ -91,8 +89,10 @@ namespace OpenSearch.Client
         public ModelGroupDescriptor LatestVersion(int? latestVersion) =>
             Assign(latestVersion, (a, v) => a.LatestVersion = v);
 
-        public ModelGroupDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public ModelGroupDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
-        public ModelGroupDescriptor Owner(IOwner owner) => Assign(owner, (a, v) => a.Owner = v);
+        public ModelGroupDescriptor Owner(IOwner owner) =>
+            Assign(owner, (a, v) => a.Owner = v);
     }
 }

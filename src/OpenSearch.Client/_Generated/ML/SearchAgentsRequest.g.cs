@@ -58,13 +58,13 @@ namespace OpenSearch.Client
         public SearchAgentsDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, v) => a.Query = v);
 
-        public SearchAgentsDescriptor Query(
-            Func<QueryContainerDescriptor<object>, QueryContainer> selector
-        ) =>
-            Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
+        public SearchAgentsDescriptor Query(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>
+    Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
 
-        public SearchAgentsDescriptor Size(long? size) => Assign(size, (a, v) => a.Size = v);
+        public SearchAgentsDescriptor Size(long? size) =>
+            Assign(size, (a, v) => a.Size = v);
 
-        public SearchAgentsDescriptor Sort(object sort) => Assign(sort, (a, v) => a.Sort = v);
+        public SearchAgentsDescriptor Sort(object sort) =>
+            Assign(sort, (a, v) => a.Sort = v);
     }
 }

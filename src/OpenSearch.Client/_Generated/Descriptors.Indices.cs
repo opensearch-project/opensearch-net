@@ -59,11 +59,7 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for AddBlock <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AddIndexBlockDescriptor
-        : RequestDescriptorBase<
-            AddIndexBlockDescriptor,
-            AddIndexBlockRequestParameters,
-            IAddIndexBlockRequest
-        >,
+        : RequestDescriptorBase<AddIndexBlockDescriptor, AddIndexBlockRequestParameters, IAddIndexBlockRequest>,
             IAddIndexBlockRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAddBlock;
@@ -71,25 +67,21 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_block/{block}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="block">this parameter is required</param>
-        public AddIndexBlockDescriptor(Indices index, IndexBlock block)
-            : base(r => r.Required("index", index).Required("block", block)) { }
+        public AddIndexBlockDescriptor(Indices index, IndexBlock block) : base(r => r.Required("index", index).Required("block", block)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected AddIndexBlockDescriptor()
-            : base() { }
+        protected AddIndexBlockDescriptor() : base() { }
 
         // values part of the url path
         IndexBlock IAddIndexBlockRequest.Block => Self.RouteValues.Get<IndexBlock>("block");
         Indices IAddIndexBlockRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma separated list of indexes to add a block to.</summary>
-        public AddIndexBlockDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public AddIndexBlockDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public AddIndexBlockDescriptor Index<TOther>()
-            where TOther : class =>
+        public AddIndexBlockDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -114,11 +106,8 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Specify timeout for connection to cluster manager.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public AddIndexBlockDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public AddIndexBlockDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Explicit operation timeout.</summary>
         public AddIndexBlockDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -132,58 +121,47 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAnalyze;
 
         /// <summary>/_analyze</summary>
-        public AnalyzeDescriptor()
-            : base() { }
+        public AnalyzeDescriptor() : base() { }
 
         /// <summary>/{index}/_analyze</summary>
         /// <param name="index">Optional, accepts null</param>
-        public AnalyzeDescriptor(IndexName index)
-            : base(r => r.Optional("index", index)) { }
+        public AnalyzeDescriptor(IndexName index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         IndexName IAnalyzeRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
         /// <summary>Index used to derive the analyzer. If specified, the <c>analyzer</c> or field parameter overrides this value. If no index is specified or the index does not have a default analyzer, the analyze API uses the standard analyzer.</summary>
-        public AnalyzeDescriptor Index(IndexName index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public AnalyzeDescriptor Index(IndexName index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public AnalyzeDescriptor Index<TOther>()
-            where TOther : class =>
+        public AnalyzeDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (IndexName)v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for ClearCache <para>https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</para></summary>
     public partial class ClearCacheDescriptor
-        : RequestDescriptorBase<
-            ClearCacheDescriptor,
-            ClearCacheRequestParameters,
-            IClearCacheRequest
-        >,
+        : RequestDescriptorBase<ClearCacheDescriptor, ClearCacheRequestParameters, IClearCacheRequest>,
             IClearCacheRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClearCache;
 
         /// <summary>/_cache/clear</summary>
-        public ClearCacheDescriptor()
-            : base() { }
+        public ClearCacheDescriptor() : base() { }
 
         /// <summary>/{index}/_cache/clear</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ClearCacheDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ClearCacheDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public ClearCacheDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public ClearCacheDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public ClearCacheDescriptor Index<TOther>()
-            where TOther : class =>
+        public ClearCacheDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -205,8 +183,8 @@ namespace OpenSearch.Client
         public ClearCacheDescriptor Fields(Fields fields) => Qs("fields", fields);
 
         /// <summary>A comma-separated list of field names used to limit the &lt;c&gt;fielddata&lt;/c&gt; parameter.</summary>
-        public ClearCacheDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
-            where T : class => Qs("fields", fields?.Select(e => (Field)e));
+        public ClearCacheDescriptor Fields<T>(params Expression<Func<T, object>>[] fields) where T : class =>
+            Qs("fields", fields?.Select(e => (Field)e));
 
         /// <summary>If <c>true</c>, clears the unused entries from the file cache on nodes with the Search role.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
@@ -225,11 +203,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Clone <para>https://docs.opensearch.org/latest/api-reference/index-apis/clone/</para></summary>
     public partial class CloneIndexDescriptor
-        : RequestDescriptorBase<
-            CloneIndexDescriptor,
-            CloneIndexRequestParameters,
-            ICloneIndexRequest
-        >,
+        : RequestDescriptorBase<CloneIndexDescriptor, CloneIndexRequestParameters, ICloneIndexRequest>,
             ICloneIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClone;
@@ -237,25 +211,21 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_clone/{target}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="target">this parameter is required</param>
-        public CloneIndexDescriptor(IndexName index, IndexName target)
-            : base(r => r.Required("index", index).Required("target", target)) { }
+        public CloneIndexDescriptor(IndexName index, IndexName target) : base(r => r.Required("index", index).Required("target", target)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CloneIndexDescriptor()
-            : base() { }
+        protected CloneIndexDescriptor() : base() { }
 
         // values part of the url path
         IndexName ICloneIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
         IndexName ICloneIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 
         /// <summary>Name of the source index to clone.</summary>
-        public CloneIndexDescriptor Index(IndexName index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public CloneIndexDescriptor Index(IndexName index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CloneIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public CloneIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
 
         // Request parameters
@@ -265,11 +235,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CloneIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CloneIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public CloneIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
@@ -290,35 +257,27 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Close <para>https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</para></summary>
     public partial class CloseIndexDescriptor
-        : RequestDescriptorBase<
-            CloseIndexDescriptor,
-            CloseIndexRequestParameters,
-            ICloseIndexRequest
-        >,
+        : RequestDescriptorBase<CloseIndexDescriptor, CloseIndexRequestParameters, ICloseIndexRequest>,
             ICloseIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClose;
 
         /// <summary>/{index}/_close</summary>
         /// <param name="index">this parameter is required</param>
-        public CloseIndexDescriptor(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public CloseIndexDescriptor(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CloseIndexDescriptor()
-            : base() { }
+        protected CloseIndexDescriptor() : base() { }
 
         // values part of the url path
         Indices ICloseIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list or wildcard expression of index names used to limit the request.</summary>
-        public CloseIndexDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public CloseIndexDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CloseIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public CloseIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -343,11 +302,8 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CloseIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CloseIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public CloseIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -359,35 +315,27 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Create <para>https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</para></summary>
     public partial class CreateIndexDescriptor
-        : RequestDescriptorBase<
-            CreateIndexDescriptor,
-            CreateIndexRequestParameters,
-            ICreateIndexRequest
-        >,
+        : RequestDescriptorBase<CreateIndexDescriptor, CreateIndexRequestParameters, ICreateIndexRequest>,
             ICreateIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesCreate;
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public CreateIndexDescriptor(IndexName index)
-            : base(r => r.Required("index", index)) { }
+        public CreateIndexDescriptor(IndexName index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateIndexDescriptor()
-            : base() { }
+        protected CreateIndexDescriptor() : base() { }
 
         // values part of the url path
         IndexName ICreateIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
         /// <summary>The name of the index you wish to create.</summary>
-        public CreateIndexDescriptor Index(IndexName index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public CreateIndexDescriptor Index(IndexName index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CreateIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public CreateIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
 
         // Request parameters
@@ -397,11 +345,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CreateIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CreateIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public CreateIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -413,35 +358,27 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Delete <para>https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</para></summary>
     public partial class DeleteIndexDescriptor
-        : RequestDescriptorBase<
-            DeleteIndexDescriptor,
-            DeleteIndexRequestParameters,
-            IDeleteIndexRequest
-        >,
+        : RequestDescriptorBase<DeleteIndexDescriptor, DeleteIndexRequestParameters, IDeleteIndexRequest>,
             IDeleteIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDelete;
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public DeleteIndexDescriptor(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public DeleteIndexDescriptor(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteIndexDescriptor()
-            : base() { }
+        protected DeleteIndexDescriptor() : base() { }
 
         // values part of the url path
         Indices IDeleteIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<c>*</c>) or <c>_all</c>. To use wildcards or <c>_all</c>, set the <c>action.destructive_requires_name</c> cluster setting to <c>false</c>.</summary>
-        public DeleteIndexDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public DeleteIndexDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public DeleteIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public DeleteIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -466,11 +403,8 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public DeleteIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public DeleteIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public DeleteIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -478,11 +412,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for DeleteAlias <para>https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</para></summary>
     public partial class DeleteAliasDescriptor
-        : RequestDescriptorBase<
-            DeleteAliasDescriptor,
-            DeleteAliasRequestParameters,
-            IDeleteAliasRequest
-        >,
+        : RequestDescriptorBase<DeleteAliasDescriptor, DeleteAliasRequestParameters, IDeleteAliasRequest>,
             IDeleteAliasRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteAlias;
@@ -490,25 +420,21 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="name">this parameter is required</param>
-        public DeleteAliasDescriptor(Indices index, Names name)
-            : base(r => r.Required("index", index).Required("name", name)) { }
+        public DeleteAliasDescriptor(Indices index, Names name) : base(r => r.Required("index", index).Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAliasDescriptor()
-            : base() { }
+        protected DeleteAliasDescriptor() : base() { }
 
         // values part of the url path
         Indices IDeleteAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IDeleteAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
         /// <summary>A comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>).</summary>
-        public DeleteAliasDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public DeleteAliasDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public DeleteAliasDescriptor Index<TOther>()
-            where TOther : class =>
+        public DeleteAliasDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -521,11 +447,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public DeleteAliasDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public DeleteAliasDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public DeleteAliasDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -533,24 +456,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for DeleteComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateDescriptor
-        : RequestDescriptorBase<
-            DeleteComposableIndexTemplateDescriptor,
-            DeleteComposableIndexTemplateRequestParameters,
-            IDeleteComposableIndexTemplateRequest
-        >,
+        : RequestDescriptorBase<DeleteComposableIndexTemplateDescriptor, DeleteComposableIndexTemplateRequestParameters, IDeleteComposableIndexTemplateRequest>,
             IDeleteComposableIndexTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteComposableTemplate;
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public DeleteComposableIndexTemplateDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public DeleteComposableIndexTemplateDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteComposableIndexTemplateDescriptor()
-            : base() { }
+        protected DeleteComposableIndexTemplateDescriptor() : base() { }
 
         // values part of the url path
         Name IDeleteComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -558,42 +475,32 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public DeleteComposableIndexTemplateDescriptor ClusterManagerTimeout(
-            Time clustermanagertimeout
-        ) => Qs("cluster_manager_timeout", clustermanagertimeout);
+        public DeleteComposableIndexTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public DeleteComposableIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public DeleteComposableIndexTemplateDescriptor Timeout(Time timeout) =>
-            Qs("timeout", timeout);
+        public DeleteComposableIndexTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
     /// <summary>Descriptor for DeleteTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteIndexTemplateDescriptor
-        : RequestDescriptorBase<
-            DeleteIndexTemplateDescriptor,
-            DeleteIndexTemplateRequestParameters,
-            IDeleteIndexTemplateRequest
-        >,
+        : RequestDescriptorBase<DeleteIndexTemplateDescriptor, DeleteIndexTemplateRequestParameters, IDeleteIndexTemplateRequest>,
             IDeleteIndexTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteTemplate;
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public DeleteIndexTemplateDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public DeleteIndexTemplateDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteIndexTemplateDescriptor()
-            : base() { }
+        protected DeleteIndexTemplateDescriptor() : base() { }
 
         // values part of the url path
         Name IDeleteIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -605,11 +512,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public DeleteIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public DeleteIndexTemplateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public DeleteIndexTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -617,35 +521,27 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Exists <para>https://docs.opensearch.org/latest/api-reference/index-apis/exists/</para></summary>
     public partial class IndexExistsDescriptor
-        : RequestDescriptorBase<
-            IndexExistsDescriptor,
-            IndexExistsRequestParameters,
-            IIndexExistsRequest
-        >,
+        : RequestDescriptorBase<IndexExistsDescriptor, IndexExistsRequestParameters, IIndexExistsRequest>,
             IIndexExistsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesExists;
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public IndexExistsDescriptor(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public IndexExistsDescriptor(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected IndexExistsDescriptor()
-            : base() { }
+        protected IndexExistsDescriptor() : base() { }
 
         // values part of the url path
         Indices IIndexExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
-        public IndexExistsDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public IndexExistsDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public IndexExistsDescriptor Index<TOther>()
-            where TOther : class =>
+        public IndexExistsDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -666,8 +562,7 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>If <c>true</c>, returns settings in flat format.</summary>
-        public IndexExistsDescriptor FlatSettings(bool? flatsettings = true) =>
-            Qs("flat_settings", flatsettings);
+        public IndexExistsDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 
         /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public IndexExistsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
@@ -683,11 +578,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for AliasExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AliasExistsDescriptor
-        : RequestDescriptorBase<
-            AliasExistsDescriptor,
-            AliasExistsRequestParameters,
-            IAliasExistsRequest
-        >,
+        : RequestDescriptorBase<AliasExistsDescriptor, AliasExistsRequestParameters, IAliasExistsRequest>,
             IAliasExistsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAliasExists;
@@ -695,30 +586,25 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">this parameter is required</param>
-        public AliasExistsDescriptor(Indices index, Names name)
-            : base(r => r.Optional("index", index).Required("name", name)) { }
+        public AliasExistsDescriptor(Indices index, Names name) : base(r => r.Optional("index", index).Required("name", name)) { }
 
         /// <summary>/_alias/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public AliasExistsDescriptor(Names name)
-            : base(r => r.Required("name", name)) { }
+        public AliasExistsDescriptor(Names name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected AliasExistsDescriptor()
-            : base() { }
+        protected AliasExistsDescriptor() : base() { }
 
         // values part of the url path
         Indices IAliasExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IAliasExistsRequest.Name => Self.RouteValues.Get<Names>("name");
 
         /// <summary>A comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public AliasExistsDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public AliasExistsDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public AliasExistsDescriptor Index<TOther>()
-            where TOther : class =>
+        public AliasExistsDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -743,24 +629,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for ComposableTemplateExists <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class ComposableIndexTemplateExistsDescriptor
-        : RequestDescriptorBase<
-            ComposableIndexTemplateExistsDescriptor,
-            ComposableIndexTemplateExistsRequestParameters,
-            IComposableIndexTemplateExistsRequest
-        >,
+        : RequestDescriptorBase<ComposableIndexTemplateExistsDescriptor, ComposableIndexTemplateExistsRequestParameters, IComposableIndexTemplateExistsRequest>,
             IComposableIndexTemplateExistsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesComposableTemplateExists;
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public ComposableIndexTemplateExistsDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public ComposableIndexTemplateExistsDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ComposableIndexTemplateExistsDescriptor()
-            : base() { }
+        protected ComposableIndexTemplateExistsDescriptor() : base() { }
 
         // values part of the url path
         Name IComposableIndexTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -768,46 +648,36 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public ComposableIndexTemplateExistsDescriptor ClusterManagerTimeout(
-            Time clustermanagertimeout
-        ) => Qs("cluster_manager_timeout", clustermanagertimeout);
+        public ComposableIndexTemplateExistsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Return settings in flat format.</summary>
         public ComposableIndexTemplateExistsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
-        public ComposableIndexTemplateExistsDescriptor Local(bool? local = true) =>
-            Qs("local", local);
+        public ComposableIndexTemplateExistsDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public ComposableIndexTemplateExistsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for TemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndexTemplateExistsDescriptor
-        : RequestDescriptorBase<
-            IndexTemplateExistsDescriptor,
-            IndexTemplateExistsRequestParameters,
-            IIndexTemplateExistsRequest
-        >,
+        : RequestDescriptorBase<IndexTemplateExistsDescriptor, IndexTemplateExistsRequestParameters, IIndexTemplateExistsRequest>,
             IIndexTemplateExistsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesTemplateExists;
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public IndexTemplateExistsDescriptor(Names name)
-            : base(r => r.Required("name", name)) { }
+        public IndexTemplateExistsDescriptor(Names name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected IndexTemplateExistsDescriptor()
-            : base() { }
+        protected IndexTemplateExistsDescriptor() : base() { }
 
         // values part of the url path
         Names IIndexTemplateExistsRequest.Name => Self.RouteValues.Get<Names>("name");
@@ -826,11 +696,8 @@ namespace OpenSearch.Client
         public IndexTemplateExistsDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public IndexTemplateExistsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public IndexTemplateExistsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for Flush <para>https://docs.opensearch.org/latest/</para></summary>
@@ -841,24 +708,20 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesFlush;
 
         /// <summary>/_flush</summary>
-        public FlushDescriptor()
-            : base() { }
+        public FlushDescriptor() : base() { }
 
         /// <summary>/{index}/_flush</summary>
         /// <param name="index">Optional, accepts null</param>
-        public FlushDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public FlushDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IFlushRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (<c>*</c>). To flush all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public FlushDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public FlushDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public FlushDescriptor Index<TOther>()
-            where TOther : class =>
+        public FlushDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -866,8 +729,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
-        public FlushDescriptor AllowNoIndices(bool? allownoindices = true) =>
-            Qs("allow_no_indices", allownoindices);
+        public FlushDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
 
         /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public FlushDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
@@ -881,40 +743,31 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>If <c>true</c>, the flush operation blocks until execution when another flush operation is running. If <c>false</c>, OpenSearch returns an error if you request a flush when another flush operation is running.</summary>
-        public FlushDescriptor WaitIfOngoing(bool? waitifongoing = true) =>
-            Qs("wait_if_ongoing", waitifongoing);
+        public FlushDescriptor WaitIfOngoing(bool? waitifongoing = true) => Qs("wait_if_ongoing", waitifongoing);
     }
 
     /// <summary>Descriptor for ForceMerge <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ForceMergeDescriptor
-        : RequestDescriptorBase<
-            ForceMergeDescriptor,
-            ForceMergeRequestParameters,
-            IForceMergeRequest
-        >,
+        : RequestDescriptorBase<ForceMergeDescriptor, ForceMergeRequestParameters, IForceMergeRequest>,
             IForceMergeRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesForceMerge;
 
         /// <summary>/_forcemerge</summary>
-        public ForceMergeDescriptor()
-            : base() { }
+        public ForceMergeDescriptor() : base() { }
 
         /// <summary>/{index}/_forcemerge</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ForceMergeDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ForceMergeDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IForceMergeRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of index names; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
-        public ForceMergeDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public ForceMergeDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public ForceMergeDescriptor Index<TOther>()
-            where TOther : class =>
+        public ForceMergeDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -937,8 +790,7 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>The number of larger segments into which smaller segments are merged. Set this parameter to 1 to merge all segments into one segment. The default behavior is to perform the merge as necessary.</summary>
-        public ForceMergeDescriptor MaxNumSegments(long? maxnumsegments) =>
-            Qs("max_num_segments", maxnumsegments);
+        public ForceMergeDescriptor MaxNumSegments(long? maxnumsegments) => Qs("max_num_segments", maxnumsegments);
 
         /// <summary>Specify whether the operation should only expunge deleted documents.</summary>
         public ForceMergeDescriptor OnlyExpungeDeletes(bool? onlyexpungedeletes = true) =>
@@ -946,8 +798,7 @@ namespace OpenSearch.Client
 
         /// <summary>Specify whether the operation should only perform on primary shards. Defaults to false.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
-        public ForceMergeDescriptor PrimaryOnly(bool? primaryonly = true) =>
-            Qs("primary_only", primaryonly);
+        public ForceMergeDescriptor PrimaryOnly(bool? primaryonly = true) => Qs("primary_only", primaryonly);
 
         /// <summary>Should the request wait until the force merge is completed.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
@@ -964,24 +815,20 @@ namespace OpenSearch.Client
 
         /// <summary>/{index}</summary>
         /// <param name="index">this parameter is required</param>
-        public GetIndexDescriptor(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public GetIndexDescriptor(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetIndexDescriptor()
-            : base() { }
+        protected GetIndexDescriptor() : base() { }
 
         // values part of the url path
         Indices IGetIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</summary>
-        public GetIndexDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public GetIndexDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public GetIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public GetIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -989,8 +836,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an index starts with foo but no index starts with bar.</summary>
-        public GetIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
-            Qs("allow_no_indices", allownoindices);
+        public GetIndexDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1002,8 +848,7 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>If <c>true</c>, returns settings in flat format.</summary>
-        public GetIndexDescriptor FlatSettings(bool? flatsettings = true) =>
-            Qs("flat_settings", flatsettings);
+        public GetIndexDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 
         /// <summary>If <c>false</c>, requests that target a missing index return an error.</summary>
         public GetIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
@@ -1017,11 +862,8 @@ namespace OpenSearch.Client
         public GetIndexDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public GetIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public GetIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for GetAlias <para>https://docs.opensearch.org/latest/im-plugin/index-alias/</para></summary>
@@ -1032,49 +874,41 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetAlias;
 
         /// <summary>/_alias</summary>
-        public GetAliasDescriptor()
-            : base() { }
+        public GetAliasDescriptor() : base() { }
 
         /// <summary>/{index}/_alias</summary>
         /// <param name="index">Optional, accepts null</param>
-        public GetAliasDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public GetAliasDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">Optional, accepts null</param>
-        public GetAliasDescriptor(Indices index, Names name)
-            : base(r => r.Optional("index", index).Optional("name", name)) { }
+        public GetAliasDescriptor(Indices index, Names name) : base(r => r.Optional("index", index).Optional("name", name)) { }
 
         /// <summary>/_alias/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetAliasDescriptor(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public GetAliasDescriptor(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Indices IGetAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IGetAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
         /// <summary>A comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public GetAliasDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public GetAliasDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public GetAliasDescriptor Index<TOther>()
-            where TOther : class =>
+        public GetAliasDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public GetAliasDescriptor AllIndices() => Index(Indices.All);
 
         /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (<c>*</c>). To retrieve all aliases, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public GetAliasDescriptor Name(Names name) =>
-            Assign(name, (a, v) => a.RouteValues.Optional("name", v));
+        public GetAliasDescriptor Name(Names name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
         /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
-        public GetAliasDescriptor AllowNoIndices(bool? allownoindices = true) =>
-            Qs("allow_no_indices", allownoindices);
+        public GetAliasDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
 
         /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public GetAliasDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
@@ -1090,30 +924,23 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for GetFieldMapping <para>https://docs.opensearch.org/latest/field-types/index/</para></summary>
     public partial class GetFieldMappingDescriptor<TDocument>
-        : RequestDescriptorBase<
-            GetFieldMappingDescriptor<TDocument>,
-            GetFieldMappingRequestParameters,
-            IGetFieldMappingRequest
-        >,
+        : RequestDescriptorBase<GetFieldMappingDescriptor<TDocument>, GetFieldMappingRequestParameters, IGetFieldMappingRequest>,
             IGetFieldMappingRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetFieldMapping;
 
         /// <summary>/{index}/_mapping/field/{fields}</summary>
         /// <param name="fields">this parameter is required</param>
-        public GetFieldMappingDescriptor(Fields fields)
-            : this(typeof(TDocument), fields) { }
+        public GetFieldMappingDescriptor(Fields fields) : this(typeof(TDocument), fields) { }
 
         /// <summary>/{index}/_mapping/field/{fields}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="fields">this parameter is required</param>
-        public GetFieldMappingDescriptor(Indices index, Fields fields)
-            : base(r => r.Optional("index", index).Required("fields", fields)) { }
+        public GetFieldMappingDescriptor(Indices index, Fields fields) : base(r => r.Optional("index", index).Required("fields", fields)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetFieldMappingDescriptor()
-            : base() { }
+        protected GetFieldMappingDescriptor() : base() { }
 
         // values part of the url path
         Fields IGetFieldMappingRequest.Fields => Self.RouteValues.Get<Fields>("fields");
@@ -1124,8 +951,7 @@ namespace OpenSearch.Client
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public GetFieldMappingDescriptor<TDocument> Index<TOther>()
-            where TOther : class =>
+        public GetFieldMappingDescriptor<TDocument> Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -1137,14 +963,12 @@ namespace OpenSearch.Client
             Qs("allow_no_indices", allownoindices);
 
         /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
-        public GetFieldMappingDescriptor<TDocument> ExpandWildcards(
-            ExpandWildcards? expandwildcards
-        ) => Qs("expand_wildcards", expandwildcards);
+        public GetFieldMappingDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
 
         /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
-        public GetFieldMappingDescriptor<TDocument> IgnoreUnavailable(
-            bool? ignoreunavailable = true
-        ) => Qs("ignore_unavailable", ignoreunavailable);
+        public GetFieldMappingDescriptor<TDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public GetFieldMappingDescriptor<TDocument> IncludeDefaults(bool? includedefaults = true) =>
@@ -1156,23 +980,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for GetComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class GetComposableIndexTemplateDescriptor
-        : RequestDescriptorBase<
-            GetComposableIndexTemplateDescriptor,
-            GetComposableIndexTemplateRequestParameters,
-            IGetComposableIndexTemplateRequest
-        >,
+        : RequestDescriptorBase<GetComposableIndexTemplateDescriptor, GetComposableIndexTemplateRequestParameters, IGetComposableIndexTemplateRequest>,
             IGetComposableIndexTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetComposableTemplate;
 
         /// <summary>/_index_template</summary>
-        public GetComposableIndexTemplateDescriptor()
-            : base() { }
+        public GetComposableIndexTemplateDescriptor() : base() { }
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComposableIndexTemplateDescriptor(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public GetComposableIndexTemplateDescriptor(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Name IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -1184,9 +1002,8 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public GetComposableIndexTemplateDescriptor ClusterManagerTimeout(
-            Time clustermanagertimeout
-        ) => Qs("cluster_manager_timeout", clustermanagertimeout);
+        public GetComposableIndexTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public GetComposableIndexTemplateDescriptor FlatSettings(bool? flatsettings = true) =>
@@ -1196,32 +1013,24 @@ namespace OpenSearch.Client
         public GetComposableIndexTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public GetComposableIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for GetMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</para></summary>
     public partial class GetMappingDescriptor<TDocument>
-        : RequestDescriptorBase<
-            GetMappingDescriptor<TDocument>,
-            GetMappingRequestParameters,
-            IGetMappingRequest
-        >,
+        : RequestDescriptorBase<GetMappingDescriptor<TDocument>, GetMappingRequestParameters, IGetMappingRequest>,
             IGetMappingRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetMapping;
 
         /// <summary>/{index}/_mapping</summary>
-        public GetMappingDescriptor()
-            : this(typeof(TDocument)) { }
+        public GetMappingDescriptor() : this(typeof(TDocument)) { }
 
         /// <summary>/{index}/_mapping</summary>
         /// <param name="index">Optional, accepts null</param>
-        public GetMappingDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public GetMappingDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IGetMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
@@ -1231,8 +1040,7 @@ namespace OpenSearch.Client
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public GetMappingDescriptor<TDocument> Index<TOther>()
-            where TOther : class =>
+        public GetMappingDescriptor<TDocument> Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -1260,43 +1068,32 @@ namespace OpenSearch.Client
         public GetMappingDescriptor<TDocument> Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public GetMappingDescriptor<TDocument> MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public GetMappingDescriptor<TDocument> MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for GetSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</para></summary>
     public partial class GetIndexSettingsDescriptor
-        : RequestDescriptorBase<
-            GetIndexSettingsDescriptor,
-            GetIndexSettingsRequestParameters,
-            IGetIndexSettingsRequest
-        >,
+        : RequestDescriptorBase<GetIndexSettingsDescriptor, GetIndexSettingsRequestParameters, IGetIndexSettingsRequest>,
             IGetIndexSettingsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetSettings;
 
         /// <summary>/_settings</summary>
-        public GetIndexSettingsDescriptor()
-            : base() { }
+        public GetIndexSettingsDescriptor() : base() { }
 
         /// <summary>/{index}/_settings</summary>
         /// <param name="index">Optional, accepts null</param>
-        public GetIndexSettingsDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public GetIndexSettingsDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_settings/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">Optional, accepts null</param>
-        public GetIndexSettingsDescriptor(Indices index, Names name)
-            : base(r => r.Optional("index", index).Optional("name", name)) { }
+        public GetIndexSettingsDescriptor(Indices index, Names name) : base(r => r.Optional("index", index).Optional("name", name)) { }
 
         /// <summary>/_settings/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetIndexSettingsDescriptor(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public GetIndexSettingsDescriptor(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Indices IGetIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
@@ -1307,16 +1104,14 @@ namespace OpenSearch.Client
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public GetIndexSettingsDescriptor Index<TOther>()
-            where TOther : class =>
+        public GetIndexSettingsDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public GetIndexSettingsDescriptor AllIndices() => Index(Indices.All);
 
         /// <summary>A comma-separated list or wildcard expression of settings to retrieve.</summary>
-        public GetIndexSettingsDescriptor Name(Names name) =>
-            Assign(name, (a, v) => a.RouteValues.Optional("name", v));
+        public GetIndexSettingsDescriptor Name(Names name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
         /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns an error if an index starts with foo but no index starts with <c>bar</c>.</summary>
@@ -1333,8 +1128,7 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>If <c>true</c>, returns settings in flat format.</summary>
-        public GetIndexSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
-            Qs("flat_settings", flatsettings);
+        public GetIndexSettingsDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 
         /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public GetIndexSettingsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
@@ -1348,39 +1142,29 @@ namespace OpenSearch.Client
         public GetIndexSettingsDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public GetIndexSettingsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public GetIndexSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for GetTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetIndexTemplateDescriptor
-        : RequestDescriptorBase<
-            GetIndexTemplateDescriptor,
-            GetIndexTemplateRequestParameters,
-            IGetIndexTemplateRequest
-        >,
+        : RequestDescriptorBase<GetIndexTemplateDescriptor, GetIndexTemplateRequestParameters, IGetIndexTemplateRequest>,
             IGetIndexTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetTemplate;
 
         /// <summary>/_template</summary>
-        public GetIndexTemplateDescriptor()
-            : base() { }
+        public GetIndexTemplateDescriptor() : base() { }
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetIndexTemplateDescriptor(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public GetIndexTemplateDescriptor(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Names IGetIndexTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
 
         /// <summary>A comma-separated list of index template names used to limit the request. Wildcard (<c>*</c>) expressions are supported. To return all index templates, omit this parameter or use a value of <c>_all</c> or <c>*</c>.</summary>
-        public GetIndexTemplateDescriptor Name(Names name) =>
-            Assign(name, (a, v) => a.RouteValues.Optional("name", v));
+        public GetIndexTemplateDescriptor Name(Names name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
@@ -1389,18 +1173,14 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>If <c>true</c>, returns settings in flat format.</summary>
-        public GetIndexTemplateDescriptor FlatSettings(bool? flatsettings = true) =>
-            Qs("flat_settings", flatsettings);
+        public GetIndexTemplateDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 
         /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public GetIndexTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public GetIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public GetIndexTemplateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for Open <para>https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</para></summary>
@@ -1412,24 +1192,20 @@ namespace OpenSearch.Client
 
         /// <summary>/{index}/_open</summary>
         /// <param name="index">this parameter is required</param>
-        public OpenIndexDescriptor(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public OpenIndexDescriptor(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected OpenIndexDescriptor()
-            : base() { }
+        protected OpenIndexDescriptor() : base() { }
 
         // values part of the url path
         Indices IOpenIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). By default, you must explicitly name the indexes you using to limit the request. To limit a request using <c>_all</c>, <c>*</c>, or other wildcard expressions, change the <c>action.destructive_requires_name</c> setting to false. You can update this setting in the <c>opensearch.yml</c> file or using the cluster update settings API.</summary>
-        public OpenIndexDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public OpenIndexDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public OpenIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public OpenIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -1454,11 +1230,8 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public OpenIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public OpenIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public OpenIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
@@ -1485,44 +1258,37 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutAlias;
 
         /// <summary>/_alias</summary>
-        public PutAliasDescriptor()
-            : base() { }
+        public PutAliasDescriptor() : base() { }
 
         /// <summary>/{index}/_alias</summary>
         /// <param name="index">Optional, accepts null</param>
-        public PutAliasDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public PutAliasDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_alias/{name}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="name">Optional, accepts null</param>
-        public PutAliasDescriptor(Indices index, Name name)
-            : base(r => r.Optional("index", index).Optional("name", name)) { }
+        public PutAliasDescriptor(Indices index, Name name) : base(r => r.Optional("index", index).Optional("name", name)) { }
 
         /// <summary>/_alias/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public PutAliasDescriptor(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public PutAliasDescriptor(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Indices IPutAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Name IPutAliasRequest.Name => Self.RouteValues.Get<Name>("name");
 
         /// <summary>A comma-separated list of data streams or indexes to add. Supports wildcards (<c>*</c>). Wildcard patterns that match both data streams and indexes return an error.</summary>
-        public PutAliasDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public PutAliasDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public PutAliasDescriptor Index<TOther>()
-            where TOther : class =>
+        public PutAliasDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public PutAliasDescriptor AllIndices() => Index(Indices.All);
 
         /// <summary>Alias to update. If the alias doesn't exist, the request creates it. Index alias names support date math.</summary>
-        public PutAliasDescriptor Name(Name name) =>
-            Assign(name, (a, v) => a.RouteValues.Optional("name", v));
+        public PutAliasDescriptor Name(Name name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
@@ -1531,11 +1297,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public PutAliasDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public PutAliasDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public PutAliasDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -1543,24 +1306,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for PutComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutComposableIndexTemplateDescriptor
-        : RequestDescriptorBase<
-            PutComposableIndexTemplateDescriptor,
-            PutComposableIndexTemplateRequestParameters,
-            IPutComposableIndexTemplateRequest
-        >,
+        : RequestDescriptorBase<PutComposableIndexTemplateDescriptor, PutComposableIndexTemplateRequestParameters, IPutComposableIndexTemplateRequest>,
             IPutComposableIndexTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutComposableTemplate;
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public PutComposableIndexTemplateDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public PutComposableIndexTemplateDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutComposableIndexTemplateDescriptor()
-            : base() { }
+        protected PutComposableIndexTemplateDescriptor() : base() { }
 
         // values part of the url path
         Name IPutComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -1571,41 +1328,31 @@ namespace OpenSearch.Client
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public PutComposableIndexTemplateDescriptor ClusterManagerTimeout(
-            Time clustermanagertimeout
-        ) => Qs("cluster_manager_timeout", clustermanagertimeout);
+        public PutComposableIndexTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>If <c>true</c>, this request cannot replace or update existing index templates.</summary>
-        public PutComposableIndexTemplateDescriptor Create(bool? create = true) =>
-            Qs("create", create);
+        public PutComposableIndexTemplateDescriptor Create(bool? create = true) => Qs("create", create);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public PutComposableIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for PutMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</para></summary>
     public partial class PutMappingDescriptor<TDocument>
-        : RequestDescriptorBase<
-            PutMappingDescriptor<TDocument>,
-            PutMappingRequestParameters,
-            IPutMappingRequest<TDocument>
-        >,
+        : RequestDescriptorBase<PutMappingDescriptor<TDocument>, PutMappingRequestParameters, IPutMappingRequest<TDocument>>,
             IPutMappingRequest<TDocument>
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutMapping;
 
         /// <summary>/{index}/_mapping</summary>
         /// <param name="index">this parameter is required</param>
-        public PutMappingDescriptor(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public PutMappingDescriptor(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>/{index}/_mapping</summary>
-        public PutMappingDescriptor()
-            : this(typeof(TDocument)) { }
+        public PutMappingDescriptor() : this(typeof(TDocument)) { }
 
         // values part of the url path
         Indices IPutMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
@@ -1615,8 +1362,7 @@ namespace OpenSearch.Client
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public PutMappingDescriptor<TDocument> Index<TOther>()
-            where TOther : class =>
+        public PutMappingDescriptor<TDocument> Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -1641,11 +1387,8 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public PutMappingDescriptor<TDocument> MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public PutMappingDescriptor<TDocument> MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public PutMappingDescriptor<TDocument> Timeout(Time timeout) => Qs("timeout", timeout);
@@ -1657,23 +1400,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for UpdateSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</para></summary>
     public partial class UpdateIndexSettingsDescriptor
-        : RequestDescriptorBase<
-            UpdateIndexSettingsDescriptor,
-            UpdateIndexSettingsRequestParameters,
-            IUpdateIndexSettingsRequest
-        >,
+        : RequestDescriptorBase<UpdateIndexSettingsDescriptor, UpdateIndexSettingsRequestParameters, IUpdateIndexSettingsRequest>,
             IUpdateIndexSettingsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesUpdateSettings;
 
         /// <summary>/_settings</summary>
-        public UpdateIndexSettingsDescriptor()
-            : base() { }
+        public UpdateIndexSettingsDescriptor() : base() { }
 
         /// <summary>/{index}/_settings</summary>
         /// <param name="index">Optional, accepts null</param>
-        public UpdateIndexSettingsDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public UpdateIndexSettingsDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IUpdateIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
@@ -1683,8 +1420,7 @@ namespace OpenSearch.Client
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public UpdateIndexSettingsDescriptor Index<TOther>()
-            where TOther : class =>
+        public UpdateIndexSettingsDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -1713,11 +1449,8 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public UpdateIndexSettingsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public UpdateIndexSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>If <c>true</c>, existing index settings remain unchanged.</summary>
         public UpdateIndexSettingsDescriptor PreserveExisting(bool? preserveexisting = true) =>
@@ -1729,24 +1462,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for PutTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutIndexTemplateDescriptor
-        : RequestDescriptorBase<
-            PutIndexTemplateDescriptor,
-            PutIndexTemplateRequestParameters,
-            IPutIndexTemplateRequest
-        >,
+        : RequestDescriptorBase<PutIndexTemplateDescriptor, PutIndexTemplateRequestParameters, IPutIndexTemplateRequest>,
             IPutIndexTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutTemplate;
 
         /// <summary>/_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public PutIndexTemplateDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public PutIndexTemplateDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutIndexTemplateDescriptor()
-            : base() { }
+        protected PutIndexTemplateDescriptor() : base() { }
 
         // values part of the url path
         Name IPutIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -1761,11 +1488,8 @@ namespace OpenSearch.Client
         public PutIndexTemplateDescriptor Create(bool? create = true) => Qs("create", create);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public PutIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public PutIndexTemplateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for Refresh <para>https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</para></summary>
@@ -1776,24 +1500,20 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesRefresh;
 
         /// <summary>/_refresh</summary>
-        public RefreshDescriptor()
-            : base() { }
+        public RefreshDescriptor() : base() { }
 
         /// <summary>/{index}/_refresh</summary>
         /// <param name="index">Optional, accepts null</param>
-        public RefreshDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public RefreshDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IRefreshRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public RefreshDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public RefreshDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public RefreshDescriptor Index<TOther>()
-            where TOther : class =>
+        public RefreshDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -1801,8 +1521,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
-        public RefreshDescriptor AllowNoIndices(bool? allownoindices = true) =>
-            Qs("allow_no_indices", allownoindices);
+        public RefreshDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
 
         /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public RefreshDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
@@ -1815,24 +1534,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Resolve <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ResolveIndexDescriptor
-        : RequestDescriptorBase<
-            ResolveIndexDescriptor,
-            ResolveIndexRequestParameters,
-            IResolveIndexRequest
-        >,
+        : RequestDescriptorBase<ResolveIndexDescriptor, ResolveIndexRequestParameters, IResolveIndexRequest>,
             IResolveIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesResolve;
 
         /// <summary>/_resolve/index/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public ResolveIndexDescriptor(Names name)
-            : base(r => r.Required("name", name)) { }
+        public ResolveIndexDescriptor(Names name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ResolveIndexDescriptor()
-            : base() { }
+        protected ResolveIndexDescriptor() : base() { }
 
         // values part of the url path
         Names IResolveIndexRequest.Name => Self.RouteValues.Get<Names>("name");
@@ -1845,30 +1558,23 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Rollover <para>https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</para></summary>
     public partial class RolloverIndexDescriptor
-        : RequestDescriptorBase<
-            RolloverIndexDescriptor,
-            RolloverIndexRequestParameters,
-            IRolloverIndexRequest
-        >,
+        : RequestDescriptorBase<RolloverIndexDescriptor, RolloverIndexRequestParameters, IRolloverIndexRequest>,
             IRolloverIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesRollover;
 
         /// <summary>/{alias}/_rollover</summary>
         /// <param name="alias">this parameter is required</param>
-        public RolloverIndexDescriptor(Name alias)
-            : base(r => r.Required("alias", alias)) { }
+        public RolloverIndexDescriptor(Name alias) : base(r => r.Required("alias", alias)) { }
 
         /// <summary>/{alias}/_rollover/{new_index}</summary>
         /// <param name="alias">this parameter is required</param>
         /// <param name="newIndex">Optional, accepts null</param>
-        public RolloverIndexDescriptor(Name alias, IndexName newIndex)
-            : base(r => r.Required("alias", alias).Optional("new_index", newIndex)) { }
+        public RolloverIndexDescriptor(Name alias, IndexName newIndex) : base(r => r.Required("alias", alias).Optional("new_index", newIndex)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected RolloverIndexDescriptor()
-            : base() { }
+        protected RolloverIndexDescriptor() : base() { }
 
         // values part of the url path
         Name IRolloverIndexRequest.Alias => Self.RouteValues.Get<Name>("alias");
@@ -1888,11 +1594,8 @@ namespace OpenSearch.Client
         public RolloverIndexDescriptor DryRun(bool? dryrun = true) => Qs("dry_run", dryrun);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public RolloverIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public RolloverIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public RolloverIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -1904,11 +1607,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Shrink <para>https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</para></summary>
     public partial class ShrinkIndexDescriptor
-        : RequestDescriptorBase<
-            ShrinkIndexDescriptor,
-            ShrinkIndexRequestParameters,
-            IShrinkIndexRequest
-        >,
+        : RequestDescriptorBase<ShrinkIndexDescriptor, ShrinkIndexRequestParameters, IShrinkIndexRequest>,
             IShrinkIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesShrink;
@@ -1916,25 +1615,21 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_shrink/{target}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="target">this parameter is required</param>
-        public ShrinkIndexDescriptor(IndexName index, IndexName target)
-            : base(r => r.Required("index", index).Required("target", target)) { }
+        public ShrinkIndexDescriptor(IndexName index, IndexName target) : base(r => r.Required("index", index).Required("target", target)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ShrinkIndexDescriptor()
-            : base() { }
+        protected ShrinkIndexDescriptor() : base() { }
 
         // values part of the url path
         IndexName IShrinkIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
         IndexName IShrinkIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 
         /// <summary>Name of the source index to shrink.</summary>
-        public ShrinkIndexDescriptor Index(IndexName index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public ShrinkIndexDescriptor Index(IndexName index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public ShrinkIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public ShrinkIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
 
         // Request parameters
@@ -1944,11 +1639,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ShrinkIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ShrinkIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public ShrinkIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
@@ -1969,11 +1661,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Split <para>https://docs.opensearch.org/latest/api-reference/index-apis/split/</para></summary>
     public partial class SplitIndexDescriptor
-        : RequestDescriptorBase<
-            SplitIndexDescriptor,
-            SplitIndexRequestParameters,
-            ISplitIndexRequest
-        >,
+        : RequestDescriptorBase<SplitIndexDescriptor, SplitIndexRequestParameters, ISplitIndexRequest>,
             ISplitIndexRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesSplit;
@@ -1981,25 +1669,21 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_split/{target}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="target">this parameter is required</param>
-        public SplitIndexDescriptor(IndexName index, IndexName target)
-            : base(r => r.Required("index", index).Required("target", target)) { }
+        public SplitIndexDescriptor(IndexName index, IndexName target) : base(r => r.Required("index", index).Required("target", target)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SplitIndexDescriptor()
-            : base() { }
+        protected SplitIndexDescriptor() : base() { }
 
         // values part of the url path
         IndexName ISplitIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
         IndexName ISplitIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 
         /// <summary>Name of the source index to split.</summary>
-        public SplitIndexDescriptor Index(IndexName index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public SplitIndexDescriptor Index(IndexName index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public SplitIndexDescriptor Index<TOther>()
-            where TOther : class =>
+        public SplitIndexDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
 
         // Request parameters
@@ -2009,11 +1693,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public SplitIndexDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public SplitIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public SplitIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
@@ -2034,46 +1715,36 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Stats <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndicesStatsDescriptor
-        : RequestDescriptorBase<
-            IndicesStatsDescriptor,
-            IndicesStatsRequestParameters,
-            IIndicesStatsRequest
-        >,
+        : RequestDescriptorBase<IndicesStatsDescriptor, IndicesStatsRequestParameters, IIndicesStatsRequest>,
             IIndicesStatsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesStats;
 
         /// <summary>/_stats</summary>
-        public IndicesStatsDescriptor()
-            : base() { }
+        public IndicesStatsDescriptor() : base() { }
 
         /// <summary>/{index}/_stats</summary>
         /// <param name="index">Optional, accepts null</param>
-        public IndicesStatsDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public IndicesStatsDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         /// <summary>/{index}/_stats/{metric}</summary>
         /// <param name="index">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public IndicesStatsDescriptor(Indices index, Metrics metric)
-            : base(r => r.Optional("index", index).Optional("metric", metric)) { }
+        public IndicesStatsDescriptor(Indices index, Metrics metric) : base(r => r.Optional("index", index).Optional("metric", metric)) { }
 
         /// <summary>/_stats/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public IndicesStatsDescriptor(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public IndicesStatsDescriptor(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         // values part of the url path
         Indices IIndicesStatsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
         /// <summary>A comma-separated list of index names; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
-        public IndicesStatsDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public IndicesStatsDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public IndicesStatsDescriptor Index<TOther>()
-            where TOther : class =>
+        public IndicesStatsDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -2089,10 +1760,8 @@ namespace OpenSearch.Client
             Qs("completion_fields", completionfields);
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
-        public IndicesStatsDescriptor CompletionFields<T>(
-            params Expression<Func<T, object>>[] fields
-        )
-            where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
+        public IndicesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields) where T : class =>
+            Qs("completion_fields", fields?.Select(e => (Field)e));
 
         /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.</summary>
         public IndicesStatsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
@@ -2103,17 +1772,15 @@ namespace OpenSearch.Client
             Qs("fielddata_fields", fielddatafields);
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
-        public IndicesStatsDescriptor FielddataFields<T>(
-            params Expression<Func<T, object>>[] fields
-        )
-            where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
+        public IndicesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields) where T : class =>
+            Qs("fielddata_fields", fields?.Select(e => (Field)e));
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public IndicesStatsDescriptor Fields(Fields fields) => Qs("fields", fields);
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
-        public IndicesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
-            where T : class => Qs("fields", fields?.Select(e => (Field)e));
+        public IndicesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields) where T : class =>
+            Qs("fields", fields?.Select(e => (Field)e));
 
         /// <summary>If <c>true</c>, statistics are not collected from closed indexes.</summary>
         public IndicesStatsDescriptor ForbidClosedIndices(bool? forbidclosedindices = true) =>
@@ -2123,14 +1790,12 @@ namespace OpenSearch.Client
         public IndicesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
 
         /// <summary>If <c>true</c>, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
-        public IndicesStatsDescriptor IncludeSegmentFileSizes(
-            bool? includesegmentfilesizes = true
-        ) => Qs("include_segment_file_sizes", includesegmentfilesizes);
+        public IndicesStatsDescriptor IncludeSegmentFileSizes(bool? includesegmentfilesizes = true) =>
+            Qs("include_segment_file_sizes", includesegmentfilesizes);
 
         /// <summary>If <c>true</c>, the response includes information from segments that are not loaded into memory.</summary>
-        public IndicesStatsDescriptor IncludeUnloadedSegments(
-            bool? includeunloadedsegments = true
-        ) => Qs("include_unloaded_segments", includeunloadedsegments);
+        public IndicesStatsDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) =>
+            Qs("include_unloaded_segments", includeunloadedsegments);
 
         /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
         public IndicesStatsDescriptor Level(Level? level) => Qs("level", level);
@@ -2151,11 +1816,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public BulkAliasDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public BulkAliasDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public BulkAliasDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -2163,23 +1825,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for ValidateQuery <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ValidateQueryDescriptor<TDocument>
-        : RequestDescriptorBase<
-            ValidateQueryDescriptor<TDocument>,
-            ValidateQueryRequestParameters,
-            IValidateQueryRequest<TDocument>
-        >,
+        : RequestDescriptorBase<ValidateQueryDescriptor<TDocument>, ValidateQueryRequestParameters, IValidateQueryRequest<TDocument>>,
             IValidateQueryRequest<TDocument>
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesValidateQuery;
 
         /// <summary>/{index}/_validate/query</summary>
-        public ValidateQueryDescriptor()
-            : this(typeof(TDocument)) { }
+        public ValidateQueryDescriptor() : this(typeof(TDocument)) { }
 
         /// <summary>/{index}/_validate/query</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ValidateQueryDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ValidateQueryDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IValidateQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
@@ -2189,8 +1845,7 @@ namespace OpenSearch.Client
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public ValidateQueryDescriptor<TDocument> Index<TOther>()
-            where TOther : class =>
+        public ValidateQueryDescriptor<TDocument> Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -2202,49 +1857,41 @@ namespace OpenSearch.Client
             Qs("allow_no_indices", allownoindices);
 
         /// <summary>If <c>true</c>, the validation is executed on all shards instead of one random shard per index.</summary>
-        public ValidateQueryDescriptor<TDocument> AllShards(bool? allshards = true) =>
-            Qs("all_shards", allshards);
+        public ValidateQueryDescriptor<TDocument> AllShards(bool? allshards = true) => Qs("all_shards", allshards);
 
         /// <summary>Analyzer to use for the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
-        public ValidateQueryDescriptor<TDocument> Analyzer(string analyzer) =>
-            Qs("analyzer", analyzer);
+        public ValidateQueryDescriptor<TDocument> Analyzer(string analyzer) => Qs("analyzer", analyzer);
 
         /// <summary>If <c>true</c>, wildcard and prefix queries are analyzed.</summary>
         public ValidateQueryDescriptor<TDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
             Qs("analyze_wildcard", analyzewildcard);
 
         /// <summary>The default operator for query string query: <c>AND</c> or <c>OR</c>.</summary>
-        public ValidateQueryDescriptor<TDocument> DefaultOperator(
-            DefaultOperator? defaultoperator
-        ) => Qs("default_operator", defaultoperator);
+        public ValidateQueryDescriptor<TDocument> DefaultOperator(DefaultOperator? defaultoperator) =>
+            Qs("default_operator", defaultoperator);
 
         /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
         public ValidateQueryDescriptor<TDocument> Df(string df) => Qs("df", df);
 
         /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
-        public ValidateQueryDescriptor<TDocument> ExpandWildcards(
-            ExpandWildcards? expandwildcards
-        ) => Qs("expand_wildcards", expandwildcards);
+        public ValidateQueryDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
 
         /// <summary>If <c>true</c>, the response returns detailed information if an error has occurred.</summary>
-        public ValidateQueryDescriptor<TDocument> Explain(bool? explain = true) =>
-            Qs("explain", explain);
+        public ValidateQueryDescriptor<TDocument> Explain(bool? explain = true) => Qs("explain", explain);
 
         /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
-        public ValidateQueryDescriptor<TDocument> IgnoreUnavailable(
-            bool? ignoreunavailable = true
-        ) => Qs("ignore_unavailable", ignoreunavailable);
+        public ValidateQueryDescriptor<TDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
-        public ValidateQueryDescriptor<TDocument> Lenient(bool? lenient = true) =>
-            Qs("lenient", lenient);
+        public ValidateQueryDescriptor<TDocument> Lenient(bool? lenient = true) => Qs("lenient", lenient);
 
         /// <summary>Query in the Lucene query string syntax.</summary>
         public ValidateQueryDescriptor<TDocument> QueryOnQueryString(string queryonquerystring) =>
             Qs("q", queryonquerystring);
 
         /// <summary>If <c>true</c>, returns a more detailed explanation showing the actual Lucene query that will be executed.</summary>
-        public ValidateQueryDescriptor<TDocument> Rewrite(bool? rewrite = true) =>
-            Qs("rewrite", rewrite);
+        public ValidateQueryDescriptor<TDocument> Rewrite(bool? rewrite = true) => Qs("rewrite", rewrite);
     }
 }

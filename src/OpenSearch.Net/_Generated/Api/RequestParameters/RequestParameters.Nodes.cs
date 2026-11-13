@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.NodesApi
 {
     /// <summary>Request options for HotThreads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
-    public partial class NodesHotThreadsRequestParameters
-        : RequestParameters<NodesHotThreadsRequestParameters>
+    public partial class NodesHotThreadsRequestParameters : RequestParameters<NodesHotThreadsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -126,8 +125,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     }
 
     /// <summary>Request options for ReloadSecureSettings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
-    public partial class ReloadSecureSettingsRequestParameters
-        : RequestParameters<ReloadSecureSettingsRequestParameters>
+    public partial class ReloadSecureSettingsRequestParameters : RequestParameters<ReloadSecureSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -142,8 +140,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     }
 
     /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-    public partial class NodesStatsRequestParameters
-        : RequestParameters<NodesStatsRequestParameters>
+    public partial class NodesStatsRequestParameters : RequestParameters<NodesStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -207,8 +204,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     }
 
     /// <summary>Request options for Usage <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class NodesUsageRequestParameters
-        : RequestParameters<NodesUsageRequestParameters>
+    public partial class NodesUsageRequestParameters : RequestParameters<NodesUsageRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;

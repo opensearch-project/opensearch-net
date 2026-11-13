@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.TasksApi
 {
     /// <summary>Request options for Cancel <para>https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</para></summary>
-    public partial class CancelTasksRequestParameters
-        : RequestParameters<CancelTasksRequestParameters>
+    public partial class CancelTasksRequestParameters : RequestParameters<CancelTasksRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;

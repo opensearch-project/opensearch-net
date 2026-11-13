@@ -66,22 +66,14 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     /// </summary>
     public partial class LowLevelReplicationNamespace : NamespacedClientProxy
     {
-        internal LowLevelReplicationNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelReplicationNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>GET on /_plugins/_replication/autofollow_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse AutofollowStats<TResponse>(
-            AutofollowStatsRequestParameters requestParameters = null
-        )
+        public TResponse AutofollowStats<TResponse>(AutofollowStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_replication/autofollow_stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_replication/autofollow_stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_replication/autofollow_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -92,13 +84,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_replication/autofollow_stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_replication/autofollow_stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
         /// <param name="body"></param>
@@ -109,12 +95,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CreateReplicationRuleRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_replication/_autofollow",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_replication/_autofollow", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
         /// <param name="body"></param>
@@ -127,13 +108,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_replication/_autofollow",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_replication/_autofollow", ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
         /// <param name="body"></param>
@@ -144,12 +119,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             DeleteReplicationRuleRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                "_plugins/_replication/_autofollow",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, "_plugins/_replication/_autofollow", body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
         /// <param name="body"></param>
@@ -162,27 +132,14 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                "_plugins/_replication/_autofollow",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, "_plugins/_replication/_autofollow", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_replication/follower_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse FollowerStats<TResponse>(
-            FollowerStatsRequestParameters requestParameters = null
-        )
+        public TResponse FollowerStats<TResponse>(FollowerStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_replication/follower_stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_replication/follower_stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_replication/follower_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -193,27 +150,14 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_replication/follower_stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_replication/follower_stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_replication/leader_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse LeaderStats<TResponse>(
-            LeaderStatsRequestParameters requestParameters = null
-        )
+        public TResponse LeaderStats<TResponse>(LeaderStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_replication/leader_stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_replication/leader_stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_replication/leader_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -224,31 +168,16 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_replication/leader_stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_replication/leader_stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse Pause<TResponse>(
-            string index,
-            PostData body,
-            PauseRequestParameters requestParameters = null
-        )
+        public TResponse Pause<TResponse>(string index, PostData body, PauseRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_replication/{index:index}/_pause"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_replication/{index:index}/_pause"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -263,13 +192,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_replication/{index:index}/_pause"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_replication/{index:index}/_pause"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -282,12 +205,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             ResumeRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_replication/{index:index}/_resume"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_replication/{index:index}/_resume"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -302,31 +220,16 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_replication/{index:index}/_resume"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_replication/{index:index}/_resume"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse Start<TResponse>(
-            string index,
-            PostData body,
-            StartRequestParameters requestParameters = null
-        )
+        public TResponse Start<TResponse>(string index, PostData body, StartRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_replication/{index:index}/_start"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_replication/{index:index}/_start"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -341,29 +244,15 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_replication/{index:index}/_start"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_replication/{index:index}/_start"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse Status<TResponse>(
-            string index,
-            StatusRequestParameters requestParameters = null
-        )
+        public TResponse Status<TResponse>(string index, StatusRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_replication/{index:index}/_status"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_replication/{index:index}/_status"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -376,31 +265,16 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_replication/{index:index}/_status"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_replication/{index:index}/_status"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse Stop<TResponse>(
-            string index,
-            PostData body,
-            StopRequestParameters requestParameters = null
-        )
+        public TResponse Stop<TResponse>(string index, PostData body, StopRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_replication/{index:index}/_stop"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_replication/{index:index}/_stop"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -415,13 +289,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_replication/{index:index}/_stop"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_replication/{index:index}/_stop"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -434,12 +302,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             UpdateSettingsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_replication/{index:index}/_update"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_replication/{index:index}/_update"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
@@ -454,12 +317,6 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_replication/{index:index}/_update"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_replication/{index:index}/_update"), ctx, body, RequestParams(requestParameters));
     }
 }

@@ -59,23 +59,17 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for Cancel <para>https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</para></summary>
     public partial class CancelTasksDescriptor
-        : RequestDescriptorBase<
-            CancelTasksDescriptor,
-            CancelTasksRequestParameters,
-            ICancelTasksRequest
-        >,
+        : RequestDescriptorBase<CancelTasksDescriptor, CancelTasksRequestParameters, ICancelTasksRequest>,
             ICancelTasksRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksCancel;
 
         /// <summary>/_tasks/_cancel</summary>
-        public CancelTasksDescriptor()
-            : base() { }
+        public CancelTasksDescriptor() : base() { }
 
         /// <summary>/_tasks/{task_id}/_cancel</summary>
         /// <param name="taskId">Optional, accepts null</param>
-        public CancelTasksDescriptor(TaskId taskId)
-            : base(r => r.Optional("task_id", taskId)) { }
+        public CancelTasksDescriptor(TaskId taskId) : base(r => r.Optional("task_id", taskId)) { }
 
         // values part of the url path
         TaskId ICancelTasksRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
@@ -92,8 +86,7 @@ namespace OpenSearch.Client
         public CancelTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
         /// <summary>Returns tasks with a specified parent task ID (<c>node_id:task_number</c>). Keep empty or set to -1 to return all.</summary>
-        public CancelTasksDescriptor ParentTaskId(string parenttaskid) =>
-            Qs("parent_task_id", parenttaskid);
+        public CancelTasksDescriptor ParentTaskId(string parenttaskid) => Qs("parent_task_id", parenttaskid);
 
         /// <summary>Waits for the matching task to complete. When <c>true</c>, the request is blocked until the task has completed.</summary>
         public CancelTasksDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
@@ -109,13 +102,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetTaskDescriptor(TaskId taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public GetTaskDescriptor(TaskId taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetTaskDescriptor()
-            : base() { }
+        protected GetTaskDescriptor() : base() { }
 
         // values part of the url path
         TaskId IGetTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
@@ -151,8 +142,7 @@ namespace OpenSearch.Client
         public ListTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
         /// <summary>Returns tasks with a specified parent task ID (<c>node_id:task_number</c>). Keep empty or set to -1 to return all.</summary>
-        public ListTasksDescriptor ParentTaskId(string parenttaskid) =>
-            Qs("parent_task_id", parenttaskid);
+        public ListTasksDescriptor ParentTaskId(string parenttaskid) => Qs("parent_task_id", parenttaskid);
 
         /// <summary>The amount of time to wait for a response.</summary>
         public ListTasksDescriptor Timeout(Time timeout) => Qs("timeout", timeout);

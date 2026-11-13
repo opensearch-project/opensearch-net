@@ -77,10 +77,7 @@ namespace OpenSearch.Client
 
     /// <inheritdoc cref="INormalizationPhaseResultsProcessor" />
     public class NormalizationPhaseResultsProcessorDescriptor
-        : DescriptorBase<
-            NormalizationPhaseResultsProcessorDescriptor,
-            INormalizationPhaseResultsProcessor
-        >,
+        : DescriptorBase<NormalizationPhaseResultsProcessorDescriptor, INormalizationPhaseResultsProcessor>,
             INormalizationPhaseResultsProcessor
     {
         string IPhaseResultsProcessor.Name => "normalization-processor";
@@ -90,20 +87,17 @@ namespace OpenSearch.Client
         IScoreNormalization INormalizationPhaseResultsProcessor.Normalization { get; set; }
         string INormalizationPhaseResultsProcessor.Tag { get; set; }
 
-        public NormalizationPhaseResultsProcessorDescriptor Combination(
-            IScoreCombination combination
-        ) => Assign(combination, (a, val) => a.Combination = val);
+        public NormalizationPhaseResultsProcessorDescriptor Combination(IScoreCombination combination) =>
+            Assign(combination, (a, val) => a.Combination = val);
 
         public NormalizationPhaseResultsProcessorDescriptor Description(string description) =>
             Assign(description, (a, val) => a.Description = val);
 
-        public NormalizationPhaseResultsProcessorDescriptor IgnoreFailure(
-            bool? ignoreFailure = true
-        ) => Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+        public NormalizationPhaseResultsProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
-        public NormalizationPhaseResultsProcessorDescriptor Normalization(
-            IScoreNormalization normalization
-        ) => Assign(normalization, (a, val) => a.Normalization = val);
+        public NormalizationPhaseResultsProcessorDescriptor Normalization(IScoreNormalization normalization) =>
+            Assign(normalization, (a, val) => a.Normalization = val);
 
         public NormalizationPhaseResultsProcessorDescriptor Tag(string tag) =>
             Assign(tag, (a, val) => a.Tag = val);
@@ -125,18 +119,14 @@ namespace OpenSearch.Client
 
     /// <inheritdoc cref="IScoreRankerPhaseResultsProcessor" />
     public class ScoreRankerPhaseResultsProcessorDescriptor
-        : DescriptorBase<
-            ScoreRankerPhaseResultsProcessorDescriptor,
-            IScoreRankerPhaseResultsProcessor
-        >,
+        : DescriptorBase<ScoreRankerPhaseResultsProcessorDescriptor, IScoreRankerPhaseResultsProcessor>,
             IScoreRankerPhaseResultsProcessor
     {
         string IPhaseResultsProcessor.Name => "score-ranker-processor";
         IScoreRankerCombination IScoreRankerPhaseResultsProcessor.Combination { get; set; }
 
-        public ScoreRankerPhaseResultsProcessorDescriptor Combination(
-            IScoreRankerCombination combination
-        ) => Assign(combination, (a, val) => a.Combination = val);
+        public ScoreRankerPhaseResultsProcessorDescriptor Combination(IScoreRankerCombination combination) =>
+            Assign(combination, (a, val) => a.Combination = val);
     }
 
     // ──────────────────────────────────────────────────────────────────────
@@ -146,35 +136,16 @@ namespace OpenSearch.Client
     // ──────────────────────────────────────────────────────────────────────
 
     public class PhaseResultsProcessorsDescriptor
-        : DescriptorPromiseBase<PhaseResultsProcessorsDescriptor, IList<IPhaseResultsProcessor>>
+    : DescriptorPromiseBase<PhaseResultsProcessorsDescriptor, IList<IPhaseResultsProcessor>>
     {
-        public PhaseResultsProcessorsDescriptor()
-            : base(new List<IPhaseResultsProcessor>()) { }
+        public PhaseResultsProcessorsDescriptor() : base(new List<IPhaseResultsProcessor>()) { }
 
         /// <inheritdoc cref="INormalizationPhaseResultsProcessor" />
-        public PhaseResultsProcessorsDescriptor NormalizationProcessor(
-            Func<
-                NormalizationPhaseResultsProcessorDescriptor,
-                INormalizationPhaseResultsProcessor
-            > selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new NormalizationPhaseResultsProcessorDescriptor()))
-            );
+        public PhaseResultsProcessorsDescriptor NormalizationProcessor(Func<NormalizationPhaseResultsProcessorDescriptor, INormalizationPhaseResultsProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new NormalizationPhaseResultsProcessorDescriptor())));
 
         /// <inheritdoc cref="IScoreRankerPhaseResultsProcessor" />
-        public PhaseResultsProcessorsDescriptor ScoreRankerProcessor(
-            Func<
-                ScoreRankerPhaseResultsProcessorDescriptor,
-                IScoreRankerPhaseResultsProcessor
-            > selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new ScoreRankerPhaseResultsProcessorDescriptor()))
-            );
+        public PhaseResultsProcessorsDescriptor ScoreRankerProcessor(Func<ScoreRankerPhaseResultsProcessorDescriptor, IScoreRankerPhaseResultsProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new ScoreRankerPhaseResultsProcessorDescriptor())));
     }
 }

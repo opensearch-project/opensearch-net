@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.ReplicationApi
 {
     /// <summary>Request options for AutofollowStats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
-    public partial class AutofollowStatsRequestParameters
-        : RequestParameters<AutofollowStatsRequestParameters>
+    public partial class AutofollowStatsRequestParameters : RequestParameters<AutofollowStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     }
 
     /// <summary>Request options for CreateRule <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
-    public partial class CreateReplicationRuleRequestParameters
-        : RequestParameters<CreateReplicationRuleRequestParameters>
+    public partial class CreateReplicationRuleRequestParameters : RequestParameters<CreateReplicationRuleRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     }
 
     /// <summary>Request options for DeleteRule <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
-    public partial class DeleteReplicationRuleRequestParameters
-        : RequestParameters<DeleteReplicationRuleRequestParameters>
+    public partial class DeleteReplicationRuleRequestParameters : RequestParameters<DeleteReplicationRuleRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => true;
@@ -80,8 +77,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     }
 
     /// <summary>Request options for FollowerStats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
-    public partial class FollowerStatsRequestParameters
-        : RequestParameters<FollowerStatsRequestParameters>
+    public partial class FollowerStatsRequestParameters : RequestParameters<FollowerStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -89,8 +85,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     }
 
     /// <summary>Request options for LeaderStats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
-    public partial class LeaderStatsRequestParameters
-        : RequestParameters<LeaderStatsRequestParameters>
+    public partial class LeaderStatsRequestParameters : RequestParameters<LeaderStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -138,8 +133,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     }
 
     /// <summary>Request options for UpdateSettings <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
-    public partial class UpdateSettingsRequestParameters
-        : RequestParameters<UpdateSettingsRequestParameters>
+    public partial class UpdateSettingsRequestParameters : RequestParameters<UpdateSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

@@ -39,6 +39,8 @@ namespace OpenSearch.Client
     {
 @foreach (var prop in Model.Properties)
 {
+<text>
+</text>
 @if (prop.EffectiveJsonFormatterType != null)
 {
 <text>        [JsonFormatter(typeof(@Raw(prop.EffectiveJsonFormatterType)))]
@@ -78,7 +80,8 @@ namespace OpenSearch.Client
         var rawLowerParamName = char.ToLowerInvariant(prop.CsharpName[0]) + prop.CsharpName.Substring(1);
         var lowerParamName = SafeParam(rawLowerParamName);
         var defaultValue = prop.CsharpType == "bool?" ? " = true" : "";
-<text>        public @descriptorName @(prop.CsharpName)(@Raw(prop.CsharpType) @(lowerParamName)@Raw(defaultValue)) =>
+<text>
+        public @descriptorName @(prop.CsharpName)(@Raw(prop.CsharpType) @(lowerParamName)@Raw(defaultValue)) =>
             Assign(@(lowerParamName), (a, v) => a.@prop.CsharpName = v);
 </text>
         // Any IQueryContainer property also gets a fluent query-builder selector overload.
@@ -88,7 +91,8 @@ namespace OpenSearch.Client
                 + "(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>";
             var qBody = "            Assign(selector, (a, v) => a." + prop.CsharpName
                 + " = v?.Invoke(new QueryContainerDescriptor<object>()));";
-<text>        @Raw(qSig)
+<text>
+        @Raw(qSig)
 @Raw(qBody)
 </text>
         }
@@ -109,7 +113,8 @@ namespace OpenSearch.Client
                 + "(Func<" + builderName + ", IPromise<" + prop.CsharpType + ">> selector) =>";
             var selectorBody = "            Assign(selector, (a, v) => a." + prop.CsharpName
                 + " = v?.Invoke(new " + builderName + "())?.Value);";
-<text>        @Raw(selectorSig)
+<text>
+        @Raw(selectorSig)
 @Raw(selectorBody)
 </text>
         }

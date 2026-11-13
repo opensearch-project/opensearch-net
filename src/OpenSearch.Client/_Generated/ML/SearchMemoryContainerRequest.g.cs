@@ -58,10 +58,8 @@ namespace OpenSearch.Client
         public SearchMemoryContainerDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, v) => a.Query = v);
 
-        public SearchMemoryContainerDescriptor Query(
-            Func<QueryContainerDescriptor<object>, QueryContainer> selector
-        ) =>
-            Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
+        public SearchMemoryContainerDescriptor Query(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>
+    Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
 
         public SearchMemoryContainerDescriptor Size(long? size) =>
             Assign(size, (a, v) => a.Size = v);

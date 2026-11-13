@@ -45,10 +45,7 @@ namespace OpenSearch.Client
     }
 
     public class ExecuteAnomalyLocalizationResponseDescriptor
-        : DescriptorBase<
-            ExecuteAnomalyLocalizationResponseDescriptor,
-            IExecuteAnomalyLocalizationResponse
-        >,
+        : DescriptorBase<ExecuteAnomalyLocalizationResponseDescriptor, IExecuteAnomalyLocalizationResponse>,
             IExecuteAnomalyLocalizationResponse
     {
         string IExecuteAnomalyLocalizationResponse.Name { get; set; }

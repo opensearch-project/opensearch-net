@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.LtrApi
 {
     /// <summary>Request options for AddFeaturesToSet</summary>
-    public partial class AddFeaturesToSetRequestParameters
-        : RequestParameters<AddFeaturesToSetRequestParameters>
+    public partial class AddFeaturesToSetRequestParameters : RequestParameters<AddFeaturesToSetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -83,8 +82,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for AddFeaturesToSetByQuery</summary>
-    public partial class AddFeaturesToSetByQueryRequestParameters
-        : RequestParameters<AddFeaturesToSetByQueryRequestParameters>
+    public partial class AddFeaturesToSetByQueryRequestParameters : RequestParameters<AddFeaturesToSetByQueryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -113,8 +111,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for CacheStats</summary>
-    public partial class CacheStatsRequestParameters
-        : RequestParameters<CacheStatsRequestParameters>
+    public partial class CacheStatsRequestParameters : RequestParameters<CacheStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -122,8 +119,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for ClearCache</summary>
-    public partial class ClearCacheRequestParameters
-        : RequestParameters<ClearCacheRequestParameters>
+    public partial class ClearCacheRequestParameters : RequestParameters<ClearCacheRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -131,8 +127,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for CreateDefaultStore</summary>
-    public partial class CreateDefaultStoreRequestParameters
-        : RequestParameters<CreateDefaultStoreRequestParameters>
+    public partial class CreateDefaultStoreRequestParameters : RequestParameters<CreateDefaultStoreRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
@@ -140,8 +135,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for CreateFeature</summary>
-    public partial class CreateFeatureRequestParameters
-        : RequestParameters<CreateFeatureRequestParameters>
+    public partial class CreateFeatureRequestParameters : RequestParameters<CreateFeatureRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -156,8 +150,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for CreateFeatureset</summary>
-    public partial class CreateFeaturesetRequestParameters
-        : RequestParameters<CreateFeaturesetRequestParameters>
+    public partial class CreateFeaturesetRequestParameters : RequestParameters<CreateFeaturesetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -172,8 +165,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for CreateModel</summary>
-    public partial class CreateModelRequestParameters
-        : RequestParameters<CreateModelRequestParameters>
+    public partial class CreateModelRequestParameters : RequestParameters<CreateModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -188,8 +180,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for CreateModelFromSet</summary>
-    public partial class CreateModelFromSetRequestParameters
-        : RequestParameters<CreateModelFromSetRequestParameters>
+    public partial class CreateModelFromSetRequestParameters : RequestParameters<CreateModelFromSetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -204,8 +195,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for CreateStore</summary>
-    public partial class CreateStoreRequestParameters
-        : RequestParameters<CreateStoreRequestParameters>
+    public partial class CreateStoreRequestParameters : RequestParameters<CreateStoreRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
@@ -213,8 +203,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for DeleteDefaultStore</summary>
-    public partial class DeleteDefaultStoreRequestParameters
-        : RequestParameters<DeleteDefaultStoreRequestParameters>
+    public partial class DeleteDefaultStoreRequestParameters : RequestParameters<DeleteDefaultStoreRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -222,8 +211,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for DeleteFeature</summary>
-    public partial class DeleteFeatureRequestParameters
-        : RequestParameters<DeleteFeatureRequestParameters>
+    public partial class DeleteFeatureRequestParameters : RequestParameters<DeleteFeatureRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -231,8 +219,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for DeleteFeatureset</summary>
-    public partial class DeleteFeaturesetRequestParameters
-        : RequestParameters<DeleteFeaturesetRequestParameters>
+    public partial class DeleteFeaturesetRequestParameters : RequestParameters<DeleteFeaturesetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -240,8 +227,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for DeleteModel</summary>
-    public partial class DeleteModelRequestParameters
-        : RequestParameters<DeleteModelRequestParameters>
+    public partial class DeleteModelRequestParameters : RequestParameters<DeleteModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -249,8 +235,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for DeleteStore</summary>
-    public partial class DeleteStoreRequestParameters
-        : RequestParameters<DeleteStoreRequestParameters>
+    public partial class DeleteStoreRequestParameters : RequestParameters<DeleteStoreRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -258,8 +243,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for GetFeature</summary>
-    public partial class GetFeatureRequestParameters
-        : RequestParameters<GetFeatureRequestParameters>
+    public partial class GetFeatureRequestParameters : RequestParameters<GetFeatureRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -267,8 +251,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for GetFeatureset</summary>
-    public partial class GetFeaturesetRequestParameters
-        : RequestParameters<GetFeaturesetRequestParameters>
+    public partial class GetFeaturesetRequestParameters : RequestParameters<GetFeaturesetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -292,8 +275,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for ListStores</summary>
-    public partial class ListStoresRequestParameters
-        : RequestParameters<ListStoresRequestParameters>
+    public partial class ListStoresRequestParameters : RequestParameters<ListStoresRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -301,8 +283,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for SearchFeatures</summary>
-    public partial class SearchFeaturesRequestParameters
-        : RequestParameters<SearchFeaturesRequestParameters>
+    public partial class SearchFeaturesRequestParameters : RequestParameters<SearchFeaturesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -331,8 +312,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for SearchFeaturesets</summary>
-    public partial class SearchFeaturesetsRequestParameters
-        : RequestParameters<SearchFeaturesetsRequestParameters>
+    public partial class SearchFeaturesetsRequestParameters : RequestParameters<SearchFeaturesetsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -361,8 +341,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for SearchModels</summary>
-    public partial class SearchModelsRequestParameters
-        : RequestParameters<SearchModelsRequestParameters>
+    public partial class SearchModelsRequestParameters : RequestParameters<SearchModelsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -406,8 +385,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for UpdateFeature</summary>
-    public partial class UpdateFeatureRequestParameters
-        : RequestParameters<UpdateFeatureRequestParameters>
+    public partial class UpdateFeatureRequestParameters : RequestParameters<UpdateFeatureRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -422,8 +400,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     }
 
     /// <summary>Request options for UpdateFeatureset</summary>
-    public partial class UpdateFeaturesetRequestParameters
-        : RequestParameters<UpdateFeaturesetRequestParameters>
+    public partial class UpdateFeaturesetRequestParameters : RequestParameters<UpdateFeaturesetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
