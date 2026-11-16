@@ -465,7 +465,7 @@ namespace OpenSearch.Client
         public CreatePitDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Specify the keep alive for point in time.</summary>
+        /// <summary>Specify the keep alive for point in time. Each search against the PIT restarts it, and a search cannot shorten it. It cannot exceed the <c>point_in_time.max_keep_alive</c> cluster setting (24 hours by default).</summary>
         public CreatePitDescriptor KeepAlive(Time keepalive) => Qs("keep_alive", keepalive);
 
         /// <summary>Specify the node or shard the operation should be performed on.</summary>

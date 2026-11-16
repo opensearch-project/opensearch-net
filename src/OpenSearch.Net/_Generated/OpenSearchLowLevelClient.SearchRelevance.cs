@@ -790,6 +790,45 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PATCH on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="body">Partially updates an experiment&#x27;s name or description.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public TResponse PatchExperiment<TResponse>(
+            string experimentId,
+            PostData body,
+            PatchExperimentRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PATCH,
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PATCH on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="body">Partially updates an experiment&#x27;s name or description.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        [MapsApi("search_relevance.patch_experiment", "experiment_id, body")]
+        public Task<TResponse> PatchExperimentAsync<TResponse>(
+            string experimentId,
+            PostData body,
+            PatchExperimentRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PATCH,
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_search_relevance/query_sets</summary>
         /// <param name="body">The schema for creating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

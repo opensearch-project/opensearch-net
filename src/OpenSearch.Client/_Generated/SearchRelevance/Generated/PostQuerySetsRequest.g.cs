@@ -40,6 +40,9 @@ namespace OpenSearch.Client
 
         [DataMember(Name = "sampling")]
         string Sampling { get; set; }
+
+        [DataMember(Name = "ubiQueriesIndex")]
+        string UbiQueriesIndex { get; set; }
     }
 
     public partial class PostQuerySetsRequest
@@ -50,6 +53,7 @@ namespace OpenSearch.Client
         public string Name { get; set; }
         public int? QuerySetSize { get; set; }
         public string Sampling { get; set; }
+        public string UbiQueriesIndex { get; set; }
     }
 
     public partial class PostQuerySetsDescriptor
@@ -58,6 +62,7 @@ namespace OpenSearch.Client
         string IPostQuerySetsRequest.Name { get; set; }
         int? IPostQuerySetsRequest.QuerySetSize { get; set; }
         string IPostQuerySetsRequest.Sampling { get; set; }
+        string IPostQuerySetsRequest.UbiQueriesIndex { get; set; }
 
         public PostQuerySetsDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
@@ -69,5 +74,8 @@ namespace OpenSearch.Client
 
         public PostQuerySetsDescriptor Sampling(string sampling) =>
             Assign(sampling, (a, v) => a.Sampling = v);
+
+        public PostQuerySetsDescriptor UbiQueriesIndex(string ubiQueriesIndex) =>
+            Assign(ubiQueriesIndex, (a, v) => a.UbiQueriesIndex = v);
     }
 }

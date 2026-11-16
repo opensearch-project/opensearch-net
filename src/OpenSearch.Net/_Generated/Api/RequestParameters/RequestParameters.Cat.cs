@@ -92,6 +92,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public bool? Local
         {
@@ -152,6 +160,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("help");
             set => Q("help", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
@@ -215,6 +231,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("help");
             set => Q("help", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>Returns local information but does not retrieve the state from cluster-manager node.</summary>
@@ -290,6 +314,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
@@ -354,6 +386,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
@@ -416,6 +456,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
@@ -468,6 +516,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("ts");
             set => Q("ts", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
@@ -562,6 +618,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("include_unloaded_segments", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
@@ -641,6 +705,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
@@ -712,6 +784,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("help");
             set => Q("help", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
@@ -800,6 +880,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally."
@@ -876,6 +964,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
@@ -948,6 +1044,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
@@ -1002,6 +1106,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("help");
             set => Q("help", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
@@ -1100,6 +1212,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("index", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
@@ -1154,6 +1274,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("help");
             set => Q("help", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
@@ -1290,6 +1418,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("index", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>A comma-separated list of shards to display.</summary>
         public string[] Shards
         {
@@ -1367,6 +1503,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -1437,6 +1581,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("help");
             set => Q("help", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
@@ -1517,6 +1669,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
@@ -1600,6 +1760,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>
         /// A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node
         /// to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all
@@ -1674,6 +1842,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
+        }
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
@@ -1745,6 +1921,14 @@ namespace OpenSearch.Net.Specification.CatApi
         {
             get => Q<bool?>("help");
             set => Q("help", value);
+        }
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public int? Limit
+        {
+            get => Q<int?>("limit");
+            set => Q("limit", value);
         }
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>

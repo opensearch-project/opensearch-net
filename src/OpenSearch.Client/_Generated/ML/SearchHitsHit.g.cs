@@ -31,75 +31,22 @@ namespace OpenSearch.Client
     [ReadAs(typeof(SearchHitsHit))]
     public interface ISearchHitsHit
     {
-        [DataMember(Name = "_id")]
-        Id Id { get; set; }
-
-        [DataMember(Name = "_index")]
-        IndexName Index { get; set; }
-
-        [DataMember(Name = "_primary_term")]
-        int? PrimaryTerm { get; set; }
-
-        [DataMember(Name = "_score")]
-        float? Score { get; set; }
-
-        [DataMember(Name = "_seq_no")]
-        long? SeqNo { get; set; }
-
         [DataMember(Name = "_source")]
         ISource Source { get; set; }
-
-        [DataMember(Name = "_version")]
-        long? Version { get; set; }
-
-        [DataMember(Name = "sort")]
-        IList<float?> Sort { get; set; }
     }
 
     public class SearchHitsHit : ISearchHitsHit
     {
-        public Id Id { get; set; }
-        public IndexName Index { get; set; }
-        public int? PrimaryTerm { get; set; }
-        public float? Score { get; set; }
-        public long? SeqNo { get; set; }
         public ISource Source { get; set; }
-        public long? Version { get; set; }
-        public IList<float?> Sort { get; set; }
     }
 
     public class SearchHitsHitDescriptor
         : DescriptorBase<SearchHitsHitDescriptor, ISearchHitsHit>,
             ISearchHitsHit
     {
-        Id ISearchHitsHit.Id { get; set; }
-        IndexName ISearchHitsHit.Index { get; set; }
-        int? ISearchHitsHit.PrimaryTerm { get; set; }
-        float? ISearchHitsHit.Score { get; set; }
-        long? ISearchHitsHit.SeqNo { get; set; }
         ISource ISearchHitsHit.Source { get; set; }
-        long? ISearchHitsHit.Version { get; set; }
-        IList<float?> ISearchHitsHit.Sort { get; set; }
-
-        public SearchHitsHitDescriptor Id(Id id) => Assign(id, (a, v) => a.Id = v);
-
-        public SearchHitsHitDescriptor Index(IndexName index) =>
-            Assign(index, (a, v) => a.Index = v);
-
-        public SearchHitsHitDescriptor PrimaryTerm(int? primaryTerm) =>
-            Assign(primaryTerm, (a, v) => a.PrimaryTerm = v);
-
-        public SearchHitsHitDescriptor Score(float? score) => Assign(score, (a, v) => a.Score = v);
-
-        public SearchHitsHitDescriptor SeqNo(long? seqNo) => Assign(seqNo, (a, v) => a.SeqNo = v);
 
         public SearchHitsHitDescriptor Source(ISource source) =>
             Assign(source, (a, v) => a.Source = v);
-
-        public SearchHitsHitDescriptor Version(long? version) =>
-            Assign(version, (a, v) => a.Version = v);
-
-        public SearchHitsHitDescriptor Sort(IList<float?> sort) =>
-            Assign(sort, (a, v) => a.Sort = v);
     }
 }
