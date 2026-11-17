@@ -94,9 +94,16 @@ namespace ApiGenerator.Generator
             );
         }
 
+        /// <summary>
+        /// The resolved client model of the specification (opensearch-client-model.json) to read the types from instead of
+        /// interpreting allOf/oneOf/anyOf of the specification (experimental, <c>--client-model</c>); null reads them from the
+        /// specification.
+        /// </summary>
+        public static string ClientModelPath { get; set; }
+
         public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
         {
-            var (document, openSchemaIds) = await LoadOpenApiDocument(GeneratorLocations.OpenApiSpecFile, token);
+            var (document, openSchemaIds) = await LoadOpenApiDocument(GeneratorLocations.OpenApiSpecFile, token, ClientModelPath);
 
             var enumsToGenerate = new Dictionary<string, bool>();
 
@@ -136,9 +143,17 @@ namespace ApiGenerator.Generator
 
         /// <summary>Loads and preprocesses the OpenAPI spec at <paramref name="path"/>, as code generation does.</summary>
         internal static async Task<(OpenApiDocument Document, HashSet<string> OpenSchemaIds)> LoadOpenApiDocument(
-            string path, CancellationToken token = default)
+            string path, CancellationToken token = default, string clientModelPath = null)
         {
             var (json, openSchemaIds) = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(path, token));
+            if (clientModelPath != null)
+            {
+                var spec = Newtonsoft.Json.Linq.JObject.Parse(json);
+                var model = ClientModelLowering.ReadModel(clientModelPath);
+                ClientModelLowering.Lower(spec, model);
+                Console.WriteLine($"Read the types from the client model {clientModelPath} ({((Newtonsoft.Json.Linq.JObject)model["types"]!).Count} types)");
+                json = spec.ToString(Newtonsoft.Json.Formatting.None);
+            }
             var document = await OpenApiDocument.FromJsonAsync(json, token);
             JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
             return (document, openSchemaIds);
