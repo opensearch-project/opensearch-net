@@ -12,6 +12,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Removed
 ### Fixed
 ### Dependencies
+- Bumped `Microsoft.NET.Test.Sdk` and `Microsoft.TestPlatform.ObjectModel` to 17.14.2 ([#1111](https://github.com/opensearch-project/opensearch-net/pull/1111))
 
 ## [2.3.0]
 ### ⚠️ Breaking Changes ⚠️
