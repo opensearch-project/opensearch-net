@@ -27,7 +27,7 @@
     <PackageVersion Include="Fake.IO.Zip" Version="6.2.0" />
     <PackageVersion Include="Fake.Tools.Git" Version="6.2.0" />
     <PackageVersion Include="FluentAssertions" Version="8.11.0" />
-    <PackageVersion Include="FSharp.Core" Version="10.1.403" />
+    <PackageVersion Include="FSharp.Core" Version="11.0.101" />
     <PackageVersion Include="FSharp.Data" Version="8.2.0" />
     <PackageVersion Include="Glob" Version="1.1.9" />
     <PackageVersion Include="JetBrains.Annotations" Version="2026.2.0" />
