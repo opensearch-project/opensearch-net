@@ -6,6 +6,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 - Moved NuGet package versions to a central `Directory.Packages.props` using Central Package Management, so each project no longer pins its own package versions ([#1091](https://github.com/opensearch-project/opensearch-net/pull/1091))
 ### Added
+- Added an experimental `--client-model` option to the `ApiGenerator` that reads the types from the resolved client model of opensearch-api-specification instead of interpreting `allOf`/`oneOf`/`anyOf` ([#1109](https://github.com/opensearch-project/opensearch-net/pull/1109))
 - Added a `.NET format` GitHub Actions workflow that runs `dotnet format --verify-no-changes` on pushes and pull requests to `main`
 - Added `HttpConnection.CreateDefaultSocketsHttpHandler(settings)` to build a `SocketsHttpHandler` from connection settings, for use as the primary handler of an `HttpClient` passed to `HttpConnection(Func<RequestData, HttpClient>)` ([#1087](https://github.com/opensearch-project/opensearch-net/pull/1087))
 - Added `HttpConnection.CreateDefaultHttpMessageHandler(settings)` to build the default `HttpMessageHandler` for connection settings, returning `SocketsHttpHandler` on .NET Core 2.1+ and `HttpClientHandler` otherwise. The default `HttpConnection` still uses `HttpClientHandler` ([#1087](https://github.com/opensearch-project/opensearch-net/pull/1087))
