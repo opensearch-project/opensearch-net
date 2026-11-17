@@ -70,9 +70,8 @@ namespace OpenSearch.Client
         public CredentialDescriptor AdditionalProperties(
             IDictionary<string, object> additionalProperties
         ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            Assign(additionalProperties, (a, v) =>
+                ((IHasAdditionalProperties)a).AdditionalProperties = v
             );
     }
 }
