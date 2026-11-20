@@ -27,41 +27,14 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(SearchHits))]
-    public interface ISearchHits
+    [DataContract]
+    /// <remarks>Supported by OpenSearch servers of version 3.6 or greater.</remarks>
+    public class PatchExperimentResponse : ResponseBase
     {
-        [DataMember(Name = "hits")]
-        IList<ISearchHitsHit> Hits { get; set; }
+        [DataMember(Name = "experiment_id")]
+        public string ExperimentId { get; internal set; }
 
-        [DataMember(Name = "max_score")]
-        float? MaxScore { get; set; }
-
-        [DataMember(Name = "total")]
-        IHitsTotal Total { get; set; }
-    }
-
-    public class SearchHits : ISearchHits
-    {
-        public IList<ISearchHitsHit> Hits { get; set; }
-        public float? MaxScore { get; set; }
-        public IHitsTotal Total { get; set; }
-    }
-
-    public class SearchHitsDescriptor
-        : DescriptorBase<SearchHitsDescriptor, ISearchHits>,
-            ISearchHits
-    {
-        IList<ISearchHitsHit> ISearchHits.Hits { get; set; }
-        float? ISearchHits.MaxScore { get; set; }
-        IHitsTotal ISearchHits.Total { get; set; }
-
-        public SearchHitsDescriptor Hits(IList<ISearchHitsHit> hits) =>
-            Assign(hits, (a, v) => a.Hits = v);
-
-        public SearchHitsDescriptor MaxScore(float? maxScore) =>
-            Assign(maxScore, (a, v) => a.MaxScore = v);
-
-        public SearchHitsDescriptor Total(IHitsTotal total) => Assign(total, (a, v) => a.Total = v);
+        [DataMember(Name = "experiment_result")]
+        public string ExperimentResult { get; internal set; }
     }
 }

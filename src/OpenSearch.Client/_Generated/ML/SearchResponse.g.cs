@@ -31,45 +31,22 @@ namespace OpenSearch.Client
     [ReadAs(typeof(SearchResponse))]
     public interface ISearchResponse
     {
-        [DataMember(Name = "_shards")]
-        ShardStatistics Shards { get; set; }
-
         [DataMember(Name = "hits")]
-        ISearchHits Hits { get; set; }
-
-        [DataMember(Name = "timed_out")]
-        bool? TimedOut { get; set; }
-
-        [DataMember(Name = "took")]
-        int? Took { get; set; }
+        IDictionary<string, object> Hits { get; set; }
     }
 
     public class SearchResponse : ISearchResponse
     {
-        public ShardStatistics Shards { get; set; }
-        public ISearchHits Hits { get; set; }
-        public bool? TimedOut { get; set; }
-        public int? Took { get; set; }
+        public IDictionary<string, object> Hits { get; set; }
     }
 
     public class SearchResponseDescriptor
         : DescriptorBase<SearchResponseDescriptor, ISearchResponse>,
             ISearchResponse
     {
-        ShardStatistics ISearchResponse.Shards { get; set; }
-        ISearchHits ISearchResponse.Hits { get; set; }
-        bool? ISearchResponse.TimedOut { get; set; }
-        int? ISearchResponse.Took { get; set; }
+        IDictionary<string, object> ISearchResponse.Hits { get; set; }
 
-        public SearchResponseDescriptor Shards(ShardStatistics shards) =>
-            Assign(shards, (a, v) => a.Shards = v);
-
-        public SearchResponseDescriptor Hits(ISearchHits hits) =>
+        public SearchResponseDescriptor Hits(IDictionary<string, object> hits) =>
             Assign(hits, (a, v) => a.Hits = v);
-
-        public SearchResponseDescriptor TimedOut(bool? timedOut = true) =>
-            Assign(timedOut, (a, v) => a.TimedOut = v);
-
-        public SearchResponseDescriptor Took(int? took) => Assign(took, (a, v) => a.Took = v);
     }
 }
