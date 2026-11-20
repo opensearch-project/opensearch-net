@@ -45,9 +45,8 @@ namespace OpenSearch.Client
         public AdditionalInfoDescriptor AdditionalProperties(
             IDictionary<string, object> additionalProperties
         ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            Assign(additionalProperties, (a, v) =>
+                ((IHasAdditionalProperties)a).AdditionalProperties = v
             );
     }
 }

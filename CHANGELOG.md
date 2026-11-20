@@ -13,6 +13,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - Fixed `OpenSearch.Net.Auth.AwsSigV4` throwing `MissingMethodException` on AWSSDK.Core 4.1.x by calling `AWSSDKUtils.CompressSpaces(string, bool)` explicitly ([#1110](https://github.com/opensearch-project/opensearch-net/pull/1110))
 ### Dependencies
+- Bumps `CSharpier.Core` from 1.3.0 to 1.4.0 ([#1106](https://github.com/opensearch-project/opensearch-net/pull/1106))
 
 ## [2.3.0]
 ### ⚠️ Breaking Changes ⚠️

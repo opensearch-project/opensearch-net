@@ -75,12 +75,8 @@ namespace OpenSearch.Client
         public PutSearchPipelineDescriptor PhaseResultsProcessors(
             Func<PhaseResultsProcessorsDescriptor, IPromise<IList<IPhaseResultsProcessor>>> selector
         ) =>
-            Assign(
-                selector,
-                (a, v) =>
-                    a.PhaseResultsProcessors = v
-                        ?.Invoke(new PhaseResultsProcessorsDescriptor())
-                        ?.Value
+            Assign(selector, (a, v) =>
+                a.PhaseResultsProcessors = v?.Invoke(new PhaseResultsProcessorsDescriptor())?.Value
             );
 
         public PutSearchPipelineDescriptor RequestProcessors(
@@ -90,9 +86,8 @@ namespace OpenSearch.Client
         public PutSearchPipelineDescriptor RequestProcessors(
             Func<RequestProcessorsDescriptor, IPromise<IList<IRequestProcessor>>> selector
         ) =>
-            Assign(
-                selector,
-                (a, v) => a.RequestProcessors = v?.Invoke(new RequestProcessorsDescriptor())?.Value
+            Assign(selector, (a, v) =>
+                a.RequestProcessors = v?.Invoke(new RequestProcessorsDescriptor())?.Value
             );
 
         public PutSearchPipelineDescriptor ResponseProcessors(
@@ -102,10 +97,8 @@ namespace OpenSearch.Client
         public PutSearchPipelineDescriptor ResponseProcessors(
             Func<ResponseProcessorsDescriptor, IPromise<IList<IResponseProcessor>>> selector
         ) =>
-            Assign(
-                selector,
-                (a, v) =>
-                    a.ResponseProcessors = v?.Invoke(new ResponseProcessorsDescriptor())?.Value
+            Assign(selector, (a, v) =>
+                a.ResponseProcessors = v?.Invoke(new ResponseProcessorsDescriptor())?.Value
             );
 
         public PutSearchPipelineDescriptor Version(int? version) =>

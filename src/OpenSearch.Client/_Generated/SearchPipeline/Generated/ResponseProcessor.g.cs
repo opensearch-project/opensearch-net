@@ -665,10 +665,8 @@ namespace OpenSearch.Client
                 IAgenticContextResponseProcessor
             > selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new AgenticContextResponseProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new AgenticContextResponseProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="IPersonalizeSearchRankingResponseProcessor" />
@@ -678,12 +676,10 @@ namespace OpenSearch.Client
                 IPersonalizeSearchRankingResponseProcessor
             > selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(
-                        sel?.Invoke(new PersonalizeSearchRankingResponseProcessorDescriptor())
-                    )
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(
+                    sel?.Invoke(new PersonalizeSearchRankingResponseProcessorDescriptor())
+                )
             );
 
         /// <inheritdoc cref="IRetrievalAugmentedGenerationResponseProcessor" />
@@ -693,68 +689,58 @@ namespace OpenSearch.Client
                 IRetrievalAugmentedGenerationResponseProcessor
             > selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(
-                        sel?.Invoke(new RetrievalAugmentedGenerationResponseProcessorDescriptor())
-                    )
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(
+                    sel?.Invoke(new RetrievalAugmentedGenerationResponseProcessorDescriptor())
+                )
             );
 
         /// <inheritdoc cref="IRenameFieldResponseProcessor" />
         public ResponseProcessorsDescriptor RenameField(
             Func<RenameFieldResponseProcessorDescriptor, IRenameFieldResponseProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new RenameFieldResponseProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new RenameFieldResponseProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="IRerankResponseProcessor" />
         public ResponseProcessorsDescriptor Rerank(
             Func<RerankResponseProcessorDescriptor, IRerankResponseProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new RerankResponseProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new RerankResponseProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="ICollapseResponseProcessor" />
         public ResponseProcessorsDescriptor Collapse(
             Func<CollapseResponseProcessorDescriptor, ICollapseResponseProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new CollapseResponseProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new CollapseResponseProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="ITruncateHitsResponseProcessor" />
         public ResponseProcessorsDescriptor TruncateHits(
             Func<TruncateHitsResponseProcessorDescriptor, ITruncateHitsResponseProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new TruncateHitsResponseProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new TruncateHitsResponseProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="ISortResponseProcessor" />
         public ResponseProcessorsDescriptor Sort(
             Func<SortResponseProcessorDescriptor, ISortResponseProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new SortResponseProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new SortResponseProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="ISplitResponseProcessor" />
         public ResponseProcessorsDescriptor Split(
             Func<SplitResponseProcessorDescriptor, ISplitResponseProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new SplitResponseProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new SplitResponseProcessorDescriptor()))
             );
     }
 }
