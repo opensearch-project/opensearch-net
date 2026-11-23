@@ -27,31 +27,16 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(HitsTotal))]
-    public interface IHitsTotal
+    [StringEnum]
+    public enum ExperimentValidationStatus
     {
-        [DataMember(Name = "relation")]
-        string Relation { get; set; }
+        [EnumMember(Value = "DRIFTED")]
+        Drifted,
 
-        [DataMember(Name = "value")]
-        long? Value { get; set; }
-    }
+        [EnumMember(Value = "UNAVAILABLE")]
+        Unavailable,
 
-    public class HitsTotal : IHitsTotal
-    {
-        public string Relation { get; set; }
-        public long? Value { get; set; }
-    }
-
-    public class HitsTotalDescriptor : DescriptorBase<HitsTotalDescriptor, IHitsTotal>, IHitsTotal
-    {
-        string IHitsTotal.Relation { get; set; }
-        long? IHitsTotal.Value { get; set; }
-
-        public HitsTotalDescriptor Relation(string relation) =>
-            Assign(relation, (a, v) => a.Relation = v);
-
-        public HitsTotalDescriptor Value(long? value) => Assign(value, (a, v) => a.Value = v);
+        [EnumMember(Value = "VALID")]
+        Valid,
     }
 }

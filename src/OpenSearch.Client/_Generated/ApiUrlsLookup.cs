@@ -787,6 +787,10 @@ namespace OpenSearch.Client
             "_plugins/_search_relevance/judgments/_search",
         ]);
 
+        internal static readonly ApiUrls SearchRelevancePatchExperiment = new([
+            "_plugins/_search_relevance/experiments/{experiment_id}",
+        ]);
+
         internal static readonly ApiUrls SearchRelevancePostQuerySets = new([
             "_plugins/_search_relevance/query_sets",
         ]);
@@ -815,8 +819,20 @@ namespace OpenSearch.Client
             "_plugins/_search_relevance/query_sets/_search",
         ]);
 
+        internal static readonly ApiUrls SearchRelevanceRetryJudgments = new([
+            "_plugins/_search_relevance/judgments/{judgment_id}/_retry",
+        ]);
+
         internal static readonly ApiUrls SearchRelevanceSearchConfigurationsSearch = new([
             "_plugins/_search_relevance/search_configurations/_search",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceUpdateJudgmentRatings = new([
+            "_plugins/_search_relevance/judgments/{judgment_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceValidateExperiments = new([
+            "_plugins/_search_relevance/experiments/{experiment_id}/validate",
         ]);
 
         internal static readonly ApiUrls NoNamespaceSearchShards = new([

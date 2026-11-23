@@ -113,6 +113,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
         public override string OperationName => "search_relevance.get_experiments";
+
+        /// <summary>A query text for visualizing experiment results. Accepted but currently does not change the response.</summary>
+        public string QueryText
+        {
+            get => Q<string>("query_text");
+            set => Q("query_text", value);
+        }
     }
 
     /// <summary>Request options for GetJudgments</summary>
@@ -133,38 +140,45 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override string OperationName => "search_relevance.get_node_stats";
 
         /// <summary>Requests flattened stat paths as keys.</summary>
-        public string FlatStatPaths
+        public bool? FlatStatPaths
         {
-            get => Q<string>("flat_stat_paths");
+            get => Q<bool?>("flat_stat_paths");
             set => Q("flat_stat_paths", value);
         }
 
         /// <summary>Whether to include all nodes.</summary>
-        public string IncludeAllNodes
+        public bool? IncludeAllNodes
         {
-            get => Q<string>("include_all_nodes");
+            get => Q<bool?>("include_all_nodes");
             set => Q("include_all_nodes", value);
         }
 
         /// <summary>Whether to include individual nodes.</summary>
-        public string IncludeIndividualNodes
+        public bool? IncludeIndividualNodes
         {
-            get => Q<string>("include_individual_nodes");
+            get => Q<bool?>("include_individual_nodes");
             set => Q("include_individual_nodes", value);
         }
 
         /// <summary>Whether to include info.</summary>
-        public string IncludeInfo
+        public bool? IncludeInfo
         {
-            get => Q<string>("include_info");
+            get => Q<bool?>("include_info");
             set => Q("include_info", value);
         }
 
         /// <summary>Whether to include metadata.</summary>
-        public string IncludeMetadata
+        public bool? IncludeMetadata
         {
-            get => Q<string>("include_metadata");
+            get => Q<bool?>("include_metadata");
             set => Q("include_metadata", value);
+        }
+
+        /// <summary>The amount of time to wait for a response.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
         }
     }
 
@@ -203,38 +217,45 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override string OperationName => "search_relevance.get_stats";
 
         /// <summary>Requests flattened stat paths as keys.</summary>
-        public string FlatStatPaths
+        public bool? FlatStatPaths
         {
-            get => Q<string>("flat_stat_paths");
+            get => Q<bool?>("flat_stat_paths");
             set => Q("flat_stat_paths", value);
         }
 
         /// <summary>Whether to include all nodes.</summary>
-        public string IncludeAllNodes
+        public bool? IncludeAllNodes
         {
-            get => Q<string>("include_all_nodes");
+            get => Q<bool?>("include_all_nodes");
             set => Q("include_all_nodes", value);
         }
 
         /// <summary>Whether to include individual nodes.</summary>
-        public string IncludeIndividualNodes
+        public bool? IncludeIndividualNodes
         {
-            get => Q<string>("include_individual_nodes");
+            get => Q<bool?>("include_individual_nodes");
             set => Q("include_individual_nodes", value);
         }
 
         /// <summary>Whether to include info.</summary>
-        public string IncludeInfo
+        public bool? IncludeInfo
         {
-            get => Q<string>("include_info");
+            get => Q<bool?>("include_info");
             set => Q("include_info", value);
         }
 
         /// <summary>Whether to include metadata.</summary>
-        public string IncludeMetadata
+        public bool? IncludeMetadata
         {
-            get => Q<string>("include_metadata");
+            get => Q<bool?>("include_metadata");
             set => Q("include_metadata", value);
+        }
+
+        /// <summary>The amount of time to wait for a response.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
         }
     }
 
@@ -245,6 +266,15 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
         public override string OperationName => "search_relevance.judgments_search";
+    }
+
+    /// <summary>Request options for PatchExperiment</summary>
+    public partial class PatchExperimentRequestParameters
+        : RequestParameters<PatchExperimentRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.patch_experiment";
     }
 
     /// <summary>Request options for PostQuerySets</summary>
@@ -310,6 +340,15 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override string OperationName => "search_relevance.query_sets_search";
     }
 
+    /// <summary>Request options for RetryJudgments</summary>
+    public partial class RetryJudgmentsRequestParameters
+        : RequestParameters<RetryJudgmentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.retry_judgments";
+    }
+
     /// <summary>Request options for SearchConfigurationsSearch</summary>
     public partial class SearchConfigurationsSearchRequestParameters
         : RequestParameters<SearchConfigurationsSearchRequestParameters>
@@ -317,5 +356,23 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
         public override string OperationName => "search_relevance.search_configurations_search";
+    }
+
+    /// <summary>Request options for UpdateJudgmentRatings</summary>
+    public partial class UpdateJudgmentRatingsRequestParameters
+        : RequestParameters<UpdateJudgmentRatingsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.update_judgment_ratings";
+    }
+
+    /// <summary>Request options for ValidateExperiments</summary>
+    public partial class ValidateExperimentsRequestParameters
+        : RequestParameters<ValidateExperimentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.validate_experiments";
     }
 }

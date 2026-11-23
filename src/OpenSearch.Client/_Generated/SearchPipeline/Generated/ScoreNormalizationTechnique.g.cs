@@ -35,5 +35,8 @@ namespace OpenSearch.Client
 
         [EnumMember(Value = "min_max")]
         MinMax,
+
+        [EnumMember(Value = "z_score")]
+        ZScore,
     }
 }

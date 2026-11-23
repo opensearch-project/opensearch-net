@@ -34,15 +34,6 @@ namespace OpenSearch.Client
         [DataMember(Name = "judgmentList")]
         IList<string> JudgmentList { get; set; }
 
-        [DataMember(Name = "querySetId")]
-        string QuerySetId { get; set; }
-
-        [DataMember(Name = "searchConfigurationList")]
-        IList<string> SearchConfigurationList { get; set; }
-
-        [DataMember(Name = "size")]
-        int? Size { get; set; }
-
         [DataMember(Name = "type")]
         string Type { get; set; }
     }
@@ -50,9 +41,6 @@ namespace OpenSearch.Client
     public class PutHybridOptimizerExperimentRequest : IPutHybridOptimizerExperimentRequest
     {
         public IList<string> JudgmentList { get; set; }
-        public string QuerySetId { get; set; }
-        public IList<string> SearchConfigurationList { get; set; }
-        public int? Size { get; set; }
         public string Type { get; set; }
     }
 
@@ -64,24 +52,11 @@ namespace OpenSearch.Client
             IPutHybridOptimizerExperimentRequest
     {
         IList<string> IPutHybridOptimizerExperimentRequest.JudgmentList { get; set; }
-        string IPutHybridOptimizerExperimentRequest.QuerySetId { get; set; }
-        IList<string> IPutHybridOptimizerExperimentRequest.SearchConfigurationList { get; set; }
-        int? IPutHybridOptimizerExperimentRequest.Size { get; set; }
         string IPutHybridOptimizerExperimentRequest.Type { get; set; }
 
         public PutHybridOptimizerExperimentRequestDescriptor JudgmentList(
             IList<string> judgmentList
         ) => Assign(judgmentList, (a, v) => a.JudgmentList = v);
-
-        public PutHybridOptimizerExperimentRequestDescriptor QuerySetId(string querySetId) =>
-            Assign(querySetId, (a, v) => a.QuerySetId = v);
-
-        public PutHybridOptimizerExperimentRequestDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
-
-        public PutHybridOptimizerExperimentRequestDescriptor Size(int? size) =>
-            Assign(size, (a, v) => a.Size = v);
 
         public PutHybridOptimizerExperimentRequestDescriptor Type(string type) =>
             Assign(type, (a, v) => a.Type = v);

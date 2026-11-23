@@ -32,17 +32,23 @@ namespace OpenSearch.Client
         [DataMember(Name = "contextFields")]
         IList<string> ContextFields { get; set; }
 
-        [DataMember(Name = "description")]
-        string Description { get; set; }
+        [DataMember(Name = "existingJudgments")]
+        IList<string> ExistingJudgments { get; set; }
 
         [DataMember(Name = "ignoreFailure")]
         bool? IgnoreFailure { get; set; }
 
+        [DataMember(Name = "llmJudgmentRatingType")]
+        LLMJudgmentRatingType? LlmJudgmentRatingType { get; set; }
+
         [DataMember(Name = "modelId")]
         string ModelId { get; set; }
 
-        [DataMember(Name = "name")]
-        string Name { get; set; }
+        [DataMember(Name = "overwriteCache")]
+        bool? OverwriteCache { get; set; }
+
+        [DataMember(Name = "promptTemplate")]
+        string PromptTemplate { get; set; }
 
         [DataMember(Name = "querySetId")]
         string QuerySetId { get; set; }
@@ -53,14 +59,26 @@ namespace OpenSearch.Client
         [DataMember(Name = "size")]
         int? Size { get; set; }
 
+        [DataMember(Name = "tokenLimit")]
+        int? TokenLimit { get; set; }
+
         [DataMember(Name = "type")]
         string Type { get; set; }
 
         [DataMember(Name = "clickModel")]
         string ClickModel { get; set; }
 
+        [DataMember(Name = "endDate")]
+        string EndDate { get; set; }
+
         [DataMember(Name = "maxRank")]
         int? MaxRank { get; set; }
+
+        [DataMember(Name = "startDate")]
+        string StartDate { get; set; }
+
+        [DataMember(Name = "ubiEventsIndex")]
+        string UbiEventsIndex { get; set; }
 
         [DataMember(Name = "judgmentRatings")]
         IList<IDictionary<string, object>> JudgmentRatings { get; set; }
@@ -71,47 +89,67 @@ namespace OpenSearch.Client
         /// <summary>Minimum OpenSearch version required for this API.</summary>
         public const string MinimumServerVersion = "3.1";
         public IList<string> ContextFields { get; set; }
-        public string Description { get; set; }
+        public IList<string> ExistingJudgments { get; set; }
         public bool? IgnoreFailure { get; set; }
+        public LLMJudgmentRatingType? LlmJudgmentRatingType { get; set; }
         public string ModelId { get; set; }
-        public string Name { get; set; }
+        public bool? OverwriteCache { get; set; }
+        public string PromptTemplate { get; set; }
         public string QuerySetId { get; set; }
         public IList<string> SearchConfigurationList { get; set; }
         public int? Size { get; set; }
+        public int? TokenLimit { get; set; }
         public string Type { get; set; }
         public string ClickModel { get; set; }
+        public string EndDate { get; set; }
         public int? MaxRank { get; set; }
+        public string StartDate { get; set; }
+        public string UbiEventsIndex { get; set; }
         public IList<IDictionary<string, object>> JudgmentRatings { get; set; }
     }
 
     public partial class PutJudgmentsDescriptor
     {
         IList<string> IPutJudgmentsRequest.ContextFields { get; set; }
-        string IPutJudgmentsRequest.Description { get; set; }
+        IList<string> IPutJudgmentsRequest.ExistingJudgments { get; set; }
         bool? IPutJudgmentsRequest.IgnoreFailure { get; set; }
+        LLMJudgmentRatingType? IPutJudgmentsRequest.LlmJudgmentRatingType { get; set; }
         string IPutJudgmentsRequest.ModelId { get; set; }
-        string IPutJudgmentsRequest.Name { get; set; }
+        bool? IPutJudgmentsRequest.OverwriteCache { get; set; }
+        string IPutJudgmentsRequest.PromptTemplate { get; set; }
         string IPutJudgmentsRequest.QuerySetId { get; set; }
         IList<string> IPutJudgmentsRequest.SearchConfigurationList { get; set; }
         int? IPutJudgmentsRequest.Size { get; set; }
+        int? IPutJudgmentsRequest.TokenLimit { get; set; }
         string IPutJudgmentsRequest.Type { get; set; }
         string IPutJudgmentsRequest.ClickModel { get; set; }
+        string IPutJudgmentsRequest.EndDate { get; set; }
         int? IPutJudgmentsRequest.MaxRank { get; set; }
+        string IPutJudgmentsRequest.StartDate { get; set; }
+        string IPutJudgmentsRequest.UbiEventsIndex { get; set; }
         IList<IDictionary<string, object>> IPutJudgmentsRequest.JudgmentRatings { get; set; }
 
         public PutJudgmentsDescriptor ContextFields(IList<string> contextFields) =>
             Assign(contextFields, (a, v) => a.ContextFields = v);
 
-        public PutJudgmentsDescriptor Description(string description) =>
-            Assign(description, (a, v) => a.Description = v);
+        public PutJudgmentsDescriptor ExistingJudgments(IList<string> existingJudgments) =>
+            Assign(existingJudgments, (a, v) => a.ExistingJudgments = v);
 
         public PutJudgmentsDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
             Assign(ignoreFailure, (a, v) => a.IgnoreFailure = v);
 
+        public PutJudgmentsDescriptor LlmJudgmentRatingType(
+            LLMJudgmentRatingType? llmJudgmentRatingType
+        ) => Assign(llmJudgmentRatingType, (a, v) => a.LlmJudgmentRatingType = v);
+
         public PutJudgmentsDescriptor ModelId(string modelId) =>
             Assign(modelId, (a, v) => a.ModelId = v);
 
-        public PutJudgmentsDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public PutJudgmentsDescriptor OverwriteCache(bool? overwriteCache = true) =>
+            Assign(overwriteCache, (a, v) => a.OverwriteCache = v);
+
+        public PutJudgmentsDescriptor PromptTemplate(string promptTemplate) =>
+            Assign(promptTemplate, (a, v) => a.PromptTemplate = v);
 
         public PutJudgmentsDescriptor QuerySetId(string querySetId) =>
             Assign(querySetId, (a, v) => a.QuerySetId = v);
@@ -122,13 +160,25 @@ namespace OpenSearch.Client
 
         public PutJudgmentsDescriptor Size(int? size) => Assign(size, (a, v) => a.Size = v);
 
+        public PutJudgmentsDescriptor TokenLimit(int? tokenLimit) =>
+            Assign(tokenLimit, (a, v) => a.TokenLimit = v);
+
         public PutJudgmentsDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
 
         public PutJudgmentsDescriptor ClickModel(string clickModel) =>
             Assign(clickModel, (a, v) => a.ClickModel = v);
 
+        public PutJudgmentsDescriptor EndDate(string endDate) =>
+            Assign(endDate, (a, v) => a.EndDate = v);
+
         public PutJudgmentsDescriptor MaxRank(int? maxRank) =>
             Assign(maxRank, (a, v) => a.MaxRank = v);
+
+        public PutJudgmentsDescriptor StartDate(string startDate) =>
+            Assign(startDate, (a, v) => a.StartDate = v);
+
+        public PutJudgmentsDescriptor UbiEventsIndex(string ubiEventsIndex) =>
+            Assign(ubiEventsIndex, (a, v) => a.UbiEventsIndex = v);
 
         public PutJudgmentsDescriptor JudgmentRatings(
             IList<IDictionary<string, object>> judgmentRatings

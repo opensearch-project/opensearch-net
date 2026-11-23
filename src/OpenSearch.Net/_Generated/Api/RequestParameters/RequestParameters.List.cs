@@ -285,4 +285,61 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("v", value);
         }
     }
+
+    /// <summary>Request options for WlmStats</summary>
+    public partial class WlmStatsRequestParameters : RequestParameters<WlmStatsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "list.wlm_stats";
+
+        /// <summary>When <c>true</c>, returns only workload groups that have breached their resource limits.</summary>
+        public bool? Breach
+        {
+            get => Q<bool?>("breach");
+            set => Q("breach", value);
+        }
+
+        /// <summary>A short version of the Accept header, such as <c>JSON</c>, <c>YAML</c>.</summary>
+        public ListResponseFormat? Format
+        {
+            get => Q<ListResponseFormat?>("format");
+            set => Q("format", value);
+        }
+
+        /// <summary>Token used to retrieve the next page of workload management statistics.</summary>
+        public string NextToken
+        {
+            get => Q<string>("next_token");
+            set => Q("next_token", value);
+        }
+
+        /// <summary>The sort direction of the page. Allowed values are <c>asc</c> and <c>desc</c>. Defaults to <c>asc</c>.</summary>
+        public SortOrder? Order
+        {
+            get => Q<SortOrder?>("order");
+            set => Q("order", value);
+        }
+
+        /// <summary>The maximum number of node and workload group combinations to return in a page. Allowed range is 1 to 100.</summary>
+        public int? Size
+        {
+            get => Q<int?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>The field used to sort results. Allowed values are <c>node_id</c> and <c>workload_group</c>. Defaults to <c>node_id</c>.</summary>
+        public WlmStatsSortBy? Sort
+        {
+            get => Q<WlmStatsSortBy?>("sort");
+            set => Q("sort", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

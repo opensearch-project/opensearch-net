@@ -38,7 +38,7 @@ namespace OpenSearch.Client
         public string ScrollId { get; internal set; }
 
         [DataMember(Name = "_shards")]
-        public ShardStatistics Shards { get; internal set; }
+        public Ishards Shards { get; internal set; }
 
         [DataMember(Name = "aggregations")]
         public IDictionary<string, object> Aggregations { get; internal set; }
@@ -53,7 +53,7 @@ namespace OpenSearch.Client
         public IDictionary<string, long?> PhaseTook { get; internal set; }
 
         [DataMember(Name = "pit_id")]
-        public Id PitId { get; internal set; }
+        public string PitId { get; internal set; }
 
         [DataMember(Name = "processor_results")]
         public IList<IDictionary<string, object>> ProcessorResults { get; internal set; }

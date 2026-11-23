@@ -334,6 +334,7 @@ namespace OpenSearch.Client
             Assign(tag, (a, val) => a.Tag = val);
     }
 
+    /// <remarks>Supported by OpenSearch servers of version 2.16 or greater.</remarks>
     [InterfaceDataContract]
     public interface IMLInferenceRequestProcessor : IRequestProcessor
     {

@@ -34,15 +34,6 @@ namespace OpenSearch.Client
         [DataMember(Name = "judgmentList")]
         IList<string> JudgmentList { get; set; }
 
-        [DataMember(Name = "querySetId")]
-        string QuerySetId { get; set; }
-
-        [DataMember(Name = "searchConfigurationList")]
-        IList<string> SearchConfigurationList { get; set; }
-
-        [DataMember(Name = "size")]
-        int? Size { get; set; }
-
         [DataMember(Name = "type")]
         string Type { get; set; }
     }
@@ -50,9 +41,6 @@ namespace OpenSearch.Client
     public class PutPointwiseExperimentRequest : IPutPointwiseExperimentRequest
     {
         public IList<string> JudgmentList { get; set; }
-        public string QuerySetId { get; set; }
-        public IList<string> SearchConfigurationList { get; set; }
-        public int? Size { get; set; }
         public string Type { get; set; }
     }
 
@@ -61,23 +49,10 @@ namespace OpenSearch.Client
             IPutPointwiseExperimentRequest
     {
         IList<string> IPutPointwiseExperimentRequest.JudgmentList { get; set; }
-        string IPutPointwiseExperimentRequest.QuerySetId { get; set; }
-        IList<string> IPutPointwiseExperimentRequest.SearchConfigurationList { get; set; }
-        int? IPutPointwiseExperimentRequest.Size { get; set; }
         string IPutPointwiseExperimentRequest.Type { get; set; }
 
         public PutPointwiseExperimentRequestDescriptor JudgmentList(IList<string> judgmentList) =>
             Assign(judgmentList, (a, v) => a.JudgmentList = v);
-
-        public PutPointwiseExperimentRequestDescriptor QuerySetId(string querySetId) =>
-            Assign(querySetId, (a, v) => a.QuerySetId = v);
-
-        public PutPointwiseExperimentRequestDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
-
-        public PutPointwiseExperimentRequestDescriptor Size(int? size) =>
-            Assign(size, (a, v) => a.Size = v);
 
         public PutPointwiseExperimentRequestDescriptor Type(string type) =>
             Assign(type, (a, v) => a.Type = v);

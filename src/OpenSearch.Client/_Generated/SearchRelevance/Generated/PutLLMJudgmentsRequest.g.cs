@@ -34,17 +34,23 @@ namespace OpenSearch.Client
         [DataMember(Name = "contextFields")]
         IList<string> ContextFields { get; set; }
 
-        [DataMember(Name = "description")]
-        string Description { get; set; }
+        [DataMember(Name = "existingJudgments")]
+        IList<string> ExistingJudgments { get; set; }
 
         [DataMember(Name = "ignoreFailure")]
         bool? IgnoreFailure { get; set; }
 
+        [DataMember(Name = "llmJudgmentRatingType")]
+        LLMJudgmentRatingType? LlmJudgmentRatingType { get; set; }
+
         [DataMember(Name = "modelId")]
         string ModelId { get; set; }
 
-        [DataMember(Name = "name")]
-        string Name { get; set; }
+        [DataMember(Name = "overwriteCache")]
+        bool? OverwriteCache { get; set; }
+
+        [DataMember(Name = "promptTemplate")]
+        string PromptTemplate { get; set; }
 
         [DataMember(Name = "querySetId")]
         string QuerySetId { get; set; }
@@ -55,6 +61,9 @@ namespace OpenSearch.Client
         [DataMember(Name = "size")]
         int? Size { get; set; }
 
+        [DataMember(Name = "tokenLimit")]
+        int? TokenLimit { get; set; }
+
         [DataMember(Name = "type")]
         string Type { get; set; }
     }
@@ -62,13 +71,16 @@ namespace OpenSearch.Client
     public class PutLLMJudgmentsRequest : IPutLLMJudgmentsRequest
     {
         public IList<string> ContextFields { get; set; }
-        public string Description { get; set; }
+        public IList<string> ExistingJudgments { get; set; }
         public bool? IgnoreFailure { get; set; }
+        public LLMJudgmentRatingType? LlmJudgmentRatingType { get; set; }
         public string ModelId { get; set; }
-        public string Name { get; set; }
+        public bool? OverwriteCache { get; set; }
+        public string PromptTemplate { get; set; }
         public string QuerySetId { get; set; }
         public IList<string> SearchConfigurationList { get; set; }
         public int? Size { get; set; }
+        public int? TokenLimit { get; set; }
         public string Type { get; set; }
     }
 
@@ -77,29 +89,40 @@ namespace OpenSearch.Client
             IPutLLMJudgmentsRequest
     {
         IList<string> IPutLLMJudgmentsRequest.ContextFields { get; set; }
-        string IPutLLMJudgmentsRequest.Description { get; set; }
+        IList<string> IPutLLMJudgmentsRequest.ExistingJudgments { get; set; }
         bool? IPutLLMJudgmentsRequest.IgnoreFailure { get; set; }
+        LLMJudgmentRatingType? IPutLLMJudgmentsRequest.LlmJudgmentRatingType { get; set; }
         string IPutLLMJudgmentsRequest.ModelId { get; set; }
-        string IPutLLMJudgmentsRequest.Name { get; set; }
+        bool? IPutLLMJudgmentsRequest.OverwriteCache { get; set; }
+        string IPutLLMJudgmentsRequest.PromptTemplate { get; set; }
         string IPutLLMJudgmentsRequest.QuerySetId { get; set; }
         IList<string> IPutLLMJudgmentsRequest.SearchConfigurationList { get; set; }
         int? IPutLLMJudgmentsRequest.Size { get; set; }
+        int? IPutLLMJudgmentsRequest.TokenLimit { get; set; }
         string IPutLLMJudgmentsRequest.Type { get; set; }
 
         public PutLLMJudgmentsRequestDescriptor ContextFields(IList<string> contextFields) =>
             Assign(contextFields, (a, v) => a.ContextFields = v);
 
-        public PutLLMJudgmentsRequestDescriptor Description(string description) =>
-            Assign(description, (a, v) => a.Description = v);
+        public PutLLMJudgmentsRequestDescriptor ExistingJudgments(
+            IList<string> existingJudgments
+        ) => Assign(existingJudgments, (a, v) => a.ExistingJudgments = v);
 
         public PutLLMJudgmentsRequestDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
             Assign(ignoreFailure, (a, v) => a.IgnoreFailure = v);
 
+        public PutLLMJudgmentsRequestDescriptor LlmJudgmentRatingType(
+            LLMJudgmentRatingType? llmJudgmentRatingType
+        ) => Assign(llmJudgmentRatingType, (a, v) => a.LlmJudgmentRatingType = v);
+
         public PutLLMJudgmentsRequestDescriptor ModelId(string modelId) =>
             Assign(modelId, (a, v) => a.ModelId = v);
 
-        public PutLLMJudgmentsRequestDescriptor Name(string name) =>
-            Assign(name, (a, v) => a.Name = v);
+        public PutLLMJudgmentsRequestDescriptor OverwriteCache(bool? overwriteCache = true) =>
+            Assign(overwriteCache, (a, v) => a.OverwriteCache = v);
+
+        public PutLLMJudgmentsRequestDescriptor PromptTemplate(string promptTemplate) =>
+            Assign(promptTemplate, (a, v) => a.PromptTemplate = v);
 
         public PutLLMJudgmentsRequestDescriptor QuerySetId(string querySetId) =>
             Assign(querySetId, (a, v) => a.QuerySetId = v);
@@ -110,6 +133,9 @@ namespace OpenSearch.Client
 
         public PutLLMJudgmentsRequestDescriptor Size(int? size) =>
             Assign(size, (a, v) => a.Size = v);
+
+        public PutLLMJudgmentsRequestDescriptor TokenLimit(int? tokenLimit) =>
+            Assign(tokenLimit, (a, v) => a.TokenLimit = v);
 
         public PutLLMJudgmentsRequestDescriptor Type(string type) =>
             Assign(type, (a, v) => a.Type = v);

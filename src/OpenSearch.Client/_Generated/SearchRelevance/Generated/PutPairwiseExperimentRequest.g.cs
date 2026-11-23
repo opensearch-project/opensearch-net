@@ -31,24 +31,12 @@ namespace OpenSearch.Client
     [ReadAs(typeof(PutPairwiseExperimentRequest))]
     public interface IPutPairwiseExperimentRequest
     {
-        [DataMember(Name = "querySetId")]
-        string QuerySetId { get; set; }
-
-        [DataMember(Name = "searchConfigurationList")]
-        IList<string> SearchConfigurationList { get; set; }
-
-        [DataMember(Name = "size")]
-        int? Size { get; set; }
-
         [DataMember(Name = "type")]
         string Type { get; set; }
     }
 
     public class PutPairwiseExperimentRequest : IPutPairwiseExperimentRequest
     {
-        public string QuerySetId { get; set; }
-        public IList<string> SearchConfigurationList { get; set; }
-        public int? Size { get; set; }
         public string Type { get; set; }
     }
 
@@ -56,20 +44,7 @@ namespace OpenSearch.Client
         : DescriptorBase<PutPairwiseExperimentRequestDescriptor, IPutPairwiseExperimentRequest>,
             IPutPairwiseExperimentRequest
     {
-        string IPutPairwiseExperimentRequest.QuerySetId { get; set; }
-        IList<string> IPutPairwiseExperimentRequest.SearchConfigurationList { get; set; }
-        int? IPutPairwiseExperimentRequest.Size { get; set; }
         string IPutPairwiseExperimentRequest.Type { get; set; }
-
-        public PutPairwiseExperimentRequestDescriptor QuerySetId(string querySetId) =>
-            Assign(querySetId, (a, v) => a.QuerySetId = v);
-
-        public PutPairwiseExperimentRequestDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
-
-        public PutPairwiseExperimentRequestDescriptor Size(int? size) =>
-            Assign(size, (a, v) => a.Size = v);
 
         public PutPairwiseExperimentRequestDescriptor Type(string type) =>
             Assign(type, (a, v) => a.Type = v);
