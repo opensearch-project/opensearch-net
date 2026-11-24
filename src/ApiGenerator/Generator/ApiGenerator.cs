@@ -95,15 +95,14 @@ namespace ApiGenerator.Generator
         }
 
         /// <summary>
-        /// The resolved client model of the specification (opensearch-client-model.json) to read the types from instead of
-        /// interpreting allOf/oneOf/anyOf of the specification (experimental, <c>--client-model</c>); null reads them from the
-        /// specification.
+        /// Read the types from the resolved client model that the specification carries (its <c>x-model</c> extensions)
+        /// instead of interpreting allOf/oneOf/anyOf of the specification (experimental, <c>--client-model</c>).
         /// </summary>
-        public static string ClientModelPath { get; set; }
+        public static bool UseClientModel { get; set; }
 
         public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
         {
-            var (document, openSchemaIds) = await LoadOpenApiDocument(GeneratorLocations.OpenApiSpecFile, token, ClientModelPath);
+            var (document, openSchemaIds) = await LoadOpenApiDocument(GeneratorLocations.OpenApiSpecFile, token, UseClientModel);
 
             var enumsToGenerate = new Dictionary<string, bool>();
 
@@ -143,15 +142,15 @@ namespace ApiGenerator.Generator
 
         /// <summary>Loads and preprocesses the OpenAPI spec at <paramref name="path"/>, as code generation does.</summary>
         internal static async Task<(OpenApiDocument Document, HashSet<string> OpenSchemaIds)> LoadOpenApiDocument(
-            string path, CancellationToken token = default, string clientModelPath = null)
+            string path, CancellationToken token = default, bool useClientModel = false)
         {
             var (json, openSchemaIds) = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(path, token));
-            if (clientModelPath != null)
+            if (useClientModel)
             {
                 var spec = Newtonsoft.Json.Linq.JObject.Parse(json);
-                var model = ClientModelLowering.ReadModel(clientModelPath);
+                var model = ClientModelLowering.ReadModel(spec);
                 ClientModelLowering.Lower(spec, model);
-                Console.WriteLine($"Read the types from the client model {clientModelPath} ({((Newtonsoft.Json.Linq.JObject)model["types"]!).Count} types)");
+                Console.WriteLine($"Read the types from the client model of {path} ({((Newtonsoft.Json.Linq.JObject)model["types"]!).Count} types)");
                 json = spec.ToString(Newtonsoft.Json.Formatting.None);
             }
             var document = await OpenApiDocument.FromJsonAsync(json, token);
@@ -159,7 +158,7 @@ namespace ApiGenerator.Generator
             return (document, openSchemaIds);
         }
 
-        private static (string json, HashSet<string> openSchemaIds) PreprocessRawOpenApiSpec(string yaml)
+        internal static (string json, HashSet<string> openSchemaIds) PreprocessRawOpenApiSpec(string yaml)
         {
             // FIXME: work-around until NSwag adds support for requestBody references: https://github.com/RicoSuter/NSwag/pull/4747
             dynamic doc = new DeserializerBuilder().Build().Deserialize(yaml)!;

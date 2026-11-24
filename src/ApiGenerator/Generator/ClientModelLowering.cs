@@ -17,8 +17,9 @@ namespace ApiGenerator.Generator
 {
     /// <summary>
     /// Rewrites the specification so that every type comes from the resolved client model of opensearch-api-specification
-    /// (<c>opensearch-client-model.json</c>, built by <c>npm run model</c> there) instead of from the specification's
-    /// <c>allOf</c>/<c>oneOf</c>/<c>anyOf</c>. The component schemas and the JSON bodies of the response and request body
+    /// instead of from the specification's <c>allOf</c>/<c>oneOf</c>/<c>anyOf</c>. The model is part of the specification:
+    /// <c>npm run merge</c> there writes each component schema's type entry, and each response and request body
+    /// component's body entry, as its <c>x-model</c>, and the model's format and version as <c>components.x-model</c>. The component schemas and the JSON bodies of the response and request body
     /// components are replaced with schemas built from the model, in one canonical form the generator reads:
     /// an object is <c>allOf</c> of one <c>$ref</c> per base, its own fields, and one <c>oneOf</c>/<c>anyOf</c> per
     /// container or other union constraint (presence constraints are not written: their fields stay ordinary optional
@@ -28,6 +29,8 @@ namespace ApiGenerator.Generator
     /// </summary>
     public sealed class ClientModelLowering
     {
+        /// <summary>The extension that carries the client model in the specification.</summary>
+        public const string ModelKey = "x-model";
         private const string Format = "opensearch-client-model";
         private static readonly HashSet<string> SupportedVersions = new() { "0.2.0" };
         private const string RefPrefix = "#/components/schemas/";
@@ -44,21 +47,59 @@ namespace ApiGenerator.Generator
 
         internal ClientModelLowering(JObject model) => _types = (JObject?)model["types"] ?? new JObject();
 
-        /// <summary>Reads a client model file and checks its format and version.</summary>
-        public static JObject ReadModel(string path)
+        /// <summary>
+        /// Reads the client model from the <c>x-model</c> extensions of <paramref name="spec"/> (the specification as JSON) and
+        /// checks its format and version: <c>{format, version, types, responses, request_bodies}</c>, taking the components
+        /// that have an <c>x-model</c>.
+        /// </summary>
+        public static JObject ReadModel(JObject spec)
         {
-            var model = JObject.Parse(File.ReadAllText(path));
-            if ((string?)model["format"] != Format)
-                throw new InvalidDataException($"{path} is not an OpenSearch client model");
-            var version = (string?)model["version"];
+            var components = spec["components"] as JObject;
+            if (components?[ModelKey] is not JObject header)
+                throw new InvalidDataException(
+                    $"The specification has no components.{ModelKey}: it carries no client model. Use a specification "
+                    + "built by npm run merge of opensearch-api-specification, which writes the client model into it.");
+            if ((string?)header["format"] != Format)
+                throw new InvalidDataException($"components.{ModelKey} is not an OpenSearch client model (format {header["format"]})");
+            var version = (string?)header["version"];
             if (version == null || !SupportedVersions.Contains(version))
                 throw new InvalidDataException($"Unsupported client model version {version} (supported: {string.Join(", ", SupportedVersions)})");
-            return model;
+            return new JObject
+            {
+                ["format"] = Format,
+                ["version"] = version,
+                ["types"] = Entries(components["schemas"]),
+                ["responses"] = Entries(components["responses"]),
+                ["request_bodies"] = Entries(components["requestBodies"])
+            };
+        }
+
+        private static JObject Entries(JToken? section)
+        {
+            var entries = new JObject();
+            if (section is JObject components)
+                foreach (var (name, component) in components)
+                    if (component?[ModelKey] is JObject entry)
+                        entries[name] = entry.DeepClone();
+            return entries;
+        }
+
+        /// <summary>Removes the client model (the <c>x-model</c> extensions) from <paramref name="spec"/>.</summary>
+        public static void RemoveModel(JObject spec)
+        {
+            if (spec["components"] is not JObject components)
+                return;
+            components.Remove(ModelKey);
+            foreach (var section in new[] { "schemas", "responses", "requestBodies" })
+                if (components[section] is JObject entries)
+                    foreach (var (_, component) in entries)
+                        (component as JObject)?.Remove(ModelKey);
         }
 
         /// <summary>Rewrites <paramref name="spec"/> (the specification as JSON) with the types of <paramref name="model"/>.</summary>
         public static void Lower(JObject spec, JObject model)
         {
+            RemoveModel(spec);
             var lowering = new ClientModelLowering(model);
             var components = (JObject)spec["components"]!;
             var schemas = (JObject)components["schemas"]!;
@@ -256,6 +297,8 @@ namespace ApiGenerator.Generator
                 return;
             foreach (var prop in orig.Properties())
             {
+                if (prop.Name == ModelKey)
+                    continue;
                 if (prop.Name == "propertyNames" || ((Annotations.Contains(prop.Name) || prop.Name.StartsWith("x-", StringComparison.Ordinal)) && lowered[prop.Name] == null))
                     lowered[prop.Name] = prop.Value.DeepClone();
             }
