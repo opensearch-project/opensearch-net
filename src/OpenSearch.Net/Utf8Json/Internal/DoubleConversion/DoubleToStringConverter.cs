@@ -208,7 +208,7 @@ namespace OpenSearch.Net.Utf8Json.Internal.DoubleConversion
         //const int max_leading_padding_zeroes_in_precision_mode_;
         //const int max_trailing_padding_zeroes_in_precision_mode_;
 
-        private static readonly Flags flags_ = Flags.UNIQUE_ZERO | Flags.EMIT_POSITIVE_EXPONENT_SIGN | Flags.EMIT_TRAILING_DECIMAL_POINT | Flags.EMIT_TRAILING_ZERO_AFTER_POINT;
+        private static readonly Flags flags_ = Flags.EMIT_POSITIVE_EXPONENT_SIGN | Flags.EMIT_TRAILING_DECIMAL_POINT | Flags.EMIT_TRAILING_ZERO_AFTER_POINT;
         private static readonly char ExponentCharacter = 'E';
         private static readonly int DecimalInShortestLow = -4; // C# ToString("G")
         private static readonly int DecimalInShortestHigh = 15;// C# ToString("G")

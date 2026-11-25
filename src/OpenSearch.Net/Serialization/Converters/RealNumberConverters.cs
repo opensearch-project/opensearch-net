@@ -34,11 +34,6 @@ namespace OpenSearch.Net.Serialization.Converters
                 return;
             }
 
-            // Normalise negative zero to positive: the legacy Grisu formatter emitted "0.0" for -0.0, whereas
-            // double.ToString("R") preserves the sign bit and yields "-0.0".
-            if (value == 0.0)
-                value = 0.0;
-
             var s = value.ToString("R", CultureInfo.InvariantCulture);
             writer.WriteRawValue(EnsureDecimal(s), skipInputValidation: true);
         }
@@ -50,9 +45,6 @@ namespace OpenSearch.Net.Serialization.Converters
                 writer.WriteNumberValue(value);
                 return;
             }
-
-            if (value == 0.0f)
-                value = 0.0f;
 
             var s = value.ToString("R", CultureInfo.InvariantCulture);
             writer.WriteRawValue(EnsureDecimal(s), skipInputValidation: true);

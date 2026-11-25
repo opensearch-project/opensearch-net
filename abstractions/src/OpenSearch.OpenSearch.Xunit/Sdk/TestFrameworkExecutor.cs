@@ -47,7 +47,7 @@ namespace OpenSearch.OpenSearch.Xunit.Sdk
         public override void RunAll(IMessageSink executionMessageSink, ITestFrameworkDiscoveryOptions discoveryOptions,
             ITestFrameworkExecutionOptions executionOptions)
         {
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version?.ToString());
             discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
             discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
                 Options.IntegrationTestsMayUseAlreadyRunningNode);
@@ -55,7 +55,7 @@ namespace OpenSearch.OpenSearch.Xunit.Sdk
             discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
             discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
 
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version?.ToString());
             executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
             executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
                 Options.IntegrationTestsMayUseAlreadyRunningNode);
@@ -70,7 +70,7 @@ namespace OpenSearch.OpenSearch.Xunit.Sdk
         public override void RunTests(IEnumerable<ITestCase> testCases, IMessageSink executionMessageSink,
             ITestFrameworkExecutionOptions executionOptions)
         {
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version?.ToString());
             executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
             executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
                 Options.IntegrationTestsMayUseAlreadyRunningNode);
@@ -83,7 +83,7 @@ namespace OpenSearch.OpenSearch.Xunit.Sdk
         protected override async void RunTestCases(IEnumerable<IXunitTestCase> testCases, IMessageSink sink,
             ITestFrameworkExecutionOptions options)
         {
-            options.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+            options.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version?.ToString());
             options.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
             options.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
                 Options.IntegrationTestsMayUseAlreadyRunningNode);

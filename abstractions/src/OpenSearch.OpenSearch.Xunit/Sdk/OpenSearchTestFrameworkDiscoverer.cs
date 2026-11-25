@@ -52,7 +52,7 @@ namespace OpenSearch.OpenSearch.Xunit.Sdk
         protected override bool FindTestsForType(ITestClass testClass, bool includeSourceInformation,
             IMessageBus messageBus, ITestFrameworkDiscoveryOptions discoveryOptions)
         {
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version?.ToString());
             discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
             discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
                 Options.IntegrationTestsMayUseAlreadyRunningNode);

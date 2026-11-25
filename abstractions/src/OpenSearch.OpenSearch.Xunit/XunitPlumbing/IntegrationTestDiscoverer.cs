@@ -91,8 +91,8 @@ public class IntegrationTestDiscoverer : OpenSearchTestCaseDiscoverer
             return true;
         }
 
-        var openSearchVersion =
-            discoveryOptions.GetValue<OpenSearchVersion>(nameof(OpenSearchXunitRunOptions.Version));
+        OpenSearchVersion openSearchVersion =
+            discoveryOptions.GetValue<string>(nameof(OpenSearchXunitRunOptions.Version));
 
         // Skip if the version we are testing against is attributed to be skipped do not run the test nameof(SkipVersionAttribute.Ranges)
         var skipVersionAttribute = GetAttributes<SkipVersionAttribute>(testMethod).FirstOrDefault();

@@ -192,7 +192,7 @@ namespace OpenSearch.Client
                     writer.WriteNumberValue(i);
                     break;
                 case double d:
-                    writer.WriteNumberValue(d);
+                    JsonSerializer.Serialize(writer, d, options);
                     break;
                 case JsonElement e:
                     e.WriteTo(writer);

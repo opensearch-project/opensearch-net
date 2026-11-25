@@ -56,11 +56,15 @@ namespace Tests.OpenSearch.Net.Serialization
         }
 
         [U]
-        public void NegativeZero_NormalizedToPositive()
+        public void FloatingPointZeros_PreserveTheirSignAndFractionalForm()
         {
-            // The legacy Grisu formatter emitted "0.0" for -0.0; double.ToString("R") keeps the sign bit ("-0.0").
-            Serialize<double>(-0.0).Should().Be("0.0");
-            Serialize<float>(-0.0f).Should().Be("0.0");
+            // OpenSearch distinguishes floating-point negative zero from positive and integer zero.
+            Serialize<double>(-0.0).Should().Be("-0.0");
+            Serialize<float>(-0.0f).Should().Be("-0.0");
+            Serialize<double?>(-0.0).Should().Be("-0.0");
+            Serialize<float?>(-0.0f).Should().Be("-0.0");
+            Serialize<double>(0.0).Should().Be("0.0");
+            Serialize<float>(0.0f).Should().Be("0.0");
         }
 
         [U]
