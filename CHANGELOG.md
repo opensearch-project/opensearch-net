@@ -11,8 +11,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added `HttpConnection.CreateDefaultHttpMessageHandler(settings)` to build the default `HttpMessageHandler` for connection settings, returning `SocketsHttpHandler` on .NET Core 2.1+ and `HttpClientHandler` otherwise. The default `HttpConnection` still uses `HttpClientHandler` ([#1087](https://github.com/opensearch-project/opensearch-net/pull/1087))
 ### Removed
 ### Fixed
-- Preserve floating-point negative zero in typed term, terms and numeric range queries with both serializers ([#1115](https://github.com/opensearch-project/opensearch-net/issues/1115))
-- Pass the OpenSearch version as a string in xUnit framework options so the current adapter can discover and run the tests
+- Preserve floating-point negative zero in typed term, terms and numeric range queries with both serializers ([#1116](https://github.com/opensearch-project/opensearch-net/pull/1116))
+- Pass the OpenSearch version as a string in xUnit framework options so the current adapter can discover and run the tests ([#1116](https://github.com/opensearch-project/opensearch-net/pull/1116))
 - Fixed `OpenSearch.Net.Auth.AwsSigV4` throwing `MissingMethodException` on AWSSDK.Core 4.1.x by calling `AWSSDKUtils.CompressSpaces(string, bool)` explicitly ([#1110](https://github.com/opensearch-project/opensearch-net/pull/1110))
 ### Dependencies
 
