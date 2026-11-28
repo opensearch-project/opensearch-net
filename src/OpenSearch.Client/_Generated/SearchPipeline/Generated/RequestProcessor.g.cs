@@ -149,11 +149,8 @@ namespace OpenSearch.Client
         public FilterQueryRequestProcessorDescriptor Query(
             Func<QueryContainerDescriptor<object>, QueryContainer> selector
         ) =>
-            Assign(
-                selector,
-                (a, val) =>
-                    a.Query =
-                        selector != null ? selector(new QueryContainerDescriptor<object>()) : null
+            Assign(selector, (a, val) =>
+                a.Query = selector != null ? selector(new QueryContainerDescriptor<object>()) : null
             );
 
         public FilterQueryRequestProcessorDescriptor Tag(string tag) =>
@@ -446,21 +443,16 @@ namespace OpenSearch.Client
                 IAgenticQueryTranslatorRequestProcessor
             > selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(
-                        sel?.Invoke(new AgenticQueryTranslatorRequestProcessorDescriptor())
-                    )
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new AgenticQueryTranslatorRequestProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="IFilterQueryRequestProcessor" />
         public RequestProcessorsDescriptor FilterQuery(
             Func<FilterQueryRequestProcessorDescriptor, IFilterQueryRequestProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new FilterQueryRequestProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new FilterQueryRequestProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="INeuralQueryEnricherRequestProcessor" />
@@ -470,38 +462,32 @@ namespace OpenSearch.Client
                 INeuralQueryEnricherRequestProcessor
             > selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new NeuralQueryEnricherRequestProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new NeuralQueryEnricherRequestProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="ISearchScriptRequestProcessor" />
         public RequestProcessorsDescriptor Script(
             Func<SearchScriptRequestProcessorDescriptor, ISearchScriptRequestProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new SearchScriptRequestProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new SearchScriptRequestProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="IOversampleRequestProcessor" />
         public RequestProcessorsDescriptor Oversample(
             Func<OversampleRequestProcessorDescriptor, IOversampleRequestProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new OversampleRequestProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new OversampleRequestProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="IMLInferenceRequestProcessor" />
         public RequestProcessorsDescriptor MlInference(
             Func<MLInferenceRequestProcessorDescriptor, IMLInferenceRequestProcessor> selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new MLInferenceRequestProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new MLInferenceRequestProcessorDescriptor()))
             );
     }
 }
