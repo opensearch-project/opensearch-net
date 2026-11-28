@@ -271,7 +271,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             );
 
         /// <summary>POST on /_plugins/_ism/explain <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
-        /// <param name="body"></param>
+        /// <param name="body">The filter for the managed indexes. Only read by &lt;c&gt;POST&lt;/c&gt; requests, which require a body.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ExplainPolicy<TResponse>(
             PostData body,
@@ -286,7 +286,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             );
 
         /// <summary>POST on /_plugins/_ism/explain <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
-        /// <param name="body"></param>
+        /// <param name="body">The filter for the managed indexes. Only read by &lt;c&gt;POST&lt;/c&gt; requests, which require a body.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.explain_policy", "body")]
         public Task<TResponse> ExplainPolicyAsync<TResponse>(
@@ -305,7 +305,7 @@ namespace OpenSearch.Net.Specification.IsmApi
 
         /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
-        /// <param name="body"></param>
+        /// <param name="body">The filter for the managed indexes. Only read by &lt;c&gt;POST&lt;/c&gt; requests, which require a body.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ExplainPolicy<TResponse>(
             string index,
@@ -322,7 +322,7 @@ namespace OpenSearch.Net.Specification.IsmApi
 
         /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
-        /// <param name="body"></param>
+        /// <param name="body">The filter for the managed indexes. Only read by &lt;c&gt;POST&lt;/c&gt; requests, which require a body.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.explain_policy", "index, body")]
         public Task<TResponse> ExplainPolicyAsync<TResponse>(

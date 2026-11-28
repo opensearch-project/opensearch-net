@@ -59,14 +59,19 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override bool SupportsBody => true;
         public override string OperationName => "ism.add_policy";
 
-        /// <summary>
-        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
-        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
-        /// </summary>
+        /// <summary>Comma-separated list of indexes. Required when no index is given in the path; ignored when it is.</summary>
         public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
+        }
+
+        /// <summary>The type of the index metadata provider.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
         }
     }
 
@@ -78,14 +83,19 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override bool SupportsBody => true;
         public override string OperationName => "ism.change_policy";
 
-        /// <summary>
-        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
-        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
-        /// </summary>
+        /// <summary>Comma-separated list of indexes. Required when no index is given in the path; ignored when it is.</summary>
         public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
+        }
+
+        /// <summary>The type of the index metadata provider.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
         }
     }
 
@@ -96,6 +106,13 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
         public override string OperationName => "ism.delete_policy";
+
+        /// <summary>Whether to refresh the affected shards to make this operation visible to search. Default is <c>true</c>.</summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
     }
 
     /// <summary>Request options for ExistsPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
@@ -114,6 +131,90 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
         public override string OperationName => "ism.explain_policy";
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.3.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>The starting index of the managed indexes to return.</summary>
+        public int? From
+        {
+            get => Q<int?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.3.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>A query string that filters the managed indexes.</summary>
+        public string QueryStringParam
+        {
+            get => Q<string>("queryString");
+            set => Q("queryString", value);
+        }
+
+        /// <summary>Whether to include the policy of each managed index in the response.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public bool? ShowPolicy
+        {
+            get => Q<bool?>("show_policy");
+            set => Q("show_policy", value);
+        }
+
+        /// <summary>The number of managed indexes to return.</summary>
+        public int? Size
+        {
+            get => Q<int?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>The field to sort the managed indexes by.</summary>
+        public string SortField
+        {
+            get => Q<string>("sortField");
+            set => Q("sortField", value);
+        }
+
+        /// <summary>The sort order of the managed indexes.</summary>
+        public SortOrder? SortOrder
+        {
+            get => Q<SortOrder?>("sortOrder");
+            set => Q("sortOrder", value);
+        }
+
+        /// <summary>The type of the index metadata provider.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
+        }
+
+        /// <summary>Whether to include the validation result of the current action of each managed index in the response.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public bool? ValidateAction
+        {
+            get => Q<bool?>("validate_action");
+            set => Q("validate_action", value);
+        }
     }
 
     /// <summary>Request options for GetPolicies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
@@ -123,6 +224,41 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
         public override string OperationName => "ism.get_policies";
+
+        /// <summary>The starting index of the policies to return.</summary>
+        public int? From
+        {
+            get => Q<int?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>A query string that filters the policies.</summary>
+        public string QueryStringParam
+        {
+            get => Q<string>("queryString");
+            set => Q("queryString", value);
+        }
+
+        /// <summary>The number of policies to return.</summary>
+        public int? Size
+        {
+            get => Q<int?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>The field to sort the policies by.</summary>
+        public string SortField
+        {
+            get => Q<string>("sortField");
+            set => Q("sortField", value);
+        }
+
+        /// <summary>The sort order of the policies.</summary>
+        public SortOrder? SortOrder
+        {
+            get => Q<SortOrder?>("sortOrder");
+            set => Q("sortOrder", value);
+        }
     }
 
     /// <summary>Request options for GetPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
@@ -142,9 +278,9 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.put_policies";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
-        public double? IfPrimaryTerm
+        public long? IfPrimaryTerm
         {
-            get => Q<double?>("if_primary_term");
+            get => Q<long?>("if_primary_term");
             set => Q("if_primary_term", value);
         }
 
@@ -159,6 +295,13 @@ namespace OpenSearch.Net.Specification.IsmApi
             get => Q<string>("policyID");
             set => Q("policyID", value);
         }
+
+        /// <summary>Whether to refresh the affected shards to make this operation visible to search. Default is <c>true</c>.</summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
     }
 
     /// <summary>Request options for PutPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
@@ -169,9 +312,9 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.put_policy";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
-        public double? IfPrimaryTerm
+        public long? IfPrimaryTerm
         {
-            get => Q<double?>("if_primary_term");
+            get => Q<long?>("if_primary_term");
             set => Q("if_primary_term", value);
         }
 
@@ -180,6 +323,13 @@ namespace OpenSearch.Net.Specification.IsmApi
         {
             get => Q<long?>("if_seq_no");
             set => Q("if_seq_no", value);
+        }
+
+        /// <summary>Whether to refresh the affected shards to make this operation visible to search. Default is <c>true</c>.</summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
         }
     }
 
@@ -200,14 +350,19 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override bool SupportsBody => false;
         public override string OperationName => "ism.remove_policy";
 
-        /// <summary>
-        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
-        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
-        /// </summary>
+        /// <summary>Comma-separated list of indexes. Required when no index is given in the path; ignored when it is.</summary>
         public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
+        }
+
+        /// <summary>The type of the index metadata provider.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
         }
     }
 
@@ -219,14 +374,37 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override bool SupportsBody => true;
         public override string OperationName => "ism.retry_index";
 
-        /// <summary>
-        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
-        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
-        /// </summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.3.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of indexes. Required when no index is given in the path; ignored when it is.</summary>
         public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.3.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>The type of the index metadata provider.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
         }
     }
 }

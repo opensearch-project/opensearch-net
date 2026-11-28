@@ -249,6 +249,12 @@ namespace OpenSearch.Client
         Id IGetExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
 
         // Request parameters
+        /// <summary>A query text for visualizing experiment results. Accepted but currently does not change the response.</summary>
+        public string QueryText
+        {
+            get => Q<string>("query_text");
+            set => Q("query_text", value);
+        }
     }
 
     [InterfaceDataContract]
@@ -325,38 +331,45 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>Requests flattened stat paths as keys.</summary>
-        public string FlatStatPaths
+        public bool? FlatStatPaths
         {
-            get => Q<string>("flat_stat_paths");
+            get => Q<bool?>("flat_stat_paths");
             set => Q("flat_stat_paths", value);
         }
 
         /// <summary>Whether to include all nodes.</summary>
-        public string IncludeAllNodes
+        public bool? IncludeAllNodes
         {
-            get => Q<string>("include_all_nodes");
+            get => Q<bool?>("include_all_nodes");
             set => Q("include_all_nodes", value);
         }
 
         /// <summary>Whether to include individual nodes.</summary>
-        public string IncludeIndividualNodes
+        public bool? IncludeIndividualNodes
         {
-            get => Q<string>("include_individual_nodes");
+            get => Q<bool?>("include_individual_nodes");
             set => Q("include_individual_nodes", value);
         }
 
         /// <summary>Whether to include info.</summary>
-        public string IncludeInfo
+        public bool? IncludeInfo
         {
-            get => Q<string>("include_info");
+            get => Q<bool?>("include_info");
             set => Q("include_info", value);
         }
 
         /// <summary>Whether to include metadata.</summary>
-        public string IncludeMetadata
+        public bool? IncludeMetadata
         {
-            get => Q<string>("include_metadata");
+            get => Q<bool?>("include_metadata");
             set => Q("include_metadata", value);
+        }
+
+        /// <summary>The amount of time to wait for a response.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
         }
     }
 
@@ -487,38 +500,45 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>Requests flattened stat paths as keys.</summary>
-        public string FlatStatPaths
+        public bool? FlatStatPaths
         {
-            get => Q<string>("flat_stat_paths");
+            get => Q<bool?>("flat_stat_paths");
             set => Q("flat_stat_paths", value);
         }
 
         /// <summary>Whether to include all nodes.</summary>
-        public string IncludeAllNodes
+        public bool? IncludeAllNodes
         {
-            get => Q<string>("include_all_nodes");
+            get => Q<bool?>("include_all_nodes");
             set => Q("include_all_nodes", value);
         }
 
         /// <summary>Whether to include individual nodes.</summary>
-        public string IncludeIndividualNodes
+        public bool? IncludeIndividualNodes
         {
-            get => Q<string>("include_individual_nodes");
+            get => Q<bool?>("include_individual_nodes");
             set => Q("include_individual_nodes", value);
         }
 
         /// <summary>Whether to include info.</summary>
-        public string IncludeInfo
+        public bool? IncludeInfo
         {
-            get => Q<string>("include_info");
+            get => Q<bool?>("include_info");
             set => Q("include_info", value);
         }
 
         /// <summary>Whether to include metadata.</summary>
-        public string IncludeMetadata
+        public bool? IncludeMetadata
         {
-            get => Q<string>("include_metadata");
+            get => Q<bool?>("include_metadata");
             set => Q("include_metadata", value);
+        }
+
+        /// <summary>The amount of time to wait for a response.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
         }
     }
 
@@ -534,6 +554,38 @@ namespace OpenSearch.Client
         protected IJudgmentsSearchRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceJudgmentsSearch;
         // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IPatchExperimentRequest : IRequest<PatchExperimentRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id ExperimentId { get; }
+    }
+
+    /// <summary>Request for PatchExperiment</summary>
+    public partial class PatchExperimentRequest
+        : PlainRequestBase<PatchExperimentRequestParameters>,
+            IPatchExperimentRequest
+    {
+        protected IPatchExperimentRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePatchExperiment;
+
+        /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">this parameter is required</param>
+        public PatchExperimentRequest(Id experimentId)
+            : base(r => r.Required("experiment_id", experimentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PatchExperimentRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IPatchExperimentRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
 
         // Request parameters
     }
@@ -647,6 +699,38 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IRetryJudgmentsRequest : IRequest<RetryJudgmentsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id JudgmentId { get; }
+    }
+
+    /// <summary>Request for RetryJudgments</summary>
+    public partial class RetryJudgmentsRequest
+        : PlainRequestBase<RetryJudgmentsRequestParameters>,
+            IRetryJudgmentsRequest
+    {
+        protected IRetryJudgmentsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceRetryJudgments;
+
+        /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}/_retry</summary>
+        /// <param name="judgmentId">this parameter is required</param>
+        public RetryJudgmentsRequest(Id judgmentId)
+            : base(r => r.Required("judgment_id", judgmentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected RetryJudgmentsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IRetryJudgmentsRequest.JudgmentId => Self.RouteValues.Get<Id>("judgment_id");
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
     public partial interface ISearchConfigurationsSearchRequest
         : IRequest<SearchConfigurationsSearchRequestParameters> { }
 
@@ -659,6 +743,72 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls =>
             ApiUrlsLookups.SearchRelevanceSearchConfigurationsSearch;
         // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IUpdateJudgmentRatingsRequest
+        : IRequest<UpdateJudgmentRatingsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id JudgmentId { get; }
+    }
+
+    /// <summary>Request for UpdateJudgmentRatings</summary>
+    public partial class UpdateJudgmentRatingsRequest
+        : PlainRequestBase<UpdateJudgmentRatingsRequestParameters>,
+            IUpdateJudgmentRatingsRequest
+    {
+        protected IUpdateJudgmentRatingsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceUpdateJudgmentRatings;
+
+        /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}</summary>
+        /// <param name="judgmentId">this parameter is required</param>
+        public UpdateJudgmentRatingsRequest(Id judgmentId)
+            : base(r => r.Required("judgment_id", judgmentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected UpdateJudgmentRatingsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IUpdateJudgmentRatingsRequest.JudgmentId => Self.RouteValues.Get<Id>("judgment_id");
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IValidateExperimentsRequest
+        : IRequest<ValidateExperimentsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id ExperimentId { get; }
+    }
+
+    /// <summary>Request for ValidateExperiments</summary>
+    public partial class ValidateExperimentsRequest
+        : PlainRequestBase<ValidateExperimentsRequestParameters>,
+            IValidateExperimentsRequest
+    {
+        protected IValidateExperimentsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceValidateExperiments;
+
+        /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}/validate</summary>
+        /// <param name="experimentId">this parameter is required</param>
+        public ValidateExperimentsRequest(Id experimentId)
+            : base(r => r.Required("experiment_id", experimentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ValidateExperimentsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IValidateExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
 
         // Request parameters
     }

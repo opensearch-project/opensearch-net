@@ -632,6 +632,48 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         );
 
         /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        PatchExperimentResponse PatchExperiment(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        Task<PatchExperimentResponse> PatchExperimentAsync(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        PatchExperimentResponse PatchExperiment(IPatchExperimentRequest request);
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        Task<PatchExperimentResponse> PatchExperimentAsync(
+            IPatchExperimentRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_query_sets</c> API, read more about this API online:
         /// <para></para>
         /// <a></a>
@@ -919,6 +961,48 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         );
 
         /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        RetryJudgmentsResponse RetryJudgments(
+            Id judgmentId,
+            Func<RetryJudgmentsDescriptor, IRetryJudgmentsRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        Task<RetryJudgmentsResponse> RetryJudgmentsAsync(
+            Id judgmentId,
+            Func<RetryJudgmentsDescriptor, IRetryJudgmentsRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        RetryJudgmentsResponse RetryJudgments(IRetryJudgmentsRequest request);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        Task<RetryJudgmentsResponse> RetryJudgmentsAsync(
+            IRetryJudgmentsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.search_configurations_search</c> API, read more about this API online:
         /// <para></para>
         /// <a></a>
@@ -963,6 +1047,90 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         Task<SearchConfigurationsSearchResponse> SearchConfigurationsSearchAsync(
             ISearchConfigurationsSearchRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        UpdateJudgmentRatingsResponse UpdateJudgmentRatings(
+            Id judgmentId,
+            Func<UpdateJudgmentRatingsDescriptor, IUpdateJudgmentRatingsRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        Task<UpdateJudgmentRatingsResponse> UpdateJudgmentRatingsAsync(
+            Id judgmentId,
+            Func<UpdateJudgmentRatingsDescriptor, IUpdateJudgmentRatingsRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        UpdateJudgmentRatingsResponse UpdateJudgmentRatings(IUpdateJudgmentRatingsRequest request);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        Task<UpdateJudgmentRatingsResponse> UpdateJudgmentRatingsAsync(
+            IUpdateJudgmentRatingsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        ValidateExperimentsResponse ValidateExperiments(
+            Id experimentId,
+            Func<ValidateExperimentsDescriptor, IValidateExperimentsRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        Task<ValidateExperimentsResponse> ValidateExperimentsAsync(
+            Id experimentId,
+            Func<ValidateExperimentsDescriptor, IValidateExperimentsRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        ValidateExperimentsResponse ValidateExperiments(IValidateExperimentsRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        Task<ValidateExperimentsResponse> ValidateExperimentsAsync(
+            IValidateExperimentsRequest request,
             CancellationToken ct = default
         );
     }
@@ -1770,6 +1938,64 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             );
 
         /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public PatchExperimentResponse PatchExperiment(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null
+        ) =>
+            PatchExperiment(
+                selector.InvokeOrDefault(new PatchExperimentDescriptor(experimentId: experimentId))
+            );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public Task<PatchExperimentResponse> PatchExperimentAsync(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            PatchExperimentAsync(
+                selector.InvokeOrDefault(new PatchExperimentDescriptor(experimentId: experimentId)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public PatchExperimentResponse PatchExperiment(IPatchExperimentRequest request) =>
+            DoRequest<IPatchExperimentRequest, PatchExperimentResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public Task<PatchExperimentResponse> PatchExperimentAsync(
+            IPatchExperimentRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IPatchExperimentRequest, PatchExperimentResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_query_sets</c> API, read more about this API online:
         /// <para></para>
         /// <a></a>
@@ -2134,6 +2360,64 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             );
 
         /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public RetryJudgmentsResponse RetryJudgments(
+            Id judgmentId,
+            Func<RetryJudgmentsDescriptor, IRetryJudgmentsRequest> selector = null
+        ) =>
+            RetryJudgments(
+                selector.InvokeOrDefault(new RetryJudgmentsDescriptor(judgmentId: judgmentId))
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public Task<RetryJudgmentsResponse> RetryJudgmentsAsync(
+            Id judgmentId,
+            Func<RetryJudgmentsDescriptor, IRetryJudgmentsRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            RetryJudgmentsAsync(
+                selector.InvokeOrDefault(new RetryJudgmentsDescriptor(judgmentId: judgmentId)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public RetryJudgmentsResponse RetryJudgments(IRetryJudgmentsRequest request) =>
+            DoRequest<IRetryJudgmentsRequest, RetryJudgmentsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>search_relevance.retry_judgments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public Task<RetryJudgmentsResponse> RetryJudgmentsAsync(
+            IRetryJudgmentsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IRetryJudgmentsRequest, RetryJudgmentsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.search_configurations_search</c> API, read more about this API online:
         /// <para></para>
         /// <a></a>
@@ -2192,6 +2476,134 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             CancellationToken ct = default
         ) =>
             DoRequestAsync<ISearchConfigurationsSearchRequest, SearchConfigurationsSearchResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public UpdateJudgmentRatingsResponse UpdateJudgmentRatings(
+            Id judgmentId,
+            Func<UpdateJudgmentRatingsDescriptor, IUpdateJudgmentRatingsRequest> selector = null
+        ) =>
+            UpdateJudgmentRatings(
+                selector.InvokeOrDefault(
+                    new UpdateJudgmentRatingsDescriptor(judgmentId: judgmentId)
+                )
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public Task<UpdateJudgmentRatingsResponse> UpdateJudgmentRatingsAsync(
+            Id judgmentId,
+            Func<UpdateJudgmentRatingsDescriptor, IUpdateJudgmentRatingsRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            UpdateJudgmentRatingsAsync(
+                selector.InvokeOrDefault(
+                    new UpdateJudgmentRatingsDescriptor(judgmentId: judgmentId)
+                ),
+                ct
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public UpdateJudgmentRatingsResponse UpdateJudgmentRatings(
+            IUpdateJudgmentRatingsRequest request
+        ) =>
+            DoRequest<IUpdateJudgmentRatingsRequest, UpdateJudgmentRatingsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>search_relevance.update_judgment_ratings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public Task<UpdateJudgmentRatingsResponse> UpdateJudgmentRatingsAsync(
+            IUpdateJudgmentRatingsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IUpdateJudgmentRatingsRequest, UpdateJudgmentRatingsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        public ValidateExperimentsResponse ValidateExperiments(
+            Id experimentId,
+            Func<ValidateExperimentsDescriptor, IValidateExperimentsRequest> selector = null
+        ) =>
+            ValidateExperiments(
+                selector.InvokeOrDefault(
+                    new ValidateExperimentsDescriptor(experimentId: experimentId)
+                )
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        public Task<ValidateExperimentsResponse> ValidateExperimentsAsync(
+            Id experimentId,
+            Func<ValidateExperimentsDescriptor, IValidateExperimentsRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            ValidateExperimentsAsync(
+                selector.InvokeOrDefault(
+                    new ValidateExperimentsDescriptor(experimentId: experimentId)
+                ),
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        public ValidateExperimentsResponse ValidateExperiments(
+            IValidateExperimentsRequest request
+        ) =>
+            DoRequest<IValidateExperimentsRequest, ValidateExperimentsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>search_relevance.validate_experiments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        public Task<ValidateExperimentsResponse> ValidateExperimentsAsync(
+            IValidateExperimentsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IValidateExperimentsRequest, ValidateExperimentsResponse>(
                 request,
                 request.RequestParameters,
                 ct

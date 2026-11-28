@@ -31,14 +31,8 @@ namespace OpenSearch.Client
     [ReadAs(typeof(PutImportJudgmentsRequest))]
     public interface IPutImportJudgmentsRequest
     {
-        [DataMember(Name = "description")]
-        string Description { get; set; }
-
         [DataMember(Name = "judgmentRatings")]
         IList<IDictionary<string, object>> JudgmentRatings { get; set; }
-
-        [DataMember(Name = "name")]
-        string Name { get; set; }
 
         [DataMember(Name = "type")]
         string Type { get; set; }
@@ -46,9 +40,7 @@ namespace OpenSearch.Client
 
     public class PutImportJudgmentsRequest : IPutImportJudgmentsRequest
     {
-        public string Description { get; set; }
         public IList<IDictionary<string, object>> JudgmentRatings { get; set; }
-        public string Name { get; set; }
         public string Type { get; set; }
     }
 
@@ -56,20 +48,12 @@ namespace OpenSearch.Client
         : DescriptorBase<PutImportJudgmentsRequestDescriptor, IPutImportJudgmentsRequest>,
             IPutImportJudgmentsRequest
     {
-        string IPutImportJudgmentsRequest.Description { get; set; }
         IList<IDictionary<string, object>> IPutImportJudgmentsRequest.JudgmentRatings { get; set; }
-        string IPutImportJudgmentsRequest.Name { get; set; }
         string IPutImportJudgmentsRequest.Type { get; set; }
-
-        public PutImportJudgmentsRequestDescriptor Description(string description) =>
-            Assign(description, (a, v) => a.Description = v);
 
         public PutImportJudgmentsRequestDescriptor JudgmentRatings(
             IList<IDictionary<string, object>> judgmentRatings
         ) => Assign(judgmentRatings, (a, v) => a.JudgmentRatings = v);
-
-        public PutImportJudgmentsRequestDescriptor Name(string name) =>
-            Assign(name, (a, v) => a.Name = v);
 
         public PutImportJudgmentsRequestDescriptor Type(string type) =>
             Assign(type, (a, v) => a.Type = v);

@@ -34,26 +34,30 @@ namespace OpenSearch.Client
         [DataMember(Name = "clickModel")]
         string ClickModel { get; set; }
 
-        [DataMember(Name = "description")]
-        string Description { get; set; }
+        [DataMember(Name = "endDate")]
+        string EndDate { get; set; }
 
         [DataMember(Name = "maxRank")]
         int? MaxRank { get; set; }
 
-        [DataMember(Name = "name")]
-        string Name { get; set; }
+        [DataMember(Name = "startDate")]
+        string StartDate { get; set; }
 
         [DataMember(Name = "type")]
         string Type { get; set; }
+
+        [DataMember(Name = "ubiEventsIndex")]
+        string UbiEventsIndex { get; set; }
     }
 
     public class PutUBIJudgmentsRequest : IPutUBIJudgmentsRequest
     {
         public string ClickModel { get; set; }
-        public string Description { get; set; }
+        public string EndDate { get; set; }
         public int? MaxRank { get; set; }
-        public string Name { get; set; }
+        public string StartDate { get; set; }
         public string Type { get; set; }
+        public string UbiEventsIndex { get; set; }
     }
 
     public class PutUBIJudgmentsRequestDescriptor
@@ -61,24 +65,28 @@ namespace OpenSearch.Client
             IPutUBIJudgmentsRequest
     {
         string IPutUBIJudgmentsRequest.ClickModel { get; set; }
-        string IPutUBIJudgmentsRequest.Description { get; set; }
+        string IPutUBIJudgmentsRequest.EndDate { get; set; }
         int? IPutUBIJudgmentsRequest.MaxRank { get; set; }
-        string IPutUBIJudgmentsRequest.Name { get; set; }
+        string IPutUBIJudgmentsRequest.StartDate { get; set; }
         string IPutUBIJudgmentsRequest.Type { get; set; }
+        string IPutUBIJudgmentsRequest.UbiEventsIndex { get; set; }
 
         public PutUBIJudgmentsRequestDescriptor ClickModel(string clickModel) =>
             Assign(clickModel, (a, v) => a.ClickModel = v);
 
-        public PutUBIJudgmentsRequestDescriptor Description(string description) =>
-            Assign(description, (a, v) => a.Description = v);
+        public PutUBIJudgmentsRequestDescriptor EndDate(string endDate) =>
+            Assign(endDate, (a, v) => a.EndDate = v);
 
         public PutUBIJudgmentsRequestDescriptor MaxRank(int? maxRank) =>
             Assign(maxRank, (a, v) => a.MaxRank = v);
 
-        public PutUBIJudgmentsRequestDescriptor Name(string name) =>
-            Assign(name, (a, v) => a.Name = v);
+        public PutUBIJudgmentsRequestDescriptor StartDate(string startDate) =>
+            Assign(startDate, (a, v) => a.StartDate = v);
 
         public PutUBIJudgmentsRequestDescriptor Type(string type) =>
             Assign(type, (a, v) => a.Type = v);
+
+        public PutUBIJudgmentsRequestDescriptor UbiEventsIndex(string ubiEventsIndex) =>
+            Assign(ubiEventsIndex, (a, v) => a.UbiEventsIndex = v);
     }
 }

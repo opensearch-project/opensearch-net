@@ -452,7 +452,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
 
         /// <summary>GET on /_plugins/_search_relevance/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">The node id.</param>
-        /// <param name="stat">The statistic to return.</param>
+        /// <param name="stat">A comma-separated list of statistics to return. Valid values: &lt;c&gt;cluster_version&lt;/c&gt;, &lt;c&gt;import_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;llm_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;ubi_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;experiment_executions&lt;/c&gt;, &lt;c&gt;experiment_pairwise_comparison_executions&lt;/c&gt;, &lt;c&gt;experiment_pointwise_evaluation_executions&lt;/c&gt;, &lt;c&gt;experiment_hybrid_optimizer_executions&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse GetNodeStats<TResponse>(
@@ -470,7 +470,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
 
         /// <summary>GET on /_plugins/_search_relevance/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">The node id.</param>
-        /// <param name="stat">The statistic to return.</param>
+        /// <param name="stat">A comma-separated list of statistics to return. Valid values: &lt;c&gt;cluster_version&lt;/c&gt;, &lt;c&gt;import_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;llm_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;ubi_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;experiment_executions&lt;/c&gt;, &lt;c&gt;experiment_pairwise_comparison_executions&lt;/c&gt;, &lt;c&gt;experiment_pointwise_evaluation_executions&lt;/c&gt;, &lt;c&gt;experiment_hybrid_optimizer_executions&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.get_node_stats", "node_id, stat")]
@@ -721,7 +721,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             );
 
         /// <summary>GET on /_plugins/_search_relevance/stats/{stat}</summary>
-        /// <param name="stat">The statistic to return.</param>
+        /// <param name="stat">A comma-separated list of statistics to return. Valid values: &lt;c&gt;cluster_version&lt;/c&gt;, &lt;c&gt;import_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;llm_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;ubi_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;experiment_executions&lt;/c&gt;, &lt;c&gt;experiment_pairwise_comparison_executions&lt;/c&gt;, &lt;c&gt;experiment_pointwise_evaluation_executions&lt;/c&gt;, &lt;c&gt;experiment_hybrid_optimizer_executions&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse GetStats<TResponse>(
@@ -737,7 +737,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             );
 
         /// <summary>GET on /_plugins/_search_relevance/stats/{stat}</summary>
-        /// <param name="stat">The statistic to return.</param>
+        /// <param name="stat">A comma-separated list of statistics to return. Valid values: &lt;c&gt;cluster_version&lt;/c&gt;, &lt;c&gt;import_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;llm_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;ubi_judgment_rating_generations&lt;/c&gt;, &lt;c&gt;experiment_executions&lt;/c&gt;, &lt;c&gt;experiment_pairwise_comparison_executions&lt;/c&gt;, &lt;c&gt;experiment_pointwise_evaluation_executions&lt;/c&gt;, &lt;c&gt;experiment_hybrid_optimizer_executions&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.get_stats", "stat")]
@@ -785,6 +785,45 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             DoRequestAsync<TResponse>(
                 POST,
                 "_plugins/_search_relevance/judgments/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PATCH on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="body">Partially updates an experiment&#x27;s name or description.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public TResponse PatchExperiment<TResponse>(
+            string experimentId,
+            PostData body,
+            PatchExperimentRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PATCH,
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PATCH on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="body">Partially updates an experiment&#x27;s name or description.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        [MapsApi("search_relevance.patch_experiment", "experiment_id, body")]
+        public Task<TResponse> PatchExperimentAsync<TResponse>(
+            string experimentId,
+            PostData body,
+            PatchExperimentRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PATCH,
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
                 ctx,
                 body,
                 RequestParams(requestParameters)
@@ -1035,6 +1074,41 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_search_relevance/judgments/{judgment_id}/_retry</summary>
+        /// <param name="judgmentId">The judgment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public TResponse RetryJudgments<TResponse>(
+            string judgmentId,
+            RetryJudgmentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}/_retry"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/judgments/{judgment_id}/_retry</summary>
+        /// <param name="judgmentId">The judgment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        [MapsApi("search_relevance.retry_judgments", "judgment_id")]
+        public Task<TResponse> RetryJudgmentsAsync<TResponse>(
+            string judgmentId,
+            RetryJudgmentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}/_retry"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_search_relevance/search_configurations/_search</summary>
         /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1067,6 +1141,80 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
                 "_plugins/_search_relevance/search_configurations/_search",
                 ctx,
                 body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_search_relevance/judgments/{judgment_id}</summary>
+        /// <param name="judgmentId">The judgment id.</param>
+        /// <param name="body">The schema for adjusting ratings on an existing LLM judgment in place.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        public TResponse UpdateJudgmentRatings<TResponse>(
+            string judgmentId,
+            PostData body,
+            UpdateJudgmentRatingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_search_relevance/judgments/{judgment_id}</summary>
+        /// <param name="judgmentId">The judgment id.</param>
+        /// <param name="body">The schema for adjusting ratings on an existing LLM judgment in place.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.9.0 or greater.</remarks>
+        [MapsApi("search_relevance.update_judgment_ratings", "judgment_id, body")]
+        public Task<TResponse> UpdateJudgmentRatingsAsync<TResponse>(
+            string judgmentId,
+            PostData body,
+            UpdateJudgmentRatingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/{experiment_id}/validate</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        public TResponse ValidateExperiments<TResponse>(
+            string experimentId,
+            ValidateExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}/validate"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/{experiment_id}/validate</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.8.0 or greater.</remarks>
+        [MapsApi("search_relevance.validate_experiments", "experiment_id")]
+        public Task<TResponse> ValidateExperimentsAsync<TResponse>(
+            string experimentId,
+            ValidateExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}/validate"),
+                ctx,
+                null,
                 RequestParams(requestParameters)
             );
     }

@@ -61,6 +61,15 @@ namespace OpenSearch.Net.Specification.WlmApi
         public override string OperationName => "wlm.create_query_group";
     }
 
+    /// <summary>Request options for CreateWorkloadGroup</summary>
+    public partial class CreateWorkloadGroupRequestParameters
+        : RequestParameters<CreateWorkloadGroupRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "wlm.create_workload_group";
+    }
+
     /// <summary>Request options for DeleteQueryGroup</summary>
     public partial class DeleteQueryGroupRequestParameters
         : RequestParameters<DeleteQueryGroupRequestParameters>
@@ -68,6 +77,15 @@ namespace OpenSearch.Net.Specification.WlmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
         public override string OperationName => "wlm.delete_query_group";
+    }
+
+    /// <summary>Request options for DeleteWorkloadGroup</summary>
+    public partial class DeleteWorkloadGroupRequestParameters
+        : RequestParameters<DeleteWorkloadGroupRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+        public override string OperationName => "wlm.delete_workload_group";
     }
 
     /// <summary>Request options for GetQueryGroup</summary>
@@ -79,6 +97,30 @@ namespace OpenSearch.Net.Specification.WlmApi
         public override string OperationName => "wlm.get_query_group";
     }
 
+    /// <summary>Request options for GetWorkloadGroup</summary>
+    public partial class GetWorkloadGroupRequestParameters
+        : RequestParameters<GetWorkloadGroupRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "wlm.get_workload_group";
+    }
+
+    /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+    public partial class StatsRequestParameters : RequestParameters<StatsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "wlm.stats";
+
+        /// <summary>When <c>true</c>, returns only workload groups that have breached their resource limits.</summary>
+        public bool? Breach
+        {
+            get => Q<bool?>("breach");
+            set => Q("breach", value);
+        }
+    }
+
     /// <summary>Request options for UpdateQueryGroup</summary>
     public partial class UpdateQueryGroupRequestParameters
         : RequestParameters<UpdateQueryGroupRequestParameters>
@@ -86,5 +128,14 @@ namespace OpenSearch.Net.Specification.WlmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
         public override string OperationName => "wlm.update_query_group";
+    }
+
+    /// <summary>Request options for UpdateWorkloadGroup</summary>
+    public partial class UpdateWorkloadGroupRequestParameters
+        : RequestParameters<UpdateWorkloadGroupRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "wlm.update_workload_group";
     }
 }

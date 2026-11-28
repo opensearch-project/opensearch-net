@@ -210,7 +210,10 @@ namespace OpenSearch.Client
         /// <summary>The experiment id.</summary>
         public GetExperimentsDescriptor ExperimentId(Id experimentId) =>
             Assign(experimentId, (a, v) => a.RouteValues.Optional("experiment_id", v));
+
         // Request parameters
+        /// <summary>A query text for visualizing experiment results. Accepted but currently does not change the response.</summary>
+        public GetExperimentsDescriptor QueryText(string querytext) => Qs("query_text", querytext);
     }
 
     /// <summary>Descriptor for GetJudgments</summary>
@@ -273,30 +276,33 @@ namespace OpenSearch.Client
         Name IGetNodeStatsRequest.NodeId => Self.RouteValues.Get<Name>("node_id");
         Name IGetNodeStatsRequest.Stat => Self.RouteValues.Get<Name>("stat");
 
-        /// <summary>The statistic to return.</summary>
+        /// <summary>A comma-separated list of statistics to return. Valid values: <c>cluster_version</c>, <c>import_judgment_rating_generations</c>, <c>llm_judgment_rating_generations</c>, <c>ubi_judgment_rating_generations</c>, <c>experiment_executions</c>, <c>experiment_pairwise_comparison_executions</c>, <c>experiment_pointwise_evaluation_executions</c>, <c>experiment_hybrid_optimizer_executions</c>.</summary>
         public GetNodeStatsDescriptor Stat(Name stat) =>
             Assign(stat, (a, v) => a.RouteValues.Optional("stat", v));
 
         // Request parameters
         /// <summary>Requests flattened stat paths as keys.</summary>
-        public GetNodeStatsDescriptor FlatStatPaths(string flatstatpaths) =>
+        public GetNodeStatsDescriptor FlatStatPaths(bool? flatstatpaths = true) =>
             Qs("flat_stat_paths", flatstatpaths);
 
         /// <summary>Whether to include all nodes.</summary>
-        public GetNodeStatsDescriptor IncludeAllNodes(string includeallnodes) =>
+        public GetNodeStatsDescriptor IncludeAllNodes(bool? includeallnodes = true) =>
             Qs("include_all_nodes", includeallnodes);
 
         /// <summary>Whether to include individual nodes.</summary>
-        public GetNodeStatsDescriptor IncludeIndividualNodes(string includeindividualnodes) =>
+        public GetNodeStatsDescriptor IncludeIndividualNodes(bool? includeindividualnodes = true) =>
             Qs("include_individual_nodes", includeindividualnodes);
 
         /// <summary>Whether to include info.</summary>
-        public GetNodeStatsDescriptor IncludeInfo(string includeinfo) =>
+        public GetNodeStatsDescriptor IncludeInfo(bool? includeinfo = true) =>
             Qs("include_info", includeinfo);
 
         /// <summary>Whether to include metadata.</summary>
-        public GetNodeStatsDescriptor IncludeMetadata(string includemetadata) =>
+        public GetNodeStatsDescriptor IncludeMetadata(bool? includemetadata = true) =>
             Qs("include_metadata", includemetadata);
+
+        /// <summary>The amount of time to wait for a response.</summary>
+        public GetNodeStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
     /// <summary>Descriptor for GetQuerySets</summary>
@@ -414,31 +420,34 @@ namespace OpenSearch.Client
         // values part of the url path
         Name IGetSearchRelevanceStatsRequest.Stat => Self.RouteValues.Get<Name>("stat");
 
-        /// <summary>The statistic to return.</summary>
+        /// <summary>A comma-separated list of statistics to return. Valid values: <c>cluster_version</c>, <c>import_judgment_rating_generations</c>, <c>llm_judgment_rating_generations</c>, <c>ubi_judgment_rating_generations</c>, <c>experiment_executions</c>, <c>experiment_pairwise_comparison_executions</c>, <c>experiment_pointwise_evaluation_executions</c>, <c>experiment_hybrid_optimizer_executions</c>.</summary>
         public GetSearchRelevanceStatsDescriptor Stat(Name stat) =>
             Assign(stat, (a, v) => a.RouteValues.Optional("stat", v));
 
         // Request parameters
         /// <summary>Requests flattened stat paths as keys.</summary>
-        public GetSearchRelevanceStatsDescriptor FlatStatPaths(string flatstatpaths) =>
+        public GetSearchRelevanceStatsDescriptor FlatStatPaths(bool? flatstatpaths = true) =>
             Qs("flat_stat_paths", flatstatpaths);
 
         /// <summary>Whether to include all nodes.</summary>
-        public GetSearchRelevanceStatsDescriptor IncludeAllNodes(string includeallnodes) =>
+        public GetSearchRelevanceStatsDescriptor IncludeAllNodes(bool? includeallnodes = true) =>
             Qs("include_all_nodes", includeallnodes);
 
         /// <summary>Whether to include individual nodes.</summary>
         public GetSearchRelevanceStatsDescriptor IncludeIndividualNodes(
-            string includeindividualnodes
+            bool? includeindividualnodes = true
         ) => Qs("include_individual_nodes", includeindividualnodes);
 
         /// <summary>Whether to include info.</summary>
-        public GetSearchRelevanceStatsDescriptor IncludeInfo(string includeinfo) =>
+        public GetSearchRelevanceStatsDescriptor IncludeInfo(bool? includeinfo = true) =>
             Qs("include_info", includeinfo);
 
         /// <summary>Whether to include metadata.</summary>
-        public GetSearchRelevanceStatsDescriptor IncludeMetadata(string includemetadata) =>
+        public GetSearchRelevanceStatsDescriptor IncludeMetadata(bool? includemetadata = true) =>
             Qs("include_metadata", includemetadata);
+
+        /// <summary>The amount of time to wait for a response.</summary>
+        public GetSearchRelevanceStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
     /// <summary>Descriptor for JudgmentsSearch</summary>
@@ -452,6 +461,32 @@ namespace OpenSearch.Client
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceJudgmentsSearch;
         // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for PatchExperiment</summary>
+    public partial class PatchExperimentDescriptor
+        : RequestDescriptorBase<
+            PatchExperimentDescriptor,
+            PatchExperimentRequestParameters,
+            IPatchExperimentRequest
+        >,
+            IPatchExperimentRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePatchExperiment;
+
+        /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">this parameter is required</param>
+        public PatchExperimentDescriptor(Id experimentId)
+            : base(r => r.Required("experiment_id", experimentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PatchExperimentDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IPatchExperimentRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
         // Request parameters
     }
 
@@ -553,6 +588,32 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
+    /// <summary>Descriptor for RetryJudgments</summary>
+    public partial class RetryJudgmentsDescriptor
+        : RequestDescriptorBase<
+            RetryJudgmentsDescriptor,
+            RetryJudgmentsRequestParameters,
+            IRetryJudgmentsRequest
+        >,
+            IRetryJudgmentsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceRetryJudgments;
+
+        /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}/_retry</summary>
+        /// <param name="judgmentId">this parameter is required</param>
+        public RetryJudgmentsDescriptor(Id judgmentId)
+            : base(r => r.Required("judgment_id", judgmentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected RetryJudgmentsDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IRetryJudgmentsRequest.JudgmentId => Self.RouteValues.Get<Id>("judgment_id");
+        // Request parameters
+    }
+
     /// <summary>Descriptor for SearchConfigurationsSearch</summary>
     public partial class SearchConfigurationsSearchDescriptor
         : RequestDescriptorBase<
@@ -565,6 +626,58 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls =>
             ApiUrlsLookups.SearchRelevanceSearchConfigurationsSearch;
         // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for UpdateJudgmentRatings</summary>
+    public partial class UpdateJudgmentRatingsDescriptor
+        : RequestDescriptorBase<
+            UpdateJudgmentRatingsDescriptor,
+            UpdateJudgmentRatingsRequestParameters,
+            IUpdateJudgmentRatingsRequest
+        >,
+            IUpdateJudgmentRatingsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceUpdateJudgmentRatings;
+
+        /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}</summary>
+        /// <param name="judgmentId">this parameter is required</param>
+        public UpdateJudgmentRatingsDescriptor(Id judgmentId)
+            : base(r => r.Required("judgment_id", judgmentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected UpdateJudgmentRatingsDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IUpdateJudgmentRatingsRequest.JudgmentId => Self.RouteValues.Get<Id>("judgment_id");
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for ValidateExperiments</summary>
+    public partial class ValidateExperimentsDescriptor
+        : RequestDescriptorBase<
+            ValidateExperimentsDescriptor,
+            ValidateExperimentsRequestParameters,
+            IValidateExperimentsRequest
+        >,
+            IValidateExperimentsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceValidateExperiments;
+
+        /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}/validate</summary>
+        /// <param name="experimentId">this parameter is required</param>
+        public ValidateExperimentsDescriptor(Id experimentId)
+            : base(r => r.Required("experiment_id", experimentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ValidateExperimentsDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IValidateExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
         // Request parameters
     }
 }

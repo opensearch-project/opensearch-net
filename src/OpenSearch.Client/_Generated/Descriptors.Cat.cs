@@ -98,6 +98,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatAliasesDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatAliasesDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public CatAliasesDescriptor Local(bool? local = true) => Qs("local", local);
 
@@ -134,6 +138,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatAllPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatAllPitSegmentsDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatAllPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
@@ -188,6 +196,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatAllocationDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatAllocationDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>Returns local information but does not retrieve the state from cluster-manager node.</summary>
         public CatAllocationDescriptor Local(bool? local = true) => Qs("local", local);
 
@@ -233,6 +245,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatClusterManagerDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatClusterManagerDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatClusterManagerDescriptor Local(bool? local = true) => Qs("local", local);
@@ -293,6 +309,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatCountDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatCountDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatCountDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
@@ -345,6 +365,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatFielddataDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatFielddataDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatFielddataDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
@@ -374,6 +398,10 @@ namespace OpenSearch.Client
         /// <summary>When <c>true</c>, returns <c>HH:MM:SS</c> and Unix epoch timestamps.</summary>
         public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) =>
             Qs("ts", includetimestamp);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatHealthDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatHealthDescriptor SortByColumns(params string[] sortbycolumns) =>
@@ -457,6 +485,10 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) =>
             Qs("include_unloaded_segments", includeunloadedsegments);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatIndicesDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatIndicesDescriptor Local(bool? local = true) => Qs("local", local);
 
@@ -500,6 +532,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatMasterDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatMasterDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatMasterDescriptor Local(bool? local = true) => Qs("local", local);
@@ -547,6 +583,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatNodeAttributesDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatNodeAttributesDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatNodeAttributesDescriptor Local(bool? local = true) => Qs("local", local);
 
@@ -593,6 +633,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatNodesDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatNodesDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         [Obsolete(
@@ -642,6 +686,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatPendingTasksDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatPendingTasksDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
 
@@ -685,6 +733,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatPitSegmentsDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
@@ -719,6 +771,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatPluginsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatPluginsDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatPluginsDescriptor Local(bool? local = true) => Qs("local", local);
@@ -793,6 +849,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatRecoveryDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatRecoveryDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatRecoveryDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
@@ -827,6 +887,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatRepositoriesDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatRepositoriesDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatRepositoriesDescriptor Local(bool? local = true) => Qs("local", local);
@@ -923,6 +987,10 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatSegmentReplicationDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>A comma-separated list of shards to display.</summary>
         public CatSegmentReplicationDescriptor Shards(params string[] shards) =>
             Qs("shards", shards);
@@ -991,6 +1059,10 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatSegmentsDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -1054,6 +1126,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatShardsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatShardsDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatShardsDescriptor Local(bool? local = true) => Qs("local", local);
@@ -1119,6 +1195,10 @@ namespace OpenSearch.Client
         public CatSnapshotsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatSnapshotsDescriptor Limit(int? limit) => Qs("limit", limit);
+
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -1157,6 +1237,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatTasksDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatTasksDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all nodes.</summary>
         public CatTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
@@ -1214,6 +1298,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatTemplatesDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatTemplatesDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatTemplatesDescriptor Local(bool? local = true) => Qs("local", local);
@@ -1275,6 +1363,10 @@ namespace OpenSearch.Client
 
         /// <summary>Returns help information.</summary>
         public CatThreadPoolDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>The maximum number of rows to return. Must be greater than 0. Applied after sorting (<c>s</c>).</summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public CatThreadPoolDescriptor Limit(int? limit) => Qs("limit", limit);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatThreadPoolDescriptor Local(bool? local = true) => Qs("local", local);
