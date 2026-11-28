@@ -147,7 +147,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
                 if (!canonicalHeaders.TryGetValue(key, out var dictValues))
                     dictValues = canonicalHeaders[key] = new List<string>();
 
-                dictValues.AddRange(pair.Value.Select(v => AWSSDKUtils.CompressSpaces(v).Trim()));
+                dictValues.AddRange(pair.Value.Select(v => AWSSDKUtils.CompressSpaces(v, true)));
             }
         }
 
