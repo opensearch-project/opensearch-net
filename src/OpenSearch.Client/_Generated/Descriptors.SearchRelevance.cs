@@ -384,9 +384,8 @@ namespace OpenSearch.Client
 
         /// <summary>The search configuration id.</summary>
         public GetSearchConfigurationsDescriptor SearchConfigurationId(Id searchConfigurationId) =>
-            Assign(
-                searchConfigurationId,
-                (a, v) => a.RouteValues.Optional("search_configuration_id", v)
+            Assign(searchConfigurationId, (a, v) =>
+                a.RouteValues.Optional("search_configuration_id", v)
             );
         // Request parameters
     }
