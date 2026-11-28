@@ -38,3 +38,9 @@ or
 ```
 ./build.bat codegen --branch main --include-high-level --download
 ```
+
+Experimental: with `--client-model` the generator reads the types from the resolved client model that the specification carries (the `x-model` extensions written by `npm run merge` of opensearch-api-specification) instead of interpreting `allOf`/`oneOf`/`anyOf`. From `src/ApiGenerator`:
+```
+dotnet run -- --include-high-level --client-model
+```
+It fails if the specification has no `components.x-model`.

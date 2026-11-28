@@ -49,13 +49,15 @@ namespace ApiGenerator
         /// <param name="download">Whether to download the specs or use an already downloaded copy</param>
         /// <param name="includeHighLevel">Also generate the high level client and typed models (OpenSearch.Client)</param>
         /// <param name="skipGenerate">Only download the specs, skip all code generation</param>
+        /// <param name="clientModel">Read the types from the resolved client model that the specification carries (its x-model extensions) instead of interpreting allOf/oneOf/anyOf (experimental)</param>
         /// <param name="token"></param>
         /// <returns></returns>
         private static async Task<int> Main(
             bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false
-            , CancellationToken token = default)
+            , bool clientModel = false, CancellationToken token = default)
         {
             Interactive = interactive;
+            Generator.ApiGenerator.UseClientModel = clientModel;
             try
             {
                 await Generate(download, includeHighLevel, skipGenerate, token);
