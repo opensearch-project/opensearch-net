@@ -20,7 +20,8 @@
     <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net\OpenSearch.Net.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AWSSDK.Core" />
+    <PackageReference Include="AWSSDK.Core" Condition="'$(TargetFramework)' != 'net8.0'" />
+    <PackageReference Include="AWSSDK.Core" VersionOverride="4.0.102.18" Condition="'$(TargetFramework)' == 'net8.0'" />
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="Tests.Auth.AwsSigV4" Key="$(ExposedPublicKey)" />
