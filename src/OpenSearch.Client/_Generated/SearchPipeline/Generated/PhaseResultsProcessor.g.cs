@@ -158,10 +158,8 @@ namespace OpenSearch.Client
                 INormalizationPhaseResultsProcessor
             > selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new NormalizationPhaseResultsProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new NormalizationPhaseResultsProcessorDescriptor()))
             );
 
         /// <inheritdoc cref="IScoreRankerPhaseResultsProcessor" />
@@ -171,10 +169,8 @@ namespace OpenSearch.Client
                 IScoreRankerPhaseResultsProcessor
             > selector
         ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new ScoreRankerPhaseResultsProcessorDescriptor()))
+            Assign(selector, (a, sel) =>
+                a.AddIfNotNull(sel?.Invoke(new ScoreRankerPhaseResultsProcessorDescriptor()))
             );
     }
 }
